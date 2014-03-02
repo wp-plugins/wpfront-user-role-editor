@@ -46,24 +46,18 @@ if (!class_exists('WPFront_Base_Menu')) {
             return '1.0';
         }
 
-        protected function print_column_headers() {
-            echo '<tr><thead>'
+        protected function print_column_headers($tag = 'thead') {
+            echo '<' . $tag . '><tr>'
             . '<th class="check-column"></th>'
-            . '<th>' . $this->__('Name') . '</th>'
-            . '<th>' . $this->__('Version') . '</th>'
-            . '<th>' . $this->__('Rating') . '</th>'
-            . '<th>' . $this->__('Description') . '</th>'
-            . '</thead></tr>';
+            . '<th scope="col" id="name" class="manage-column column-name">' . $this->__('Name') . '</th>'
+            . '<th scope="col" id="version" class="manage-column column-version">' . $this->__('Version') . '</th>'
+            . '<th scope="col" id="rating" class="manage-column column-rating">' . $this->__('Rating') . '</th>'
+            . '<th scope="col" id="description" class="manage-column column-description">' . $this->__('Description') . '</th>'
+            . '</tr></' . $tag . '>';
         }
 
         protected function print_column_footers() {
-            echo '<tr><thead>'
-            . '<th class="check-column"></th>'
-            . '<th>' . $this->__('Name') . '</th>'
-            . '<th>' . $this->__('Version') . '</th>'
-            . '<th>' . $this->__('Rating') . '</th>'
-            . '<th>' . $this->__('Description') . '</th>'
-            . '</thead></tr>';
+            $this->print_column_headers('tfoot');
         }
 
         protected function wp_star_rating($args) {
@@ -127,7 +121,7 @@ if (!class_exists('WPFront_Base_Menu')) {
             <?php
             echo '<div class="wrap wpfront-container">';
             echo '<h2>' . $this->__('WPFront Plugins') . '</h2>';
-            echo '<table class="wp-list-table widefat plugins">';
+            echo '<table class="wp-list-table widefat plugins plugin-install">';
             $this->print_column_headers();
 
             foreach ((array) $api->plugins as $plugin) {
@@ -222,8 +216,8 @@ if (!class_exists('WPFront_Base_Menu')) {
                 add_menu_page($this->__('WPFront'), $this->__('WPFront'), 'manage_options', $menu_slug, null, self::$wpfrontBase->pluginURL() . 'classes/base/images/wpfront_menu.png');
                 add_submenu_page($menu_slug, $this->__('WPFront Plugins'), $this->__('All Plugins'), 'manage_options', $menu_slug, array('WPFront_Base_Menu', 'plugin_list'));
             }
-            
-            if(empty($submenu[$menu_slug])) {
+
+            if (empty($submenu[$menu_slug])) {
                 return;
             }
 
