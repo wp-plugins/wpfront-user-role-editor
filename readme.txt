@@ -11,7 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Easily allows you to manage user roles.
 
 == Description ==
-This plugin allows you to easily manage user roles within your wordpress site. You can create, edit or delete user roles and manage role capabilities.
+This plugin allows you to easily manage user roles within your wordpress site. 
+You can create, edit or delete user roles and manage role capabilities.
 
 ### Features
 * Create new roles.
