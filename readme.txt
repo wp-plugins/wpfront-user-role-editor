@@ -1,4 +1,4 @@
-=== WPFront User Role Editor ===
+﻿=== WPFront User Role Editor ===
 Contributors: syammohanm
 Donate link: http://wpfront.com/donate/
 Tags: user role editor, role editor, user role, role, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user
@@ -8,7 +8,7 @@ Stable tag: 0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Easily allows you to manage user roles.
+Easily allows you to manage user roles. You can create, edit, delete and manage capabilities, also copy existing roles.
 
 == Description ==
 This plugin allows you to easily manage user roles within your wordpress site. 
@@ -20,6 +20,10 @@ You can create, edit or delete user roles and manage role capabilities.
 * Clone existing roles.
 * Manage capabilities.
 * Allows you to add role capabilities.
+
+Visit [WPFront User Role Editor](http://wpfront.com/user-role-editor-plugin/) page for screens and functionalities.
+
+Visit [WPFront User Role Editor Settings](http://wpfront.com/user-role-editor-plugin-settings/) page for setting descriptions.
 
 == Installation ==
 
@@ -35,7 +39,9 @@ You can create, edit or delete user roles and manage role capabilities.
 
 == Frequently Asked Questions ==
 
-No one has asked anything yet.  
+= Unchecking “Add Role Capabilities” setting, what difference does it make? = 
+
+“Add Role Capabilities” allows you add role capabilities to be set as part of the capabilities. Unchecking this setting will make the plugin work using the “user capabilities”, also it will remove all the role capabilities added to the existing roles. If you check this option again you will have to go back to each role and add the capabilities again, except for “Administrator” role.
 
 == Screenshots ==
  
