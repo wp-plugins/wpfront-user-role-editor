@@ -36,7 +36,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
     class WPFront_User_Role_Editor extends WPFront_Base {
 
         //Constants
-        const VERSION = '0.3';
+        const VERSION = '0.3.1';
         const OPTIONS_GROUP_NAME = 'wpfront-user-role-editor-options-group';
         const OPTION_NAME = 'wpfront-user-role-editor-options';
         const PLUGIN_SLUG = 'wpfront-user-role-editor';

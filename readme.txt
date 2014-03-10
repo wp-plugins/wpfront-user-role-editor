@@ -1,10 +1,10 @@
 ﻿=== WPFront User Role Editor ===
 Contributors: syammohanm
 Donate link: http://wpfront.com/donate/
-Tags: user role editor, role editor, user role, role, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user
+Tags: user role editor, role editor, user role, role, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 0.3
+Stable tag: 0.3.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -52,10 +52,16 @@ Visit [WPFront User Role Editor Settings](http://wpfront.com/user-role-editor-pl
 
 == Changelog ==
 
+= 0.3.1 =
+* Bug fixes
+
 = 0.3 =
 * Initial release
 
 == Upgrade Notice ==
+
+= 0.3.1 =
+* Fixed an issue with deleting roles
 
 = 0.3 =
 * Initial release

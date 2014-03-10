@@ -46,7 +46,8 @@ $status_messages = array();
 
 $editable_roles = get_editable_roles();
 global $user_ID;
-$current_roles = (new WP_User($user_ID))->roles;
+$user = new WP_User($user_ID);
+$current_roles = $user->roles;
 
 foreach ($delete_roles as $role) {
     if (!array_key_exists($role, $editable_roles)) {
