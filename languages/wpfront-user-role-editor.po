@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFront Notification Bar\n"
-"POT-Creation-Date: 2014-03-01 18:07-0700\n"
-"PO-Revision-Date: 2014-03-01 18:07-0700\n"
+"POT-Creation-Date: 2014-04-30 18:53-0700\n"
+"PO-Revision-Date: 2014-04-30 18:54-0700\n"
 "Last-Translator: \n"
 "Language-Team: WPFront <contact@wpfront.com>\n"
 "Language: en\n"
@@ -17,106 +17,99 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../classes/base/class-wpfront-base-menu.php:52
-#: ../classes/base/class-wpfront-base-menu.php:62
 msgid "Name"
 msgstr "Name"
 
 #: ../classes/base/class-wpfront-base-menu.php:53
-#: ../classes/base/class-wpfront-base-menu.php:63
 msgid "Version"
 msgstr "Version"
 
 #: ../classes/base/class-wpfront-base-menu.php:54
-#: ../classes/base/class-wpfront-base-menu.php:64
 msgid "Rating"
 msgstr "Rating"
 
 #: ../classes/base/class-wpfront-base-menu.php:55
-#: ../classes/base/class-wpfront-base-menu.php:65
 msgid "Description"
 msgstr "Description"
 
-#: ../classes/base/class-wpfront-base-menu.php:75
+#: ../classes/base/class-wpfront-base-menu.php:69
 #, php-format
 msgid "based on %s rating(s)"
 msgstr "based on %s rating(s)"
 
-#: ../classes/base/class-wpfront-base-menu.php:111
+#: ../classes/base/class-wpfront-base-menu.php:105
 msgid "Unable to communicate with WordPress.org"
 msgstr "Unable to communicate with WordPress.org"
 
-#: ../classes/base/class-wpfront-base-menu.php:129
-#: ../classes/base/class-wpfront-base-menu.php:223
+#: ../classes/base/class-wpfront-base-menu.php:123
+#: ../classes/base/class-wpfront-base-menu.php:217
 msgid "WPFront Plugins"
 msgstr "WPFront Plugins"
 
-#: ../classes/base/class-wpfront-base-menu.php:153
+#: ../classes/base/class-wpfront-base-menu.php:147
 #, php-format
 msgid "By %s"
 msgstr "By %s"
 
-#: ../classes/base/class-wpfront-base-menu.php:160
+#: ../classes/base/class-wpfront-base-menu.php:154
 #, php-format
 msgid "More information about %s"
 msgstr "More information about %s"
 
-#: ../classes/base/class-wpfront-base-menu.php:160
+#: ../classes/base/class-wpfront-base-menu.php:154
 msgid "Details"
 msgstr "Details"
 
-#: ../classes/base/class-wpfront-base-menu.php:169
+#: ../classes/base/class-wpfront-base-menu.php:163
 #, php-format
 msgid "Install %s"
 msgstr "Install %s"
 
-#: ../classes/base/class-wpfront-base-menu.php:169
+#: ../classes/base/class-wpfront-base-menu.php:163
 msgid "Install Now"
 msgstr "Install Now"
 
-#: ../classes/base/class-wpfront-base-menu.php:174
+#: ../classes/base/class-wpfront-base-menu.php:168
 #, php-format
 msgid "Update to version %s"
 msgstr "Update to version %s"
 
-#: ../classes/base/class-wpfront-base-menu.php:174
+#: ../classes/base/class-wpfront-base-menu.php:168
 msgid "Update Now"
 msgstr "Update Now"
 
-#: ../classes/base/class-wpfront-base-menu.php:179
+#: ../classes/base/class-wpfront-base-menu.php:173
 msgid "This plugin is already installed and is up to date"
 msgstr "This plugin is already installed and is up to date"
 
-#: ../classes/base/class-wpfront-base-menu.php:179
+#: ../classes/base/class-wpfront-base-menu.php:173
 msgid "Installed"
 msgstr "Installed"
 
-#: ../classes/base/class-wpfront-base-menu.php:181
+#: ../classes/base/class-wpfront-base-menu.php:175
 #: ../classes/base/class-wpfront-base.php:105
 msgid "Settings"
 msgstr "Settings"
 
-#: ../classes/base/class-wpfront-base-menu.php:183
+#: ../classes/base/class-wpfront-base-menu.php:177
 msgid "Activate"
 msgstr "Activate"
 
-#: ../classes/base/class-wpfront-base-menu.php:205
+#: ../classes/base/class-wpfront-base-menu.php:199
+#: ../classes/class-wpfront-user-role-editor.php:298
 msgid "Feedback"
 msgstr "Feedback"
 
-#: ../classes/base/class-wpfront-base-menu.php:222
+#: ../classes/base/class-wpfront-base-menu.php:216
 msgid "WPFront"
 msgstr "WPFront"
 
-#: ../classes/base/class-wpfront-base-menu.php:223
+#: ../classes/base/class-wpfront-base-menu.php:217
 msgid "All Plugins"
 msgstr "All Plugins"
 
 #: ../classes/base/class-wpfront-base.php:130
-#: ../classes/class-wpfront-user-role-editor.php:138
-#: ../classes/class-wpfront-user-role-editor.php:244
-#: ../classes/class-wpfront-user-role-editor.php:253
-#: ../classes/class-wpfront-user-role-editor.php:280
-#: ../classes/class-wpfront-user-role-editor.php:300
+#: ../classes/class-wpfront-user-role-editor.php:248
 msgid "You do not have sufficient permissions to access this page."
 msgstr "You do not have sufficient permissions to access this page."
 
@@ -156,179 +149,186 @@ msgstr "Contact Me (syam@wpfront.com)"
 msgid "Save Changes"
 msgstr "Save Changes"
 
-#: ../classes/class-wpfront-user-role-editor-options.php:41
-msgid "Display Deprecated Capabilities"
-msgstr ""
+#: ../classes/class-wpfront-user-role-editor-list.php:238
+#: ../templates/add-edit-role.php:111
+msgid "Select All"
+msgstr "Select All"
 
-#: ../classes/class-wpfront-user-role-editor-options.php:42
-msgid "Add Role Capabilities"
-msgstr ""
-
-#: ../classes/class-wpfront-user-role-editor.php:53
-msgid "WPFront User Role Editor"
-msgstr ""
-
-#: ../classes/class-wpfront-user-role-editor.php:53
-msgid "User Role Editor"
-msgstr ""
-
-#: ../classes/class-wpfront-user-role-editor.php:74
-#: ../classes/class-wpfront-user-role-editor.php:76
-#: ../templates/list-roles.php:128
-msgid "Roles"
-msgstr ""
-
-#: ../classes/class-wpfront-user-role-editor.php:76
-msgid "All Roles"
-msgstr "All Roles"
-
-#: ../classes/class-wpfront-user-role-editor.php:80
-#: ../templates/add-edit-role.php:367 ../templates/add-edit-role.php:458
-msgid "Add New Role"
-msgstr ""
-
-#: ../classes/class-wpfront-user-role-editor.php:80
-#: ../templates/add-edit-role.php:371 ../templates/list-roles.php:129
-msgid "Add New"
-msgstr ""
-
-#: ../templates/add-edit-role.php:367
-msgid "Edit Role"
-msgstr ""
-
-#: ../templates/add-edit-role.php:381 ../templates/add-edit-role.php:389
-msgid "ERROR"
-msgstr ""
-
-#: ../templates/add-edit-role.php:381
-msgid "This role already exists in this site."
-msgstr ""
-
-#: ../templates/add-edit-role.php:389
-msgid "There was an unexpected error while performing this action."
-msgstr ""
-
-#: ../templates/add-edit-role.php:398
-msgid "Create a brand new role and add it to this site."
-msgstr ""
-
-#: ../templates/add-edit-role.php:408 ../templates/list-roles.php:43
+#: ../classes/class-wpfront-user-role-editor-list.php:242
+#: ../templates/add-edit-role.php:71
 msgid "Display Name"
 msgstr "Display Name"
 
-#: ../templates/add-edit-role.php:408 ../templates/add-edit-role.php:416
-msgid "required"
-msgstr ""
-
-#: ../templates/add-edit-role.php:416 ../templates/list-roles.php:46
+#: ../classes/class-wpfront-user-role-editor-list.php:245
+#: ../templates/add-edit-role.php:81
 msgid "Role Name"
 msgstr "Role Name"
 
-#: ../templates/add-edit-role.php:428 ../templates/list-roles.php:55
-msgid "Capabilities"
-msgstr ""
-
-#: ../templates/add-edit-role.php:432
-msgid "Copy from"
-msgstr ""
-
-#: ../templates/add-edit-role.php:444 ../templates/list-roles.php:71
-msgid "Apply"
-msgstr ""
-
-#: ../templates/add-edit-role.php:448 ../templates/list-roles.php:39
-msgid "Select All"
-msgstr ""
-
-#: ../templates/add-edit-role.php:449
-msgid "Select None"
-msgstr ""
-
-#: ../templates/add-edit-role.php:458
-msgid "Update Role"
-msgstr "Update Role"
-
-#: ../templates/delete-role.php:53
-msgid "This role cannot be deleted: Permission denied."
-msgstr ""
-
-#: ../templates/delete-role.php:55
-msgid "'administrator' role cannot be deleted."
-msgstr ""
-
-#: ../templates/delete-role.php:57
-msgid "Current user's role cannot be deleted."
-msgstr ""
-
-#: ../templates/delete-role.php:76
-msgid "Delete Roles"
-msgstr ""
-
-#: ../templates/delete-role.php:77
-msgid "You have specified these roles for deletion"
-msgstr ""
-
-#: ../templates/delete-role.php:84
-msgid "Role"
-msgstr ""
-
-#: ../templates/list-roles.php:49
+#: ../classes/class-wpfront-user-role-editor-list.php:248
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
-#: ../templates/list-roles.php:52
+#: ../classes/class-wpfront-user-role-editor-list.php:251
+msgid "User Default"
+msgstr "User Default"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:254
 msgid "Users"
-msgstr ""
+msgstr "Users"
 
-#: ../templates/list-roles.php:66
+#: ../classes/class-wpfront-user-role-editor-list.php:257
+#: ../templates/add-edit-role.php:95
+msgid "Capabilities"
+msgstr "Capabilities"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:268
 msgid "Bulk Actions"
 msgstr "Bulk Actions"
 
-#: ../templates/list-roles.php:68 ../templates/list-roles.php:270
+#: ../classes/class-wpfront-user-role-editor-list.php:270
+#: ../templates/list-roles.php:101
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
-#: ../templates/list-roles.php:73
+#: ../classes/class-wpfront-user-role-editor-list.php:273
+#: ../templates/add-edit-role.php:107
+msgid "Apply"
+msgstr "Apply"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:275
 #, php-format
 msgid "%s item(s)"
-msgstr ""
+msgstr "%s item(s)"
 
-#: ../templates/list-roles.php:131
-#, php-format
-msgid "Search results for “%s”"
-msgstr ""
-
-#: ../templates/list-roles.php:137
+#: ../classes/class-wpfront-user-role-editor-list.php:298
 msgid "All"
-msgstr ""
+msgstr "All"
 
-#: ../templates/list-roles.php:151
+#: ../classes/class-wpfront-user-role-editor-list.php:309
 msgid "Having Users"
-msgstr ""
+msgstr "Having Users"
 
-#: ../templates/list-roles.php:159
+#: ../classes/class-wpfront-user-role-editor-list.php:315
 msgid "No Users"
-msgstr ""
+msgstr "No Users"
 
-#: ../templates/list-roles.php:167
+#: ../classes/class-wpfront-user-role-editor-list.php:326
+#: ../templates/list-roles.php:114
 msgid "Built-In"
-msgstr ""
+msgstr "Built-In"
 
-#: ../templates/list-roles.php:174
+#: ../classes/class-wpfront-user-role-editor-list.php:332
+#: ../templates/list-roles.php:114
 msgid "Custom"
 msgstr "Custom"
 
-#: ../templates/list-roles.php:222 ../templates/list-roles.php:224
+#: ../classes/class-wpfront-user-role-editor-options.php:41
+msgid "Display Deprecated Capabilities"
+msgstr "Display Deprecated Capabilities"
+
+#: ../classes/class-wpfront-user-role-editor-options.php:42
+msgid "Add Role Capabilities"
+msgstr "Add Role Capabilities"
+
+#: ../classes/class-wpfront-user-role-editor.php:150
+msgid "WPFront User Role Editor"
+msgstr "WPFront User Role Editor"
+
+#: ../classes/class-wpfront-user-role-editor.php:150
+msgid "User Role Editor"
+msgstr "User Role Editor"
+
+#: ../classes/class-wpfront-user-role-editor.php:175
+#: ../classes/class-wpfront-user-role-editor.php:177
+#: ../templates/list-roles.php:37
+msgid "Roles"
+msgstr "Roles"
+
+#: ../classes/class-wpfront-user-role-editor.php:177
+msgid "All Roles"
+msgstr "All Roles"
+
+#: ../classes/class-wpfront-user-role-editor.php:181
+#: ../templates/add-edit-role.php:35 ../templates/add-edit-role.php:154
+msgid "Add New Role"
+msgstr "Add New Role"
+
+#: ../classes/class-wpfront-user-role-editor.php:181
+#: ../templates/add-edit-role.php:37 ../templates/list-roles.php:40
+msgid "Add New"
+msgstr "Add New"
+
+#: ../classes/class-wpfront-user-role-editor.php:300
+msgid "Buy me a Beer"
+msgstr "Buy me a Beer"
+
+#: ../templates/add-edit-role.php:35
+msgid "Edit Role"
+msgstr "Edit Role"
+
+#: ../templates/add-edit-role.php:45 ../templates/add-edit-role.php:53
+msgid "ERROR"
+msgstr "ERROR"
+
+#: ../templates/add-edit-role.php:45
+msgid "This role already exists in this site."
+msgstr "This role already exists in this site."
+
+#: ../templates/add-edit-role.php:53
+msgid "There was an unexpected error while performing this action."
+msgstr "There was an unexpected error while performing this action."
+
+#: ../templates/add-edit-role.php:60
+msgid "Create a brand new role and add it to this site."
+msgstr "Create a brand new role and add it to this site."
+
+#: ../templates/add-edit-role.php:71 ../templates/add-edit-role.php:81
+msgid "required"
+msgstr "required"
+
+#: ../templates/add-edit-role.php:100
+msgid "Copy from"
+msgstr "Copy from"
+
+#: ../templates/add-edit-role.php:112
+msgid "Select None"
+msgstr "Select None"
+
+#: ../templates/add-edit-role.php:154
+msgid "Update Role"
+msgstr "Update Role"
+
+#: ../templates/delete-role.php:37
+msgid "Delete Roles"
+msgstr "Delete Roles"
+
+#: ../templates/delete-role.php:38
+msgid "You have specified these roles for deletion"
+msgstr "You have specified these roles for deletion"
+
+#: ../templates/delete-role.php:45
+msgid "Role"
+msgstr "Role"
+
+#: ../templates/delete-role.php:57
+msgid "Confirm Deletion"
+msgstr "Confirm Deletion"
+
+#: ../templates/list-roles.php:62 ../templates/list-roles.php:64
 msgid "Search Roles"
-msgstr ""
+msgstr "Search Roles"
 
-#: ../templates/list-roles.php:264
+#: ../templates/list-roles.php:98
 msgid "Edit"
-msgstr ""
+msgstr "Edit"
 
-#: ../templates/list-roles.php:264
+#: ../templates/list-roles.php:98
 msgid "View"
-msgstr ""
+msgstr "View"
+
+#: ../templates/list-roles.php:104
+msgid "Default"
+msgstr "Default"
 
 #: ../templates/options-template.php:32
 msgid "WPFront User Role Editor Settings"

@@ -29,72 +29,34 @@
  */
 ?>
 
-<?php
-$this->verify_nonce();
-$url = admin_url('admin.php');
-$page_url = $url . '?page=' . self::PLUGIN_SLUG . '-all-roles';
 
-$delete_roles = $this->delete_roles;
-
-if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
-    if (!empty($_POST['roles'])) {
-        $delete_roles = $_POST['roles'];
-    }
-}
-
-$status_messages = array();
-
-$editable_roles = get_editable_roles();
-global $user_ID;
-$user = new WP_User($user_ID);
-$current_roles = $user->roles;
-
-foreach ($delete_roles as $role) {
-    if (!array_key_exists($role, $editable_roles)) {
-        $status_messages[$role] = $this->__('This role cannot be deleted: Permission denied.');
-    } else if ($role == 'administrator') {
-        $status_messages[$role] = $this->__('\'administrator\' role cannot be deleted.');
-    } else if (in_array($role, $current_roles)) {
-        $status_messages[$role] = $this->__('Current user\'s role cannot be deleted.');
-    }
-}
-
-if (!empty($_POST['confirm-delete'])) {
-    foreach ($delete_roles as $role) {
-        if (!array_key_exists($role, $status_messages)) {
-            remove_role($role);
-        }
-    }
-    echo '<script>document.location = "' . $page_url . '";</script>';
-    exit();
-    return;
-}
-?>
 
 <div class="wrap delete-roles">
     <form method="post">
-        <?php $this->create_nonce(); ?>
+        <?php $this->main->create_nonce(); ?>
         <h2><?php echo $this->__('Delete Roles'); ?></h2>
         <p><?php echo $this->__('You have specified these roles for deletion'); ?>:</p>
         <ul>
             <?php
-            global $wp_roles;
-            foreach ($delete_roles as $role) {
+            foreach ($this->get_deleting_roles() as $key => $value) {
                 ?>
                 <li>
-                    <?php echo $this->__('Role') . ': <strong>' . $role . '</strong> [<strong>' . $wp_roles->role_names[$role] . '</strong>] '; ?>
-                    <?php if (array_key_exists($role, $status_messages)) { ?>
-                        <strong> - <?php echo $status_messages[$role]; ?></strong>
-                    <?php } ?>
-                    <input type="hidden" name="roles[]" value="<?php echo $role; ?>" />
+                    <?php
+                    printf('%s: <strong>%s</strong> [<strong>%s</strong>]', $this->__('Role'), $key, $value->display_name);
+                    if($value->status_message != '') {
+                        printf(' - <strong>%s</strong>', $value->status_message);
+                    }
+                    ?>
+                    <input type="hidden" name="delete-roles[<?php echo $key; ?>]" value="1" />
                 </li>
                 <?php
             }
             ?>
         </ul>
         <p class="submit">
-            <input type="submit" name="confirm-delete" id="submit" class="button" value="Confirm Deletion" <?php echo count($delete_roles) == count($status_messages) ? 'disabled' : ''; ?>>
+            <input type="submit" name="confirm-delete" id="submit" class="button" value="<?php echo $this->__('Confirm Deletion'); ?>" <?php echo $this->is_submit_allowed() ? '' : 'disabled'; ?>>
         </p>
     </form>
 </div>
+
 

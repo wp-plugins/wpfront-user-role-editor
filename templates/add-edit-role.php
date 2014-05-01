@@ -29,397 +29,60 @@
  */
 ?>
 
-<?php
-$this->verify_nonce();
-
-$edit_role = null;
-$disabled = FALSE;
-if (!empty($_GET['edit_role'])) {
-    $edit_role = get_role($_GET['edit_role']);
-    if ($edit_role->name == 'administrator') {
-        $disabled = TRUE;
-    }
-}
-
-$valid_role_name = TRUE;
-$valid_display_name = TRUE;
-if (strtolower($_SERVER['REQUEST_METHOD']) === 'post' && !empty($_POST['createrole'])) {
-    if ($edit_role == NULL) {
-        if (empty($_POST['role_name'])) {
-            $valid_role_name = FALSE;
-        } else if (trim($_POST['role_name']) == '') {
-            $valid_role_name = FALSE;
-        }
-    }
-
-    if (empty($_POST['display_name'])) {
-        $valid_display_name = FALSE;
-    } else if (trim($_POST['display_name']) == '') {
-        $valid_display_name = FALSE;
-    }
-}
-
-$url = admin_url('admin.php');
-
-$capabilities = array(
-    'Dashboard' => array(
-        'read',
-        'edit_dashboard'
-    ),
-    'Posts' => array(
-        'publish_posts',
-        'edit_posts',
-        'delete_posts',
-        'edit_published_posts',
-        'delete_published_posts',
-        'edit_others_posts',
-        'delete_others_posts',
-        'read_private_posts',
-        'edit_private_posts',
-        'delete_private_posts',
-        'manage_categories'
-    ),
-    'Media' => array(
-        'upload_files',
-        'unfiltered_upload'
-    ),
-    'Pages' => array(
-        'publish_pages',
-        'edit_pages',
-        'delete_pages',
-        'edit_published_pages',
-        'delete_published_pages',
-        'edit_others_pages',
-        'delete_others_pages',
-        'read_private_pages',
-        'edit_private_pages',
-        'delete_private_pages'
-    ),
-    'Comments' => array(
-        'edit_comment',
-        'moderate_comments'
-    ),
-    'Themes' => array(
-        'switch_themes',
-        'edit_theme_options',
-        'edit_themes',
-        'delete_themes',
-        'install_themes',
-        'update_themes'
-    ),
-    'Plugins' => array(
-        'activate_plugins',
-        'edit_plugins',
-        'install_plugins',
-        'update_plugins',
-        'delete_plugins'
-    ),
-    'Users' => array(
-        'list_users',
-        'create_users',
-        'edit_users',
-        'delete_users',
-        'promote_users',
-        'add_users',
-        'remove_users'
-    ),
-    'Tools' => array(
-        'import',
-        'export'
-    ),
-    'Admin' => array(
-        'manage_options',
-        'update_core',
-        'unfiltered_html'
-    ),
-    'Links' => array(
-        'manage_links'
-    ),
-    'Deprecated' => array(
-        'edit_files',
-        'level_0',
-        'level_1',
-        'level_2',
-        'level_3',
-        'level_4',
-        'level_5',
-        'level_6',
-        'level_7',
-        'level_8',
-        'level_9',
-        'level_10'
-    )
-);
-if ($this->options->enable_role_capabilities()) {
-    $capabilities['Roles (WPFront)'] = $this->role_caps;
-}
-
-global $wp_roles;
-$other_caps = array();
-foreach ($wp_roles->roles as $key => $role) {
-    foreach ($role['capabilities'] as $cap => $value) {
-        $found = FALSE;
-        foreach ($capabilities as $s => $wcaps) {
-            foreach ($wcaps as $wcap) {
-                if ($wcap == $cap) {
-                    $found = TRUE;
-                    break;
-                }
-            }
-            if ($found)
-                break;
-        }
-        if (!$found) {
-            $other_caps[] = $cap;
-        }
-    }
-}
-
-$other_caps = array_unique($other_caps);
-if (!empty($other_caps)) {
-    $capabilities['Other Capabilities'] = $other_caps;
-}
-
-$role_error = FALSE;
-$role_exists = FALSE;
-$role_name = '';
-$display_name = '';
-$role_success = FALSE;
-$post_capabilities = array();
-
-if ($edit_role != NULL) {
-    global $wp_roles;
-    $role_name = $edit_role->name;
-    $display_name = $wp_roles->role_names[$edit_role->name];
-    $post_capabilities = $edit_role->capabilities;
-}
-
-if (strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
-    $post_capabilities = array();
-    if (!empty($_POST['capabilities'])) {
-        $post_capabilities = $_POST['capabilities'];
-        foreach ($post_capabilities as $key => $value) {
-            $post_capabilities[$key] = TRUE;
-        }
-    }
-    if ($valid_role_name && $valid_display_name) {
-        $display_name = trim($_POST['display_name']);
-
-        if ($edit_role == NULL) {
-            $role_name = trim($_POST['role_name']);
-            $role_name = strtolower($role_name);
-            $role_name = str_replace(' ', '_', $role_name);
-            $role_name = preg_replace('/\W/', '', $role_name);
-            if ($role_name == '')
-                $valid_role_name = FALSE;
-        }
-        else {
-            $role_name = $edit_role->name;
-        }
-    }
-    if ($valid_role_name && $valid_display_name) {
-        if ($edit_role == NULL & get_role($role_name) != NULL) {
-            $role_exists = TRUE;
-        } else {
-            foreach ($post_capabilities as $pcap => $pvalue) {
-                $found = FALSE;
-                foreach ($capabilities as $group => $caps) {
-                    foreach ($caps as $cap) {
-                        if ($cap == $pcap) {
-                            $found = TRUE;
-                            break;
-                        }
-                    }
-                    if ($found)
-                        break;
-                }
-                if (!$found) {
-                    unset($post_capabilities[$pcap]);
-                }
-            }
-
-            if ($edit_role == NULL) {
-                $role_error = add_role($role_name, $display_name, $post_capabilities);
-                if ($role_error == NULL) {
-                    $role_error = TRUE;
-                } else {
-                    $role_error = FALSE;
-                    $role_success = TRUE;
-                }
-            } else {
-                $caps = array();
-                foreach ($post_capabilities as $cap => $value) {
-                    $caps[$cap] = TRUE;
-                }
-                global $wp_roles;
-                $wp_roles->roles[$edit_role->name] = array(
-                    'name' => $display_name,
-                    'capabilities' => $caps
-                );
-                update_option($wp_roles->role_key, $wp_roles->roles);
-                $wp_roles->role_objects[$edit_role->name] = new WP_Role($edit_role->name, $caps);
-                $wp_roles->role_names[$edit_role->name] = $display_name;
-                $role_success = TRUE;
-            }
-        }
-    }
-}
-
-if ($role_success) {
-    echo '<script>document.location = "' . admin_url('admin.php?page=' . self::PLUGIN_SLUG . '-all-roles') . '";</script>';
-    exit();
-    return;
-}
-
-function wpfront_user_role_editor_list_capabilities($self, $capabilities, $post_capabilities, $display_deprecated, $disabled) {
-    ?>
-    <div class="metabox-holder">
-        <?php
-        foreach ($capabilities as $group => $caps) {
-            ?>
-            <div class="postbox <?php echo $group == 'Deprecated' ? 'deprecated' : 'active'; ?> <?php echo $group == 'Deprecated' && !$display_deprecated ? 'hidden' : ''; ?>">
-                <h3 class="hndle">
-                    <input type="checkbox" class="select-all" id="<?php echo str_replace(' ', '_', $group); ?>" <?php echo $disabled || $group == 'Deprecated' ? 'disabled' : ''; ?> />
-                    <label for="<?php echo str_replace(' ', '_', $group); ?>"><?php echo $self->__($group); ?></label>
-                </h3>
-                <div class="inside">
-                    <div class="main">
-                        <?php
-                        foreach ($caps as $cap) {
-                            ?>
-                            <div>
-                                <input type="checkbox" id="<?php echo $cap; ?>" name="capabilities[<?php echo $cap; ?>]" <?php echo array_key_exists($cap, $post_capabilities) ? 'checked' : ''; ?> <?php echo $disabled || $group == 'Deprecated' ? 'disabled' : ''; ?> />
-                                <label for="<?php echo $cap; ?>"><?php echo $cap; ?></label>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <?php
-        }
-        ?>
-    </div>
-    <?php
-}
-?>
-
-<style type="text/css">
-    div.role-add-new form#createuser table.sub-head {
-        width: 100%;
-    }
-
-    div.role-add-new form#createuser table.sub-head th.sub-head {
-        text-align: left;
-        padding: 0px;
-    }
-
-    div.role-add-new form#createuser table.sub-head th.sub-head h3 {
-    }
-
-    div.role-add-new form#createuser table.sub-head td.sub-head-controls {
-        text-align: right;
-        padding: 0px;
-    }
-
-    div.role-add-new form#createuser table.sub-head td.sub-head-controls div {
-        display: inline-block;
-        vertical-align: top;
-    }
-
-    div.role-add-new form#createuser table.sub-head td.sub-head-controls div.spacer {
-        width: 10px;
-        height: 0px;
-    }
-
-    div.role-add-new form#createuser table.sub-head td.sub-head-controls input.select-all, div.role-add-new form#createuser table.sub-head td.sub-head-controls input.select-none {
-        width: 100px;
-    }
-
-    div.role-add-new div.metabox-holder div.postbox {
-        margin-bottom: 8px;
-    }
-
-    div.role-add-new div.metabox-holder div.postbox.deprecated {
-        filter: alpha(opacity=80);
-        opacity: 0.8;
-    }
-
-    div.role-add-new div.metabox-holder div.postbox h3.hndle {
-        cursor: default;
-    }
-
-    div.role-add-new div.metabox-holder div.postbox div.inside div.main div {
-        padding: 2px 0px;
-        display: inline-block;
-        width: 250px;
-    }
-
-    div.role-add-new div.metabox-holder div.postbox label {
-        vertical-align: top;
-    }
-    
-    div.role-add-new div.footer {
-        text-align: center;
-    }
-</style>
-
 <div class="wrap role-add-new">
     <h2 id="add-new-role">
-        <?php echo $edit_role == NULL ? $this->__('Add New Role') : $this->__('Edit Role'); ?>
         <?php
-        if ($edit_role != NULL && current_user_can($this->get_capability_string('create'))) {
-            ?>
-            <a href="<?php echo $url . '?page=' . self::PLUGIN_SLUG . '-add-new'; ?>" class="add-new-h2"><?php echo $this->__('Add New'); ?></a>
-            <?php
+        echo $this->role == NULL ? $this->__('Add New Role') : $this->__('Edit Role');
+        if ($this->role != NULL && $this->can_create()) {
+            printf('<a href="%s" class="add-new-h2">%s</a>', $this->add_new_url(), $this->__('Add New'));
         }
         ?>
     </h2>
-    <?php
-    if ($role_exists) {
-        ?>
+
+    <?php if ($this->is_role_exists()) { ?>
         <div class="error below-h2">
             <p>
                 <strong><?php echo $this->__('ERROR'); ?></strong>: <?php echo $this->__('This role already exists in this site.'); ?>
             </p>
         </div>
-        <?php
-    } else if ($role_error) {
-        ?>
+    <?php } ?>
+
+    <?php if ($this->is_error()) { ?>
         <div class="error below-h2">
             <p>
                 <strong><?php echo $this->__('ERROR'); ?></strong>: <?php echo $this->__('There was an unexpected error while performing this action.'); ?>
             </p>
         </div>
-        <?php
-    }
-    ?>
+    <?php } ?>
+
     <?php
-    if ($edit_role == NULL) {
-        ?>
-        <p><?php echo $this->__('Create a brand new role and add it to this site.'); ?></p>
-        <?php
+    if ($this->role == NULL) {
+        printf('<p>%s</p>', $this->__('Create a brand new role and add it to this site.'));
     }
     ?>
+
     <form method="post" id="createuser" name="createuser" class="validate">
-        <?php $this->create_nonce(); ?>
+        <?php $this->main->create_nonce(); ?>
         <table class="form-table">
             <tbody>
-                <tr class="form-field form-required <?php echo $valid_display_name ? '' : 'form-invalid' ?>">
-                    <th scope="row"><label for="display_name">
-                            <?php echo $this->__('Display Name'); ?> <span class="description">(<?php echo $this->__('required'); ?>)</span></label>
+                <tr class="form-field form-required <?php echo $this->is_display_name_valid() ? '' : 'form-invalid' ?>">
+                    <th scope="row">
+                        <label for="display_name">
+                            <?php echo $this->__('Display Name'); ?> <span class="description">(<?php echo $this->__('required'); ?>)</span>
+                        </label>
                     </th>
                     <td>
-                        <input name="display_name" type="text" id="display_name" value="<?php echo $display_name; ?>" aria-required="true" <?php echo $disabled ? 'disabled' : ''; ?> />
+                        <input name="display_name" type="text" id="display_name" value="<?php echo $this->get_display_name(); ?>" aria-required="true" <?php echo $this->is_display_name_disabled() ? 'disabled' : ''; ?> />
                     </td>
                 </tr>
-                <tr class="form-field form-required <?php echo $valid_role_name ? '' : 'form-invalid' ?>">
-                    <th scope="row"><label for="role_name">
-                            <?php echo $this->__('Role Name'); ?> <span class="description">(<?php echo $this->__('required'); ?>)</span></label>
+                <tr class="form-field form-required <?php echo $this->is_role_name_valid() ? '' : 'form-invalid' ?>">
+                    <th scope="row">
+                        <label for="role_name">
+                            <?php echo $this->__('Role Name'); ?> <span class="description">(<?php echo $this->__('required'); ?>)</span>
+                        </label>
                     </th>
                     <td>
-                        <input name="role_name" type="text" id="role_name" value="<?php echo $role_name; ?>" aria-required="true" <?php echo $disabled || $edit_role != NULL ? 'disabled' : ''; ?> />
+                        <input name="role_name" type="text" id="role_name" value="<?php echo $this->get_role_name(); ?>" aria-required="true" <?php echo $this->is_role_name_disabled() ? 'disabled' : ''; ?> />
                     </td>
                 </tr>
             </tbody>
@@ -428,39 +91,70 @@ function wpfront_user_role_editor_list_capabilities($self, $capabilities, $post_
         <table class="form-table sub-head">
             <tbody>
                 <tr>
-                    <th class="sub-head"><h3><?php echo $this->__('Capabilities'); ?></h3></th>
+                    <th class="sub-head">
+            <h3> <?php echo $this->__('Capabilities'); ?></h3>
+            </th>
             <td class="sub-head-controls">
                 <div>
-                    <select <?php echo $disabled ? 'disabled' : ''; ?>>
+                    <select <?php echo!$this->is_editable ? 'disabled' : ''; ?>>
                         <option value=""><?php echo $this->__('Copy from'); ?></option>
                         <?php
-                        global $wp_roles;
-                        $names = $wp_roles->get_names();
-                        asort($names, SORT_STRING | SORT_FLAG_CASE);
-                        foreach ($names as $key => $value) {
-                            ?>
-                            <option value="<?php echo $key; ?>"><?php echo $value; ?></option> 
-                            <?php
+                        foreach ($this->get_copy_from() as $key => $value) {
+                            printf('<option value="%s">%s</option>', $key, $value);
                         }
                         ?>
                     </select>
-                    <input type="button" id="cap_apply" name="cap_apply" class="button action" value="<?php echo $this->__('Apply'); ?>" <?php echo $disabled ? 'disabled' : ''; ?> />  
+                    <input type="button" id="cap_apply" name="cap_apply" class="button action" value="<?php echo $this->__('Apply'); ?>" <?php echo!$this->is_editable ? 'disabled' : ''; ?> />  
                 </div>
                 <div class="spacer"></div>
                 <div>
-                    <input type="button" class="button action chk-helpers select-all" value="<?php echo $this->__('Select All'); ?>" <?php echo $disabled ? 'disabled' : ''; ?> />               
-                    <input type="button" class="button action chk-helpers select-none" value="<?php echo $this->__('Select None'); ?>" <?php echo $disabled ? 'disabled' : ''; ?> />
+                    <input type="button" class="button action chk-helpers select-all" value="<?php echo $this->__('Select All'); ?>" <?php echo!$this->is_editable ? 'disabled' : ''; ?> />               
+                    <input type="button" class="button action chk-helpers select-none" value="<?php echo $this->__('Select None'); ?>" <?php echo!$this->is_editable ? 'disabled' : ''; ?> />
                 </div>
             </td>
             </tr>
             </tbody>
         </table>
-        <?php wpfront_user_role_editor_list_capabilities($this, $capabilities, $post_capabilities, $this->options->display_deprecated(), $disabled); ?>
+
+        <div class="metabox-holder">
+            <?php
+            foreach ($this->get_capability_groups() as $key => $value) {
+                ?>
+                <div class="postbox <?php echo $value->deprecated ? 'deprecated' : 'active' ?> <?php echo $value->hidden ? 'hidden' : '' ?>">
+                    <h3 class="hndle">
+                        <input type="checkbox" class="select-all" id="<?php echo $value->key ?>" <?php echo $value->disabled ? 'disabled' : '' ?> />
+                        <label for="<?php echo $value->key ?>"><?php echo $value->display_name; ?></label>
+                    </h3>
+                    <div class="inside">
+                        <div class="main">
+                            <?php
+                            foreach ($value->caps as $cap) {
+                                ?>
+                                <div>
+                                    <input type="checkbox" id="<?php echo $cap; ?>" name="capabilities[<?php echo $cap; ?>]" <?php echo $value->disabled ? 'disabled' : '' ?> <?php echo $this->capability_checked($cap) ? 'checked' : '' ?> />
+                                    <label for="<?php echo $cap; ?>"><?php echo $cap; ?></label>
+                                    <?php if ($value->has_help) { ?>
+                                        <a target="_blank" href="<?php echo $this->get_help_url($cap); ?>">
+                                            <img class="help" src="<?php echo $this->image_url() . 'help.png'; ?>" />
+                                        </a>
+                                    <?php } ?>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+
         <p class="submit">
-            <input type="submit" name="createrole" id="createusersub" class="button button-primary" value="<?php echo $edit_role == NULL ? $this->__('Add New Role') : $this->__('Update Role'); ?>" <?php echo $disabled ? 'disabled' : ''; ?> />
+            <input type="submit" name="createrole" id="createusersub" class="button button-primary" value="<?php echo $this->role == NULL ? $this->__('Add New Role') : $this->__('Update Role'); ?>" <?php echo $this->is_submit_disabled() ? 'disabled' : ''; ?> />
         </p>
     </form>
-    <div class="footer"><a target="_blank" href="http://wpfront.com/contact/">Feedback</a> | <a target="_blank" href="http://wpfront.com/">wpfront.com</a></div>
+    <?php $this->footer(); ?>
 </div>
 
 <script type="text/javascript">
@@ -493,7 +187,7 @@ function wpfront_user_role_editor_list_capabilities($self, $capabilities, $post_
         });
 
 <?php
-if ($edit_role == NULL) {
+if ($this->role == NULL) {
     ?>
             $("#display_name").keyup(function() {
                 if ($.trim($(this).val()) == "")

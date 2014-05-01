@@ -41,7 +41,7 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
             $this->addOption('display_deprecated', 'bit', FALSE)->__('Display Deprecated Capabilities');
             $this->addOption('enable_role_capabilities', 'bit', FALSE)->__('Add Role Capabilities');
         }
-
+        
     }
 
 }

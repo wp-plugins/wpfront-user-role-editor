@@ -1,5 +1,4 @@
 <?php
-
 /*
   WPFront User Role Editor Plugin
   Copyright (C) 2014, WPFront.com
@@ -24,6 +23,9 @@
 
 require_once("base/class-wpfront-base.php");
 require_once("class-wpfront-user-role-editor-options.php");
+require_once("class-wpfront-user-role-editor-list.php");
+require_once("class-wpfront-user-role-editor-add-edit.php");
+require_once("class-wpfront-user-role-editor-delete.php");
 
 if (!class_exists('WPFront_User_Role_Editor')) {
 
@@ -36,75 +38,116 @@ if (!class_exists('WPFront_User_Role_Editor')) {
     class WPFront_User_Role_Editor extends WPFront_Base {
 
         //Constants
-        const VERSION = '0.3.1';
+        const VERSION = '1.0';
         const OPTIONS_GROUP_NAME = 'wpfront-user-role-editor-options-group';
         const OPTION_NAME = 'wpfront-user-role-editor-options';
         const PLUGIN_SLUG = 'wpfront-user-role-editor';
 
+        public static $ROLE_CAPS = array('wpfront_list_roles', 'wpfront_create_roles', 'wpfront_edit_roles', 'wpfront_delete_roles');
+        public static $DEFAULT_ROLES = array('administrator', 'editor', 'author', 'contributor', 'subscriber');
+        public static $STANDARD_CAPABILITIES = array(
+            'Dashboard' => array(
+                'read',
+                'edit_dashboard'
+            ),
+            'Posts' => array(
+                'publish_posts',
+                'edit_posts',
+                'delete_posts',
+                'edit_published_posts',
+                'delete_published_posts',
+                'edit_others_posts',
+                'delete_others_posts',
+                'read_private_posts',
+                'edit_private_posts',
+                'delete_private_posts',
+                'manage_categories'
+            ),
+            'Media' => array(
+                'upload_files',
+                'unfiltered_upload'
+            ),
+            'Pages' => array(
+                'publish_pages',
+                'edit_pages',
+                'delete_pages',
+                'edit_published_pages',
+                'delete_published_pages',
+                'edit_others_pages',
+                'delete_others_pages',
+                'read_private_pages',
+                'edit_private_pages',
+                'delete_private_pages'
+            ),
+            'Comments' => array(
+                'edit_comment',
+                'moderate_comments'
+            ),
+            'Themes' => array(
+                'switch_themes',
+                'edit_theme_options',
+                'edit_themes',
+                'delete_themes',
+                'install_themes',
+                'update_themes'
+            ),
+            'Plugins' => array(
+                'activate_plugins',
+                'edit_plugins',
+                'install_plugins',
+                'update_plugins',
+                'delete_plugins'
+            ),
+            'Users' => array(
+                'list_users',
+                'create_users',
+                'edit_users',
+                'delete_users',
+                'promote_users',
+                'add_users',
+                'remove_users'
+            ),
+            'Tools' => array(
+                'import',
+                'export'
+            ),
+            'Admin' => array(
+                'manage_options',
+                'update_core',
+                'unfiltered_html'
+            ),
+            'Links' => array(
+                'manage_links'
+            )
+        );
+        public static $DEPRECATED_CAPABILITIES = array(
+            'Deprecated' => array(
+                'edit_files',
+                'level_0',
+                'level_1',
+                'level_2',
+                'level_3',
+                'level_4',
+                'level_5',
+                'level_6',
+                'level_7',
+                'level_8',
+                'level_9',
+                'level_10'
+            )
+        );
+        public static $OTHER_CAPABILITIES = array(
+            'Other Capabilities' => array(
+            )
+        );
+        private static $CAPABILITIES = NULL;
         //Variables
         protected $options;
-        protected $role_caps = array('wpfront_list_roles', 'wpfront_create_roles', 'wpfront_edit_roles', 'wpfront_delete_roles');
-        protected $builtin_roles = array('administrator', 'editor', 'author', 'contributor', 'subscriber');
-        protected $delete_roles;
 
         function __construct() {
             parent::__construct(__FILE__, self::PLUGIN_SLUG);
 
             $this->add_menu($this->__('WPFront User Role Editor'), $this->__('User Role Editor'));
-        }
-
-        public function admin_init() {
-            register_setting(self::OPTIONS_GROUP_NAME, self::OPTION_NAME);
-
-            add_action('wp_ajax_wpfront_user_role_editor_update_options', array($this, 'update_options_callback'));
-            add_action('wp_ajax_wpfront_user_role_editor_copy_capabilities', array($this, 'copy_capabilities_callback'));
-        }
-
-        public function get_capability_string($capability) {
-            if ($this->options->enable_role_capabilities())
-                return 'wpfront_' . $capability . '_roles';
-
-            return $capability . '_users';
-        }
-
-        public function admin_menu() {
-            parent::admin_menu();
-
-            $menu_slug = self::PLUGIN_SLUG . '-all-roles';
-            add_menu_page($this->__('Roles'), $this->__('Roles'), $this->get_capability_string('list'), $menu_slug, null, $this->pluginURL() . 'images/roles_menu.png', '69.9999');
-
-            $page_hook_suffix = add_submenu_page($menu_slug, $this->__('Roles'), $this->__('All Roles'), $this->get_capability_string('list'), $menu_slug, array($this, 'list_roles'));
-            add_action('admin_print_scripts-' . $page_hook_suffix, array($this, 'enqueue_scripts'));
-            add_action('admin_print_styles-' . $page_hook_suffix, array($this, 'enqueue_styles'));
-
-            $page_hook_suffix = add_submenu_page($menu_slug, $this->__('Add New Role'), $this->__('Add New'), $this->get_capability_string('create'), self::PLUGIN_SLUG . '-add-new', array($this, 'add_new_role'));
-            add_action('admin_print_scripts-' . $page_hook_suffix, array($this, 'enqueue_scripts'));
-            add_action('admin_print_styles-' . $page_hook_suffix, array($this, 'enqueue_styles'));
-        }
-
-        //add scripts
-        public function enqueue_scripts() {
-//            $jsRoot = $this->pluginURLRoot . 'js/';
-            
-            wp_enqueue_script('jquery');
-        }
-
-        //add styles
-        public function enqueue_styles() {
-//            $cssRoot = $this->pluginURLRoot . 'css/';
-        }
-
-        //options page scripts
-        public function enqueue_options_scripts() {
-            $this->enqueue_scripts();
-        }
-
-        //options page styles
-        public function enqueue_options_styles() {
-            $this->enqueue_styles();
-            
-            $styleRoot = $this->pluginURLRoot . 'css/';
-            wp_enqueue_style('wpfront-user-role-editor-options', $styleRoot . 'options.css', array(), self::VERSION);
         }
 
         public function plugins_loaded() {
@@ -116,13 +159,54 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             $this->options = new WPFront_User_Role_Editor_Options(self::OPTION_NAME, self::PLUGIN_SLUG);
         }
 
-        public function options_page() {
-            if (!current_user_can('manage_options')) {
-                wp_die($this->__('You do not have sufficient permissions to access this page.'));
-                return;
-            }
+        public function admin_init() {
+            register_setting(self::OPTIONS_GROUP_NAME, self::OPTION_NAME);
 
-            include($this->pluginDIRRoot . 'templates/options-template.php');
+            add_action('wp_ajax_wpfront_user_role_editor_update_options', array($this, 'update_options_callback'));
+            
+            $add_new = new WPFront_User_Role_Editor_Add_Edit($this);
+            $add_new->ajax_register();
+        }
+
+        public function admin_menu() {
+            parent::admin_menu();
+
+            $menu_slug = WPFront_User_Role_Editor_List::MENU_SLUG;
+            add_menu_page($this->__('Roles'), $this->__('Roles'), $this->get_capability_string('list'), $menu_slug, null, $this->pluginURL() . 'images/roles_menu.png', '69.9999');
+
+            $page_hook_suffix = add_submenu_page($menu_slug, $this->__('Roles'), $this->__('All Roles'), $this->get_capability_string('list'), $menu_slug, array(new WPFront_User_Role_Editor_List($this), 'list_roles'));
+            add_action('admin_print_scripts-' . $page_hook_suffix, array($this, 'enqueue_scripts'));
+            add_action('admin_print_styles-' . $page_hook_suffix, array($this, 'enqueue_styles'));
+
+            $page_hook_suffix = add_submenu_page($menu_slug, $this->__('Add New Role'), $this->__('Add New'), $this->get_capability_string('create'), WPFront_User_Role_Editor_Add_Edit::MENU_SLUG, array(new WPFront_User_Role_Editor_Add_Edit($this), 'add_edit_role'));
+            add_action('admin_print_scripts-' . $page_hook_suffix, array($this, 'enqueue_scripts'));
+            add_action('admin_print_styles-' . $page_hook_suffix, array($this, 'enqueue_styles'));
+        }
+
+        //add scripts
+        public function enqueue_scripts() {
+//            $jsRoot = $this->pluginURLRoot . 'js/';
+
+            wp_enqueue_script('jquery');
+        }
+
+        //add styles
+        public function enqueue_styles() {
+            $styleRoot = $this->pluginURLRoot . 'css/';
+            wp_enqueue_style('wpfront-user-role-editor-styles', $styleRoot . 'style.css', array(), self::VERSION);
+        }
+
+        //options page scripts
+        public function enqueue_options_scripts() {
+            $this->enqueue_scripts();
+        }
+
+        //options page styles
+        public function enqueue_options_styles() {
+            $this->enqueue_styles();
+
+            $styleRoot = $this->pluginURLRoot . 'css/';
+            wp_enqueue_style('wpfront-user-role-editor-options', $styleRoot . 'options.css', array(), self::VERSION);
         }
 
         public function update_options_callback() {
@@ -137,13 +221,13 @@ if (!class_exists('WPFront_User_Role_Editor')) {
 
             if ($this->options->enable_role_capabilities()) {
                 $role_admin = get_role('administrator');
-                foreach ($this->role_caps as $value) {
+                foreach (self::$ROLE_CAPS as $value) {
                     $role_admin->add_cap($value, TRUE);
                 }
             } else {
                 global $wp_roles;
                 foreach ($wp_roles->role_objects as $key => $role) {
-                    foreach ($this->role_caps as $value) {
+                    foreach (self::$ROLE_CAPS as $value) {
                         $role->remove_cap($value);
                     }
                 }
@@ -153,123 +237,44 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             die();
         }
 
-        public function list_roles() {
-            $no_access = FALSE;
+        public function get_capability_string($capability) {
+            if ($this->options->enable_role_capabilities())
+                return 'wpfront_' . $capability . '_roles';
 
-            if (!current_user_can($this->get_capability_string('list'))) {
-                $no_access = TRUE;
-            }
-
-            if (!empty($_GET['edit_role'])) {
-                if (!current_user_can($this->get_capability_string('edit'))) {
-                    $no_access = TRUE;
-                } else {
-                    $edit_role = $_GET['edit_role'];
-                    if (get_role($edit_role) == NULL) {
-                        $no_access = TRUE;
-                    } else {
-                        if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
-                            $roles = get_editable_roles();
-                            $no_access = !array_key_exists($edit_role, $roles);
-                            if ($edit_role == 'administrator')
-                                $no_access = TRUE;
-                        }
-                    }
-                }
-
-                if (!$no_access) {
-                    include($this->pluginDIRRoot . 'templates/add-edit-role.php');
-                    return;
-                }
-            } else if (!empty($_GET['delete_role'])) {
-                if (!current_user_can($this->get_capability_string('delete'))) {
-                    $no_access = TRUE;
-                } else {
-                    $delete_role = $_GET['delete_role'];
-                    if (get_role($delete_role) == NULL) {
-                        $no_access = TRUE;
-                    } else {
-                        if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
-                            $roles = get_editable_roles();
-                            $no_access = !array_key_exists($delete_role, $roles);
-                            if ($delete_role == 'administrator')
-                                $no_access = TRUE;
-                        }
-                    }
-                    $this->delete_roles = array($delete_role);
-                }
-
-                if (!$no_access) {
-                    include($this->pluginDIRRoot . 'templates/delete-role.php');
-                    return;
-                }
-            } else if ((!empty($_POST['doaction_top']) && !empty($_POST['action_top'])) || (!empty($_POST['doaction_bottom']) && !empty($_POST['action_bottom']))) {
-                $action = $_POST['action_top'] == "-1" ? $_POST['action_bottom'] : $_POST['action_top'];
-                switch ($action) {
-                    case 'delete':
-                        $this->delete_roles = array();
-                        global $wp_roles;
-                        foreach ($wp_roles->role_names as $role => $name) {
-                            if (!empty($_POST['cb-select-' . $role]))
-                                $this->delete_roles[] = $role;
-                        }
-
-                        if (!empty($this->delete_roles)) {
-                            include($this->pluginDIRRoot . 'templates/delete-role.php');
-                            return;
-                        }
-                }
-            } else if (!empty($_POST['confirm-delete'])) {
-                include($this->pluginDIRRoot . 'templates/delete-role.php');
-                return;
-            }
-
-            if ($no_access) {
-                wp_die($this->__('You do not have sufficient permissions to access this page.'));
-                return;
-            }
-
-            include($this->pluginDIRRoot . 'templates/list-roles.php');
+            return $capability . '_users';
         }
 
-        public function add_new_role() {
-            if (!current_user_can($this->get_capability_string('create'))) {
-                wp_die($this->__('You do not have sufficient permissions to access this page.'));
-                return;
-            }
-
-            include($this->pluginDIRRoot . 'templates/add-edit-role.php');
+        public function permission_denied() {
+            wp_die($this->__('You do not have sufficient permissions to access this page.'));
         }
 
-        public function copy_capabilities_callback() {
-            if (empty($_POST['role'])) {
-                echo '{}';
-                die();
-                return;
+        public function current_user_can($capability) {
+            switch ($capability) {
+                case 'list_roles':
+                    return current_user_can($this->get_capability_string('list'));
+                case 'edit_roles':
+                    return current_user_can($this->get_capability_string('edit'));
+                case 'delete_roles':
+                    return current_user_can($this->get_capability_string('delete'));
+                case 'create_roles':
+                    return current_user_can($this->get_capability_string('create'));
+                default :
+                    return current_user_can($capability);
             }
-
-            $role = get_role($_POST['role']);
-            if ($role == NULL) {
-                echo '{}';
-                die();
-                return;
-            }
-
-            echo json_encode($role->capabilities);
-            die();
         }
 
-        protected function create_nonce() {
+        public function create_nonce() {
             if (empty($_SERVER['REQUEST_URI'])) {
-                wp_die($this->__('You do not have sufficient permissions to access this page.'));
+                $this->permission_denied();
                 exit;
+                return;
             }
             $referer = $_SERVER['REQUEST_URI'];
             echo '<input type = "hidden" name = "_wpnonce" value = "' . wp_create_nonce($referer) . '" />';
             echo '<input type = "hidden" name = "_wp_http_referer" value = "' . $referer . '" />';
         }
 
-        protected function verify_nonce() {
+        public function verify_nonce() {
             if (strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
                 $flag = TRUE;
                 if (empty($_POST['_wpnonce'])) {
@@ -281,10 +286,68 @@ if (!class_exists('WPFront_User_Role_Editor')) {
                 }
 
                 if (!$flag) {
-                    wp_die($this->__('You do not have sufficient permissions to access this page.'));
+                    $this->permission_denied();
                     exit;
                 }
             }
+        }
+
+        public function footer() {
+            ?>
+            <div class="footer">
+                <a target="_blank" href="http://wpfront.com/contact/"><?php echo $this->__('Feedback'); ?></a> 
+                |
+                <a target="_blank" href="http://wpfront.com/donate/"><?php echo $this->__('Buy me a Beer'); ?></a> 
+            </div>
+            <?php
+        }
+
+        public function get_capabilities() {
+            if (self::$CAPABILITIES != NULL)
+                return self::$CAPABILITIES;
+
+            self::$CAPABILITIES = array();
+
+            foreach (self::$STANDARD_CAPABILITIES as $key => $value) {
+                self::$CAPABILITIES[$key] = $value;
+            }
+
+            foreach (self::$DEPRECATED_CAPABILITIES as $key => $value) {
+                self::$CAPABILITIES[$key] = $value;
+            }
+
+            if ($this->options->enable_role_capabilities())
+                self::$CAPABILITIES['Roles (WPFront)'] = self::$ROLE_CAPS;
+
+            reset(self::$OTHER_CAPABILITIES);
+            $other_key = key(self::$OTHER_CAPABILITIES);
+
+            global $wp_roles;
+            foreach ($wp_roles->roles as $key => $role) {
+                foreach ($role['capabilities'] as $cap => $value) {
+                    $found = FALSE;
+                    foreach (self::$CAPABILITIES as $g => $wcaps) {
+                        if (in_array($cap, $wcaps)) {
+                            $found = TRUE;
+                            break;
+                        }
+                    }
+                    if (!$found && !in_array($cap, self::$OTHER_CAPABILITIES[$other_key])) {
+                        self::$OTHER_CAPABILITIES[$other_key][] = $cap;
+                    }
+                }
+            }
+
+            foreach (self::$OTHER_CAPABILITIES as $key => $value) {
+                if (count($value) > 0)
+                    self::$CAPABILITIES[$key] = $value;
+            }
+
+            return self::$CAPABILITIES;
+        }
+
+        public function display_deprecated() {
+            return $this->options->display_deprecated();
         }
 
     }
