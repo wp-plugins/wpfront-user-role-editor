@@ -4,7 +4,7 @@ Donate link: http://wpfront.com/donate/
 Tags: user role editor, role editor, user role, role, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 0.3.1
+Stable tag: 1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -52,6 +52,10 @@ Visit [WPFront User Role Editor Settings](http://wpfront.com/user-role-editor-pl
 
 == Changelog ==
 
+= 1.0 =
+* Set new user default role
+* Stability improvements
+
 = 0.3.1 =
 * Bug fixes
 
@@ -59,6 +63,9 @@ Visit [WPFront User Role Editor Settings](http://wpfront.com/user-role-editor-pl
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0 =
+* Easily set new user default role
 
 = 0.3.1 =
 * Fixed an issue with deleting roles
