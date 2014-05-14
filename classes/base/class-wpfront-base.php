@@ -175,7 +175,9 @@ if (!class_exists('WPFront_Base')) {
                 |
                 <a href="http://wordpress.org/support/view/plugin-reviews/' . $this->plugin_slug . '" target="_blank">' . $this->__('Write Review') . '</a>
                 |
-                <a href="mailto:syam@wpfront.com">' . $this->__('Contact Me (syam@wpfront.com)') . '</a>
+                <a href="http://wpfront.com/contact/" target="_blank">' . $this->__('Contact Me') . '</a>
+                |
+                <a href="http://wpfront.com/donate/" target="_blank">' . $this->__('Buy me a Beer or Coffee') . '</a>
             ';
             echo '</form>';
             echo '</div>';
@@ -196,13 +198,14 @@ if (!class_exists('WPFront_Base')) {
             }
         }
 
-        public function pluginURL(){
+        public function pluginURL() {
             return $this->pluginURLRoot;
         }
-        
-        public function pluginDIR(){
+
+        public function pluginDIR() {
             return $this->pluginDIRRoot;
         }
+
     }
 
 }

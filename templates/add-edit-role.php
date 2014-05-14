@@ -179,10 +179,10 @@
 
         $("div.role-add-new table.sub-head td.sub-head-controls input.chk-helpers").click(function() {
             if ($(this).hasClass('select-all')) {
-                $("div.role-add-new div.postbox.active").find("input").prop("checked", true);
+                $("div.role-add-new div.postbox").find("input:not(:disabled)").prop("checked", true);
             }
             else if ($(this).hasClass('select-none')) {
-                $("div.role-add-new div.postbox.active").find("input").prop("checked", false);
+                $("div.role-add-new div.postbox").find("input:not(:disabled)").prop("checked", false);
             }
         });
 

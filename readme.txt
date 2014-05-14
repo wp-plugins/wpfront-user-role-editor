@@ -53,6 +53,9 @@ Visit [WPFront User Role Editor Settings](http://wpfront.com/user-role-editor-pl
 
 == Changelog ==
 
+= 1.1 =
+* Edit deprecated capabilities
+
 = 1.0 =
 * Set new user default role
 * Stability improvements
@@ -64,6 +67,9 @@ Visit [WPFront User Role Editor Settings](http://wpfront.com/user-role-editor-pl
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1 =
+* Can edit deprecated capabilities now
 
 = 1.0 =
 * Easily set new user default role

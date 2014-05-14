@@ -220,7 +220,7 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
                             'caps' => $value,
                             'display_name' => $this->__($key),
                             'deprecated' => $deprecated,
-                            'disabled' => !$this->is_editable || $deprecated,
+                            'disabled' => !$this->is_editable, //!$this->is_editable || $deprecated, - to enable levels; for author drop down
                             'hidden' => $deprecated && !$this->main->display_deprecated(),
                             'key' => str_replace(' ', '-', $key),
                             'has_help' => !$other
