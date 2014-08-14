@@ -149,7 +149,7 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
 
             global $wp_roles;
             $roles = $wp_roles->role_names;
-            asort($roles, SORT_STRING | SORT_FLAG_CASE);
+            asort($roles, SORT_STRING);
 
             $editable_roles = get_editable_roles();
 

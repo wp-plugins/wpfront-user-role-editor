@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFront Notification Bar\n"
-"POT-Creation-Date: 2014-04-30 18:53-0700\n"
-"PO-Revision-Date: 2014-04-30 18:54-0700\n"
+"POT-Creation-Date: 2014-08-13 20:28-0700\n"
+"PO-Revision-Date: 2014-08-13 20:28-0700\n"
 "Last-Translator: \n"
 "Language-Team: WPFront <contact@wpfront.com>\n"
 "Language: en\n"
@@ -96,7 +96,7 @@ msgid "Activate"
 msgstr "Activate"
 
 #: ../classes/base/class-wpfront-base-menu.php:199
-#: ../classes/class-wpfront-user-role-editor.php:298
+#: ../classes/class-wpfront-user-role-editor.php:307
 msgid "Feedback"
 msgstr "Feedback"
 
@@ -109,7 +109,7 @@ msgid "All Plugins"
 msgstr "All Plugins"
 
 #: ../classes/base/class-wpfront-base.php:130
-#: ../classes/class-wpfront-user-role-editor.php:248
+#: ../classes/class-wpfront-user-role-editor.php:257
 msgid "You do not have sufficient permissions to access this page."
 msgstr "You do not have sufficient permissions to access this page."
 
@@ -142,10 +142,14 @@ msgid "Write Review"
 msgstr "Write Review"
 
 #: ../classes/base/class-wpfront-base.php:178
-msgid "Contact Me (syam@wpfront.com)"
-msgstr "Contact Me (syam@wpfront.com)"
+msgid "Contact Me"
+msgstr "Contact Me"
 
-#: ../classes/base/class-wpfront-base.php:195
+#: ../classes/base/class-wpfront-base.php:180
+msgid "Buy me a Beer or Coffee"
+msgstr "Buy me a Beer or Coffee"
+
+#: ../classes/base/class-wpfront-base.php:197
 msgid "Save Changes"
 msgstr "Save Changes"
 
@@ -230,45 +234,60 @@ msgstr "Display Deprecated Capabilities"
 msgid "Add Role Capabilities"
 msgstr "Add Role Capabilities"
 
-#: ../classes/class-wpfront-user-role-editor.php:150
+#: ../classes/class-wpfront-user-role-editor-options.php:43
+msgid "Remove Non-Standard Capabilities on Restore"
+msgstr "Remove Non-Standard Capabilities on Restore"
+
+#: ../classes/class-wpfront-user-role-editor-restore.php:134
+#: ../templates/add-edit-role.php:45 ../templates/add-edit-role.php:53
+msgid "ERROR"
+msgstr "ERROR"
+
+#: ../classes/class-wpfront-user-role-editor.php:151
 msgid "WPFront User Role Editor"
 msgstr "WPFront User Role Editor"
 
-#: ../classes/class-wpfront-user-role-editor.php:150
+#: ../classes/class-wpfront-user-role-editor.php:151
 msgid "User Role Editor"
 msgstr "User Role Editor"
 
-#: ../classes/class-wpfront-user-role-editor.php:175
-#: ../classes/class-wpfront-user-role-editor.php:177
+#: ../classes/class-wpfront-user-role-editor.php:179
+#: ../classes/class-wpfront-user-role-editor.php:181
 #: ../templates/list-roles.php:37
 msgid "Roles"
 msgstr "Roles"
 
-#: ../classes/class-wpfront-user-role-editor.php:177
+#: ../classes/class-wpfront-user-role-editor.php:181
 msgid "All Roles"
 msgstr "All Roles"
 
-#: ../classes/class-wpfront-user-role-editor.php:181
+#: ../classes/class-wpfront-user-role-editor.php:185
 #: ../templates/add-edit-role.php:35 ../templates/add-edit-role.php:154
 msgid "Add New Role"
 msgstr "Add New Role"
 
-#: ../classes/class-wpfront-user-role-editor.php:181
+#: ../classes/class-wpfront-user-role-editor.php:185
 #: ../templates/add-edit-role.php:37 ../templates/list-roles.php:40
 msgid "Add New"
 msgstr "Add New"
 
-#: ../classes/class-wpfront-user-role-editor.php:300
+#: ../classes/class-wpfront-user-role-editor.php:189
+#: ../templates/restore-role.php:34
+msgid "Restore Role"
+msgstr "Restore Role"
+
+#: ../classes/class-wpfront-user-role-editor.php:189
+#: ../templates/restore-role.php:46
+msgid "Restore"
+msgstr "Restore"
+
+#: ../classes/class-wpfront-user-role-editor.php:309
 msgid "Buy me a Beer"
 msgstr "Buy me a Beer"
 
 #: ../templates/add-edit-role.php:35
 msgid "Edit Role"
 msgstr "Edit Role"
-
-#: ../templates/add-edit-role.php:45 ../templates/add-edit-role.php:53
-msgid "ERROR"
-msgstr "ERROR"
 
 #: ../templates/add-edit-role.php:45
 msgid "This role already exists in this site."
@@ -333,6 +352,21 @@ msgstr "Default"
 #: ../templates/options-template.php:32
 msgid "WPFront User Role Editor Settings"
 msgstr "WPFront User Role Editor Settings"
+
+#: ../templates/restore-role.php:48
+msgid "Cancel"
+msgstr "Cancel"
+
+#: ../templates/restore-role.php:49
+msgid "Confirm"
+msgstr "Confirm"
+
+#: ../templates/restore-role.php:57
+msgid "Restored"
+msgstr "Restored"
+
+#~ msgid "Contact Me (syam@wpfront.com)"
+#~ msgstr "Contact Me (syam@wpfront.com)"
 
 #~ msgid "Enabled"
 #~ msgstr "Enabled"

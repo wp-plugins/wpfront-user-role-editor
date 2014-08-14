@@ -48,6 +48,14 @@
             <input type="checkbox" name="<?php echo $this->options->enable_role_capabilities_name(); ?>" <?php echo $this->options->enable_role_capabilities() ? 'checked' : ''; ?> />
         </td>
     </tr>
+    <tr>
+        <th scope="row">
+            <?php echo $this->options->remove_nonstandard_capabilities_restore_label(); ?>
+        </th>
+        <td>
+            <input type="checkbox" name="<?php echo $this->options->remove_nonstandard_capabilities_restore_name(); ?>" <?php echo $this->options->remove_nonstandard_capabilities_restore() ? 'checked' : ''; ?> />
+        </td>
+    </tr>
 </table>
 
 <input type="hidden" name="nonce" value="<?php echo wp_create_nonce($_SERVER['REQUEST_URI']); ?>" />

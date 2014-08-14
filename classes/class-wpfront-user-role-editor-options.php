@@ -40,6 +40,7 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
             //add the options required for this plugin
             $this->addOption('display_deprecated', 'bit', FALSE)->__('Display Deprecated Capabilities');
             $this->addOption('enable_role_capabilities', 'bit', FALSE)->__('Add Role Capabilities');
+            $this->addOption('remove_nonstandard_capabilities_restore', 'bit', FALSE)->__('Remove Non-Standard Capabilities on Restore');
         }
         
     }

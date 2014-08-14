@@ -96,3 +96,10 @@ div.role-add-new div.metabox-holder div.postbox div.main img.help {
 div.role-add-new div.footer {
     text-align: center;
 }
+
+div.role-restore table.form-table td div.restore-role-button-container, 
+div.role-restore table.form-table td div.restore-role-loader,
+div.role-restore table.form-table td div.restore-role-success {
+    display: none;
+}
+
