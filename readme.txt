@@ -3,15 +3,15 @@ Contributors: syammohanm
 Donate link: http://wpfront.com/donate/
 Tags: user role editor, role editor, user role, role, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 1.1
+Tested up to: 3.9.2
+Stable tag: 1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Easily allows you to manage user roles. You can create, edit, delete and manage capabilities, also copy existing roles.
 
 == Description ==
-This plugin allows you to easily manage user roles within your wordpress site. 
+This plugin allows you to easily manage user roles within your WordPress site. 
 You can create, edit or delete user roles and manage role capabilities.
 
 ### Features
@@ -21,6 +21,7 @@ You can create, edit or delete user roles and manage role capabilities.
 * Manage capabilities.
 * Allows you to add role capabilities.
 * Change default user role.
+* Restore role.
 
 Visit [WPFront User Role Editor](http://wpfront.com/user-role-editor-plugin/) page for screens and functionalities.
 
@@ -53,6 +54,10 @@ Visit [WPFront User Role Editor Settings](http://wpfront.com/user-role-editor-pl
 
 == Changelog ==
 
+= 1.2 =
+* Restore role
+* Bug fixes
+
 = 1.1 =
 * Edit deprecated capabilities
 
@@ -67,6 +72,9 @@ Visit [WPFront User Role Editor Settings](http://wpfront.com/user-role-editor-pl
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.2 = 
+* Now you can restore roles
 
 = 1.1 =
 * Can edit deprecated capabilities now
