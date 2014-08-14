@@ -41,16 +41,15 @@ Visit [WPFront User Role Editor Settings](http://wpfront.com/user-role-editor-pl
 
 == Frequently Asked Questions ==
 
-= Unchecking “Add Role Capabilities” setting, what difference does it make? = 
-
-“Add Role Capabilities” allows you add role capabilities to be set as part of the capabilities. Unchecking this setting will make the plugin work using the “user capabilities”, also it will remove all the role capabilities added to the existing roles. If you check this option again you will have to go back to each role and add the capabilities again, except for “Administrator” role.
+Please visit [WPFront User Role Editor FAQ](http://wpfront.com/wordpress-plugins/user-role-editor-plugin/user-role-editor-plugin-faq/).
 
 == Screenshots ==
  
-1. Role list
+1. Roles list
 2. Add new role
 3. Edit role
-4. Global settings
+4. Restore role
+5. Global settings
 
 == Changelog ==
 
