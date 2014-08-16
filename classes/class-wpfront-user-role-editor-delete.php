@@ -79,7 +79,7 @@ if (!class_exists('WPFront_User_Role_Editor_Delete')) {
                         remove_role($key);
                     }
                 }
-                printf('<script type="text/javascript">document.location="%s";</script>', $this->list_roles_url());
+                printf('<script type="text/javascript">window.location.replace("%s");</script>', $this->list_roles_url());
                 return;
             }
 

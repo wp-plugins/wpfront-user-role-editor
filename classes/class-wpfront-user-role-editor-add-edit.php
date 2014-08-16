@@ -118,7 +118,7 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             }
 
             if ($success) {
-                printf('<script type="text/javascript">document.location="%s";</script>', $this->list_roles_url());
+                printf('<script type="text/javascript">window.location.replace("%s");</script>', $this->list_roles_url());
             } else {
                 include($this->main->pluginDIR() . 'templates/add-edit-role.php');
             }

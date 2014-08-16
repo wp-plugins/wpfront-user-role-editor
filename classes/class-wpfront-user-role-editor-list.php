@@ -60,7 +60,7 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
 
             if (!empty($_GET['set_default_role'])) {
                 $this->set_default_role($_GET['set_default_role']);
-                printf('<script type="text/javascript">document.location="%s";</script>', $this->list_url());
+                printf('<script type="text/javascript">window.location.replace("%s");</script>', $this->list_url());
                 return;
             }
 
@@ -280,10 +280,10 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
         }
 
         private function get_search_term() {
-            if (empty($_POST['search']))
+            if (empty($_POST['s']))
                 return '';
 
-            return $_POST['search'];
+            return $_POST['s'];
         }
 
         private function get_list_filters() {

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFront Notification Bar\n"
-"POT-Creation-Date: 2014-08-13 20:28-0700\n"
-"PO-Revision-Date: 2014-08-13 20:28-0700\n"
+"POT-Creation-Date: 2014-08-16 12:20-0700\n"
+"PO-Revision-Date: 2014-08-16 12:20-0700\n"
 "Last-Translator: \n"
 "Language-Team: WPFront <contact@wpfront.com>\n"
 "Language: en\n"
@@ -96,7 +96,7 @@ msgid "Activate"
 msgstr "Activate"
 
 #: ../classes/base/class-wpfront-base-menu.php:199
-#: ../classes/class-wpfront-user-role-editor.php:307
+#: ../classes/class-wpfront-user-role-editor.php:318
 msgid "Feedback"
 msgstr "Feedback"
 
@@ -109,7 +109,7 @@ msgid "All Plugins"
 msgstr "All Plugins"
 
 #: ../classes/base/class-wpfront-base.php:130
-#: ../classes/class-wpfront-user-role-editor.php:257
+#: ../classes/class-wpfront-user-role-editor.php:268
 msgid "You do not have sufficient permissions to access this page."
 msgstr "You do not have sufficient permissions to access this page."
 
@@ -152,6 +152,46 @@ msgstr "Buy me a Beer or Coffee"
 #: ../classes/base/class-wpfront-base.php:197
 msgid "Save Changes"
 msgstr "Save Changes"
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:60
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:276
+msgid "Secondary Roles"
+msgstr "Secondary Roles"
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:75
+#: ../templates/assign-roles.php:36
+msgid "Assign Roles"
+msgstr "Assign Roles"
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:122
+msgid "No role for this site"
+msgstr "No role for this site"
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:138
+msgid "Invalid user."
+msgstr "Invalid user."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:164
+msgid "Roles updated successfully."
+msgstr "Roles updated successfully."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:166
+msgid "Invalid primary role specified."
+msgstr "Invalid primary role specified."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:184
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:194
+msgid "Invalid primary role."
+msgstr "Invalid primary role."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:214
+#, php-format
+msgid "%d user(s) migrated."
+msgstr "%d user(s) migrated."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:257
+msgid "Primary Role"
+msgstr "Primary Role"
 
 #: ../classes/class-wpfront-user-role-editor-list.php:238
 #: ../templates/add-edit-role.php:111
@@ -243,45 +283,53 @@ msgstr "Remove Non-Standard Capabilities on Restore"
 msgid "ERROR"
 msgstr "ERROR"
 
-#: ../classes/class-wpfront-user-role-editor.php:151
+#: ../classes/class-wpfront-user-role-editor.php:156
 msgid "WPFront User Role Editor"
 msgstr "WPFront User Role Editor"
 
-#: ../classes/class-wpfront-user-role-editor.php:151
+#: ../classes/class-wpfront-user-role-editor.php:156
 msgid "User Role Editor"
 msgstr "User Role Editor"
 
-#: ../classes/class-wpfront-user-role-editor.php:179
-#: ../classes/class-wpfront-user-role-editor.php:181
+#: ../classes/class-wpfront-user-role-editor.php:186
+#: ../classes/class-wpfront-user-role-editor.php:188
 #: ../templates/list-roles.php:37
 msgid "Roles"
 msgstr "Roles"
 
-#: ../classes/class-wpfront-user-role-editor.php:181
+#: ../classes/class-wpfront-user-role-editor.php:188
 msgid "All Roles"
 msgstr "All Roles"
 
-#: ../classes/class-wpfront-user-role-editor.php:185
+#: ../classes/class-wpfront-user-role-editor.php:192
 #: ../templates/add-edit-role.php:35 ../templates/add-edit-role.php:154
 msgid "Add New Role"
 msgstr "Add New Role"
 
-#: ../classes/class-wpfront-user-role-editor.php:185
+#: ../classes/class-wpfront-user-role-editor.php:192
 #: ../templates/add-edit-role.php:37 ../templates/list-roles.php:40
 msgid "Add New"
 msgstr "Add New"
 
-#: ../classes/class-wpfront-user-role-editor.php:189
+#: ../classes/class-wpfront-user-role-editor.php:196
 #: ../templates/restore-role.php:34
 msgid "Restore Role"
 msgstr "Restore Role"
 
-#: ../classes/class-wpfront-user-role-editor.php:189
+#: ../classes/class-wpfront-user-role-editor.php:196
 #: ../templates/restore-role.php:46
 msgid "Restore"
 msgstr "Restore"
 
-#: ../classes/class-wpfront-user-role-editor.php:309
+#: ../classes/class-wpfront-user-role-editor.php:200
+msgid "Assign Roles | Migrate Users"
+msgstr "Assign Roles | Migrate Users"
+
+#: ../classes/class-wpfront-user-role-editor.php:200
+msgid "Assign / Migrate"
+msgstr "Assign / Migrate"
+
+#: ../classes/class-wpfront-user-role-editor.php:320
 msgid "Buy me a Beer"
 msgstr "Buy me a Beer"
 
@@ -316,6 +364,18 @@ msgstr "Select None"
 #: ../templates/add-edit-role.php:154
 msgid "Update Role"
 msgstr "Update Role"
+
+#: ../templates/assign-roles.php:62
+msgid "User"
+msgstr "User"
+
+#: ../templates/assign-roles.php:93
+msgid "Migrate Users"
+msgstr "Migrate Users"
+
+#: ../templates/assign-roles.php:103
+msgid "From Primary Role"
+msgstr "From Primary Role"
 
 #: ../templates/delete-role.php:37
 msgid "Delete Roles"

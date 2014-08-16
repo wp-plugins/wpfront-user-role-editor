@@ -103,3 +103,6 @@ div.role-restore table.form-table td div.restore-role-success {
     display: none;
 }
 
+div.wrap.assign-roles div.role-list div.role-list-item {
+    padding-bottom: 5px;
+}

@@ -60,7 +60,7 @@
         <?php $this->main->create_nonce(); ?>
         <p class = "search-box">
             <label class = "screen-reader-text" for = "role-search-input"><?php echo $this->__('Search Roles') . ':'; ?></label>
-            <input type="search" id="role-search-input" name="search" value="<?php echo $this->get_search_term(); ?>">
+            <input type="search" id="role-search-input" name="s" value="<?php echo $this->get_search_term(); ?>">
             <input type="submit" name="search-submit" id="search-submit" class="button" value="<?php echo $this->__('Search Roles'); ?>">
         </p>
         <?php $this->bulk_actions('top'); ?>

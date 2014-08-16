@@ -27,6 +27,7 @@ require_once("class-wpfront-user-role-editor-list.php");
 require_once("class-wpfront-user-role-editor-add-edit.php");
 require_once("class-wpfront-user-role-editor-delete.php");
 require_once("class-wpfront-user-role-editor-restore.php");
+require_once("class-wpfront-user-role-editor-assign-roles.php");
 
 if (!class_exists('WPFront_User_Role_Editor')) {
 
@@ -39,7 +40,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
     class WPFront_User_Role_Editor extends WPFront_Base {
 
         //Constants
-        const VERSION = '1.2';
+        const VERSION = '1.3';
         const OPTIONS_GROUP_NAME = 'wpfront-user-role-editor-options-group';
         const OPTION_NAME = 'wpfront-user-role-editor-options';
         const PLUGIN_SLUG = 'wpfront-user-role-editor';
@@ -144,11 +145,20 @@ if (!class_exists('WPFront_User_Role_Editor')) {
         private static $CAPABILITIES = NULL;
         //Variables
         protected $options;
+        protected $objList;
+        protected $objAddEdit;
+        protected $objRestore;
+        protected $objAssignUsers;
 
         function __construct() {
             parent::__construct(__FILE__, self::PLUGIN_SLUG);
 
             $this->add_menu($this->__('WPFront User Role Editor'), $this->__('User Role Editor'));
+
+            $this->objList = new WPFront_User_Role_Editor_List($this);
+            $this->objAddEdit = new WPFront_User_Role_Editor_Add_Edit($this);
+            $this->objRestore = new WPFront_User_Role_Editor_Restore($this);
+            $this->objAssignUsers = new WPFront_User_Role_Editor_Assign_Roles($this);
         }
 
         public function plugins_loaded() {
@@ -165,11 +175,8 @@ if (!class_exists('WPFront_User_Role_Editor')) {
 
             add_action('wp_ajax_wpfront_user_role_editor_update_options', array($this, 'update_options_callback'));
 
-            $add_new = new WPFront_User_Role_Editor_Add_Edit($this);
-            $add_new->ajax_register();
-            
-            $restore = new WPFront_User_Role_Editor_Restore($this);
-            $restore->ajax_register();
+            $this->objAddEdit->ajax_register();
+            $this->objRestore->ajax_register();
         }
 
         public function admin_menu() {
@@ -178,15 +185,19 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             $menu_slug = WPFront_User_Role_Editor_List::MENU_SLUG;
             add_menu_page($this->__('Roles'), $this->__('Roles'), $this->get_capability_string('list'), $menu_slug, null, $this->pluginURL() . 'images/roles_menu.png', '69.9999');
 
-            $page_hook_suffix = add_submenu_page($menu_slug, $this->__('Roles'), $this->__('All Roles'), $this->get_capability_string('list'), $menu_slug, array(new WPFront_User_Role_Editor_List($this), 'list_roles'));
+            $page_hook_suffix = add_submenu_page($menu_slug, $this->__('Roles'), $this->__('All Roles'), $this->get_capability_string('list'), $menu_slug, array($this->objList, 'list_roles'));
             add_action('admin_print_scripts-' . $page_hook_suffix, array($this, 'enqueue_role_scripts'));
             add_action('admin_print_styles-' . $page_hook_suffix, array($this, 'enqueue_role_styles'));
 
-            $page_hook_suffix = add_submenu_page($menu_slug, $this->__('Add New Role'), $this->__('Add New'), $this->get_capability_string('create'), WPFront_User_Role_Editor_Add_Edit::MENU_SLUG, array(new WPFront_User_Role_Editor_Add_Edit($this), 'add_edit_role'));
+            $page_hook_suffix = add_submenu_page($menu_slug, $this->__('Add New Role'), $this->__('Add New'), $this->get_capability_string('create'), WPFront_User_Role_Editor_Add_Edit::MENU_SLUG, array($this->objAddEdit, 'add_edit_role'));
             add_action('admin_print_scripts-' . $page_hook_suffix, array($this, 'enqueue_role_scripts'));
             add_action('admin_print_styles-' . $page_hook_suffix, array($this, 'enqueue_role_styles'));
 
-            $page_hook_suffix = add_submenu_page($menu_slug, $this->__('Restore Role'), $this->__('Restore'), $this->get_capability_string('edit'), WPFront_User_Role_Editor_Restore::MENU_SLUG, array(new WPFront_User_Role_Editor_Restore($this), 'restore_role'));
+            $page_hook_suffix = add_submenu_page($menu_slug, $this->__('Restore Role'), $this->__('Restore'), $this->get_capability_string('edit'), WPFront_User_Role_Editor_Restore::MENU_SLUG, array($this->objRestore, 'restore_role'));
+            add_action('admin_print_scripts-' . $page_hook_suffix, array($this, 'enqueue_role_scripts'));
+            add_action('admin_print_styles-' . $page_hook_suffix, array($this, 'enqueue_role_styles'));
+
+            $page_hook_suffix = add_users_page($this->__('Assign Roles | Migrate Users'), $this->__('Assign / Migrate'), 'promote_user', WPFront_User_Role_Editor_Assign_Roles::MENU_SLUG, array($this->objAssignUsers, 'assign_roles'));
             add_action('admin_print_scripts-' . $page_hook_suffix, array($this, 'enqueue_role_scripts'));
             add_action('admin_print_styles-' . $page_hook_suffix, array($this, 'enqueue_role_styles'));
         }
@@ -364,11 +375,11 @@ if (!class_exists('WPFront_User_Role_Editor')) {
         public function display_deprecated() {
             return $this->options->display_deprecated();
         }
-        
+
         public function enable_role_capabilities() {
             return $this->options->enable_role_capabilities();
         }
-        
+
         public function remove_nonstandard_capabilities_restore() {
             return $this->options->remove_nonstandard_capabilities_restore();
         }
