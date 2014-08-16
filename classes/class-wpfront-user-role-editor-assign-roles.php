@@ -151,7 +151,9 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
                         if (!empty($_POST['assign-secondary-roles'])) {
                             $secondary_roles = $_POST['assign-secondary-roles'];
                         }
-                        if (!is_array($secondary_roles))
+                        if (is_array($secondary_roles))
+                            $secondary_roles = array_keys($secondary_roles);
+                        else
                             $secondary_roles = array();
 
                         $this->user->set_role($primary_role);
@@ -193,23 +195,25 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
                     if ($this->migrateToPrimaryRole === NULL) {
                         $this->result->message = $this->__('Invalid primary role.');
                     } else {
-                        if(!empty($_POST['migrate-secondary-roles'])) {
+                        if (!empty($_POST['migrate-secondary-roles'])) {
                             $this->migrateToSecondaryRoles = $_POST['migrate-secondary-roles'];
-                            if(!is_array($this->migrateToSecondaryRoles))
+                            if (is_array($this->migrateToSecondaryRoles))
+                                $this->migrateToSecondaryRoles = array_keys($this->migrateToSecondaryRoles);
+                            else
                                 $this->migrateToSecondaryRoles = array();
                         }
-                        
+
                         $users = get_users(array('exclude' => array(wp_get_current_user()->ID), 'role' => $this->migrateFromPrimaryRole));
                         $users = array_filter($users, array($this, 'array_filter_user'));
-                        
+
                         foreach ($users as $user) {
                             $user->set_role($this->migrateToPrimaryRole);
-                            
+
                             foreach ($this->migrateToSecondaryRoles as $role) {
                                 $user->add_role($role);
                             }
                         }
-                        
+
                         $this->result->success = TRUE;
                         $this->result->message = sprintf($this->__('%d user(s) migrated.'), count($users));
                     }
@@ -237,17 +241,19 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
 
             include($this->main->pluginDIR() . 'templates/assign-roles.php');
         }
-        
+
         private function array_filter_user($user) {
-            if($this->migrateFromPrimaryRole === '') {
-                if(empty($user->roles))
+            if ($this->migrateFromPrimaryRole === '') {
+                if (empty($user->roles))
                     return TRUE;
             }
-            
-            if(empty($user->roles))
+
+            if (empty($user->roles))
                 return FALSE;
-            
-            return $user->roles[0] === $this->migrateFromPrimaryRole;
+
+            $roles = $user->roles;
+            $role = array_shift($roles);
+            return $role === $this->migrateFromPrimaryRole;
         }
 
         private function primary_secondary_section($prefix, $selectPrimaryRole = NULL, $selectSecondaryRoles = array()) {
@@ -282,7 +288,7 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
                             ?>
                             <div class="role-list-item">
                                 <label>
-                                    <input type="checkbox" name="<?php echo $prefix; ?>-secondary-roles[]" value="<?php echo $key; ?>" <?php echo in_array($key, $selectSecondaryRoles) ? 'checked' : ''; ?> />
+                                    <input type="checkbox" name="<?php echo $prefix; ?>-secondary-roles[<?php echo $key; ?>]" <?php echo in_array($key, $selectSecondaryRoles) ? 'checked' : ''; ?> />
                                     <?php echo $role; ?>
                                 </label>
                             </div>
