@@ -21,7 +21,7 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-require_once("class-wpfront-user-role-editor-add-edit.php");
+require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-add-edit.php");
 
 if (!class_exists('WPFront_User_Role_Editor_List')) {
 
@@ -31,42 +31,28 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
      * @author Syam Mohan <syam@wpfront.com>
      * @copyright 2014 WPFront.com
      */
-    class WPFront_User_Role_Editor_List {
+    class WPFront_User_Role_Editor_List extends WPFront_User_Role_Editor_Controller_Base {
 
         const MENU_SLUG = 'wpfront-user-role-editor-all-roles';
 
-        private $main;
         private $role_data = NULL;
+        private $custom_columns = NULL;
 
         function __construct($main) {
-            $this->main = $main;
+            parent::__construct($main);
         }
 
-        public function list_roles() {
-            if (!$this->can_list())
-                $this->main->permission_denied();
-
+        private function get_mode() {
             if (!empty($_GET['edit_role'])) {
-                $obj = new WPFront_User_Role_Editor_Add_Edit($this->main);
-                $obj->add_edit_role(trim($_GET['edit_role']));
-                return;
+                return array('EDIT', trim($_GET['edit_role']));
             }
 
             if (!empty($_GET['delete_role'])) {
-                $obj = new WPFront_User_Role_Editor_Delete($this->main);
-                $obj->delete_role(array(trim($_GET['delete_role'])));
-                return;
+                return array('DELETE', array(trim($_GET['delete_role'])));
             }
 
             if (!empty($_GET['set_default_role'])) {
-                $this->set_default_role($_GET['set_default_role']);
-                printf('<script type="text/javascript">window.location.replace("%s");</script>', $this->list_url());
-                return;
-            }
-
-            $obj = new WPFront_User_Role_Editor_Delete($this->main);
-            if ($obj->is_pending_action()) {
-                return;
+                return array('DEFAULT_ROLE', $_GET['set_default_role']);
             }
 
             $action = '';
@@ -78,53 +64,39 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
 
             if ($action == 'delete') {
                 if (!empty($_POST['selected-roles'])) {
-                    $obj = new WPFront_User_Role_Editor_Delete($this->main);
-                    $obj->delete_role(array_keys($_POST['selected-roles']));
-                    return;
+                    return array('DELETE', array_keys($_POST['selected-roles']));
                 }
             }
 
+            return array('LIST');
+        }
+
+        public function list_roles() {
+            if (!$this->can_list())
+                $this->main->permission_denied();
+
+            $mode = $this->get_mode();
+            switch ($mode[0]) {
+                case 'EDIT':
+                    $obj = new WPFront_User_Role_Editor_Add_Edit($this->main);
+                    $obj->add_edit_role($mode[1]);
+                    return;
+                case 'DELETE':
+                    $obj = new WPFront_User_Role_Editor_Delete($this->main);
+                    $obj->delete_role($mode[1]);
+                    return;
+                case 'DEFAULT_ROLE':
+                    $this->set_default_role($mode[1]);
+                    printf('<script type="text/javascript">window.location.replace("%s");</script>', $this->list_url());
+                    return;
+            }
+
+            $obj = new WPFront_User_Role_Editor_Delete($this->main);
+            if ($obj->is_pending_action()) {
+                return;
+            }
+
             include($this->main->pluginDIR() . 'templates/list-roles.php');
-        }
-
-        private function __($s) {
-            return $this->main->__($s);
-        }
-
-        private function can_list() {
-            return $this->main->current_user_can('list_roles');
-        }
-
-        private function can_create() {
-            return $this->main->current_user_can('create_roles');
-        }
-
-        private function can_edit() {
-            return $this->main->current_user_can('edit_roles');
-        }
-
-        private function can_delete() {
-            return $this->main->current_user_can('delete_roles');
-        }
-
-        private function list_url() {
-            return admin_url('admin.php') . '?page=' . self::MENU_SLUG;
-        }
-
-        private function add_new_url() {
-            return admin_url('admin.php') . '?page=' . WPFront_User_Role_Editor_Add_Edit::MENU_SLUG;
-        }
-
-        private function edit_url() {
-            return admin_url('admin.php') . '?page=' . WPFront_User_Role_Editor_List::MENU_SLUG . '&edit_role=';
-        }
-
-        private function delete_url() {
-            return admin_url('admin.php') . '?page=' . WPFront_User_Role_Editor_List::MENU_SLUG . '&delete_role=';
-        }
-
-        private function set_default_url() {
-            return admin_url('admin.php') . '?page=' . WPFront_User_Role_Editor_List::MENU_SLUG . '&nonce=' . wp_create_nonce($this->list_url()) . '&set_default_role=';
         }
 
         private function set_default_role($default_role) {
@@ -152,6 +124,8 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
             asort($roles, SORT_STRING);
 
             $editable_roles = get_editable_roles();
+            if ($this->main->override_edit_permissions())
+                $editable_roles = $wp_roles->get_names();
 
             $user_default = get_option('default_role');
 
@@ -232,13 +206,15 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
         }
 
         private function table_header() {
+            if ($this->custom_columns === NULL)
+                $this->custom_columns = apply_filters('manage_roles_columns', array());
             ?>
             <tr>
                 <th scope="col" id="cb" class="manage-column column-cb check-column">
                     <label class="screen-reader-text" for="cb-select-all-1"><?php echo $this->__('Select All'); ?></label>
                     <input id="cb-select-all-1" type="checkbox" />
                 </th>
-                <th scope="col" id="rolename" class="manage-column column-rolename">
+                <th scope="col" id="displayname" class="manage-column column-displayname">
                     <a><span><?php echo $this->__('Display Name'); ?></span></a>
                 </th>
                 <th scope="col" id="rolename" class="manage-column column-rolename">
@@ -256,6 +232,13 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
                 <th scope="col" id="capscount" class="manage-column column-capscount num">
                     <a><span><?php echo $this->__('Capabilities'); ?></span></a>
                 </th>
+                <?php
+                foreach ($this->custom_columns as $key => $value) {
+                    echo "<th scope='col' id='$key' class='manage-column column-$key num'>"
+                    . "<a><span>$value</span></a>"
+                    . "</th>";
+                }
+                ?>
             </tr>
             <?php
         }
@@ -283,7 +266,7 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
             if (empty($_POST['s']))
                 return '';
 
-            return $_POST['s'];
+            return esc_html($_POST['s']);
         }
 
         private function get_list_filters() {
@@ -358,12 +341,171 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
             return $list;
         }
 
-        private function footer() {
-            $this->main->footer();
+        protected function add_help_tab() {
+            $mode = $this->get_mode();
+            switch ($mode[0]) {
+                case 'EDIT':
+                    return array(
+                        array(
+                            'id' => 'overview',
+                            'title' => $this->__('Overview'),
+                            'content' => '<p>'
+                            . $this->__('This screen allows you to edit a role within your site.')
+                            . '</p>'
+                            . '<p>'
+                            . $this->__('You can copy capabilities from existing roles using the Copy from drop down list. Select the role you want to copy from, then click Apply to copy the capabilities. You can select or deselect capabilities even after you copy.')
+                            . '</p>'
+                        ),
+                        array(
+                            'id' => 'displayname',
+                            'title' => $this->__('Display Name'),
+                            'content' => '<p>'
+                            . $this->__('Use the Display Name field to edit display name of the role. WordPress uses display name to display this role within your site. This field is required.')
+                            . '</p>'
+                        ),
+                        array(
+                            'id' => 'rolename',
+                            'title' => $this->__('Role Name'),
+                            'content' => '<p>'
+                            . $this->__('Role Name is read only. WordPress uses role name to identify this role within your site.')
+                            . '</p>'
+                        ),
+                        array(
+                            'id' => 'capabilities',
+                            'title' => $this->__('Capabilities'),
+                            'content' => '<p>'
+                            . $this->__('Capabilities are displayed as different groups for easy access. The Roles section displays capabilities created by this plugin. The Other Capabilities section displays non-standard capabilities within your site. These are usually created by plugins and themes. Use the check boxes to select the capabilities required.')
+                            . '</p>'
+                        )
+                    );
+                case 'DELETE':
+                    return array(
+                        array(
+                            'id' => 'overview',
+                            'title' => $this->__('Overview'),
+                            'content' => '<p>'
+                            . $this->__('This screen allows you to delete roles from your WordPress site.')
+                            . '</p>'
+                            . '<p>'
+                            . $this->__('Use the Roles List screen to select the roles you want to delete. You can delete individual roles using the Delete row action link or delete multiple roles at the same time using the bulk action.')
+                            . '</p>'
+                            . '<p>'
+                            . $this->__('You cannot delete administrator role, current user’s role and roles you do not have permission to.')
+                            . '</p>'
+                        )
+                    );
+            }
+
+            return array(
+                array(
+                    'id' => 'overview',
+                    'title' => $this->__('Overview'),
+                    'content' => '<p>'
+                    . $this->__('This screen lists all the existing roles within your site.')
+                    . '</p>'
+                    . '<p>'
+                    . $this->__('To add a new role, click the Add New button at the top of the screen or Add New in the Roles menu section.')
+                    . '</p>'
+                ),
+                array(
+                    'id' => 'columns',
+                    'title' => $this->__('Columns'),
+                    'content' => '<p><strong>'
+                    . $this->__('Display Name')
+                    . '</strong>: '
+                    . $this->__('Used to display this role within this site.')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('Role Name')
+                    . '</strong>: '
+                    . $this->__('Is used by WordPress to identify this role.')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('Type')
+                    . '</strong>: '
+                    . $this->__('Says whether the role is a WordPress built-in role or not. There are five built-in roles.')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('User Default')
+                    . '</strong>: '
+                    . $this->__('Displays whether a role is the default role of a new user.')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('Users')
+                    . '</strong>: '
+                    . $this->__('Number of users in that role.')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('Capabilities')
+                    . '</strong>: '
+                    . $this->__('Number of capabilities that role have.')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('Menu Edited')
+                    . '</strong>: '
+                    . $this->__('Displays whether the menu has been edited for this role. This is a pro feature.')
+                    . '</p>'
+                ),
+                array(
+                    'id' => 'actions',
+                    'title' => $this->__('Actions'),
+                    'content' => '<p>'
+                    . $this->__('Hovering over a row in the roles list will display action links that allow you to manage roles. You can perform the following actions:')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('View')
+                    . '</strong>: '
+                    . $this->__('Display details about the role. You can see the capabilities assigned for that role. View link will only appear when you do not have permission to edit that role.')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('Edit')
+                    . '</strong>: '
+                    . $this->__('Allows you to edit that role. You can see the capabilities assigned for that role and also edit them. Edit link will only appear when you have permission to edit that role.')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('Delete')
+                    . '</strong>: '
+                    . $this->__('Allows you to delete that role. Delete action will not appear if you do not have permission to delete that role.')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('Default')
+                    . '</strong>: '
+                    . $this->__('Allows you to set that role as the default role for new user registration.')
+                    . '</p>'
+                    . '<p><strong>'
+                    . $this->__('Edit Menu')
+                    . '</strong>: '
+                    . $this->__('Takes you to the menu editor screen for that role. You need "edit_role_menus" capability for this link to appear. This is a pro feature.')
+                    . '</p>'
+                )
+            );
         }
 
-        private function image_url() {
-            return $this->main->pluginURL() . 'images/';
+        protected function set_help_sidebar() {
+            $mode = $this->get_mode();
+            switch ($mode[0]) {
+                case 'EDIT':
+                    return array(
+                        array(
+                            $this->__('Documentation on Edit Role'),
+                            'edit-role/'
+                        )
+                    );
+                case 'DELETE':
+                    return array(
+                        array(
+                            $this->__('Documentation on Delete Roles'),
+                            'delete-role/'
+                        )
+                    );
+            }
+
+            return array(
+                array(
+                    $this->__('Documentation on Roles'),
+                    'list-roles/'
+                )
+            );
         }
 
     }

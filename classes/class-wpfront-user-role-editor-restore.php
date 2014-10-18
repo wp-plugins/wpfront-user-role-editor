@@ -31,23 +31,17 @@ if (!class_exists('WPFront_User_Role_Editor_Restore')) {
      * @author Syam Mohan <syam@wpfront.com>
      * @copyright 2014 WPFront.com
      */
-    class WPFront_User_Role_Editor_Restore {
+    class WPFront_User_Role_Editor_Restore extends WPFront_User_Role_Editor_Controller_Base {
 
         const MENU_SLUG = 'wpfront-user-role-editor-restore';
 
-        private $main;
-        private $roles;
+        static protected $restore_action = NULL;
+        protected $roles;
 
         function __construct($main) {
-            $this->main = $main;
-        }
+            parent::__construct($main);
 
-        public function ajax_register() {
-            add_action('wp_ajax_wpfront_user_role_editor_restore_role', array($this, 'restore_role_callback'));
-        }
-
-        private function can_edit() {
-            return $this->main->current_user_can('edit_roles');
+            $this->ajax_register('wp_ajax_wpfront_user_role_editor_restore_role', array($this, 'restore_role_callback'));
         }
 
         public function restore_role() {
@@ -56,21 +50,42 @@ if (!class_exists('WPFront_User_Role_Editor_Restore')) {
                 return;
             }
 
+            $this->prepare_data(FALSE);
+            $this->include_template();
+        }
+
+        protected function prepare_data($usename) {
             global $wp_roles;
             $site_roles = $wp_roles->role_names;
 
             foreach (WPFront_User_Role_Editor::$DEFAULT_ROLES as $value) {
                 $text = $this->__(ucfirst($value));
-                if (array_key_exists($value, $site_roles))
+                if (!$usename && array_key_exists($value, $site_roles))
                     $text = $site_roles[$value];
 
                 $this->roles[$value] = $text;
             }
+        }
 
+        protected function include_template() {
             include($this->main->pluginDIR() . 'templates/restore-role.php');
         }
 
         public function restore_role_callback() {
+            if (self::$restore_action !== NULL) {
+                call_user_func(self::$restore_action);
+                die();
+            }
+
+            check_ajax_referer($_POST['referer'], 'nonce');
+
+            $result = $this->action_restore();
+
+            echo sprintf('{ "result": %s, "message": "%s" }', $result[0] ? 'true' : 'false', $this->__('ERROR') . ': ' . $this->__($result[1]));
+            die();
+        }
+
+        protected function action_restore() {
             $result = FALSE;
             $message = 'Unexpected error while restoring role.';
 
@@ -117,6 +132,15 @@ if (!class_exists('WPFront_User_Role_Editor_Restore')) {
                                     $role->remove_cap($cap);
                                 }
                             }
+                        } else {
+                            if ($role->name == 'administrator') {
+                                $this->main->get_capabilities();
+                                foreach (WPFront_User_Role_Editor::$OTHER_CAPABILITIES as $group => $caps) {
+                                    foreach ($caps as $cap) {
+                                        $role->add_cap($cap);
+                                    }
+                                }
+                            }
                         }
 
                         if ($role->name == 'administrator' && $this->main->enable_role_capabilities()) {
@@ -124,23 +148,38 @@ if (!class_exists('WPFront_User_Role_Editor_Restore')) {
                                 $role->add_cap($value);
                             }
                         }
-                        
+
                         $result = TRUE;
                         $message = '';
                     }
                 }
             }
 
-            echo sprintf('{ "result": %s, "message": "%s" }', $result ? 'true' : 'false', $this->__('ERROR') . ': ' . $this->__($message));
-            die();
+            return array($result, $message);
         }
 
-        private function __($s) {
-            return $this->main->__($s);
+        protected function add_help_tab() {
+            return array(
+                array(
+                    'id' => 'overview',
+                    'title' => $this->__('Overview'),
+                    'content' => '<p>'
+                    . $this->__('This screen allow you to restore WordPress built-in roles to its standard capability settings.')
+                    . '</p>'
+                    . '<p>'
+                    . $this->__('To restore a role, click the Restore button then Confirm.')
+                    . '</p>'
+                )
+            );
         }
 
-        private function image_url() {
-            return $this->main->pluginURL() . 'images/';
+        protected function set_help_sidebar() {
+            return array(
+                array(
+                    $this->__('Documentation on Restore'),
+                    'restore-role/'
+                )
+            );
         }
 
     }

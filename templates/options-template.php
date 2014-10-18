@@ -29,39 +29,67 @@
  */
 ?>
 
-<?php @$this->options_page_header($this->__('WPFront User Role Editor Settings'), WPFront_User_Role_Editor::OPTIONS_GROUP_NAME); ?>
+<?php @$this->main->options_page_header($this->__('WPFront User Role Editor Settings')); ?>
 
 <table class="form-table">
+    <?php
+    if ($this->multisite && wp_is_large_network()) {
+        ?>
+        <tr>
+            <th scope="row">
+                <?php echo $this->__('Enable Large Network Functionalities'); ?>
+            </th>
+            <td>
+                <input type="checkbox" name="enable_large_network_functionalities" <?php echo $this->ms_enable_large_network_functionalities() ? 'checked' : ''; ?> />
+            </td>
+        </tr>
+    <?php } ?>
     <tr>
         <th scope="row">
-            <?php echo $this->options->display_deprecated_label(); ?>
+            <?php echo $this->__('Display Deprecated Capabilities'); ?>
         </th>
         <td>
-            <input type="checkbox" name="<?php echo $this->options->display_deprecated_name(); ?>" <?php echo $this->options->display_deprecated() ? 'checked' : ''; ?> />
+            <input type="checkbox" name="display_deprecated" <?php echo $this->display_deprecated() ? 'checked' : ''; ?> />
         </td>
     </tr>
     <tr>
         <th scope="row">
-            <?php echo $this->options->enable_role_capabilities_label(); ?>
+            <?php echo $this->__('Remove Non-Standard Capabilities on Restore'); ?>
         </th>
         <td>
-            <input type="checkbox" name="<?php echo $this->options->enable_role_capabilities_name(); ?>" <?php echo $this->options->enable_role_capabilities() ? 'checked' : ''; ?> />
+            <input type="checkbox" name="remove_nonstandard_capabilities_restore" <?php echo $this->remove_nonstandard_capabilities_restore() ? 'checked' : ''; ?> />
         </td>
     </tr>
     <tr>
         <th scope="row">
-            <?php echo $this->options->remove_nonstandard_capabilities_restore_label(); ?>
+            <?php echo $this->__('Override Edit Permissions'); ?>
         </th>
         <td>
-            <input type="checkbox" name="<?php echo $this->options->remove_nonstandard_capabilities_restore_name(); ?>" <?php echo $this->options->remove_nonstandard_capabilities_restore() ? 'checked' : ''; ?> />
+            <input type="checkbox" name="override_edit_permissions" <?php echo $this->override_edit_permissions() ? 'checked' : ''; ?> />
         </td>
     </tr>
+    <?php if ($this->main->enable_multisite_only_options($this->multisite)) { ?>
+        <tr>
+            <th scope="row">
+                <?php echo $this->__('Remove Data on Uninstall'); ?>
+            </th>
+            <td>
+                <input type="checkbox" name="remove_data_on_uninstall" <?php echo $this->remove_data_on_uninstall() ? 'checked' : ''; ?> />
+            </td>
+        </tr>
+    <?php } ?>
 </table>
 
 <input type="hidden" name="nonce" value="<?php echo wp_create_nonce($_SERVER['REQUEST_URI']); ?>" />
 <input type="hidden" name="referer" value="<?php echo $_SERVER['REQUEST_URI']; ?>" />
 
-<?php @$this->options_page_footer('user-role-editor-plugin-settings/', 'user-role-editor-plugin-faq/'); ?>
+<?php if ($this->multisite) {
+    ?>
+    <input type="hidden" name="multisite" value="true" />
+<?php }
+?>
+
+<?php @$this->main->options_page_footer('user-role-editor-plugin-settings/', 'user-role-editor-plugin-faq/'); ?>
 
 <script type="text/javascript">
     (function($) {
@@ -73,9 +101,7 @@
             fields.each(function(i, e) {
                 var ele = $(e);
                 if (ele.attr("type") == "checkbox") {
-                    if (ele.prop("checked")) {
-                        data[ele.attr("name")] = "on";
-                    }
+                    data[ele.attr("name")] = ele.prop("checked");
                 }
                 else
                     data[ele.attr("name")] = ele.val();

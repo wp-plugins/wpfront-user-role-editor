@@ -100,8 +100,12 @@
                                 if ($this->can_delete() && $value['is_deletable']) {
                                     $links[] = sprintf('<span class="delete"><a href="%s">%s</a></span>', $value['delete_url'], $this->__('Delete'));
                                 }
-                                if(!empty($value['set_default_url'])) {
+                                if (!empty($value['set_default_url'])) {
                                     $links[] = sprintf('<span class="set-default"><a href="%s">%s</a></span>', $value['set_default_url'], $this->__('Default'));
+                                }
+                                $custom_links = apply_filters('role_row_actions', array(), get_role($key));
+                                foreach ($custom_links as $link_key => $link_value) {
+                                    $links[] = "<span class='$link_key'>$link_value</span>";
                                 }
                                 echo implode('|', $links);
                                 ?>
@@ -126,6 +130,13 @@
                         <td class="capscount column-capscount num">
                             <?php echo $value['caps_count']; ?>
                         </td>
+                        <?php
+                        foreach ($this->custom_columns as $column_key => $column_value) {
+                            echo "<td class='$column_key column-$column_key num'>"
+                            . apply_filters('manage_roles_custom_column', $column_value, $column_key, $key)
+                            . "</td>";
+                        }
+                        ?>
                     </tr>
                     <?php
                     $index++;

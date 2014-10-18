@@ -31,22 +31,20 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
      * @author Syam Mohan <syam@wpfront.com>
      * @copyright 2014 WPFront.com
      */
-    class WPFront_User_Role_Editor_Add_Edit {
+    class WPFront_User_Role_Editor_Add_Edit extends WPFront_User_Role_Editor_Controller_Base {
 
         const MENU_SLUG = 'wpfront-user-role-editor-add-new';
 
-        private $main;
-        private $role = null;
-        private $is_editable = FALSE;
-        private $role_exists = FALSE;
-        private $error = FALSE;
+        protected static $copy_capabilities_action = NULL;
+        protected $role = null;
+        protected $is_editable = FALSE;
+        protected $role_exists = FALSE;
+        protected $error = FALSE;
 
         function __construct($main) {
-            $this->main = $main;
-        }
+            parent::__construct($main);
 
-        public function ajax_register() {
-            add_action('wp_ajax_wpfront_user_role_editor_copy_capabilities', array($this, 'copy_capabilities_callback'));
+            $this->ajax_register('wp_ajax_wpfront_user_role_editor_copy_capabilities', array($this, 'copy_capabilities_callback'));
         }
 
         public function add_edit_role($role_name) {
@@ -72,12 +70,20 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             if ($this->role == NULL) {
                 $this->is_editable = TRUE;
             } else if ($role_name != 'administrator') {
-                $this->is_editable = array_key_exists($role_name, get_editable_roles());
+                $editable_roles = get_editable_roles();
+                if ($this->main->override_edit_permissions())
+                    $editable_roles = $wp_roles->get_names();
+                $this->is_editable = array_key_exists($role_name, $editable_roles);
             }
 
             $success = FALSE;
             if (!empty($_POST['createrole'])) {
                 while (TRUE) {
+                    $this->main->verify_nonce();
+
+                    if (!$this->is_editable)
+                        break;
+
                     if (!$this->is_display_name_valid())
                         break;
                     if ($this->role == NULL && !$this->is_role_name_valid())
@@ -102,14 +108,16 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
                             break;
                         }
                     } else {
-                        global $wp_roles;
-                        $wp_roles->roles[$this->role->name] = array(
-                            'name' => $this->get_display_name(),
-                            'capabilities' => $capabilities
-                        );
-                        update_option($wp_roles->role_key, $wp_roles->roles);
-                        $wp_roles->role_objects[$this->role->name] = new WP_Role($this->role->name, $capabilities);
-                        $wp_roles->role_names[$this->role->name] = $this->get_display_name();
+//                        global $wp_roles;
+//                        $wp_roles->roles[$this->role->name] = array(
+//                            'name' => $this->get_display_name(),
+//                            'capabilities' => $capabilities
+//                        );
+//                        update_option($wp_roles->role_key, $wp_roles->roles);
+//                        $wp_roles->role_objects[$this->role->name] = new WP_Role($this->role->name, $capabilities);
+//                        $wp_roles->role_names[$this->role->name] = $this->get_display_name();
+
+                        self::update_role($this->role->name, $this->get_display_name(), $capabilities);
                     }
 
                     $success = TRUE;
@@ -118,33 +126,17 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             }
 
             if ($success) {
-                printf('<script type="text/javascript">window.location.replace("%s");</script>', $this->list_roles_url());
+                printf('<script type="text/javascript">window.location.replace("%s");</script>', $this->list_url());
             } else {
-                include($this->main->pluginDIR() . 'templates/add-edit-role.php');
+                $this->include_template();
             }
         }
 
-        private function can_create() {
-            return $this->main->current_user_can('create_roles');
+        protected function include_template() {
+            include($this->main->pluginDIR() . 'templates/add-edit-role.php');
         }
 
-        private function can_edit() {
-            return $this->main->current_user_can('edit_roles');
-        }
-
-        private function __($s) {
-            return $this->main->__($s);
-        }
-
-        private function add_new_url() {
-            return admin_url('admin.php') . '?page=' . self::MENU_SLUG;
-        }
-
-        private function list_roles_url() {
-            return admin_url('admin.php') . '?page=' . WPFront_User_Role_Editor_List::MENU_SLUG;
-        }
-
-        private function is_display_name_valid() {
+        protected function is_display_name_valid() {
             if (empty($_POST['createrole']))
                 return TRUE;
 
@@ -154,16 +146,16 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             return TRUE;
         }
 
-        private function is_display_name_disabled() {
+        protected function is_display_name_disabled() {
             return !$this->is_editable;
         }
 
-        private function get_display_name() {
+        protected function get_display_name() {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (empty($_POST['display_name']))
                     return '';
 
-                return trim($_POST['display_name']);
+                return esc_html(trim($_POST['display_name']));
             }
 
             if ($this->role == NULL)
@@ -172,7 +164,7 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             return $wp_roles->role_names[$this->role->name];
         }
 
-        private function is_role_name_valid() {
+        protected function is_role_name_valid() {
             if (empty($_POST['createrole']))
                 return TRUE;
 
@@ -182,7 +174,7 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             return TRUE;
         }
 
-        private function is_role_name_disabled() {
+        protected function is_role_name_disabled() {
             if ($this->role != NULL)
                 return TRUE;
             if (!$this->is_editable)
@@ -190,7 +182,7 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             return FALSE;
         }
 
-        private function get_role_name() {
+        protected function get_role_name() {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (empty($_POST['role_name']))
                     return '';
@@ -203,13 +195,13 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             return $this->role->name;
         }
 
-        private function is_submit_disabled() {
+        protected function is_submit_disabled() {
             if (!$this->is_editable)
                 return TRUE;
             return FALSE;
         }
 
-        private function get_capability_groups() {
+        protected function get_capability_groups() {
             $caps_group = array();
 
             foreach ($this->main->get_capabilities() as $key => $value) {
@@ -230,7 +222,7 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             return $caps_group;
         }
 
-        private function get_copy_from() {
+        protected function get_copy_from() {
             if (!$this->is_editable)
                 return array();
 
@@ -240,15 +232,22 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             return $roles;
         }
 
-        private function is_role_exists() {
+        protected function is_role_exists() {
             return $this->role_exists;
         }
 
-        private function is_error() {
+        protected function is_error() {
             return $this->error;
         }
 
         public function copy_capabilities_callback() {
+            if (self::$copy_capabilities_action !== NULL) {
+                call_user_func(self::$copy_capabilities_action);
+                die();
+            }
+
+            check_ajax_referer($_POST['referer'], 'nonce');
+
             if (empty($_POST['role'])) {
                 echo '{}';
                 die();
@@ -266,7 +265,7 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             die();
         }
 
-        private function capability_checked($cap) {
+        protected function capability_checked($cap) {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (empty($_POST['capabilities']))
                     return FALSE;
@@ -282,16 +281,64 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
             return FALSE;
         }
 
-        private function footer() {
-            $this->main->footer();
-        }
-
-        private function image_url() {
-            return $this->main->pluginURL() . 'images/';
-        }
-
-        private function get_help_url($cap) {
+        protected function get_help_url($cap) {
             return 'http://wpfront.com/wordpress-capabilities/#' . $cap;
+        }
+
+        public static function update_role($name, $display_name, $capabilities) {
+            global $wp_roles;
+            $wp_roles->roles[$name] = array(
+                'name' => $display_name,
+                'capabilities' => $capabilities
+            );
+            update_option($wp_roles->role_key, $wp_roles->roles);
+            $wp_roles->role_objects[$name] = new WP_Role($name, $capabilities);
+            $wp_roles->role_names[$name] = $display_name;
+        }
+
+        protected function add_help_tab() {
+            return array(
+                array(
+                    'id' => 'overview',
+                    'title' => $this->__('Overview'),
+                    'content' => '<p>'
+                    . $this->__('This screen allows you to add a new role within your site.')
+                    . '</p>'
+                    . '<p>'
+                    . $this->__('You can copy capabilities from existing roles using the Copy from drop down list. Select the role you want to copy from, then click Apply to copy the capabilities. You can select or deselect capabilities even after you copy.')
+                    . '</p>'
+                ),
+                array(
+                    'id' => 'displayname',
+                    'title' => $this->__('Display Name'),
+                    'content' => '<p>'
+                    . $this->__('Use the Display Name field to set the display name for the new role. WordPress uses display name to display this role within your site. This field is required.')
+                    . '</p>'
+                ),
+                array(
+                    'id' => 'rolename',
+                    'title' => $this->__('Role Name'),
+                    'content' => '<p>'
+                    . $this->__('Use the Role Name field to set the role name for the new role. WordPress uses role name to identify this role within your site. Once set role name cannot be changed. This field is required. This plugin will auto populate role name from the display name you have given, but you can change it.')
+                    . '</p>'
+                ),
+                array(
+                    'id' => 'capabilities',
+                    'title' => $this->__('Capabilities'),
+                    'content' => '<p>'
+                    . $this->__('Capabilities are displayed as different groups for easy access. The Roles section displays capabilities created by this plugin. The Other Capabilities section displays non-standard capabilities within your site. These are usually created by plugins and themes. Use the check boxes to select the capabilities required for this new role.')
+                    . '</p>'
+                )
+            );
+        }
+
+        protected function set_help_sidebar() {
+            return array(
+                array(
+                    $this->__('Documentation on Add New Role'),
+                    'add-role/'
+                )
+            );
         }
 
     }

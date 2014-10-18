@@ -30,12 +30,11 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
      * @author Syam Mohan <syam@wpfront.com>
      * @copyright 2014 WPFront.com
      */
-    class WPFront_User_Role_Editor_Assign_Roles {
+    class WPFront_User_Role_Editor_Assign_Roles extends WPFront_User_Role_Editor_Controller_Base {
 
         const MENU_SLUG = 'wpfront-user-role-editor-assign-roles';
         const SECONDARY_ROLE_COLUMN_KEY = 'secondary_roles';
 
-        private $main;
         private $user = NULL;
         private $userPrimaryRole = '';
         private $userSecondaryRoles = array();
@@ -48,10 +47,10 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
         private $result = NULL;
 
         function __construct($main) {
-            $this->main = $main;
+            parent::__construct($main);
 
-            add_filter('manage_users_columns', array($this, 'manage_users_columns'));
-            add_action('manage_users_custom_column', array($this, 'manage_users_columns_content'), 10, 3);
+            add_filter('manage_users_columns', array($this, 'manage_users_columns'), 10, 1);
+            add_filter('manage_users_custom_column', array($this, 'manage_users_columns_content'), 10, 3);
 
             add_filter('user_row_actions', array($this, 'user_row_actions'), 10, 2);
         }
@@ -76,10 +75,6 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
             return $actions;
         }
 
-        private function can_assign_roles() {
-            return current_user_can('promote_users') && current_user_can('list_users');
-        }
-
         private function get_assign_role_url($user_object = NULL) {
             if ($user_object == NULL)
                 return admin_url('users.php') . '?page=' . self::MENU_SLUG . '&assign_roles=';
@@ -101,10 +96,6 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
             return implode(', ', $names);
         }
 
-        private function __($s) {
-            return $this->main->__($s);
-        }
-
         public function assign_roles() {
             if (!$this->can_assign_roles()) {
                 $this->main->permission_denied();
@@ -113,18 +104,16 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
 
             $this->users = get_users(array('exclude' => array(wp_get_current_user()->ID)));
 
-            $roles = get_editable_roles();
+            global $wp_roles;
+            $roles = $wp_roles->get_names();
 
-            $this->primary_roles = array();
-            foreach ($roles as $key => $value) {
-                $this->primary_roles[$key] = $value['name'];
-            }
+            $this->primary_roles = $roles;
             $this->primary_roles[''] = '&mdash;' . $this->__('No role for this site') . '&mdash;';
 
             $this->secondary_roles = array();
             foreach ($roles as $key => $value) {
                 if ($key != 'administrator')
-                    $this->secondary_roles[$key] = $value['name'];
+                    $this->secondary_roles[$key] = $value;
             }
 
             if (!empty($_POST['assignroles']) && !empty($_POST['assign-user'])) {
@@ -269,7 +258,6 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
                             ?>
                             <option value="<?php echo $key; ?>" <?php echo $selectPrimaryRole === $key ? 'selected' : ''; ?>>
                                 <?php echo $role; ?>
-
                             </option>
                             <?php
                         }
@@ -299,6 +287,44 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
                 </td>
             </tr>
             <?php
+        }
+        
+        protected function add_help_tab() {
+            return array(
+                array(
+                    'id' => 'overview',
+                    'title' => $this->__('Overview'),
+                    'content' => '<p>'
+                    . $this->__('This screen allows you to assign multiple roles to a user and also allows you to migrate users from a role to another role.')
+                    . '</p>'
+                ),
+                array(
+                    'id' => 'assignroles',
+                    'title' => $this->__('Assign Roles'),
+                    'content' => '<p>'
+                    . $this->__('To assign multiple roles to a user, select that user within the User drop down list and select the primary role you want for that user using the Primary Role drop down list. Select the secondary roles using the check boxes below, then click Assign Roles.')
+                    . '</p>'
+                ),
+                array(
+                    'id' => 'migrateusers',
+                    'title' => $this->__('Migrate Users'),
+                    'content' => '<p>'
+                    . $this->__('To migrate users from one role to another role or to add secondary roles to users belonging to a particular primary role, use the migrate users functionality.')
+                    . '</p>'
+                    . '<p>'
+                    . $this->__('Select the users using the From Primary Role drop down, to primary role using the Primary Role drop down and secondary roles using the check boxes then click Migrate Users.')
+                    . '</p>'
+                )
+            );
+        }
+
+        protected function set_help_sidebar() {
+            return array(
+                array(
+                    $this->__('Documentation on Assign / Migrate Users'),
+                    'assign-migrate-users/'
+                )
+            );
         }
 
     }

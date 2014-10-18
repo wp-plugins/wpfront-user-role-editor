@@ -70,7 +70,7 @@
                                     $select = TRUE;
                                 ?>
                                 <option <?php echo $select ? 'selected' : ''; ?> value="<?php echo $user->ID; ?>">
-                                    <?php echo $user->display_name; ?>
+                                    <?php echo $user->display_name . ' [' . $user->user_login . ']' ; ?>
                                 </option>
                                 <?php
                             }
@@ -85,7 +85,7 @@
         </table>
 
         <p class="submit">
-            <input type="submit" name="assignroles" id="assignroles" class="button button-primary" value="Assign Roles" />
+            <input type="submit" name="assignroles" id="assignroles" class="button button-primary" value="<?php echo $this->__('Assign Roles'); ?>" />
         </p>
     </form>
 
@@ -123,7 +123,7 @@
         </table>
 
         <p class="submit">
-            <input type="submit" name="migrateroles" id="migrateroles" class="button button-primary" value="Migrate Users" />
+            <input type="submit" name="migrateroles" id="migrateroles" class="button button-primary" value="<?php echo $this->__('Migrate Users'); ?>" />
         </p>
     </form>
 

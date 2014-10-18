@@ -22,10 +22,10 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-require_once("class-wpfront-static.php");
-require_once("class-wpfront-base-menu.php");
+require_once(plugin_dir_path(__FILE__) . "class-wpfront-static.php");
+require_once(plugin_dir_path(__FILE__) . "class-wpfront-base-menu.php");
 
-if (!class_exists('WPFront_Base')) {
+if (!class_exists('WPFront_Base_URE')) {
 
     /**
      * Plugin framework base class
@@ -33,7 +33,7 @@ if (!class_exists('WPFront_Base')) {
      * @author Syam Mohan <syam@wpfront.com>
      * @copyright 2013 WPFront.com
      */
-    class WPFront_Base {
+    class WPFront_Base_URE {
 
         private $plugin_slug;
         private $options_page_slug;
@@ -47,8 +47,8 @@ if (!class_exists('WPFront_Base')) {
             if ($wpfrontBaseMenu == NULL)
                 $wpfrontBaseMenu = new WPFront_Base_Menu($this);
 
-            $this->pluginURLRoot = plugins_url() . '/' . $this->plugin_slug . '/';
             $this->pluginDIRRoot = dirname($file) . '/../';
+            $this->pluginURLRoot = plugins_url() . '/' . $this->plugin_slug . $this->plugin_dir_suffix() . '/';
 
             add_action('init', array(&$this, 'init'));
             add_action('plugins_loaded', array(&$this, 'plugins_loaded_base'));
@@ -62,6 +62,10 @@ if (!class_exists('WPFront_Base')) {
                 add_action('wp_enqueue_scripts', array(&$this, 'enqueue_styles'));
                 add_action('wp_enqueue_scripts', array(&$this, 'enqueue_scripts'));
             }
+        }
+        
+        protected function plugin_dir_suffix() {
+            return '';
         }
 
         protected function add_menu($title, $link) {
@@ -101,11 +105,15 @@ if (!class_exists('WPFront_Base')) {
         }
 
         public function action_links($links, $file) {
-            if ($file == $this->plugin_slug . '/' . $this->plugin_slug . '.php') {
+            if ($file == $this->plugin_action_links_file()) {
                 $settings_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . $this->options_page_slug . '">' . $this->__('Settings') . '</a>';
                 array_unshift($links, $settings_link);
             }
             return $links;
+        }
+        
+        protected function plugin_action_links_file() {
+            return $this->plugin_slug . $this->plugin_dir_suffix() . '/' . $this->plugin_slug . '.php';
         }
 
         public function enqueue_styles() {
@@ -136,7 +144,7 @@ if (!class_exists('WPFront_Base')) {
 
         protected function options_page_header($title, $optionsGroupName) {
             echo '<div class="wrap">';
-            @screen_icon($this->options_page_slug);
+            //@screen_icon($this->options_page_slug);
             echo '<h2>' . $title . '</h2>';
             echo '<div id="' . $this->options_page_slug . '-options" class="inside">';
             echo '<form method="post" action="options.php">';
@@ -157,28 +165,28 @@ if (!class_exists('WPFront_Base')) {
         protected function options_page_footer($settingsLink, $FAQLink, $extraLinks = NULL) {
             @$this->submit_button();
 
-            if ($extraLinks != NULL) {
-                foreach ($extraLinks as $value) {
-                    echo '<a href="' . $value['href'] . '" target="' . $value['target'] . '">' . $value['text'] . '</a>';
-                    echo ' | ';
-                }
-            }
-
-            echo '
-                <a href="http://wpfront.com/' . $settingsLink . '" target="_blank">' . $this->__('Settings Description') . '</a>
-                |
-                <a href="http://wpfront.com/' . $FAQLink . '" target="_blank">' . $this->__('Plugin FAQ') . '</a>
-                |
-                <a href="http://wpfront.com/contact/" target="_blank">' . $this->__('Feature Request') . '</a>
-                |
-                <a href="http://wpfront.com/contact/" target="_blank">' . $this->__('Report Bug') . '</a>
-                |
-                <a href="http://wordpress.org/support/view/plugin-reviews/' . $this->plugin_slug . '" target="_blank">' . $this->__('Write Review') . '</a>
-                |
-                <a href="http://wpfront.com/contact/" target="_blank">' . $this->__('Contact Me') . '</a>
-                |
-                <a href="http://wpfront.com/donate/" target="_blank">' . $this->__('Buy me a Beer or Coffee') . '</a>
-            ';
+//            if ($extraLinks != NULL) {
+//                foreach ($extraLinks as $value) {
+//                    echo '<a href="' . $value['href'] . '" target="' . $value['target'] . '">' . $value['text'] . '</a>';
+//                    echo ' | ';
+//                }
+//            }
+//
+//            echo '
+//                <a href="http://wpfront.com/' . $settingsLink . '" target="_blank">' . $this->__('Settings Description') . '</a>
+//                |
+//                <a href="http://wpfront.com/' . $FAQLink . '" target="_blank">' . $this->__('Plugin FAQ') . '</a>
+//                |
+//                <a href="http://wpfront.com/contact/" target="_blank">' . $this->__('Feature Request') . '</a>
+//                |
+//                <a href="http://wpfront.com/contact/" target="_blank">' . $this->__('Report Bug') . '</a>
+//                |
+//                <a href="http://wordpress.org/support/view/plugin-reviews/' . $this->plugin_slug . '" target="_blank">' . $this->__('Write Review') . '</a>
+//                |
+//                <a href="http://wpfront.com/contact/" target="_blank">' . $this->__('Contact Me') . '</a>
+//                |
+//                <a href="http://wpfront.com/donate/" target="_blank">' . $this->__('Buy me a Beer or Coffee') . '</a>
+//            ';
             echo '</form>';
             echo '</div>';
             echo '</div>';

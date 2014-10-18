@@ -51,6 +51,10 @@ if (!class_exists('WPFront_Static')) {
             if (defined('DOING_AJAX') && DOING_AJAX) {
                 return TRUE;
             }
+            
+            if (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST) {
+                return TRUE;
+            }
 
             if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
                 return TRUE;

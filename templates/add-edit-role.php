@@ -246,8 +246,17 @@ if ($this->role == NULL) {
             var button = $(this).prop("disabled", true);
             var data = {
                 "action": "wpfront_user_role_editor_copy_capabilities",
-                "role": $(this).prev().val()
+                "role": $(this).prev().val(),
+                "referer": <?php echo json_encode($_SERVER['REQUEST_URI']); ?>,
+                "nonce": <?php echo json_encode(wp_create_nonce($_SERVER['REQUEST_URI'])); ?>
             };
+<?php
+if ($this->multisite) {
+    ?>
+                data["multisite"] = true;
+    <?php
+}
+?>
             $.post(ajaxurl, data, function(response) {
                 $("div.role-add-new div.postbox input").prop("checked", false);
                 for (m in response) {

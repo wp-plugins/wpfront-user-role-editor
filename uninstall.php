@@ -4,11 +4,37 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
     exit();
 }
 
-$option_name = 'wpfront-user-role-editor-options';
+require_once dirname(__FILE__) . '/classes/class-wpfront-user-role-editor.php';
 
-delete_option($option_name);
+if (is_multisite() && class_exists('WPFront_User_Role_Editor_Business_Pro_Controller_Base')) {
+    $entity = new WPFront_User_Role_Editor_Business_Pro_Controller_Base(NULL);
+    $blogids = $entity->get_ms_blog_ids();
 
-//TODO: Multisite delete
-//http://codex.wordpress.org/Function_Reference/register_uninstall_hook
-//http://wordpress.org/support/topic/how-can-i-remove-an-option-from-all-option-tables-in-multisite
+    switch_to_blog(WPFront_User_Role_Editor_Options::get_ms_options_blog_id());
+    $entity = new WPFront_User_Role_Editor_Options(NULL);
+    if ($entity->remove_data_on_uninstall()) {
+        foreach ($blogids as $blogid) {
+            switch_to_blog($blogid);
+
+            WPFront_User_Role_Editor_Entity_Options::uninstall();
+            WPFront_User_Role_Editor_Entity_Menu_Editor::uninstall();
+            WPFront_User_Role_Editor_Entity_Post_Type_Permissions::uninstall();
+        }
+    }
+
+    restore_current_blog();
+} else {
+    $entity = new WPFront_User_Role_Editor_Options(NULL);
+    if ($entity->remove_data_on_uninstall()) {
+		if (class_exists('WPFront_User_Role_Editor_Entity_Options'))
+			WPFront_User_Role_Editor_Entity_Options::uninstall();
+
+		if (class_exists('WPFront_User_Role_Editor_Entity_Menu_Editor'))
+			WPFront_User_Role_Editor_Entity_Menu_Editor::uninstall();
+
+		if (class_exists('WPFront_User_Role_Editor_Entity_Post_Type_Permissions'))
+			WPFront_User_Role_Editor_Entity_Post_Type_Permissions::uninstall();
+	}
+}
+
 

@@ -77,20 +77,41 @@
         });
 
         $('button.restore-role-confirm').click(function() {
+            $('button.restore-role-confirm').prop('disabled', true);
+
             var _this = $(this).parent().hide().next().show();
 
             var data = {
                 "action": "wpfront_user_role_editor_restore_role",
-                "role": $(this).val()
+                "role": $(this).val(),
+                "referer": <?php echo json_encode($_SERVER['REQUEST_URI']); ?>,
+                "nonce": <?php echo json_encode(wp_create_nonce($_SERVER['REQUEST_URI'])); ?>
             };
 
-            $.post(ajaxurl, data, function(response) {
+<?php
+if ($this->multisite) {
+    ?>
+                data["multisite"] = true;
+    <?php
+}
+?>
+
+            var response_process = function(response) {
+                if (typeof response === 'undefined' || response == null) {
+                    response = {'result': false, 'message': <?php echo json_encode($this->__('Unexpected error / Timed out')); ?>};
+                }
                 _this.hide();
                 if (response.result)
                     _this.next().show();
                 else
                     _this.next().text(response.message).css('color', 'Red').show();
-            }, 'json');
+
+                $('button.restore-role-confirm').prop('disabled', false);
+            };
+
+            $.post(ajaxurl, data, response_process, 'json').fail(function() {
+                response_process();
+            });
         });
     })(jQuery);
 </script>

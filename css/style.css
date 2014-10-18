@@ -20,17 +20,25 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#adminmenu ul.wp-submenu li a span.wpfront-go-pro {
+    color: #2EA2CC;
+}
+
+#adminmenu ul.wp-submenu li.current a.current span.wpfront-go-pro {
+    color: inherit;
+}
+
 div.wrap div.footer {
     text-align: center;
 }
 
-div.list-roles td.column-userdefault img.user-default {
+div.list-roles img.user-default {
     width: 16px;
     height: 16px;
 }
 
 div.list-roles table div.row-actions {
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 
 div.role-add-new form#createuser table.sub-head {
@@ -105,4 +113,17 @@ div.role-restore table.form-table td div.restore-role-success {
 
 div.wrap.assign-roles div.role-list div.role-list-item {
     padding-bottom: 5px;
+}
+
+div.wrap.go-pro div.license-container {
+    margin-bottom: 25px;
+}
+
+div.wrap.go-pro #license_key {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+div.wrap.go-pro div.license-container table.form-table td.expired {
+    color: red;
 }
