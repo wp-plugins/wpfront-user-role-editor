@@ -63,7 +63,6 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 11. Import roles
 12. Multisite sync roles
 
-
 == Changelog ==
 
 = 2.0 =
