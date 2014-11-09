@@ -59,7 +59,6 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 17. Custom post type permissions
 18. Extended permissions
 19. Menu editor
-20. Export roles
 
 == Changelog ==
 
