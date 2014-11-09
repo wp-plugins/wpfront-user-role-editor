@@ -1,7 +1,7 @@
 ﻿=== WPFront User Role Editor ===
 Contributors: syammohanm
 Donate link: https://wpfront.com/donate/
-Tags: user role editor, role editor, user role, role, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager
+Tags: user role editor, role editor, user role, role, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager, custom post types, custom post type permissions, custom post type capabilities, post type permissions, post type capabilities, menu editor, role menu, role menu editor, multisite roles, multisite role editor, multisite user roles, import roles, export roles
 Requires at least: 3.5
 Tested up to: 4.0
 Stable tag: 2.0
@@ -26,6 +26,7 @@ You can create, edit or delete user roles and manage role capabilities.
 * Migrate users.
 * Menu editor. [PRO]
 * Post/Page extended permissions. [PRO]
+* Custom post type permissions. [PRO]
 * Import/Export. [PRO]
 * Multisite. [PRO]
 
@@ -53,7 +54,7 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 2. Add new role
 3. Edit role
 4. Restore role
-5. Global settings
+5. Settings
 
 == Changelog ==
 
