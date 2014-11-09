@@ -60,6 +60,7 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 8. Extended permissions
 9. Menu editor
 10. Export roles
+11. Import roles
 
 == Changelog ==
 
