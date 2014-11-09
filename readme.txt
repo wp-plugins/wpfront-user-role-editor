@@ -50,15 +50,18 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 
 == Screenshots ==
  
-11. Roles list
-12. Add new role
-13. Edit role
-14. Restore role
-15. Settings
-16. Assign / Migrate users
-17. Custom post type permissions
-18. Extended permissions
-19. Menu editor
+01. Roles list
+02. Settings
+03. Assign / Migrate users
+04. Custom post type permissions
+05. Extended permissions
+06. Menu editor
+07. Export roles
+08. Import roles
+09. Multisite sync roles
+10. Add new role
+11. Edit role
+12. Restore role
 
 == Changelog ==
 
