@@ -200,11 +200,15 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
                 return TRUE;
             return FALSE;
         }
+        
+        protected function exclude_custom_post_types() {
+            return FALSE;
+        }
 
         protected function get_capability_groups() {
             $caps_group = array();
 
-            foreach ($this->main->get_capabilities() as $key => $value) {
+            foreach ($this->main->get_capabilities($this->exclude_custom_post_types()) as $key => $value) {
                 $deprecated = array_key_exists($key, WPFront_User_Role_Editor::$DEPRECATED_CAPABILITIES);
                 $other = array_key_exists($key, WPFront_User_Role_Editor::$OTHER_CAPABILITIES);
 
@@ -216,6 +220,18 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
                             'hidden' => $deprecated && !$this->main->display_deprecated(),
                             'key' => str_replace(' ', '-', $key),
                             'has_help' => !$other
+                );
+            }
+
+            foreach (WPFront_User_Role_Editor::$CUSTOM_POST_TYPES_DEFAULTED as $key => $value) {
+                $caps_group[$key] = (OBJECT) array(
+                            'caps' => 'defaulted',
+                            'display_name' => $this->__($key),
+                            'deprecated' => FALSE,
+                            'disabled' => TRUE,
+                            'hidden' => FALSE,
+                            'key' => str_replace(' ', '-', $key),
+                            'has_help' => FALSE
                 );
             }
 
@@ -282,6 +298,9 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
         }
 
         protected function get_help_url($cap) {
+            if (isset(WPFront_User_Role_Editor::$DYNAMIC_CAPS[$cap]))
+                return NULL;
+
             return 'http://wpfront.com/wordpress-capabilities/#' . $cap;
         }
 

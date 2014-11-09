@@ -136,7 +136,9 @@ if (!class_exists('WPFront_User_Role_Editor_Go_Pro')) {
                     $this->license_key = substr_replace($this->license_key, 'X', $i, 1);
                 }
 
-                add_action('admin_init', array($this, 'edd_plugin_update'));
+                //Software licensing change
+                $this->edd_plugin_update();
+                //add_action('admin_init', array($this, 'edd_plugin_update'));
             } else {
                 $this->license_key = '';
                 $this->has_license = FALSE;

@@ -154,6 +154,10 @@ if (!class_exists('WPFront_User_Role_Editor_Controller_Base')) {
         public function set_default_url() {
             return admin_url('admin.php') . '?page=' . WPFront_User_Role_Editor_List::MENU_SLUG . '&nonce=' . wp_create_nonce($this->list_url()) . '&set_default_role=';
         }
+        
+        public function settings_url() {
+            return admin_url('admin.php') . '?page=' . WPFront_User_Role_Editor_Options::MENU_SLUG;
+        }
 
         public function cache_add($key, $data) {
             wp_cache_set($key, $data, WPFront_User_Role_Editor::PLUGIN_SLUG);

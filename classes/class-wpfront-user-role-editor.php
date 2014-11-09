@@ -34,11 +34,12 @@ if (!class_exists('WPFront_User_Role_Editor')) {
     class WPFront_User_Role_Editor extends WPFront_Base_URE {
 
         //Constants
-        const VERSION = '2.0';
+        const VERSION = '2.1';
         const OPTIONS_GROUP_NAME = 'wpfront-user-role-editor-options-group';
         const OPTION_NAME = 'wpfront-user-role-editor-options';
         const PLUGIN_SLUG = 'wpfront-user-role-editor';
 
+        public static $DYNAMIC_CAPS = array();
         public static $ROLE_CAPS = array('list_roles', 'create_roles', 'edit_roles', 'delete_roles', 'edit_role_menus', 'edit_posts_role_permissions', 'edit_pages_role_permissions');
         public static $DEFAULT_ROLES = array('administrator', 'editor', 'author', 'contributor', 'subscriber');
         public static $STANDARD_CAPABILITIES = array(
@@ -136,6 +137,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             'Other Capabilities' => array(
             )
         );
+        public static $CUSTOM_POST_TYPES_DEFAULTED = array();
         private static $CAPABILITIES = NULL;
         //Variables
         protected $admin_menu = array();
@@ -326,7 +328,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             parent::options_page_footer($settingsLink, $FAQLink, $extraLinks);
         }
 
-        public function get_capabilities() {
+        public function get_capabilities($exclude_custom_post_types = FALSE) {
             if (self::$CAPABILITIES != NULL)
                 return self::$CAPABILITIES;
 
@@ -346,11 +348,18 @@ if (!class_exists('WPFront_User_Role_Editor')) {
                 }
             }
 
-            if ($this->enable_role_capabilities())
-                self::$CAPABILITIES['Roles (WPFront)'] = self::$ROLE_CAPS;
-
             reset(self::$OTHER_CAPABILITIES);
             $other_key = key(self::$OTHER_CAPABILITIES);
+
+            if($exclude_custom_post_types) {
+                foreach (self::$DYNAMIC_CAPS as $cap) {
+                    self::$ROLE_CAPS = array_diff(self::$ROLE_CAPS, array($cap));
+                    self::$OTHER_CAPABILITIES[$other_key][] = $cap;
+                }
+            }
+            
+            if ($this->enable_role_capabilities())
+                self::$CAPABILITIES['Roles (WPFront)'] = self::$ROLE_CAPS;
 
             global $wp_roles;
             if (isset($wp_roles->roles) && is_array($wp_roles->roles)) {
@@ -370,12 +379,76 @@ if (!class_exists('WPFront_User_Role_Editor')) {
                 }
             }
 
+            if (!$exclude_custom_post_types) {
+                $post_types = get_post_types(array(
+                    '_builtin' => FALSE
+                ));
+
+                $other_caps = self::$OTHER_CAPABILITIES[$other_key];
+                unset(self::$OTHER_CAPABILITIES[$other_key]);
+
+                foreach ($post_types as $key => $value) {
+                    $post_type_object = get_post_type_object($key);
+                    $caps = $post_type_object->cap;
+
+                    if ($post_type_object->capability_type === 'post') {
+                        if ($post_type_object->show_ui)
+                            self::$CUSTOM_POST_TYPES_DEFAULTED[$this->get_custom_post_type_label($post_type_object)] = array();
+                    } else {
+                        $caps = (OBJECT) $this->remove_meta_capabilities((ARRAY) $caps, $other_caps);
+                        self::$OTHER_CAPABILITIES[$this->get_custom_post_type_label($post_type_object)] = array_values((array) $caps);
+                    }
+                }
+
+                self::$OTHER_CAPABILITIES[$other_key] = $other_caps;
+            }
+
             foreach (self::$OTHER_CAPABILITIES as $key => $value) {
-                if (count($value) > 0)
-                    self::$CAPABILITIES[$key] = $value;
+                if (count($value) === 0)
+                    continue;
+
+                self::$CAPABILITIES[$key] = $value;
+
+                if ($key != $other_key) {
+                    foreach ($value as $cap) {
+                        self::$OTHER_CAPABILITIES[$other_key] = array_values(array_diff(self::$OTHER_CAPABILITIES[$other_key], array($cap)));
+                    }
+                }
             }
 
             return self::$CAPABILITIES;
+        }
+
+        public function add_role_capability($cap) {
+            self::$ROLE_CAPS[] = $cap;
+            $this->add_dynamic_capability($cap);
+        }
+
+        public function add_dynamic_capability($cap) {
+            self::$DYNAMIC_CAPS[$cap] = $cap;
+        }
+
+        private function get_custom_post_type_label($post_type_object) {
+            return $post_type_object->labels->name . ' (' . $post_type_object->name . ')';
+        }
+
+        private function remove_meta_capabilities($caps, $other_caps) {
+            foreach ($caps as $key => $value) {
+                if ($key === 'read') {
+                    unset($caps[$key]);
+                    continue;
+                }
+
+                if (!in_array($value, $other_caps))
+                    unset($caps[$key]);
+            }
+
+            if (array_key_exists('create_posts', $caps) && array_key_exists('edit_posts', $caps)) {
+                if ($caps['create_posts'] === $caps['edit_posts'])
+                    unset($caps['create_posts']);
+            }
+
+            return $caps;
         }
 
         public function reset_capabilities() {
@@ -392,7 +465,6 @@ if (!class_exists('WPFront_User_Role_Editor')) {
 
         public function enable_role_capabilities() {
             return TRUE;
-//return $this->options->enable_role_capabilities();
         }
 
         public function remove_nonstandard_capabilities_restore() {
@@ -402,9 +474,17 @@ if (!class_exists('WPFront_User_Role_Editor')) {
         public function override_edit_permissions() {
             return $this->options->override_edit_permissions();
         }
-        
+
+        public function customize_permission_custom_post_types() {
+            return $this->options->customize_permission_custom_post_types();
+        }
+
         public function enable_multisite_only_options($multisite) {
             return TRUE;
+        }
+
+        public function enable_pro_only_options() {
+            return FALSE;
         }
 
         private function rename_role_capabilities() {

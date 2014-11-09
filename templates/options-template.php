@@ -68,7 +68,35 @@
             <input type="checkbox" name="override_edit_permissions" <?php echo $this->override_edit_permissions() ? 'checked' : ''; ?> />
         </td>
     </tr>
-    <?php if ($this->main->enable_multisite_only_options($this->multisite)) { ?>
+    <?php if ($this->main->enable_pro_only_options() && !$this->multisite) { ?>
+        <tr>
+            <th scope="row">
+                <?php echo $this->__('Customize permissions (custom post types)'); ?>
+            </th>
+            <td>
+                <?php
+                $post_types = $this->get_custom_post_type_list();
+                if (empty($post_types))
+                    echo $this->__('No customizable post types found.');
+                else {
+                    foreach ($post_types as $key => $value) {
+                        ?>
+                        <div class="options-list">
+                            <label>
+                                <input name="custom-post-types" type="checkbox" value="<?php echo $key; ?>" <?php echo $value->enabled ? 'checked' : ''; ?> />
+                                <?php echo $this->__($value->label); ?>
+                            </label>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+            </td>
+        </tr>
+        <?php
+    }
+    if ($this->main->enable_multisite_only_options($this->multisite)) {
+        ?>
         <tr>
             <th scope="row">
                 <?php echo $this->__('Remove Data on Uninstall'); ?>
@@ -101,7 +129,12 @@
             fields.each(function(i, e) {
                 var ele = $(e);
                 if (ele.attr("type") == "checkbox") {
-                    data[ele.attr("name")] = ele.prop("checked");
+                    if (ele.attr("name") == "custom-post-types") {
+                        data[ele.attr("name") + "[" + ele.val() + "]"] = ele.prop("checked");
+                    }
+                    else {
+                        data[ele.attr("name")] = ele.prop("checked");
+                    }
                 }
                 else
                     data[ele.attr("name")] = ele.val();

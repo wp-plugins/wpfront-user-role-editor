@@ -128,18 +128,38 @@
                     <div class="inside">
                         <div class="main">
                             <?php
-                            foreach ($value->caps as $cap) {
+                            if ($value->caps === 'defaulted') {
                                 ?>
-                                <div>
-                                    <input type="checkbox" id="<?php echo $cap; ?>" name="capabilities[<?php echo $cap; ?>]" <?php echo $value->disabled ? 'disabled' : '' ?> <?php echo $this->capability_checked($cap) ? 'checked' : '' ?> />
-                                    <label for="<?php echo $cap; ?>"><?php echo $cap; ?></label>
-                                    <?php if ($value->has_help) { ?>
-                                        <a target="_blank" href="<?php echo $this->get_help_url($cap); ?>">
-                                            <img class="help" src="<?php echo $this->image_url() . 'help.png'; ?>" />
-                                        </a>
-                                    <?php } ?>
+                                <div class="no-capability">
+                                    <?php
+                                    echo $this->__("Uses 'Posts' capabilities.");
+                                    $upgrade_message = sprintf($this->__("%s to customize capabilites."), '<a href="https://wpfront.com/ureaddedit" target="_blank">' . $this->__('Upgrade to Pro') . '</a>');
+                                    $upgrade_message = apply_filters('wpfront_ure_custom_post_type_upgrade_message', $upgrade_message);
+                                    echo ' ' . $upgrade_message;
+                                    ?>
                                 </div>
                                 <?php
+                            } else {
+                                foreach ($value->caps as $cap) {
+                                    ?>
+                                    <div>
+                                        <input type="checkbox" id="<?php echo $cap; ?>" name="capabilities[<?php echo $cap; ?>]" <?php echo $value->disabled ? 'disabled' : '' ?> <?php echo $this->capability_checked($cap) ? 'checked' : '' ?> />
+                                        <label for="<?php echo $cap; ?>" title="<?php echo $cap; ?>"><?php echo $cap; ?></label>
+                                        <?php
+                                        if ($value->has_help) {
+                                            $help_url = $this->get_help_url($cap);
+                                            if ($help_url !== NULL) {
+                                                ?>
+                                                <a target="_blank" href="<?php echo $help_url; ?>">
+                                                    <img class="help" src="<?php echo $this->image_url() . 'help.png'; ?>" />
+                                                </a>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </div>
+                                    <?php
+                                }
                             }
                             ?>
                         </div>

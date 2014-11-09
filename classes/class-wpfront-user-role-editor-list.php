@@ -135,7 +135,7 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
                     'display_name' => $value,
                     'is_default' => in_array($key, WPFront_User_Role_Editor::$DEFAULT_ROLES),
                     'user_count' => count(get_users(array('role' => $key))),
-                    'caps_count' => count($wp_roles->roles[$key]['capabilities']),
+                    'caps_count' => count(array_filter($wp_roles->roles[$key]['capabilities'])),
                     'user_default' => $key == $user_default
                 );
 

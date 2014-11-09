@@ -66,7 +66,8 @@ if (!class_exists('WPFront_User_Role_Editor_Delete')) {
 
             $editable_roles = get_editable_roles();
             global $wp_roles;
-            if ($this->main->override_edit_permissions())
+            $override = $this->main->override_edit_permissions();
+            if ($override)
                 $editable_roles = $wp_roles->get_names();
 
             foreach ($delete_roles as $value) {
@@ -82,7 +83,7 @@ if (!class_exists('WPFront_User_Role_Editor_Delete')) {
                     } else {
                         global $user_ID;
                         $user = new WP_User($user_ID);
-                        if (in_array($value, $user->roles)) {
+                        if (!$override && in_array($value, $user->roles)) {
                             $status_message = 'Current user\'s role cannot be deleted.';
                             $is_deletable = FALSE;
                         }

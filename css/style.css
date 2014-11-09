@@ -32,6 +32,11 @@ div.wrap div.footer {
     text-align: center;
 }
 
+#wpfront-user-role-editor-options table div.options-list {
+    float: left;
+    width: 200px;
+}
+
 div.list-roles img.user-default {
     width: 16px;
     height: 16px;
@@ -91,8 +96,17 @@ div.role-add-new div.metabox-holder div.postbox div.inside div.main div {
     width: 250px;
 }
 
+div.role-add-new div.metabox-holder div.postbox div.inside div.main div.no-capability {
+    width: auto;
+}
+
 div.role-add-new div.metabox-holder div.postbox label {
     vertical-align: top;
+    max-width: 205px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 div.role-add-new div.metabox-holder div.postbox div.main img.help {

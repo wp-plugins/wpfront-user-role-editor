@@ -46,6 +46,17 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
             include($this->main->pluginDIR() . 'templates/options-template.php');
         }
 
+        private function get_custom_post_type_list() {
+            $post_types = apply_filters('wpfront_ure_custom_post_type_permission_settings_list', array());
+            $customize = $this->customize_permission_custom_post_types();
+
+            foreach ($post_types as $key => $value) {
+                $post_types[$key] = (OBJECT) array('label' => $value, 'enabled' => in_array($key, $customize));
+            }
+
+            return $post_types;
+        }
+
         public function update_options_callback() {
             check_ajax_referer($_POST['referer'], 'nonce');
 
@@ -58,8 +69,27 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
             if ($this->multisite && wp_is_large_network()) {
                 $this->update_option_boolean('enable_large_network_functionalities');
             }
-            if($this->main->enable_multisite_only_options($this->multisite)) {
+            if ($this->main->enable_multisite_only_options($this->multisite)) {
                 $this->update_option_boolean('remove_data_on_uninstall', TRUE);
+            }
+
+            if (isset($_POST['custom-post-types'])) {
+                $custom_post_types = $_POST['custom-post-types'];
+                if (is_array($custom_post_types)) {
+                    $post_type_values = $this->customize_permission_custom_post_types();
+                    foreach ($custom_post_types as $key => $value) {
+                        if ($value === 'true') {
+                            if (!in_array($key, $post_type_values))
+                                $post_type_values[] = $key;
+                        } else {
+                            if (in_array($key, $post_type_values))
+                                $post_type_values = array_diff($post_type_values, array($key));
+                        }
+                    }
+
+                    do_action('wpfront_ure_update_customize_permission_custom_post_types', $post_type_values, $this->customize_permission_custom_post_types());
+                    $this->update_option('customize_permission_custom_post_types', implode(',', $post_type_values));
+                }
             }
 
             if ($this->multisite)
@@ -78,20 +108,24 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
                     $value = 0;
                 }
 
-                $prefix = '';
-                if ($this->multisite) {
-                    $prefix = 'ms_';
-                    switch_to_blog($this->ms_options_blog_id());
-                }
-
-                $entity = new WPFront_User_Role_Editor_Entity_Options();
-                $entity->update_option($prefix . $key, $value);
-                if($clone)
-                    $entity->update_option($key, $value);
-
-                if ($this->multisite)
-                    restore_current_blog();
+                $this->update_option($key, $value, $clone);
             }
+        }
+
+        private function update_option($key, $value, $clone = FALSE) {
+            $prefix = '';
+            if ($this->multisite) {
+                $prefix = 'ms_';
+                switch_to_blog($this->ms_options_blog_id());
+            }
+
+            $entity = new WPFront_User_Role_Editor_Entity_Options();
+            $entity->update_option($prefix . $key, $value);
+            if ($clone)
+                $entity->update_option($key, $value);
+
+            if ($this->multisite)
+                restore_current_blog();
         }
 
         public function enable_role_capabilities() {
@@ -99,6 +133,11 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
         }
 
         private function get_boolean_option($key, $ms = FALSE) {
+            $value = $this->get_option($key, $ms);
+            return $value === '1' ? TRUE : FALSE;
+        }
+
+        private function get_option($key, $ms = FALSE) {
             $prefix = '';
             if ($ms) {
                 $prefix = 'ms_';
@@ -109,14 +148,14 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
             $value = $entity->get_option($prefix . $key);
             if ($value === NULL) {
                 if ($ms === FALSE && is_multisite()) {
-                    return $this->get_boolean_option($key, TRUE);
+                    return $this->get_option($key, TRUE);
                 }
             }
 
             if ($ms)
                 restore_current_blog();
 
-            return $value === '1' ? TRUE : FALSE;
+            return $value;
         }
 
         public function display_deprecated() {
@@ -147,6 +186,14 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
             return $this->get_boolean_option('remove_data_on_uninstall');
         }
 
+        public function customize_permission_custom_post_types() {
+            $value = $this->get_option('customize_permission_custom_post_types');
+            if ($value === NULL || $value === '')
+                return array();
+
+            return explode(',', $value);
+        }
+
         public static function get_ms_options_blog_id() {
             if (!is_multisite()) {
                 throw new Exception('Invalid call');
@@ -158,7 +205,7 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
             }
             return $blog_id;
         }
-        
+
         public function ms_options_blog_id() {
             return self::get_ms_options_blog_id();
         }
