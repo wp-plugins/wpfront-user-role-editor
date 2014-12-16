@@ -34,7 +34,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
     class WPFront_User_Role_Editor extends WPFront_Base_URE {
 
         //Constants
-        const VERSION = '2.1';
+        const VERSION = '2.3';
         const OPTIONS_GROUP_NAME = 'wpfront-user-role-editor-options-group';
         const OPTION_NAME = 'wpfront-user-role-editor-options';
         const PLUGIN_SLUG = 'wpfront-user-role-editor';
@@ -187,7 +187,8 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             if (isset($this->admin_menu[1000]))
                 return;
 
-            $this->add_submenu_page(1000, $this->__('Go Pro'), '<span class="wpfront-go-pro">' . $this->__('Go Pro') . '</span>', 'manage_options', WPFront_User_Role_Editor_Go_Pro::MENU_SLUG, array($this->objGoPro, 'go_pro'));
+            if (current_user_can('manage_options'))
+                $this->add_submenu_page(1000, $this->__('Go Pro'), '<span class="wpfront-go-pro">' . $this->__('Go Pro') . '</span>', 'manage_options', WPFront_User_Role_Editor_Go_Pro::MENU_SLUG, array($this->objGoPro, 'go_pro'));
         }
 
         public function admin_menu() {
@@ -232,6 +233,8 @@ if (!class_exists('WPFront_User_Role_Editor')) {
 //            $jsRoot = $this->pluginURLRoot . 'js/';
 
             wp_enqueue_script('jquery');
+            wp_enqueue_script('postbox');
+            wp_enqueue_script('jquery-ui-draggable');
         }
 
         //add styles
@@ -351,13 +354,13 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             reset(self::$OTHER_CAPABILITIES);
             $other_key = key(self::$OTHER_CAPABILITIES);
 
-            if($exclude_custom_post_types) {
+            if ($exclude_custom_post_types) {
                 foreach (self::$DYNAMIC_CAPS as $cap) {
                     self::$ROLE_CAPS = array_diff(self::$ROLE_CAPS, array($cap));
                     self::$OTHER_CAPABILITIES[$other_key][] = $cap;
                 }
             }
-            
+
             if ($this->enable_role_capabilities())
                 self::$CAPABILITIES['Roles (WPFront)'] = self::$ROLE_CAPS;
 
@@ -396,7 +399,20 @@ if (!class_exists('WPFront_User_Role_Editor')) {
                             self::$CUSTOM_POST_TYPES_DEFAULTED[$this->get_custom_post_type_label($post_type_object)] = array();
                     } else {
                         $caps = (OBJECT) $this->remove_meta_capabilities((ARRAY) $caps, $other_caps);
-                        self::$OTHER_CAPABILITIES[$this->get_custom_post_type_label($post_type_object)] = array_values((array) $caps);
+                        $custom_caps = array();
+                        foreach (self::$STANDARD_CAPABILITIES['Posts'] as $key => $value) {
+                            if (isset($caps->$key)) {
+                                $custom_caps[] = $caps->$key;
+                                unset($caps->$key);
+                            }
+                        }
+                        foreach ($caps as $key => $value) {
+                            if (isset($caps->$key)) {
+                                $custom_caps[] = $caps->$key;
+                                unset($caps->$key);
+                            }
+                        }
+                        self::$OTHER_CAPABILITIES[$this->get_custom_post_type_label($post_type_object)] = $custom_caps;
                     }
                 }
 
@@ -407,7 +423,8 @@ if (!class_exists('WPFront_User_Role_Editor')) {
                 if (count($value) === 0)
                     continue;
 
-                self::$CAPABILITIES[$key] = $value;
+                //self::$CAPABILITIES[$key] = $value;
+                self::$CAPABILITIES[$key] = self::$OTHER_CAPABILITIES[$key];
 
                 if ($key != $other_key) {
                     foreach ($value as $cap) {
@@ -550,6 +567,7 @@ require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-delete.
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-restore.php");
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-assign-roles.php");
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-go-pro.php");
+require_once(plugin_dir_path(__FILE__) . "integration/plugins/class-wpfront-user-role-editor-plugin-integration.php");
 
 
 

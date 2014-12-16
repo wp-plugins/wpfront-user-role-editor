@@ -129,12 +129,15 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
 
             $user_default = get_option('default_role');
 
+            $count_users = count_users();
+            $count_users = $count_users['avail_roles'];
+            
             foreach ($roles as $key => $value) {
                 $this->role_data[$key] = array(
                     'role_name' => $key,
                     'display_name' => $value,
                     'is_default' => in_array($key, WPFront_User_Role_Editor::$DEFAULT_ROLES),
-                    'user_count' => count(get_users(array('role' => $key))),
+                    'user_count' => isset($count_users[$key]) ? $count_users[$key] : 0, //count(get_users(array('role' => $key))),
                     'caps_count' => count(array_filter($wp_roles->roles[$key]['capabilities'])),
                     'user_default' => $key == $user_default
                 );
@@ -283,9 +286,12 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
                 'count' => count($role_data)
             );
 
+            $count_users = count_users();
+            $count_users = $count_users['avail_roles'];
+            
             $count = 0;
             foreach ($role_data as $key => $value) {
-                if (count(get_users(array('role' => $key))) > 0)
+                if(isset($count_users[$key]) && $count_users[$key] > 0) //if (count(get_users(array('role' => $key))) > 0)
                     $count++;
             }
             $filter_data['haveusers'] = array(

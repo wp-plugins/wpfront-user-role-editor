@@ -53,6 +53,10 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
             add_filter('manage_users_custom_column', array($this, 'manage_users_columns_content'), 10, 3);
 
             add_filter('user_row_actions', array($this, 'user_row_actions'), 10, 2);
+
+            add_action('edit_user_profile', array($this, 'edit_user_profile'), 10, 1);
+            //add_action('edit_user_profile_update', array($this, 'edit_user_profile_update'), 1000, 1);
+            add_action('profile_update', array($this, 'edit_user_profile_update'), 1000, 1);
         }
 
         public function manage_users_columns($columns) {
@@ -75,9 +79,68 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
             return $actions;
         }
 
+        public function edit_user_profile($user) {
+            if(is_multisite() && is_network_admin())
+                return;
+            
+            if (!$this->can_assign_roles())
+                return;
+
+            if ($user->ID === wp_get_current_user()->ID)
+                return;
+
+            $this->populate_roles_array();
+            $roles = array_values($user->roles);
+            array_shift($roles);
+
+            //echo "<h3>{$this->__('Secondary Roles')}</h3>";
+            echo '<table class="form-table">';
+            echo '<tbody>';
+            echo '<tr>';
+            echo "<th>{$this->__('Secondary Roles')}</th>";
+            echo '<td>';
+            foreach ($this->secondary_roles as $key => $value) {
+                echo '<div style="min-width:200px;width:25%;float:left;">';
+                printf('<label><input type="checkbox" name="wpfront-secondary-roles[%s]" %s />%s</label>', $key, in_array($key, $roles) ? 'checked' : '', $value);
+                echo '</div>';
+            }
+            echo '</td>';
+            echo '</tr>';
+            echo '</tbody>';
+            echo '</table>';
+        }
+
+        public function edit_user_profile_update($user_id) {
+            if(is_multisite() && is_network_admin())
+                return;
+            
+            if (!$this->can_assign_roles())
+                return;
+
+            if ($user_id === wp_get_current_user()->ID)
+                return;
+
+            $user = get_user_to_edit($user_id);
+            if (empty($user))
+                return;
+
+            $this->populate_roles_array();
+            foreach ($this->secondary_roles as $key => $value) {
+                if (!empty($_POST["wpfront-secondary-roles"][$key]))
+                    $user->add_role($key);
+            }
+        }
+
         private function get_assign_role_url($user_object = NULL) {
-            if ($user_object == NULL)
-                return admin_url('users.php') . '?page=' . self::MENU_SLUG . '&assign_roles=';
+            if ($user_object == NULL) {
+                if (is_multisite() && is_network_admin()) {
+                    $site_id = 1;
+                    if (!empty($_GET['id']))
+                        $site_id = $_GET['id'];
+                    return get_admin_url($site_id, 'users.php') . '?page=' . self::MENU_SLUG . '&assign_roles=';
+                } else
+                    return admin_url('users.php') . '?page=' . self::MENU_SLUG . '&assign_roles=';
+            }
             return $this->get_assign_role_url() . $user_object->ID;
         }
 
@@ -96,14 +159,7 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
             return implode(', ', $names);
         }
 
-        public function assign_roles() {
-            if (!$this->can_assign_roles()) {
-                $this->main->permission_denied();
-                return;
-            }
-
-            $this->users = get_users(array('exclude' => array(wp_get_current_user()->ID)));
-
+        private function populate_roles_array() {
             global $wp_roles;
             $roles = $wp_roles->get_names();
 
@@ -115,6 +171,16 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
                 if ($key != 'administrator')
                     $this->secondary_roles[$key] = $value;
             }
+        }
+
+        public function assign_roles() {
+            if (!$this->can_assign_roles()) {
+                $this->main->permission_denied();
+                return;
+            }
+
+            $this->users = get_users(array('exclude' => array(wp_get_current_user()->ID)));
+            $this->populate_roles_array();
 
             if (!empty($_POST['assignroles']) && !empty($_POST['assign-user'])) {
                 $this->main->verify_nonce();
@@ -288,7 +354,7 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
             </tr>
             <?php
         }
-        
+
         protected function add_help_tab() {
             return array(
                 array(

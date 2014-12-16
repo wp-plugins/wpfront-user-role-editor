@@ -21,7 +21,7 @@
 */
 
 #adminmenu ul.wp-submenu li a span.wpfront-go-pro {
-    color: #2EA2CC;
+    color: #F18500;
 }
 
 #adminmenu ul.wp-submenu li.current a.current span.wpfront-go-pro {
@@ -77,17 +77,21 @@ div.role-add-new form#createuser table.sub-head td.sub-head-controls input.selec
     width: 100px;
 }
 
+#wpbody-content div.role-add-new div.metabox-holder {
+    padding-top: 0px;
+}
+
 div.role-add-new div.metabox-holder div.postbox {
     margin-bottom: 8px;
 }
 
-div.role-add-new div.metabox-holder div.postbox.deprecated {
+div.role-add-new div.metabox-holder .deprecated {
     filter: alpha(opacity=80);
     opacity: 0.8;
 }
 
 div.role-add-new div.metabox-holder div.postbox h3.hndle {
-    cursor: default;
+    
 }
 
 div.role-add-new div.metabox-holder div.postbox div.inside div.main div {
@@ -107,6 +111,10 @@ div.role-add-new div.metabox-holder div.postbox label {
     display: inline-block;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+div.role-add-new div.metabox-holder div.postbox h3.hndle label {
+    max-width: 85%;
 }
 
 div.role-add-new div.metabox-holder div.postbox div.main img.help {

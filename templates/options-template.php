@@ -71,7 +71,7 @@
     <?php if ($this->main->enable_pro_only_options() && !$this->multisite) { ?>
         <tr>
             <th scope="row">
-                <?php echo $this->__('Customize permissions (custom post types)'); ?>
+                <?php echo $this->__('Customize Permissions (custom post types)'); ?>
             </th>
             <td>
                 <?php

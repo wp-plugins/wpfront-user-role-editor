@@ -1,5 +1,4 @@
 <?php
-
 /*
   WPFront User Role Editor Plugin
   Copyright (C) 2014, WPFront.com
@@ -200,7 +199,7 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
                 return TRUE;
             return FALSE;
         }
-        
+
         protected function exclude_custom_post_types() {
             return FALSE;
         }
@@ -358,6 +357,53 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
                     'add-role/'
                 )
             );
+        }
+
+        protected function postbox_title($value) {
+            return '<label class="' . ($value->deprecated ? 'deprecated' : 'active') . '"><input id="' . $value->key . '" type="checkbox" class="select-all" ' . ($value->disabled ? 'disabled' : '') . ' />' . $value->display_name . '</label>';
+        }
+
+        public function postbox_render($context, $args) {
+            $value = $args['args'];
+            ?>
+            <div class="main <?php echo $value->deprecated ? 'deprecated' : 'active'; echo ' '; echo $value->hidden ? 'hidden' : 'visible'; ?>">
+                <?php
+                if ($value->caps === 'defaulted') {
+                    ?>
+                    <div class="no-capability">
+                        <?php
+                        echo $this->__("Uses 'Posts' capabilities.");
+                        $upgrade_message = sprintf($this->__("%s to customize capabilites."), '<a href="https://wpfront.com/ureaddedit" target="_blank">' . $this->__('Upgrade to Pro') . '</a>');
+                        $upgrade_message = apply_filters('wpfront_ure_custom_post_type_upgrade_message', $upgrade_message);
+                        echo ' ' . $upgrade_message;
+                        ?>
+                    </div>
+                    <?php
+                } else {
+                    foreach ($value->caps as $cap) {
+                        ?>
+                        <div>
+                            <input type="checkbox" id="<?php echo $cap; ?>" name="capabilities[<?php echo $cap; ?>]" <?php echo $value->disabled ? 'disabled' : '' ?> <?php echo $this->capability_checked($cap) ? 'checked' : '' ?> />
+                            <label for="<?php echo $cap; ?>" title="<?php echo $cap; ?>"><?php echo $cap; ?></label>
+                            <?php
+                            if ($value->has_help) {
+                                $help_url = $this->get_help_url($cap);
+                                if ($help_url !== NULL) {
+                                    ?>
+                                    <a target="_blank" href="<?php echo $help_url; ?>">
+                                        <img class="help" src="<?php echo $this->image_url() . 'help.png'; ?>" />
+                                    </a>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+            <?php
         }
 
     }

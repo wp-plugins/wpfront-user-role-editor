@@ -1,16 +1,4 @@
 <?php
-
-/*
- * Plugin Name: WPFront User Role Editor
- * Plugin URI: http://wpfront.com/user-role-editor-pro/ 
- * Description: Allows you to manage user roles.
- * Version: 2.3
- * Author: Syam Mohan
- * Author URI: http://wpfront.com
- * License: GPL v3 
- * Text Domain: wpfront-user-role-editor
- */
-
 /*
   WPFront User Role Editor Plugin
   Copyright (C) 2014, WPFront.com
@@ -33,8 +21,41 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+if (!class_exists('WPFront_User_Role_Editor_Plugin_Duplicator')) {
 
-require_once(plugin_dir_path(__FILE__) . "classes/class-wpfront-user-role-editor.php");
+    /**
+     * Main class of Duplicator Integration
+     *
+     * @author Syam Mohan <syam@wpfront.com>
+     * @copyright 2014 WPFront.com
+     */
+    class WPFront_User_Role_Editor_Plugin_Duplicator extends WPFront_User_Role_Editor_Plugin_Integration {
 
-WPFront_User_Role_Editor::Instanciate(__FILE__);
+        private static $slug = 'duplicator';
+        
+        public function __construct() {
+            parent::__construct(self::$slug);
+        }
+        
+        protected function init($params) {
+            $admin_role = get_role('administrator');
+            $caps = array();
+            foreach($params as $value) {
+                $cap = $this->translate_capability($value);
+                $caps[$cap] = TRUE;
+                $admin_role->add_cap($cap);
+            }
+
+            add_role(self::$slug, 'Duplicator', $caps);
+        }
+        
+        protected function translate_capability($capability) {
+            return self::$slug . '_' . $capability;
+        }
+        
+    }
+    
+    new WPFront_User_Role_Editor_Plugin_Duplicator();
+
+}
 
