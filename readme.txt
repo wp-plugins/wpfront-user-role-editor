@@ -3,7 +3,7 @@ Contributors: syammohanm
 Donate link: https://wpfront.com/donate/
 Tags: user role editor, role editor, user role, role, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager, custom post types, custom post type permissions, custom post type capabilities, post type permissions, post type capabilities, menu editor, role menu, role menu editor, multisite roles, multisite role editor, multisite user roles, import roles, export roles
 Requires at least: 3.5
-Tested up to: 4.0.1
+Tested up to: 4.1
 Stable tag: 2.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
