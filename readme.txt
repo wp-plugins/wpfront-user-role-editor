@@ -33,6 +33,7 @@ You can create, edit or delete user roles and manage role capabilities.
 Compare [User Role Editor Pro](https://wpfront.com/ppro)
 
 
+Spanish tutorial
 https://www.youtube.com/watch?v=YRZdWH-uukI
 
 == Installation ==
