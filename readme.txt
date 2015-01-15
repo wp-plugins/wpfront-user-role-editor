@@ -32,6 +32,9 @@ You can create, edit or delete user roles and manage role capabilities.
 
 Compare [User Role Editor Pro](https://wpfront.com/ppro)
 
+
+https://www.youtube.com/watch?v=YRZdWH-uukI
+
 == Installation ==
 
 1. Click Plugins/Add New from the WordPress admin panel
