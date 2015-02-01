@@ -34,7 +34,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
     class WPFront_User_Role_Editor extends WPFront_Base_URE {
 
         //Constants
-        const VERSION = '2.3';
+        const VERSION = '2.4';
         const OPTIONS_GROUP_NAME = 'wpfront-user-role-editor-options-group';
         const OPTION_NAME = 'wpfront-user-role-editor-options';
         const PLUGIN_SLUG = 'wpfront-user-role-editor';
@@ -165,7 +165,14 @@ if (!class_exists('WPFront_User_Role_Editor')) {
         }
 
         public function plugins_loaded() {
-            
+            //gravity forms
+            if (!function_exists('members_get_capabilities')) {
+
+                function members_get_capabilities() {
+                    
+                }
+
+            }
         }
 
         public function admin_init() {
@@ -364,6 +371,9 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             if ($this->enable_role_capabilities())
                 self::$CAPABILITIES['Roles (WPFront)'] = self::$ROLE_CAPS;
 
+            //gravity forms
+            self::$OTHER_CAPABILITIES[$other_key] = apply_filters('members_get_capabilities', self::$OTHER_CAPABILITIES[$other_key]);
+
             global $wp_roles;
             if (isset($wp_roles->roles) && is_array($wp_roles->roles)) {
                 foreach ($wp_roles->roles as $key => $role) {
@@ -418,6 +428,8 @@ if (!class_exists('WPFront_User_Role_Editor')) {
 
                 self::$OTHER_CAPABILITIES[$other_key] = $other_caps;
             }
+
+            self::$OTHER_CAPABILITIES[$other_key] = array_unique(self::$OTHER_CAPABILITIES[$other_key]);
 
             foreach (self::$OTHER_CAPABILITIES as $key => $value) {
                 if (count($value) === 0)

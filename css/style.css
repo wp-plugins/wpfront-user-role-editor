@@ -46,6 +46,16 @@ div.list-roles table div.row-actions {
     /*white-space: nowrap;*/
 }
 
+@media screen and (max-width:782px) {
+    div.list-roles table .column-roletype,
+    div.list-roles table .column-userdefault,
+    div.list-roles table .column-usercount,
+    div.list-roles table .column-capscount,
+    div.list-roles table .column-edited_menu_column_key {
+        display: none;
+    }
+}
+
 div.role-add-new form#createuser table.sub-head {
     width: 100%;
 }

@@ -83,7 +83,7 @@ if (!class_exists('WPFront_Base_URE')) {
 
         public function plugins_loaded_base() {
             //for localization
-            load_plugin_textdomain($this->plugin_slug, FALSE, $this->plugin_slug . '/languages/');
+            load_plugin_textdomain($this->plugin_slug, FALSE, $this->plugin_slug . $this->plugin_dir_suffix() . '/languages/');
 
             $this->plugins_loaded();
         }
@@ -191,7 +191,7 @@ if (!class_exists('WPFront_Base_URE')) {
             echo '</div>';
             echo '</div>';
         }
-
+        
         //returns localized string
         public function __($key) {
             return __($key, $this->plugin_slug);
