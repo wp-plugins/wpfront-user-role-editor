@@ -1,0 +1,1782 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPFront Notification Bar\n"
+"POT-Creation-Date: 2014-10-17 22:13-0700\n"
+"PO-Revision-Date: 2015-01-07 17:14-0300\n"
+"Last-Translator: Mauro Mascarenhas <mauro.mascarenhas@nintersoft.ml>\n"
+"Language-Team: WPFront <contact@wpfront.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"Language: pt_BR\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../classes/base/class-wpfront-base-menu.php:52
+#: ../templates/personal-pro/menu-editor.php:132
+msgid "Name"
+msgstr "Nome"
+
+#: ../classes/base/class-wpfront-base-menu.php:53
+msgid "Version"
+msgstr "Versão"
+
+#: ../classes/base/class-wpfront-base-menu.php:54
+msgid "Rating"
+msgstr "Classificação"
+
+#: ../classes/base/class-wpfront-base-menu.php:55
+msgid "Description"
+msgstr "Descrição"
+
+#: ../classes/base/class-wpfront-base-menu.php:69
+#, php-format
+msgid "based on %s rating(s)"
+msgstr "baseado em %s estrela(s)"
+
+#: ../classes/base/class-wpfront-base-menu.php:105
+msgid "Unable to communicate with WordPress.org"
+msgstr "Não pôde comunicar-se à WordPress.org"
+
+#: ../classes/base/class-wpfront-base-menu.php:123
+#: ../classes/base/class-wpfront-base-menu.php:217
+msgid "WPFront Plugins"
+msgstr "WPFront Plugins"
+
+#: ../classes/base/class-wpfront-base-menu.php:147
+#, php-format
+msgid "By %s"
+msgstr "Por %s"
+
+#: ../classes/base/class-wpfront-base-menu.php:154
+#, php-format
+msgid "More information about %s"
+msgstr "Mais informações sobre %s"
+
+#: ../classes/base/class-wpfront-base-menu.php:154
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:217
+msgid "Details"
+msgstr "Detalhes"
+
+#: ../classes/base/class-wpfront-base-menu.php:163
+#, php-format
+msgid "Install %s"
+msgstr "Instalar %s"
+
+#: ../classes/base/class-wpfront-base-menu.php:163
+msgid "Install Now"
+msgstr "Instale agora"
+
+#: ../classes/base/class-wpfront-base-menu.php:168
+#, php-format
+msgid "Update to version %s"
+msgstr "Atualizar para a versão %s"
+
+#: ../classes/base/class-wpfront-base-menu.php:168
+msgid "Update Now"
+msgstr "Atualizar Agora"
+
+#: ../classes/base/class-wpfront-base-menu.php:173
+msgid "This plugin is already installed and is up to date"
+msgstr "Este plugin já está instalado e atualizado"
+
+#: ../classes/base/class-wpfront-base-menu.php:173
+msgid "Installed"
+msgstr "Instalado"
+
+#: ../classes/base/class-wpfront-base-menu.php:175
+#: ../classes/base/class-wpfront-base.php:109
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:104
+#: ../classes/class-wpfront-user-role-editor-options.php:198
+#: ../classes/class-wpfront-user-role-editor.php:205
+msgid "Settings"
+msgstr "Configurações"
+
+#: ../classes/base/class-wpfront-base-menu.php:177
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:88
+#: ../templates/go-pro.php:65 ../templates/go-pro.php:66
+msgid "Activate"
+msgstr "Ativar"
+
+#: ../classes/base/class-wpfront-base-menu.php:199
+#: ../classes/class-wpfront-user-role-editor.php:314
+msgid "Feedback"
+msgstr "Feedback"
+
+#: ../classes/base/class-wpfront-base-menu.php:216
+msgid "WPFront"
+msgstr "WPFront"
+
+#: ../classes/base/class-wpfront-base-menu.php:217
+msgid "All Plugins"
+msgstr "Todos os plugins"
+
+#: ../classes/base/class-wpfront-base.php:138
+#: ../classes/class-wpfront-user-role-editor.php:263
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Você não tem permissões suficientes para acessar esta página."
+
+#: ../classes/base/class-wpfront-base.php:158
+msgid ""
+"If you have a caching plugin, clear the cache for the new settings to take effect."
+msgstr ""
+"Se você possui um plugin que faz cache, limpe a cache para as novas mudanças terem "
+"efeito."
+
+#: ../classes/base/class-wpfront-base.php:205
+#: ../templates/personal-pro/menu-editor.php:226
+msgid "Save Changes"
+msgstr "Salvar alterações"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:81
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:84
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:74
+#: ../classes/class-wpfront-user-role-editor.php:202
+#: ../classes/class-wpfront-user-role-editor.php:209 ../templates/list-roles.php:37
+msgid "Roles"
+msgstr "Funções"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:84
+#: ../classes/class-wpfront-user-role-editor.php:202
+msgid "All Roles"
+msgstr "Todas as funções"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:89
+#: ../classes/class-wpfront-user-role-editor.php:203 ../templates/add-edit-role.php:35
+#: ../templates/add-edit-role.php:154
+msgid "Add New Role"
+msgstr "Adicionar nova função"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:89
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:77
+#: ../classes/class-wpfront-user-role-editor.php:203 ../templates/add-edit-role.php:37
+#: ../templates/list-roles.php:40
+msgid "Add New"
+msgstr "Adicionar nova"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:94
+#: ../classes/class-wpfront-user-role-editor.php:204 ../templates/restore-role.php:34
+msgid "Restore Role"
+msgstr "Restaurar função"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:94
+#: ../classes/class-wpfront-user-role-editor.php:204 ../templates/restore-role.php:46
+msgid "Restore"
+msgstr "Restaurar"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:99
+#: ../templates/business-pro/sync-roles.php:11
+#: ../templates/business-pro/sync-roles.php:297
+msgid "Sync Roles"
+msgstr "Sincronizar regras"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:99
+msgid "Sync"
+msgstr "Sincronizar"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:110
+#: ../classes/class-wpfront-user-role-editor.php:188
+msgid "Go Pro"
+msgstr "Atualizar para Pro"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:121
+msgid ""
+"You have a large network of sites (usually 10,000 or more sites). Roles "
+"functionalities will be CPU and memory intensive on large networks. Use the settings "
+"screen to turn on these CPU and memory intensive functionalities."
+msgstr ""
+"Você tem uma vasta rede de sites (normalmente 10.000 ou mais sites). As "
+"funcionalidades irão ser intensas na CPU e na memória em grandes redes. Use a tela "
+"de configurações para ligar esta funcionalidade de uso intensivo de CPU e memória."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-add-edit.php:213
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:114
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:148
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:162
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:84
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:223
+#: ../classes/class-wpfront-user-role-editor-add-edit.php:303
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:296
+#: ../classes/class-wpfront-user-role-editor-list.php:351
+#: ../classes/class-wpfront-user-role-editor-list.php:385
+#: ../classes/class-wpfront-user-role-editor-list.php:402
+#: ../classes/class-wpfront-user-role-editor-options.php:191
+#: ../classes/class-wpfront-user-role-editor-options.php:233
+#: ../classes/class-wpfront-user-role-editor-restore.php:165
+#: ../classes/personal-pro/class-wpfront-user-role-editor-export.php:126
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:225
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:563
+msgid "Overview"
+msgstr "Revisão"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-add-edit.php:215
+msgid "This screen allows you to add a new role within your network."
+msgstr "Esta tela permite que você adicione uma nova função em sua rede."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-add-edit.php:218
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:119
+#: ../classes/class-wpfront-user-role-editor-add-edit.php:308
+#: ../classes/class-wpfront-user-role-editor-list.php:356
+msgid ""
+"You can copy capabilities from existing roles using the Copy from drop down list. "
+"Select the role you want to copy from, then click Apply to copy the capabilities. "
+"You can select or deselect capabilities even after you copy."
+msgstr ""
+"Você pode copiar capacidades de regras existentes usando a Cópia da lista suspensa. "
+"Selecione a regra que você deseja copiar, então clique em Aplicar para copiar estas "
+"capacidades. Você pode selecionar ou não selecionar capacidades mesmo após a cópia."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-add-edit.php:223
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:124
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:179
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:161
+#: ../classes/class-wpfront-user-role-editor-add-edit.php:313
+#: ../classes/class-wpfront-user-role-editor-list.php:218
+#: ../classes/class-wpfront-user-role-editor-list.php:361
+#: ../classes/class-wpfront-user-role-editor-list.php:414
+#: ../templates/add-edit-role.php:71
+msgid "Display Name"
+msgstr "Mostrar nome"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-add-edit.php:225
+#: ../classes/class-wpfront-user-role-editor-add-edit.php:315
+msgid ""
+"Use the Display Name field to set the display name for the new role. WordPress uses "
+"display name to display this role within your site. This field is required."
+msgstr ""
+"Use o campo Mostrar nome para definir o nome a ser mostrado na nova regra. WordPress "
+"usa o Mostrar nome para mostrar esta regra em seu site. Este campo é necessário."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-add-edit.php:230
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:131
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:174
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:160
+#: ../classes/class-wpfront-user-role-editor-add-edit.php:320
+#: ../classes/class-wpfront-user-role-editor-list.php:221
+#: ../classes/class-wpfront-user-role-editor-list.php:368
+#: ../classes/class-wpfront-user-role-editor-list.php:419
+#: ../templates/add-edit-role.php:81
+msgid "Role Name"
+msgstr "Nome da função"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-add-edit.php:232
+#: ../classes/class-wpfront-user-role-editor-add-edit.php:322
+msgid ""
+"Use the Role Name field to set the role name for the new role. WordPress uses role "
+"name to identify this role within your site. Once set role name cannot be changed. "
+"This field is required. This plugin will auto populate role name from the display "
+"name you have given, but you can change it."
+msgstr ""
+"Use o campo nome da função para definir o nome para a nova função. WordPress utiliza "
+"o nome da função para identificar esta regra em seu site. Uma vez definido, o nome "
+"da função não pode ser alterado. Este campo é necessário. Este plug-ins irá gerar o "
+"nome da função automaticamente através do Nome a ser mostrado que você deu, mas você "
+"pode alterá-lo."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-add-edit.php:237
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:138
+#: ../classes/class-wpfront-user-role-editor-add-edit.php:327
+#: ../classes/class-wpfront-user-role-editor-list.php:233
+#: ../classes/class-wpfront-user-role-editor-list.php:375
+#: ../classes/class-wpfront-user-role-editor-list.php:439
+#: ../templates/add-edit-role.php:95
+msgid "Capabilities"
+msgstr "Capacidades"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-add-edit.php:239
+#: ../classes/class-wpfront-user-role-editor-add-edit.php:329
+msgid ""
+"Capabilities are displayed as different groups for easy access. The Roles section "
+"displays capabilities created by this plugin. The Other Capabilities section "
+"displays non-standard capabilities within your site. These are usually created by "
+"plugins and themes. Use the check boxes to select the capabilities required for this "
+"new role."
+msgstr ""
+"Capacidades são mostradas como grupos diferentes para fácil acesso. A sessão de "
+"funções mostra capacidades criadas pelo plugin. As outras sessões de capacidades "
+"para capacidades não-padrão em são site. Estas são criadas normalmente por plug-ins "
+"e temas. Use as caixas de marcação para selecionar as capacidades requeridas para "
+"esta nova regra."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-add-edit.php:248
+msgid "Documentation on Multisite Add New Role"
+msgstr "Documentação no Adicionar Função Multisite"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:86
+#: ../templates/list-roles.php:62 ../templates/list-roles.php:64
+msgid "Search Roles"
+msgstr "Buscar funções"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:116
+msgid "This screen allows you to edit a role within your network."
+msgstr "Esta tela permite que você edite uma regra em sua rede."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:126
+#: ../classes/class-wpfront-user-role-editor-list.php:363
+msgid ""
+"Use the Display Name field to edit display name of the role. WordPress uses display "
+"name to display this role within your site. This field is required."
+msgstr ""
+"Use o campo Mostrar nome para editar o nome da função a ser mostrado. WordPress usa "
+"Mostrar nome para mostrar esta função em seu site. Este campo é obrigatório."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:133
+#: ../classes/class-wpfront-user-role-editor-list.php:370
+msgid ""
+"Role Name is read only. WordPress uses role name to identify this role within your "
+"site."
+msgstr ""
+"O nome da função é apenas leitura. WordPress utiliza o nome da regra para "
+"identificar esta regra em seu site."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:140
+#: ../classes/class-wpfront-user-role-editor-list.php:377
+msgid ""
+"Capabilities are displayed as different groups for easy access. The Roles section "
+"displays capabilities created by this plugin. The Other Capabilities section "
+"displays non-standard capabilities within your site. These are usually created by "
+"plugins and themes. Use the check boxes to select the capabilities required."
+msgstr ""
+"Capacidades são mostradas em grupos diferentes para fácil acesso. A sessão regras "
+"mostra capacidades criadas por este plugin. As outras capacidades da sessão mostra "
+"capacidades não-padrões de seu site. Estas são normalmente ciada por plug-ins e "
+"temas. Use as caixas de marcar para selecionar as capacidades necessárias."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:150
+msgid "This screen allows you to delete roles from your network sites."
+msgstr "Esta tela permite que você delete funções de sua rede de sites."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:153
+#: ../classes/class-wpfront-user-role-editor-list.php:390
+msgid ""
+"Use the Roles List screen to select the roles you want to delete. You can delete "
+"individual roles using the Delete row action link or delete multiple roles at the "
+"same time using the bulk action."
+msgstr ""
+"A tela de lista de funções de usuários serve para selecionar regras que você deseja "
+"excluir. Você pode excluir regras individuais usando a linha de ação Excluir ou "
+"excluir múltiplas funções ao mesmo tempo utilizando a função de marcação."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:164
+msgid "This screen displays all the roles existing within your multisite network."
+msgstr "Esta tela mostra todas as funções existentes em sua rede multisites."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:167
+#: ../classes/class-wpfront-user-role-editor-list.php:407
+msgid ""
+"To add a new role, click the Add New button at the top of the screen or Add New in "
+"the Roles menu section."
+msgstr ""
+"Para adicionar uma nova função, clique no botão Adicionar novo no topo da página ou "
+"Adicionar novo na sessão de Regras do menu."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:172
+#: ../classes/class-wpfront-user-role-editor-list.php:412
+msgid "Columns"
+msgstr "Colunas"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:176
+#: ../classes/class-wpfront-user-role-editor-list.php:421
+msgid "Is used by WordPress to identify this role."
+msgstr "É usado pelo WordPress para identificar esta regra."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:181
+msgid ""
+"WordPress uses display name to display this role within the site. You can have "
+"different display names for the same role within the network."
+msgstr ""
+"WordPress usa o Mostrar nome para mostrar esta função em seu site. Você pode ter "
+"diferentes nomes para mostrar para a mesma regra em sua rede."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:184
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:162
+msgid "Role Type"
+msgstr "Tipo de regra"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:186
+msgid "Displays whether that role is a built-in role or a custom role."
+msgstr "Mostra onde esta regra é construída ou uma regra personalizada."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:189
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:163
+msgid "Sites"
+msgstr "Sites"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:191
+msgid ""
+"Display the sites that role belongs to. [All Sites] mean, that role is part of every "
+"site within the network. Else it will display the number of sites as a link. "
+"Clicking on the link will display the site list."
+msgstr ""
+"Mostra os sites onde as regras se aplicam. [Todos os site] significa que a regra é "
+"parte de todos os sites em sua rede. Em outro caso, isto irá mostrar o número de "
+"sites como um link. Clicando no link irá mostrar a lista de sites."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:196
+#: ../classes/class-wpfront-user-role-editor-list.php:451
+msgid "Actions"
+msgstr "Ações"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:198
+#: ../classes/class-wpfront-user-role-editor-list.php:453
+msgid ""
+"Hovering over a row in the roles list will display action links that allow you to "
+"manage roles. You can perform the following actions:"
+msgstr ""
+"Passando por cima de uma linha nas funções mostrara os links de ação que permite-o "
+"gerenciar as funções. Você pode realizar as seguintes ações:"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:201
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:222
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:272
+#: ../classes/class-wpfront-user-role-editor-list.php:456
+#: ../templates/list-roles.php:98
+msgid "View"
+msgstr "Ver"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:203
+#: ../classes/class-wpfront-user-role-editor-list.php:458
+msgid ""
+"Display details about the role. You can see the capabilities assigned for that role. "
+"View link will only appear when you do not have permission to edit that role."
+msgstr ""
+"Mostra detalhes sobre esta regra. Você pode ver capacidades assinadas para esta "
+"regra. O link ver aparecerá apenas quando você não tiver permissão para editar esta "
+"regra."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:206
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:219
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:260
+#: ../classes/class-wpfront-user-role-editor-list.php:461
+#: ../templates/list-roles.php:98
+#: ../templates/personal-pro/post-type-permissions.php:28
+msgid "Edit"
+msgstr "Editar"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:208
+#: ../classes/class-wpfront-user-role-editor-list.php:463
+msgid ""
+"Allows you to edit that role. You can see the capabilities assigned for that role "
+"and also edit them. Edit link will only appear when you have permission to edit that "
+"role."
+msgstr ""
+"Permite que você edite esta regra. Você poderá ver as capacidades assinadas para "
+"esta regra e também editá-las. O link de edição aparecerá apenas quando você tiver "
+"permissões para editar esta regra."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:211
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:110
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:220
+#: ../classes/class-wpfront-user-role-editor-list.php:253
+#: ../classes/class-wpfront-user-role-editor-list.php:466
+#: ../templates/list-roles.php:101
+#: ../templates/personal-pro/post-type-permissions.php:29
+msgid "Delete"
+msgstr "Excluir"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:213
+msgid "Allows you to delete that role."
+msgstr "Permite excluir esta regra."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:225
+msgid "Documentation on Multisite Edit Role"
+msgstr "Documentação na edição de regras no multisite"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:232
+msgid "Documentation on Multisite Delete Roles"
+msgstr "Documentação na exclusão de regras no multisite"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:240
+msgid "Documentation on Multisite Roles"
+msgstr "Documentação de regras no multisite"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:44
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:73
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:174
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:176
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:196
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:215
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:224
+#: ../classes/class-wpfront-user-role-editor-restore.php:84
+#: ../templates/add-edit-role.php:45 ../templates/add-edit-role.php:53
+#: ../templates/business-pro/sync-roles.php:17
+msgid "ERROR"
+msgstr "ERRO"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:44
+msgid "Permission denied."
+msgstr "Permissão negada."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:71
+msgid "Partial Failure"
+msgstr "Falha parcial"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:86
+#: ../classes/class-wpfront-user-role-editor-restore.php:167
+msgid ""
+"This screen allow you to restore WordPress built-in roles to its standard capability "
+"settings."
+msgstr ""
+"A tela permite que você restaure as funções padrões do WordPress para suas opções de "
+"capacidade padrão."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:89
+#: ../classes/class-wpfront-user-role-editor-restore.php:170
+msgid "To restore a role, click the Restore button then Confirm."
+msgstr "Para restaurar uma função, clique no botão Restaurar e então confirme."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:98
+msgid "Documentation on Multisite Restore"
+msgstr "Documentação na restauração multisite"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:116
+msgid "No roles found."
+msgstr "Sem funções encontradas."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:142
+#, php-format
+msgid "All <span class=\"count\">(%s)</span>"
+msgstr "Tudo <span class=\"count\">(%s)</span>"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:145
+#, php-format
+msgid "Built-In <span class=\"count\">(%s)</span>"
+msgstr "Padrões <span class=\"count\">(%s)</span>"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:148
+#, php-format
+msgid "Custom <span class=\"count\">(%s)</span>"
+msgstr "Personalizados <span class=\"count\">(%s)</span>"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:198
+#: ../templates/personal-pro/menu-editor.php:155
+#: ../templates/personal-pro/menu-editor.php:191
+#, php-format
+msgid "Select %s"
+msgstr "Selecionar %s"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:244
+msgid "[All Sites]"
+msgstr "[Todos os sites]"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-roles-list-table.php:246
+#, php-format
+msgid "%d Site(s)"
+msgstr "%d Site(s)"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:56
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:64
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:83
+msgid "Source site not selected."
+msgstr "O site de fonte não foi selecionado"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:67
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:86
+msgid "Destination type not selected."
+msgstr "O tipo de destino não foi selecionado."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:74
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:93
+msgid "Destination sites not selected."
+msgstr "Os sites de destino não foram selecionados."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:225
+msgid "This screen allows you to sync the roles between the network."
+msgstr "Esta tela permite que você sincronize as regras entre a rede."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:228
+msgid ""
+"You will select a site as source, then sync the roles to selected sites or entire "
+"sites within the network."
+msgstr ""
+"Você irá selecionar um site como base, então sincronizará as regras para os sites "
+"selecionados ou para toda a rede de sites."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:233
+msgid "Step 1"
+msgstr "Passo 1"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:235
+msgid "Select source site."
+msgstr "Selecione o site fonte."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:238
+msgid "You will select the source site in this step."
+msgstr "Você selecionará a fonte neste passo."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:243
+msgid "Step 2"
+msgstr "Passo 2"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:245
+msgid "Select destination sites."
+msgstr "Selecione os sites de destino."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:248
+msgid "You will select the destination sites in this step."
+msgstr "Você selecionará os sites de destino neste passo."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:251
+msgid ""
+"Use \"All Sites\" to select all the sites within the network or you can select "
+"individual sites using \"Selected Sites\"."
+msgstr ""
+"Use \"Todos os sites\" para selecionar todos os sites na rede ou você pode "
+"selecionar sites individuais utilizando \"Sites selecionados\"."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:256
+msgid "Step 3"
+msgstr "Passo 3"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:258
+msgid "Choose settings."
+msgstr "Selecione as configurações."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:261
+#: ../templates/business-pro/sync-roles.php:222
+msgid "Add roles existing only in source"
+msgstr "Adiciona regras existente apenas na fonte"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:263
+msgid "Roles existing in source and do not existing in destination will be created."
+msgstr "Funções existentes na fonte e não existentes no destino serão criadas."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:266
+#: ../templates/business-pro/sync-roles.php:227
+msgid "Overwrite existing roles"
+msgstr "Sobrescrever funções existentes"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:268
+msgid "If the role from source already exists in destination, it will be overwritten."
+msgstr "Se a função da fonte já existe no destino, ela será sobrescrita."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:271
+#: ../templates/business-pro/sync-roles.php:232
+msgid "Remove roles existing only in destination"
+msgstr "Remover funções existentes apenas no destino"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:273
+msgid "If a role do not exist in source, but exists in destination it will be removed."
+msgstr "Se uma função não existir na fonte, mas existe no destino, esta será excluída."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:276
+#: ../templates/business-pro/sync-roles.php:237
+msgid "Update new user default role"
+msgstr "Atualizar a nova função padrão do usuário"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:278
+msgid "The destination new user default role will be updated as same as source."
+msgstr "O destino dos padrões de novos usuários serão atualizados bem como a fonte."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:283
+msgid "Step 4"
+msgstr "Passo 4"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:285
+msgid "Confirm and Sync"
+msgstr "Confirmar e sincronizar"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:288
+msgid "You can verify your settings and start syncing."
+msgstr "Você pode verificar suas configurações e começar a sincronizar."
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:291
+msgid "Click Sync Roles to start syncing."
+msgstr "Clique em sincronizar para iniciar a sincronização;"
+
+#: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:300
+msgid "Documentation on Multisite Sync"
+msgstr "Documentação da sincronização do multisite"
+
+#: ../classes/class-wpfront-user-role-editor-add-edit.php:305
+msgid "This screen allows you to add a new role within your site."
+msgstr "Esta tela permite que você adicione uma nova função em seu site."
+
+#: ../classes/class-wpfront-user-role-editor-add-edit.php:338
+msgid "Documentation on Add New Role"
+msgstr "Documentação da Adição de Funções"
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:59
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:270
+msgid "Secondary Roles"
+msgstr "Funções secundárias"
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:74
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:303
+#: ../templates/assign-roles.php:36 ../templates/assign-roles.php:88
+msgid "Assign Roles"
+msgstr "Assinar funções"
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:111
+msgid "No role for this site"
+msgstr "Sem funções para este site"
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:127
+msgid "Invalid user."
+msgstr "Usuário inválido."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:155
+msgid "Roles updated successfully."
+msgstr "Funções atualizadas com sucesso."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:157
+msgid "Invalid primary role specified."
+msgstr "Função primária especificada inválida."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:175
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:185
+msgid "Invalid primary role."
+msgstr "Função primária inválida."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:207
+#, php-format
+msgid "%d user(s) migrated."
+msgstr "%d usuário(s) migrado(s)."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:252
+msgid "Primary Role"
+msgstr "Regra primária"
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:298
+msgid ""
+"This screen allows you to assign multiple roles to a user and also allows you to "
+"migrate users from a role to another role."
+msgstr ""
+"Esta tela permite que você assine múltiplas regras para um usuário e também permite "
+"você migrar usuários de uma regra para outra."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:305
+msgid ""
+"To assign multiple roles to a user, select that user within the User drop down list "
+"and select the primary role you want for that user using the Primary Role drop down "
+"list. Select the secondary roles using the check boxes below, then click Assign "
+"Roles."
+msgstr ""
+"Para assinar múltiplas funções à um usuário, selecione este usuário na lista "
+"suspensa e selecione a regra primária que você deseja para este usuário usando a "
+"lista suspensa de função primária. Selecione as regras secundárias usando as caixas "
+"de marcação a seguir, então clique em assinar funções."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:310
+#: ../templates/assign-roles.php:93 ../templates/assign-roles.php:126
+msgid "Migrate Users"
+msgstr "Migrar usuários"
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:312
+msgid ""
+"To migrate users from one role to another role or to add secondary roles to users "
+"belonging to a particular primary role, use the migrate users functionality."
+msgstr ""
+"Para migrar usuários de uma função para outra, ou adicionar funções secundárias  "
+"pertencentes à uma função primária particular, use a funcionalidades de migrar "
+"usuários."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:315
+msgid ""
+"Select the users using the From Primary Role drop down, to primary role using the "
+"Primary Role drop down and secondary roles using the check boxes then click Migrate "
+"Users."
+msgstr ""
+"Seçecione os usuários da lista suspensa de função primária, para a função primária "
+"usando a lista suspensa de funções primárias e funções secundárias utilizando as "
+"caixas de marcação, então clique em migrar usuários."
+
+#: ../classes/class-wpfront-user-role-editor-assign-roles.php:324
+msgid "Documentation on Assign / Migrate Users"
+msgstr "Documentação em Assinar/Migrar usuários"
+
+#: ../classes/class-wpfront-user-role-editor-controller-base.php:81
+msgid "Links:"
+msgstr "Links:"
+
+#: ../classes/class-wpfront-user-role-editor-controller-base.php:87
+msgid "FAQ"
+msgstr "FAQ"
+
+#: ../classes/class-wpfront-user-role-editor-controller-base.php:88
+msgid "Support"
+msgstr "Suporte"
+
+#: ../classes/class-wpfront-user-role-editor-controller-base.php:89
+msgid "Review"
+msgstr "Revisão"
+
+#: ../classes/class-wpfront-user-role-editor-controller-base.php:90
+msgid "Contact"
+msgstr "Contato"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:174
+msgid "License key activation limit reached"
+msgstr "Limite de ativação de chaves de licença atingido"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:176
+msgid "Invalid license key"
+msgstr "Chave de licença inválida"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:196
+msgid "Unable to deactivate, expired license?"
+msgstr "Não pôde desativar, licença expirada?"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:215
+msgid "Unable to contact wpfront.com"
+msgstr "Não pôde contatar wpfront.com"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:224
+msgid "Unable to parse response"
+msgstr "Não pôde analisar resposta"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:214
+#: ../templates/add-edit-role.php:111 ../templates/personal-pro/menu-editor.php:126
+msgid "Select All"
+msgstr "Selecionar tudo"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:224
+#: ../classes/class-wpfront-user-role-editor-list.php:424
+msgid "Type"
+msgstr "Tipo"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:227
+#: ../classes/class-wpfront-user-role-editor-list.php:429
+msgid "User Default"
+msgstr "Padrão do usuário"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:230
+#: ../classes/class-wpfront-user-role-editor-list.php:434
+msgid "Users"
+msgstr "Usuários"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:251
+msgid "Bulk Actions"
+msgstr "Ações agendadas"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:256
+#: ../templates/add-edit-role.php:107 ../templates/personal-pro/menu-editor.php:94
+msgid "Apply"
+msgstr "Aplicar"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:258
+#, php-format
+msgid "%s item(s)"
+msgstr "%s item(s)"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:281
+msgid "All"
+msgstr "Tudo"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:292
+msgid "Having Users"
+msgstr "Tendo usuários"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:298
+msgid "No Users"
+msgstr "Sem usuários"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:309
+#: ../templates/list-roles.php:118
+msgid "Built-In"
+msgstr "Padrões"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:315
+#: ../templates/list-roles.php:118
+msgid "Custom"
+msgstr "Personalizados"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:353
+msgid "This screen allows you to edit a role within your site."
+msgstr "Esta tela permite que você edite uma função em seu site."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:387
+msgid "This screen allows you to delete roles from your WordPress site."
+msgstr "Esta tela permite que você exclua funções de seu site WordPress."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:393
+msgid ""
+"You cannot delete administrator role, current user’s role and roles you do not have "
+"permission to."
+msgstr ""
+"Você não pode excluir a função de administrador, a regra do usuário atual e funções "
+"que você não tem permissões de mudar."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:404
+msgid "This screen lists all the existing roles within your site."
+msgstr "Este tela lista todas as funções existentes em seu site."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:416
+msgid "Used to display this role within this site."
+msgstr "Usado para mostrar esta função neste site."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:426
+msgid ""
+"Says whether the role is a WordPress built-in role or not. There are five built-in "
+"roles."
+msgstr "Diz se a função é uma das padrões WordPress ou não. Há cinco funções padrões."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:431
+msgid "Displays whether a role is the default role of a new user."
+msgstr "Mostra se a função é a padrão para um novo usuário."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:436
+msgid "Number of users in that role."
+msgstr "Número de usuários nesta função."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:441
+msgid "Number of capabilities that role have."
+msgstr "Número de capacidades que esta função possui."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:444
+msgid "Menu Edited"
+msgstr "Menu editado"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:446
+msgid "Displays whether the menu has been edited for this role. This is a pro feature."
+msgstr "Mostra onde o menu foi editado nesta função. Esta é uma ferramenta Pro."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:468
+msgid ""
+"Allows you to delete that role. Delete action will not appear if you do not have "
+"permission to delete that role."
+msgstr ""
+"Permite que você exclua esta função. A ação de exclusão não aparecerá se você não "
+"tem permissão para excluir esta função."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:471
+#: ../templates/list-roles.php:104
+msgid "Default"
+msgstr "Padrão"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:473
+msgid "Allows you to set that role as the default role for new user registration."
+msgstr ""
+"Permite que você defina que regra será a padrão para o registro de novos usuários."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:476
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:555
+msgid "Edit Menu"
+msgstr "Editar menu"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:478
+msgid ""
+"Takes you to the menu editor screen for that role. You need \"edit_role_menus\" "
+"capability for this link to appear. This is a pro feature."
+msgstr ""
+"O leva à tela de editor de menu para esta função. Você precisa da capacidade "
+"\"edit_role_menus\" para este link aparecer. Esta é uma ferramenta Pro."
+
+#: ../classes/class-wpfront-user-role-editor-list.php:490
+msgid "Documentation on Edit Role"
+msgstr "Documentação da edição de funções"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:497
+msgid "Documentation on Delete Roles"
+msgstr "Documentação na exclusão de funções"
+
+#: ../classes/class-wpfront-user-role-editor-list.php:505
+msgid "Documentation on Roles"
+msgstr "Documentação nas funções"
+
+#: ../classes/class-wpfront-user-role-editor-options.php:193
+msgid ""
+"These settings are applicable for the network admin dashboard. Also these settings "
+"will propagate to the individual sites unless its overridden within that site’s "
+"settings."
+msgstr ""
+"Estas configurações são aplicáveis ao painel de controle do administrador de rede. "
+"Também estas configurações se propagarão para sites individuais menos se isto for "
+"substituído nestas configurações de site."
+
+#: ../classes/class-wpfront-user-role-editor-options.php:200
+#: ../templates/options-template.php:40
+msgid "Enable Large Network Functionalities"
+msgstr "Ativar funcionalidades de grande rede"
+
+#: ../classes/class-wpfront-user-role-editor-options.php:202
+msgid "This setting is only visible when you have a large network."
+msgstr "Esta configuração é visível apenas quando você possui uma grande rede."
+
+#: ../classes/class-wpfront-user-role-editor-options.php:204
+msgid "More details"
+msgstr "Mais detelhes"
+
+#: ../classes/class-wpfront-user-role-editor-options.php:208
+#: ../classes/class-wpfront-user-role-editor-options.php:235
+#: ../templates/options-template.php:49
+msgid "Display Deprecated Capabilities"
+msgstr "Mostra capacidades obsoletas"
+
+#: ../classes/class-wpfront-user-role-editor-options.php:210
+#: ../classes/class-wpfront-user-role-editor-options.php:237
+msgid ""
+"If enabled, deprecated capabilities will be displayed within the add/edit screens."
+msgstr ""
+"Se ativado, capacidades obsoletas serão mostradas nas telas de adicionar/editar."
+
+#: ../classes/class-wpfront-user-role-editor-options.php:213
+#: ../classes/class-wpfront-user-role-editor-options.php:240
+#: ../templates/options-template.php:57
+msgid "Remove Non-Standard Capabilities on Restore"
+msgstr "Remover capacidades não-padrões na restauração"
+
+#: ../classes/class-wpfront-user-role-editor-options.php:215
+#: ../classes/class-wpfront-user-role-editor-options.php:242
+msgid ""
+"If enabled, while restoring WordPress built-in capabilities non-standard "
+"capabilities will be removed."
+msgstr ""
+"Se ativado, enquanto restaura as capacidades padrões do WordPress capacidades não-"
+"padrões serão removidas."
+
+#: ../classes/class-wpfront-user-role-editor-options.php:218
+#: ../classes/class-wpfront-user-role-editor-options.php:245
+#: ../templates/options-template.php:65
+msgid "Override Edit Permissions"
+msgstr "Substituir permissões de edição"
+
+#: ../classes/class-wpfront-user-role-editor-options.php:220
+#: ../classes/class-wpfront-user-role-editor-options.php:247
+msgid "If enabled, ignores the check to the function get_editable_roles."
+msgstr "Se ativado, ignorará marcar a função get_editable_roles."
+
+#: ../classes/class-wpfront-user-role-editor-options.php:223
+#: ../classes/class-wpfront-user-role-editor-options.php:250
+#: ../templates/options-template.php:74
+msgid "Remove Data on Uninstall"
+msgstr "Remover dados na desinstalação"
+
+#: ../classes/class-wpfront-user-role-editor-options.php:225
+#: ../classes/class-wpfront-user-role-editor-options.php:252
+msgid ""
+"If enabled, removes all data related to this plugin from database (except roles "
+"data) including license information if any. This will not deactivate the license "
+"automatically."
+msgstr ""
+"Se ativado, remove todos os dados relativos à este plugin da base de dados (exceto "
+"dados de funções) incluindo as informações de chaves de licenças, se houver. Isto "
+"não desativará a licença automaticamente."
+
+#: ../classes/class-wpfront-user-role-editor-options.php:263
+msgid "Documentation on Multisite Settings"
+msgstr "Documentação nas configurações de multisite"
+
+#: ../classes/class-wpfront-user-role-editor-options.php:270
+msgid "Documentation on Settings"
+msgstr "Documentação nas configurações"
+
+#: ../classes/class-wpfront-user-role-editor-restore.php:179
+msgid "Documentation on Restore"
+msgstr "Documentações na restauração"
+
+#: ../classes/class-wpfront-user-role-editor.php:221
+msgid "Assign Roles | Migrate Users"
+msgstr "Assinar funções | Migrar usuários"
+
+#: ../classes/class-wpfront-user-role-editor.php:221
+msgid "Assign / Migrate"
+msgstr "Assinar / Migrar"
+
+#: ../classes/class-wpfront-user-role-editor.php:316
+msgid "Buy me a Beer"
+msgstr "Compre-me uma cerveja"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-export.php:128
+msgid ""
+"This screen allows you to export the roles existing within your site and import into "
+"the same site or a different site."
+msgstr ""
+"Esta tela permite que você exporte as funções existentes em seu site e importe para "
+"o mesmo site ou à um diferente."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-export.php:131
+msgid "Select the roles to export, then click Download Export File."
+msgstr ""
+"Selecione as funções para exportar, então clique em Baixar Arquivo de Exportação."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-export.php:140
+msgid "Documentation on Export"
+msgstr "Documentação na exportação"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:33
+msgid "This functionality requires SimpleXML extension, which is not loaded."
+msgstr "Esta funcionalidades requerem a extensão SimpleXML, que não está lida."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:81
+#, php-format
+msgid "%d role(s) imported."
+msgstr "%d funções(s) importadas."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:102
+#, php-format
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that this was "
+"caused by a permissions problem."
+msgstr ""
+"O arquivo exportado não foi encontrado em <code>%s</code>. Isto é como isto foi "
+"causado por um problema de permissões."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:133
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:141
+msgid "There was an error when reading this export file"
+msgstr "Houve um erro ao ler o este arquivo exportado"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:158
+#, php-format
+msgid ""
+"Please update the plugin to latest version. This export file requires plugin version "
+"%s or higher."
+msgstr ""
+"Por favor atualize o plugin para a última versão. Este arquivo de exportação requer "
+"a versão %s ou superior."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:214
+msgid "This file does not appears to be a valid export file."
+msgstr "Este arquivo não parece ser um arquivo de exportação válido."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:227
+msgid ""
+"Step 1: Select export file using the Browse button. Then click Upload file and "
+"Import."
+msgstr ""
+"Passo 1: Selecione o arquivo de exportação usando o botão Navegador. Então clique em "
+"Carregar arquivo e impertar."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:230
+msgid ""
+"Step 2: Select the roles you want to import using the check boxes and click Import "
+"Roles."
+msgstr ""
+"Passo 2: Selecione as funções que você deseja importar usando as caixas de marcar e "
+"clique em Importar funções."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:239
+msgid "Documentation on Import"
+msgstr "Importar documentação"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:157
+msgid "Menu changes saved."
+msgstr "Alterações no menu salvas."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:170
+msgid "Menu defaults restored."
+msgstr "Padrões de menu restaurados."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:185
+msgid "No editable roles found on this site."
+msgstr "Funções não editáveis encontradas neste site."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:565
+msgid "This screen allows you to enable and disable admin menus for a particular role."
+msgstr ""
+"Esta tela permite que você ative ou desative menus administrativos para uma regra "
+"particular."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:568
+msgid "Deselect a menu from the grid to remove that menu."
+msgstr "Desmarca um menu da grade para remover este menu."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:571
+msgid ""
+"Disabled menu items are already hidden, because the selected role doesn't have the "
+"capability to display that menu. Grid displays menus which the current user has "
+"access to."
+msgstr ""
+"Itens desativados do menu ainda estão escondidos, porque a função selecionada não "
+"tem capacidade para mostrar este menu. A grade mostra menus que o usuário atual tem "
+"acesso."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:576
+msgid "Fields"
+msgstr "Campos"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:578
+#: ../templates/personal-pro/menu-editor.php:33
+msgid "Override Role"
+msgstr "Funções substituídas"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:580
+msgid "The role you want to override."
+msgstr "A função que você quer substituir."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:583
+#: ../templates/personal-pro/menu-editor.php:50
+msgid "Override Type"
+msgstr "Tipo de substituição"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:585
+msgid ""
+"Soft - Pages may be available through directly typing the URL. Hard - Even URLs will "
+"be blocked."
+msgstr ""
+"Leve - Páginas podem estar disponíveis diretamente digitando a URL. Duro - Até mesmo "
+"URLs serão bloqueadas."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:588
+#: ../templates/personal-pro/menu-editor.php:61
+msgid "Hide New Menus"
+msgstr "Esconder novos menus"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:590
+msgid "Allow you to hide future menus."
+msgstr "Permite que você esconda futuros menus."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:593
+#: ../templates/personal-pro/menu-editor.php:69
+msgid "Disable For Secondary Role"
+msgstr "Desativas para funções secundárias"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:595
+msgid "Disables menu settings while the selected role is a secondary role."
+msgstr "Desativa configurações do menu enquanto a função selecionada é uma secundária."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:600
+msgid "Restore Default"
+msgstr "Restaurar padrão"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:602
+msgid "Select \"Restore default\" from the \"Copy from\" drop down and click apply."
+msgstr ""
+"Selecione \"Restaurar padrão\" de \"Copiar da\" lista suspensa e clique aplicar."
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:611
+msgid "Documentation on Menu Editor"
+msgstr "Documentação no Editor de Menu"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:65
+#: ../templates/personal-pro/menu-editor.php:3
+msgid "Menu Editor"
+msgstr "Editor de Menu"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:66
+#: ../templates/personal-pro/export-roles.php:3
+msgid "Export Roles"
+msgstr "Exportar funções"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:66
+msgid "Export"
+msgstr "Exportar"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:67
+#: ../templates/personal-pro/import-roles.php:3
+#: ../templates/personal-pro/import-roles.php:82
+msgid "Import Roles"
+msgstr "Importar funções"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:67
+msgid "Import"
+msgstr "Importar"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:87
+#, php-format
+msgid "%s license not activated."
+msgstr "%s licença não ativada"
+
+#: ../classes/personal-pro/class-wpfront-user-role-editor-post-type-permissions.php:44
+#: ../classes/personal-pro/class-wpfront-user-role-editor-post-type-permissions.php:269
+msgid "Role Permissions"
+msgstr "Permissões da função"
+
+#: ../templates/add-edit-role.php:35
+msgid "Edit Role"
+msgstr "Editar função"
+
+#: ../templates/add-edit-role.php:45
+msgid "This role already exists in this site."
+msgstr "Esta função ainda existe neste site."
+
+#: ../templates/add-edit-role.php:53
+msgid "There was an unexpected error while performing this action."
+msgstr "Houve um erro inesperado enquanto realizávamos esta ação."
+
+#: ../templates/add-edit-role.php:60
+msgid "Create a brand new role and add it to this site."
+msgstr "Criar uma marca nova função e adicioná-la à este site."
+
+#: ../templates/add-edit-role.php:71 ../templates/add-edit-role.php:81
+msgid "required"
+msgstr "requerido"
+
+#: ../templates/add-edit-role.php:100 ../templates/personal-pro/menu-editor.php:83
+msgid "Copy from"
+msgstr "Copiar de "
+
+#: ../templates/add-edit-role.php:112
+msgid "Select None"
+msgstr "Selecionar nenhum"
+
+#: ../templates/add-edit-role.php:154
+msgid "Update Role"
+msgstr "Atualizar função"
+
+#: ../templates/assign-roles.php:62
+msgid "User"
+msgstr "Usuário"
+
+#: ../templates/assign-roles.php:103
+msgid "From Primary Role"
+msgstr "Da função primária"
+
+#: ../templates/business-pro/sync-roles.php:25
+msgid "Step 1: Select the source site"
+msgstr "Passo 1: Selecione o site fonte"
+
+#: ../templates/business-pro/sync-roles.php:34
+#: ../templates/business-pro/sync-roles.php:84
+msgid "Search Sites"
+msgstr "Buscar sites"
+
+#: ../templates/business-pro/sync-roles.php:40
+#: ../templates/business-pro/sync-roles.php:95
+#: ../templates/business-pro/sync-roles.php:245
+msgid "Next Step"
+msgstr "Próximo passo"
+
+#: ../templates/business-pro/sync-roles.php:70
+msgid "Step 2: Select destination sites"
+msgstr "Passo 2: Selecionar sites de destino"
+
+#: ../templates/business-pro/sync-roles.php:74
+#: ../templates/business-pro/sync-roles.php:269
+msgid "All Sites"
+msgstr "Todos os sites"
+
+#: ../templates/business-pro/sync-roles.php:77
+msgid "Selected Sites"
+msgstr "Sites selecionados"
+
+#: ../templates/business-pro/sync-roles.php:216
+msgid "Step 3: Choose settings"
+msgstr "Passo 3: Selecionar configurações"
+
+#: ../templates/business-pro/sync-roles.php:255
+msgid "Step 4: Confirm and Sync"
+msgstr "Passo 4: Confirmar e sincronizar"
+
+#: ../templates/business-pro/sync-roles.php:260
+msgid "Source: "
+msgstr "Fonte:"
+
+#: ../templates/business-pro/sync-roles.php:268
+msgid "Destination: "
+msgstr "Destino:"
+
+#: ../templates/business-pro/sync-roles.php:269
+msgid "Selected sites"
+msgstr "Sites selecionados"
+
+#: ../templates/business-pro/sync-roles.php:269
+#, php-format
+msgid "%s site(s) selected"
+msgstr "%s site(s) selecionados"
+
+#: ../templates/business-pro/sync-roles.php:274
+msgid "Add roles existing only in source: "
+msgstr "Adicionar funções existentes apenas na fonte:"
+
+#: ../templates/business-pro/sync-roles.php:275
+#: ../templates/business-pro/sync-roles.php:281
+#: ../templates/business-pro/sync-roles.php:287
+#: ../templates/business-pro/sync-roles.php:293
+msgid "Yes"
+msgstr "Sim"
+
+#: ../templates/business-pro/sync-roles.php:275
+#: ../templates/business-pro/sync-roles.php:281
+#: ../templates/business-pro/sync-roles.php:287
+#: ../templates/business-pro/sync-roles.php:293
+msgid "No"
+msgstr "Não"
+
+#: ../templates/business-pro/sync-roles.php:280
+msgid "Overwrite existing roles: "
+msgstr "Sobrescrever funções existentes:"
+
+#: ../templates/business-pro/sync-roles.php:286
+msgid "Remove roles existing only in destination: "
+msgstr "Remover funções existentes apenas no destino: "
+
+#: ../templates/business-pro/sync-roles.php:292
+msgid "Update new user default role: "
+msgstr "Atualizar a função padrão de novo usuário: "
+
+#: ../templates/business-pro/sync-roles.php:344
+msgid "SUCCESS"
+msgstr "SUCESSO"
+
+#: ../templates/business-pro/sync-roles.php:347
+msgid "FAIL"
+msgstr "FALHA"
+
+#: ../templates/business-pro/sync-roles.php:370
+msgid "Synching site"
+msgstr "Sincronizando site"
+
+#: ../templates/delete-role.php:37
+msgid "Delete Roles"
+msgstr "Excluindo funções"
+
+#: ../templates/delete-role.php:38
+msgid "You have specified these roles for deletion"
+msgstr "Você especificou estas regras para excluir"
+
+#: ../templates/delete-role.php:45
+msgid "Role"
+msgstr "Regra"
+
+#: ../templates/delete-role.php:57
+msgid "Confirm Deletion"
+msgstr "Confirmar exclusão"
+
+#: ../templates/go-pro.php:36
+msgid "WPFront User Role Editor Pro"
+msgstr "WPFront User Role Editor Pro"
+
+#: ../templates/go-pro.php:59
+msgid "License Key"
+msgstr "Chave de Licença"
+
+#: ../templates/go-pro.php:68 ../templates/go-pro.php:69
+msgid "Deactivate"
+msgstr "Desativar"
+
+#: ../templates/go-pro.php:76
+msgid "License Expires"
+msgstr "Licença Expirada"
+
+#: ../templates/options-template.php:32
+msgid "WPFront User Role Editor Settings"
+msgstr "Configurações WPFront User Role Editor"
+
+#: ../templates/personal-pro/export-roles.php:7
+msgid "Select the roles to be uploaded"
+msgstr "Selecionar as funções a serem carregadas"
+
+#: ../templates/personal-pro/export-roles.php:34
+msgid "Download Export File"
+msgstr "Baixar arquivo exportado"
+
+#: ../templates/personal-pro/import-roles.php:15
+msgid "ERROR:"
+msgstr "ERRO:"
+
+#: ../templates/personal-pro/import-roles.php:24
+msgid ""
+"Choose a WPFront User Role Editor export file (.xml) to upload, then click Upload "
+"file and import."
+msgstr ""
+"Selecione um arquivo de exportação WPFront User Role Editor (.xml) para carregar, "
+"então clique em Carregar arquivo e importe."
+
+#: ../templates/personal-pro/import-roles.php:33
+#, php-format
+msgid "Roles exported from %s on %s by user %s."
+msgstr "Funções exportadas de %s em %s pelo usuário %s."
+
+#: ../templates/personal-pro/import-roles.php:33
+msgid "UTC"
+msgstr "UTC"
+
+#: ../templates/personal-pro/import-roles.php:40
+msgid "Zero roles found in this export file to import."
+msgstr "Sem funções encontradas neste arquivo a ser importado."
+
+#: ../templates/personal-pro/import-roles.php:46
+msgid "Select roles to import"
+msgstr "Selecione funções para importar"
+
+#: ../templates/personal-pro/import-roles.php:75
+msgid ""
+"* These roles already exist in this site. Importing them will overwrite existing "
+"roles."
+msgstr ""
+"*Estas funções já existem neste site. Importando elas, irá sobrescrever as funções "
+"já existentes."
+
+#: ../templates/personal-pro/menu-editor.php:20
+msgid ""
+"Select a role below to edit menu for that role. Deselect a menu from the grid to "
+"remove that menu. Disabled menu items are already hidden, because the selected role "
+"doesn't have the capability to display that menu. Grid displays menus which the "
+"current user has access to. "
+msgstr ""
+"Selecione uma função a seguir para editar o menu para esta função. Não selecione um "
+"menu da grade para remover este menu. Itens do menu desativado já estão escondido, "
+"porque a função selecionada não tem a capacidade de mostrar este menu. A grade "
+"mostre menus que o usuário tem acesso atualmente. "
+
+#: ../templates/personal-pro/menu-editor.php:54
+msgid "Soft"
+msgstr "Leve"
+
+#: ../templates/personal-pro/menu-editor.php:55
+msgid "Hard"
+msgstr "Duro"
+
+#: ../templates/personal-pro/menu-editor.php:86
+msgid "Restore default"
+msgstr "Restaurar padões"
+
+#: ../templates/personal-pro/menu-editor.php:99
+msgid "Hide deselected item(s)"
+msgstr "Esconder item(ns) não selecionado(s)"
+
+#: ../templates/personal-pro/menu-editor.php:104
+msgid "Hide disabled item(s)"
+msgstr "Esconder item(ns) desativado(s)"
+
+#: ../templates/personal-pro/menu-editor.php:110
+msgid "Has Capability"
+msgstr "Tem capacidade"
+
+#: ../templates/personal-pro/menu-editor.php:115
+msgid "No Capability"
+msgstr "Sem capacidade"
+
+#: ../templates/personal-pro/menu-editor.php:135
+msgid "Capability"
+msgstr "Capacidade"
+
+#: ../templates/personal-pro/menu-editor.php:138
+msgid "Menu Slug"
+msgstr "Abreviação do menu"
+
+#: ../templates/personal-pro/post-type-permissions.php:19
+msgid "Enable Role Permissions"
+msgstr "Ativar permissões de função"
+
+#: ../templates/personal-pro/post-type-permissions.php:27
+msgid "Read"
+msgstr "Ler"
+
+#: ../templates/restore-role.php:48
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../templates/restore-role.php:49
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: ../templates/restore-role.php:57
+msgid "Restored"
+msgstr "Restaurado"
+
+#: ../templates/restore-role.php:101
+msgid "Unexpected error / Timed out"
+msgstr "Erro inesperado / Expirado"
+
+msgid "Settings Description"
+msgstr "Configurações para descrição"
+
+msgid "Plugin FAQ"
+msgstr "FAQ do plugin"
+
+msgid "Feature Request"
+msgstr "Pedido em destaque"
+
+msgid "Report Bug"
+msgstr "Reportar bug"
+
+msgid "Buy me a Beer or Coffee"
+msgstr "Compre-me uma cerveja ou café"
+
+msgid "Add Role Capabilities"
+msgstr "Adicionar capacidades de funções"
+
+msgid "User Role Editor"
+msgstr "Edição de Funções de Usuários"
+
+msgid "Enabled"
+msgstr "Ativado"
+
+msgid "Position"
+msgstr "Posição"
+
+msgid "Bar Height"
+msgstr "Comprimento da barra"
+
+msgid "Message Text"
+msgstr "Texto de mensagem"
+
+msgid "Display After"
+msgstr "Mostrar após"
+
+msgid "Animation Duration"
+msgstr "Duração da animação"
+
+msgid "Display Close Button"
+msgstr "Mostrar botão de fechar"
+
+msgid "Auto Close After"
+msgstr "Fechar automaticamente após"
+
+msgid "Display Button"
+msgstr "Mostrar botão"
+
+msgid "Button Text"
+msgstr "Texto do botão"
+
+msgid "Open URL:"
+msgstr "Abrir URL:"
+
+msgid "Open URL in new tab/window"
+msgstr "Abrir URL em uma nova aba/janela"
+
+msgid "Execute JavaScript"
+msgstr "Executar JavaScript"
+
+msgid "Close Bar on Button Click"
+msgstr "Fechar barra no clique do botão"
+
+msgid "Display Shadow"
+msgstr "Mostrar sombra"
+
+msgid "Fixed at Position"
+msgstr "Fixado na posição"
+
+msgid "Message Text Color"
+msgstr "Cor de texto na mensagem"
+
+msgid "From Color"
+msgstr "Da cor"
+
+msgid "To Color"
+msgstr "Para a cor"
+
+msgid "Button Text Color"
+msgstr "Cor do texto do botão"
+
+msgid "Display on Pages"
+msgstr "Mostrar nas páginas"
+
+msgid "Display Reopen Button"
+msgstr "Mostrar botão reabrir"
+
+msgid "Reopen Button Color"
+msgstr "Cor do botão reabrir"
+
+msgid "Keep Closed"
+msgstr "Manter fechado"
+
+msgid "Keep Closed For"
+msgstr "Manter fechado para"
+
+msgid "Position Offset"
+msgstr "Offset da posição"
+
+msgid "Close Button Color"
+msgstr "Cor do botão fechar"
+
+msgid "WPFront Notification Bar"
+msgstr "Barra de notificação WPFront"
+
+msgid "Notification Bar"
+msgstr "Barra de notificação"
+
+msgid "[Page]"
+msgstr "[Página]"
+
+msgid "Home"
+msgstr "Início"
+
+msgid "[Post]"
+msgstr "[Publicação]"
+
+msgid "Top"
+msgstr "Acima"
+
+msgid "Bottom"
+msgstr "Abaixo"
+
+msgid "[Sticky Bar, bar will stay at position regardless of scrolling.]"
+msgstr "[Barra pegajosa, a barra ficará na posição independentemente da rolagem.]"
+
+msgid "px"
+msgstr "px"
+
+msgid "Set 0px to auto fit contents."
+msgstr "Defina 0px para caber o conteúdo automaticamente."
+
+msgid ""
+"(Top bar only) If you find the bar overlapping, try increasing this value. (eg. "
+"WordPress 3.8 Twenty Fourteen theme, set 48px)"
+msgstr ""
+"(Apenas barra superior) se você encontrar a barra sobrepondo-se, tente incrementar "
+"este valor . (ex. WordPress 3.8 Twenty Fourteen theme, defina 48px)"
+
+msgid "second(s)"
+msgstr "segundo(s)"
+
+msgid "Set 0 second(s) to display immediately."
+msgstr "Defina 0 segundo(s) para mostrar imediatamente."
+
+msgid "Set 0 second(s) for no animation."
+msgstr "Defina 0 segundo(s) para ficar sem animação."
+
+msgid "[Displays a close button at the top right corner of the bar.]"
+msgstr "[Mostra um botão fechar no canto superior direito da barra.]"
+
+msgid "Set 0 second(s) to disable auto close."
+msgstr "Defina 0 segundo(s) para desativar fechar automaticamente."
+
+msgid "A reopen button will be displayed after the bar is closed."
+msgstr "Um botão de reabrir será mostrado após a barra ser fechada."
+
+msgid "Once closed, bar will display closed on other pages."
+msgstr "Uma vez fechada, a barra irá mostrar-se fechada em outras páginas."
+
+msgid "day(s)"
+msgstr "dia(s)"
+
+msgid "Bar will be kept closed for the number of days specified from last closed date."
+msgstr ""
+"A barra irá manter-se fechada pelo número de dias especificados da última data de "
+"fechamento."
+
+msgid "Content"
+msgstr "Conteúdo"
+
+msgid "[HTML tags are allowed. e.g. Add <br /> for break.]"
+msgstr "[HTML tags são permitidas. ex. Adicionar <br /> para quebrar.]"
+
+msgid "[Displays a button next to the message.]"
+msgstr "[Mostra um botão próximo à mensagem.]"
+
+msgid "Filter"
+msgstr "Filtro"
+
+msgid "Only in landing page."
+msgstr "Apenas na página de desembarque."
+
+msgid "Include in following pages"
+msgstr "Incluir nas seguintes páginas"
+
+msgid "Exclude in following pages"
+msgstr "Excluir na seguintes páginas"
+
+msgid "Color"
+msgstr "Color"
+
+msgid "Bar Color"
+msgstr "Cor da barra"
+
+msgid "[Select two different colors to create a gradient.]"
+msgstr "[Selecione duas cores diferentes para criar gradiente.]"
+
+msgid "Button Color"
+msgstr "Cor do botão"
+
+msgid "[Normal, Hover, X]"
+msgstr "[Normal, Hover, X]"
+
+msgid "CSS"
+msgstr "CSS"
+
+msgid "Plugin Ideas"
+msgstr "Ideias do plugin"
+
+msgid "Animate Display"
+msgstr "Mostrar animação"
+
+msgid "Animate Display Delay"
+msgstr "Atraso na mostra da animação"
