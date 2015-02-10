@@ -22,6 +22,10 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-static.php");
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-base-menu.php");
 
@@ -63,7 +67,7 @@ if (!class_exists('WPFront_Base_URE')) {
                 add_action('wp_enqueue_scripts', array(&$this, 'enqueue_scripts'));
             }
         }
-        
+
         protected function plugin_dir_suffix() {
             return '';
         }
@@ -111,7 +115,7 @@ if (!class_exists('WPFront_Base_URE')) {
             }
             return $links;
         }
-        
+
         protected function plugin_action_links_file() {
             return $this->plugin_slug . $this->plugin_dir_suffix() . '/' . $this->plugin_slug . '.php';
         }
@@ -191,7 +195,7 @@ if (!class_exists('WPFront_Base_URE')) {
             echo '</div>';
             echo '</div>';
         }
-        
+
         //returns localized string
         public function __($key) {
             return __($key, $this->plugin_slug);

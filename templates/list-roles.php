@@ -29,14 +29,20 @@
  */
 ?>
 
-<?php $this->main->verify_nonce(); ?>
+<?php
+if (!defined('ABSPATH')) {
+    exit();
+}
+
+$this->main->verify_nonce();
+?>
 
 <div class="wrap list-roles">
     <h2>
-        <?php
-        echo $this->__('Roles');
-        if ($this->can_create()) {
-            ?>
+<?php
+echo $this->__('Roles');
+if ($this->can_create()) {
+    ?>
             <a href="<?php echo $this->add_new_url(); ?>" class="add-new-h2"><?php echo $this->__('Add New'); ?></a>
             <?php
         }
@@ -45,37 +51,37 @@
 
     <ul class="subsubsub">
         <li>
-            <?php
-            $filter_data = array();
-            $current_filter = $this->get_current_list_filter();
-            foreach ($this->get_list_filters() as $key => $value) {
-                $filter_data[] = sprintf('<a href="%s" class="%s">%s <span class="count">(%s)</span></a>', $value['url'], ($current_filter == $key ? 'current' : ''), $value['display'], $value['count']);
-            }
-            echo implode('|</li><li>', $filter_data);
-            ?>
+<?php
+$filter_data = array();
+$current_filter = $this->get_current_list_filter();
+foreach ($this->get_list_filters() as $key => $value) {
+    $filter_data[] = sprintf('<a href="%s" class="%s">%s <span class="count">(%s)</span></a>', $value['url'], ($current_filter == $key ? 'current' : ''), $value['display'], $value['count']);
+}
+echo implode('|</li><li>', $filter_data);
+?>
         </li>
     </ul>
 
     <form method = "post">
-        <?php $this->main->create_nonce(); ?>
+<?php $this->main->create_nonce(); ?>
         <p class = "search-box">
             <label class = "screen-reader-text" for = "role-search-input"><?php echo $this->__('Search Roles') . ':'; ?></label>
             <input type="search" id="role-search-input" name="s" value="<?php echo $this->get_search_term(); ?>">
             <input type="submit" name="search-submit" id="search-submit" class="button" value="<?php echo $this->__('Search Roles'); ?>">
         </p>
-        <?php $this->bulk_actions('top'); ?>
+<?php $this->bulk_actions('top'); ?>
         <table class="wp-list-table widefat fixed users">
             <thead>
-                <?php $this->table_header(); ?>
+<?php $this->table_header(); ?>
             </thead>
             <tfoot>
-                <?php $this->table_header(); ?>
+<?php $this->table_header(); ?>
             </tfoot>
             <tbody id="the-list">
-                <?php
-                $index = 0;
-                foreach ($this->get_roles() as $key => $value) {
-                    ?>
+<?php
+$index = 0;
+foreach ($this->get_roles() as $key => $value) {
+    ?>
                     <tr id="<?php echo $key; ?>" class="<?php echo $index % 2 == 0 ? 'alternate' : ''; ?>">
                         <th scope="row" class="check-column">
                             <label class="screen-reader-text" for="cb-select-<?php echo $key; ?>"><?php echo sprintf('Select %s', $value['display_name']) ?></label>
@@ -83,68 +89,68 @@
                         </th>
                         <td class="displayname column-displayname">
                             <strong>
-                                <?php
-                                if (empty($value['edit_url']))
-                                    echo $value['display_name'];
-                                else
-                                    printf('<a href="%s">%s</a>', $value['edit_url'], $value['display_name']);
-                                ?>
+    <?php
+    if (empty($value['edit_url']))
+        echo $value['display_name'];
+    else
+        printf('<a href="%s">%s</a>', $value['edit_url'], $value['display_name']);
+    ?>
                             </strong>
                             <br />
                             <div class="row-actions">
-                                <?php
-                                $links = array();
-                                if ($this->can_edit()) {
-                                    $links[] = sprintf('<span class="edit"><a href="%s">%s</a></span>', $value['edit_url'], ($value['is_editable'] ? $this->__('Edit') : $this->__('View')));
-                                }
-                                if ($this->can_delete() && $value['is_deletable']) {
-                                    $links[] = sprintf('<span class="delete"><a href="%s">%s</a></span>', $value['delete_url'], $this->__('Delete'));
-                                }
-                                if (!empty($value['set_default_url'])) {
-                                    $links[] = sprintf('<span class="set-default"><a href="%s">%s</a></span>', $value['set_default_url'], $this->__('Default'));
-                                }
-                                $custom_links = apply_filters('role_row_actions', array(), get_role($key));
-                                foreach ($custom_links as $link_key => $link_value) {
-                                    $links[] = "<span class='$link_key'>$link_value</span>";
-                                }
-                                echo implode('|', $links);
-                                ?>
+    <?php
+    $links = array();
+    if ($this->can_edit()) {
+        $links[] = sprintf('<span class="edit"><a href="%s">%s</a></span>', $value['edit_url'], ($value['is_editable'] ? $this->__('Edit') : $this->__('View')));
+    }
+    if ($this->can_delete() && $value['is_deletable']) {
+        $links[] = sprintf('<span class="delete"><a href="%s">%s</a></span>', $value['delete_url'], $this->__('Delete'));
+    }
+    if (!empty($value['set_default_url'])) {
+        $links[] = sprintf('<span class="set-default"><a href="%s">%s</a></span>', $value['set_default_url'], $this->__('Default'));
+    }
+    $custom_links = apply_filters('role_row_actions', array(), get_role($key));
+    foreach ($custom_links as $link_key => $link_value) {
+        $links[] = "<span class='$link_key'>$link_value</span>";
+    }
+    echo implode('|', $links);
+    ?>
                             </div>
                         </td>
                         <td class="rolename column-rolename">
-                            <?php echo $key; ?>
+    <?php echo $key; ?>
                         </td>
                         <td class="roletype column-roletype">
-                            <?php echo $value['is_default'] ? $this->__('Built-In') : $this->__('Custom'); ?>
+    <?php echo $value['is_default'] ? $this->__('Built-In') : $this->__('Custom'); ?>
                         </td>
                         <td class="userdefault column-userdefault num">
-                            <?php
-                            if ($value['user_default']) {
-                                printf('<img class="user-default" src="%s" />', $this->image_url() . 'check-icon.png');
-                            }
-                            ?>
+    <?php
+    if ($value['user_default']) {
+        printf('<img class="user-default" src="%s" />', $this->image_url() . 'check-icon.png');
+    }
+    ?>
                         </td>
                         <td class="usercount column-usercount num">
-                            <?php echo $value['user_count']; ?>
+    <?php echo $value['user_count']; ?>
                         </td>
                         <td class="capscount column-capscount num">
-                            <?php echo $value['caps_count']; ?>
+    <?php echo $value['caps_count']; ?>
                         </td>
-                        <?php
-                        foreach ($this->custom_columns as $column_key => $column_value) {
-                            echo "<td class='$column_key column-$column_key num'>"
-                            . apply_filters('manage_roles_custom_column', $column_value, $column_key, $key)
-                            . "</td>";
-                        }
-                        ?>
+                            <?php
+                            foreach ($this->custom_columns as $column_key => $column_value) {
+                                echo "<td class='$column_key column-$column_key num'>"
+                                . apply_filters('manage_roles_custom_column', $column_value, $column_key, $key)
+                                . "</td>";
+                            }
+                            ?>
                     </tr>
-                    <?php
-                    $index++;
-                }
-                ?>
+                        <?php
+                        $index++;
+                    }
+                    ?>
             </tbody>
         </table>
-        <?php $this->bulk_actions('bottom'); ?>
+<?php $this->bulk_actions('bottom'); ?>
     </form>
-    <?php $this->footer(); ?>
+        <?php $this->footer(); ?>
 </div>

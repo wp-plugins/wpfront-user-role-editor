@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 require_once(plugin_dir_path(__FILE__) . "../class-wpfront-user-role-editor-entity-base.php");
 
 if (!class_exists('WPFront_User_Role_Editor_Entity_Options')) {
@@ -22,12 +26,12 @@ if (!class_exists('WPFront_User_Role_Editor_Entity_Options')) {
                 $this->db_data_field('option_value', 'longtext'),
             );
         }
-        
+
         public function get_option($key) {
             $entity = $this->get_by_option_name($key);
             if($entity === NULL) 
                 return NULL;
-            
+
             return $entity->get_option_value();
         }
 
@@ -40,19 +44,20 @@ if (!class_exists('WPFront_User_Role_Editor_Entity_Options')) {
             $entity->set_option_value($value);
             $entity->save();
         }
-        
+
         public function delete_option($key) {
             $entity = $this->get_by_option_name($key);
             if($entity !== NULL)
                 $entity->delete();
         }
-        
+
         public static function uninstall() {
             self::$UNINSTALL = TRUE;
-            
+
             $entity = new WPFront_User_Role_Editor_Entity_Options();
             $entity->uninstall_action();
         }
+
     }
 
 }

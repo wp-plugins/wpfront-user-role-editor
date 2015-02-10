@@ -29,6 +29,12 @@
  */
 ?>
 
+<?php
+if (!defined('ABSPATH')) {
+    exit();
+}
+?>
+
 <div class="wrap role-restore">
     <h2 id="restore-role">
         <?php echo $this->__('Restore Role'); ?>

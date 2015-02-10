@@ -22,6 +22,10 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 if (!class_exists('WPFront_User_Role_Editor_Go_Pro')) {
 
     /**
@@ -90,7 +94,7 @@ if (!class_exists('WPFront_User_Role_Editor_Go_Pro')) {
                 if ($this->pro_html === NULL)
                     $this->pro_html = '';
             }
-            
+
             if($this->pro_html === '') {
                 $this->pro_html = file_get_contents($this->main->pluginDIR() . 'templates/go-pro-table');
             }

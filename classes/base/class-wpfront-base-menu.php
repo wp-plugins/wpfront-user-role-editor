@@ -21,6 +21,10 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 if (!class_exists('WPFront_Base_Menu')) {
 
     class WPFront_Base_Menu {
@@ -132,12 +136,12 @@ if (!class_exists('WPFront_Base_Menu')) {
                 $description = strip_tags($plugin['description']);
                 if (strlen($description) > 400)
                     $description = mb_substr($description, 0, 400) . '&#8230;';
-                //remove any trailing entities
+//remove any trailing entities
                 $description = preg_replace('/&[^;\s]{0,6}$/', '', $description);
-                //strip leading/trailing & multiple consecutive lines
+//strip leading/trailing & multiple consecutive lines
                 $description = trim($description);
                 $description = preg_replace("|(\r?\n)+|", "\n", $description);
-                //\n => <br>
+//\n => <br>
                 $description = nl2br($description);
                 $version = wp_kses($plugin['version'], $plugins_allowedtags);
 
@@ -221,7 +225,7 @@ if (!class_exists('WPFront_Base_Menu')) {
                 return;
             }
 
-            //$extra_menu = array_pop($submenu[$menu_slug]);
+//$extra_menu = array_pop($submenu[$menu_slug]);
 
             foreach ($menu_data as $value) {
                 $flag = FALSE;
@@ -242,8 +246,8 @@ if (!class_exists('WPFront_Base_Menu')) {
                 add_action('admin_print_styles-' . $page_hook_suffix, array($value['this'], 'enqueue_options_styles'));
             }
 
-            //usort($submenu[$menu_slug], array('WPFront_Base', 'submenu_compare'));
-            //$submenu[$menu_slug][] = $extra_menu;
+//usort($submenu[$menu_slug], array('WPFront_Base', 'submenu_compare'));
+//$submenu[$menu_slug][] = $extra_menu;
         }
 
         public static function admin_menu($menu_data) {

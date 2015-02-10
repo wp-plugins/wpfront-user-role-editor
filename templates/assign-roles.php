@@ -29,57 +29,63 @@
  */
 ?>
 
-<?php $this->main->verify_nonce(); ?>
+<?php
+if (!defined('ABSPATH')) {
+    exit();
+}
+
+$this->main->verify_nonce();
+?>
 
 <div class="wrap assign-roles">
     <h2 id="assign-roles">
-        <?php echo $this->__('Assign Roles'); ?>
+<?php echo $this->__('Assign Roles'); ?>
     </h2>
 
-    <?php
-    if ($this->result != NULL) {
-        if ($this->result->success) {
-            ?>
+<?php
+if ($this->result != NULL) {
+    if ($this->result->success) {
+        ?>
             <div class="updated">
                 <p><?php echo $this->result->message; ?></p>
             </div>
-        <?php } else { ?>
+    <?php } else { ?>
 
             <div class="error">
                 <p><?php echo $this->result->message; ?></p>
             </div>
-            <?php
-        }
+        <?php
     }
-    ?>
+}
+?>
 
     <form method="POST">
-        <?php $this->main->create_nonce(); ?>
+<?php $this->main->create_nonce(); ?>
         <table class="form-table">
             <tbody>
                 <tr>
                     <th scope="row">
-                        <?php echo $this->__('User'); ?>
+<?php echo $this->__('User'); ?>
                     </th>
                     <td>
                         <select id="assign_users_list" name="assign-user">
-                            <?php
-                            foreach ($this->users as $user) {
-                                $select = FALSE;
-                                if ($this->user != NULL && $this->user->ID == $user->ID)
-                                    $select = TRUE;
-                                ?>
+<?php
+foreach ($this->users as $user) {
+    $select = FALSE;
+    if ($this->user != NULL && $this->user->ID == $user->ID)
+        $select = TRUE;
+    ?>
                                 <option <?php echo $select ? 'selected' : ''; ?> value="<?php echo $user->ID; ?>">
                                     <?php echo $user->display_name . ' [' . $user->user_login . ']' ; ?>
                                 </option>
-                                <?php
-                            }
-                            ?>
+                                    <?php
+                                }
+                                ?>
                         </select>
                     </td>
                 </tr>
 
-                <?php $this->primary_secondary_section('assign', $this->userPrimaryRole, $this->userSecondaryRoles); ?>
+<?php $this->primary_secondary_section('assign', $this->userPrimaryRole, $this->userSecondaryRoles); ?>
 
             </tbody>
         </table>
@@ -90,34 +96,34 @@
     </form>
 
     <h2 id="migrate-users">
-        <?php echo $this->__('Migrate Users'); ?>
+<?php echo $this->__('Migrate Users'); ?>
     </h2>
 
     <form method="POST">
-        <?php $this->main->create_nonce(); ?>
+<?php $this->main->create_nonce(); ?>
 
         <table class="form-table">
             <tbody>
                 <tr>
                     <th scope="row">
-                        <?php echo $this->__('From Primary Role'); ?>
+<?php echo $this->__('From Primary Role'); ?>
                     </th>
                     <td>
                         <select id="migrate_from_role" name="migrate-from-primary-role">
-                            <?php
-                            foreach ($this->primary_roles as $key => $role) {
-                                ?>
+<?php
+foreach ($this->primary_roles as $key => $role) {
+    ?>
                                 <option value="<?php echo $key; ?>" <?php echo $this->migrateFromPrimaryRole === $key ? 'selected' : ''; ?>>
-                                    <?php echo $role; ?>
+                                <?php echo $role; ?>
                                 </option>
-                                <?php
-                            }
-                            ?>
+                                    <?php
+                                }
+                                ?>
                         </select>
                     </td>
                 </tr>
 
-                <?php $this->primary_secondary_section('migrate', $this->migrateToPrimaryRole, $this->migrateToSecondaryRoles); ?>
+<?php $this->primary_secondary_section('migrate', $this->migrateToPrimaryRole, $this->migrateToSecondaryRoles); ?>
 
             </tbody>
         </table>

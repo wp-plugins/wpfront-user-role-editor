@@ -21,6 +21,10 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-add-edit.php");
 
 if (!class_exists('WPFront_User_Role_Editor_List')) {
@@ -131,7 +135,7 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
 
             $count_users = count_users();
             $count_users = $count_users['avail_roles'];
-            
+
             foreach ($roles as $key => $value) {
                 $this->role_data[$key] = array(
                     'role_name' => $key,
@@ -288,7 +292,7 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
 
             $count_users = count_users();
             $count_users = $count_users['avail_roles'];
-            
+
             $count = 0;
             foreach ($role_data as $key => $value) {
                 if(isset($count_users[$key]) && $count_users[$key] > 0) //if (count(get_users(array('role' => $key))) > 0)

@@ -29,6 +29,12 @@
  */
 ?>
 
+<?php
+if (!defined('ABSPATH')) {
+    exit();
+}
+?>
+
 <div class="wrap go-pro">
     <h2>
         <?php

@@ -21,6 +21,10 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 if (!class_exists('WPFront_User_Role_Editor_Plugin_Duplicator')) {
 
     /**
@@ -32,11 +36,11 @@ if (!class_exists('WPFront_User_Role_Editor_Plugin_Duplicator')) {
     class WPFront_User_Role_Editor_Plugin_Duplicator extends WPFront_User_Role_Editor_Plugin_Integration {
 
         private static $slug = 'duplicator';
-        
+
         public function __construct() {
             parent::__construct(self::$slug);
         }
-        
+
         protected function init($params) {
             $admin_role = get_role('administrator');
             $caps = array();
@@ -48,14 +52,13 @@ if (!class_exists('WPFront_User_Role_Editor_Plugin_Duplicator')) {
 
             add_role(self::$slug, 'Duplicator', $caps);
         }
-        
+
         protected function translate_capability($capability) {
             return self::$slug . '_' . $capability;
         }
-        
-    }
-    
-    new WPFront_User_Role_Editor_Plugin_Duplicator();
 
+    }
+
+    new WPFront_User_Role_Editor_Plugin_Duplicator();
 }
 

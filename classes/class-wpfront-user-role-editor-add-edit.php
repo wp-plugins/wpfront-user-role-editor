@@ -21,6 +21,9 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+if (!defined('ABSPATH')) {
+    exit();
+}
 
 if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
 

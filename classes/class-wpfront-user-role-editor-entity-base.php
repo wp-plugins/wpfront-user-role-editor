@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 require_once(plugin_dir_path(__FILE__) . "base/class-wpfront-entity-base.php");
 
 if (!class_exists('WPFront_User_Role_Editor_Entity_Base')) {

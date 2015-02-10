@@ -29,6 +29,12 @@
  */
 ?>
 
+<?php
+if (!defined('ABSPATH')) {
+    exit();
+}
+?>
+
 <div class="wrap role-add-new">
     <h2 id="add-new-role">
         <?php

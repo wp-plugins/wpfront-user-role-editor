@@ -22,6 +22,10 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 require_once(plugin_dir_path(__FILE__) . "entities/class-wpfront-user-role-editor-entity-options.php");
 
 if (!class_exists('WPFront_User_Role_Editor_Options')) {

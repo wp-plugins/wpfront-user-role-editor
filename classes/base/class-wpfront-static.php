@@ -22,6 +22,10 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 if (!class_exists('WPFront_Static')) {
 
     /**
@@ -51,7 +55,7 @@ if (!class_exists('WPFront_Static')) {
             if (defined('DOING_AJAX') && DOING_AJAX) {
                 return TRUE;
             }
-            
+
             if (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST) {
                 return TRUE;
             }
