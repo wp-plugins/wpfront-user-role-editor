@@ -38,15 +38,17 @@ if (!defined('ABSPATH')) {
 ?>
 
 <?php
-$menu_walker = apply_filters('wp_edit_nav_menu_walker', 'Walker_Nav_Menu_Edit', 0);
-if ($menu_walker !== WPFront_User_Role_Editor_Nav_Menu::override_edit_nav_menu_walker()) {
-    ?>
-    <div class="error below-h2">
-        <p>
-            <?php echo sprintf($this->__('Menu walker class is overriden by a theme/plugin. Current value = %s. Navigation menu permissions may still work. %s'), $menu_walker, '<a target="_blank" href="' . WPFront_User_Role_Editor_Nav_Menu::nav_menu_help_url() . '#navigation-menu-permission-warning">' . $this->__('More information') . '</a>'); ?>
-        </p>
-    </div>
-    <?php
+if ($this->disable_navigation_menu_permissions() === FALSE) {
+    $menu_walker = apply_filters('wp_edit_nav_menu_walker', 'Walker_Nav_Menu_Edit', 0);
+    if ($menu_walker !== WPFront_User_Role_Editor_Nav_Menu::override_edit_nav_menu_walker()) {
+        ?>
+        <div class="error below-h2">
+            <p>
+                <?php echo sprintf($this->__('Menu walker class is overriden by a theme/plugin. Current value = %s. Navigation menu permissions may still work. %s'), $menu_walker, '<a target="_blank" href="' . WPFront_User_Role_Editor_Nav_Menu::nav_menu_help_url() . '#navigation-menu-permission-warning">' . $this->__('More information') . '</a>'); ?>
+            </p>
+        </div>
+        <?php
+    }
 }
 ?>
 
@@ -85,6 +87,14 @@ if ($menu_walker !== WPFront_User_Role_Editor_Nav_Menu::override_edit_nav_menu_w
         </th>
         <td>
             <input type="checkbox" name="override_edit_permissions" <?php echo $this->override_edit_permissions() ? 'checked' : ''; ?> />
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">
+            <?php echo $this->__('Disable Navigation Menu Permissions'); ?>
+        </th>
+        <td>
+            <input type="checkbox" name="disable_navigation_menu_permissions" <?php echo $this->disable_navigation_menu_permissions() ? 'checked' : ''; ?> />
         </td>
     </tr>
     <?php if ($this->main->enable_pro_only_options() && !$this->multisite) { ?>

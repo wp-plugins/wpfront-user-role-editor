@@ -38,7 +38,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
     class WPFront_User_Role_Editor extends WPFront_Base_URE {
 
         //Constants
-        const VERSION = '2.5';
+        const VERSION = '2.5.1';
         const OPTIONS_GROUP_NAME = 'wpfront-user-role-editor-options-group';
         const OPTION_NAME = 'wpfront-user-role-editor-options';
         const PLUGIN_SLUG = 'wpfront-user-role-editor';
@@ -185,8 +185,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
         public function admin_init() {
             register_setting(self::OPTIONS_GROUP_NAME, self::OPTION_NAME);
 
-            //removed in version 2.5
-            //$this->rename_role_capabilities();
+            $this->rename_role_capabilities();
         }
 
         protected function add_submenu_page($position, $title, $name, $capability, $slug, $func, $scripts = NULL, $styles = NULL, $controller = NULL) {
@@ -222,11 +221,15 @@ if (!class_exists('WPFront_User_Role_Editor')) {
                 $this->add_submenu_page(30, $this->__('Restore Role'), $this->__('Restore'), $this->get_capability_string('edit'), WPFront_User_Role_Editor_Restore::MENU_SLUG, array($this->objRestore, 'restore_role'), NULL, NULL, $this->objRestore);
                 $this->add_submenu_page(100, $this->__('Settings'), $this->__('Settings'), 'manage_options', WPFront_User_Role_Editor_Options::MENU_SLUG, array($this->options, 'settings'), NULL, NULL, $this->options);
             }
-
-            if (!empty($this->admin_menu))
-                add_menu_page($this->__('Roles'), $this->__('Roles'), $this->get_capability_string('list'), $menu_slug, null, $this->pluginURL() . 'images/roles_menu.png', '69.999999');
-
+            
             ksort($this->admin_menu);
+            
+            if (!empty($this->admin_menu)) {
+                $menu_capability = reset($this->admin_menu);
+                $menu_capability = $menu_capability[2];
+                add_menu_page($this->__('Roles'), $this->__('Roles'), $menu_capability, $menu_slug, null, $this->pluginURL() . 'images/roles_menu.png', '69.999999');
+            }
+            
             foreach ($this->admin_menu as $key => $value) {
                 $page_hook_suffix = add_submenu_page($menu_slug, $value[0], $value[1], $value[2], $value[3], $value[4]);
                 add_action('admin_print_scripts-' . $page_hook_suffix, array($this, $value[5]));
@@ -511,6 +514,10 @@ if (!class_exists('WPFront_User_Role_Editor')) {
         public function override_edit_permissions() {
             return $this->options->override_edit_permissions();
         }
+        
+        public function disable_navigation_menu_permissions() {
+            return $this->options->disable_navigation_menu_permissions();
+        }
 
         public function customize_permission_custom_post_types() {
             return $this->options->customize_permission_custom_post_types();
@@ -526,14 +533,16 @@ if (!class_exists('WPFront_User_Role_Editor')) {
 
         private function rename_role_capabilities() {
             global $wp_roles;
-            foreach ($wp_roles->role_objects as $key => $role) {
-                foreach (self::$ROLE_CAPS as $value) {
-                    if ($role->has_cap('wpfront_' . $value)) {
-                        $role->add_cap($value);
-                        $role->remove_cap('wpfront_' . $value);
-                    }
-                }
-            }
+            
+            //removed in v2.5 but in wrong place.
+//            foreach ($wp_roles->role_objects as $key => $role) {
+//                foreach (self::$ROLE_CAPS as $value) {
+//                    if ($role->has_cap('wpfront_' . $value)) {
+//                        $role->add_cap($value);
+//                        $role->remove_cap('wpfront_' . $value);
+//                    }
+//                }
+//            }
 
             $role_admin = $wp_roles->role_objects['administrator'];
             foreach (self::$ROLE_CAPS as $value) {

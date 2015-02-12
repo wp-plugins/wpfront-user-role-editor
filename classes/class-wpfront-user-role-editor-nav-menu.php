@@ -45,9 +45,11 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu')) {
 
         public function __construct($main) {
             parent::__construct($main);
-
-            add_filter('wp_edit_nav_menu_walker', array($this, 'override_edit_nav_menu_walker'));
-
+            
+            if($this->main->disable_navigation_menu_permissions())
+                return;
+            
+            add_action('init', array($this, 'wp_init'), 9999);
             add_action('wp_nav_menu_item_custom_fields', array($this, 'menu_item_custom_fields'), 10, 4);
             add_action('wp_nav_menu_item_title_user_restriction_type', array($this, 'menu_item_title_user_restriction_type'), 10, 4);
             add_filter('wp_nav_menu_item_custom_fields_roles_list', array($this, 'menu_item_custom_fields_roles_list'), 10, 5);
@@ -58,19 +60,26 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu')) {
             add_action('admin_print_scripts-nav-menus.php', array($this, 'enqueue_menu_scripts'));
             add_action('admin_print_styles-nav-menus.php', array($this, 'enqueue_menu_styles'));
         }
-        
+
         public static function nav_menu_help_url() {
             return 'https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/';
         }
+        
+        public function wp_init() {
+            add_filter('wp_edit_nav_menu_walker', array($this, 'override_edit_nav_menu_walker'), 9999);
+        }
 
-        public static function override_edit_nav_menu_walker() {
+        public static function override_edit_nav_menu_walker($current = 'Walker_Nav_Menu_Edit') {
+            if($current !== 'Walker_Nav_Menu_Edit')
+                return $current;
+            
             return 'WPFront_User_Role_Editor_Nav_Menu_Walker';
         }
 
         public function menu_item_title_user_restriction_type($item_id, $item, $depth, $args) {
-            if(!current_user_can('edit_nav_menu_permissions'))
+            if (!current_user_can('edit_nav_menu_permissions'))
                 return;
-            
+
             $data = $this->get_meta_data($item_id);
             $text = $this->__('All Users');
 
@@ -91,15 +100,15 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu')) {
             </span>
             <?php
         }
-        
+
         public function menu_item_custom_fields_roles_list($s, $item_id, $item, $depth, $args) {
             return sprintf($this->__('%s to limit based on roles.'), '<a target="_blank" href="https://wpfront.com/navmenu">Upgrade to Pro</a>');
         }
 
         public function menu_item_custom_fields($item_id, $item, $depth, $args) {
-            if(!current_user_can('edit_nav_menu_permissions'))
+            if (!current_user_can('edit_nav_menu_permissions'))
                 return;
-            
+
             $data = $this->get_meta_data($item_id);
             $this->main->create_nonce($item_id);
             ?>
@@ -118,22 +127,22 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu')) {
             </p>
             <?php
         }
-        
+
         protected function update_nav_menu_item_sub($menu_id, $menu_item_db_id, $args, $data) {
             return $data;
         }
 
         public function update_nav_menu_item($menu_id, $menu_item_db_id, $args) {
-            if(!current_user_can('edit_nav_menu_permissions'))
+            if (!current_user_can('edit_nav_menu_permissions'))
                 return;
-            
+
             $data = $this->get_meta_data($menu_item_db_id);
 
             if (!empty($_POST['user-restriction-type-' . $menu_item_db_id])) {
                 $this->main->verify_nonce($menu_item_db_id);
-                
+
                 $data->type = intval($_POST['user-restriction-type-' . $menu_item_db_id]);
-                
+
                 $data = $this->update_nav_menu_item_sub($menu_id, $menu_item_db_id, $args, $data);
             }
 
@@ -227,6 +236,10 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu')) {
 
         public function enqueue_menu_styles() {
             wp_enqueue_style('wpfront-user-role-editor-nav-menu-css', $this->main->pluginURL() . 'css/nav-menu.css', array(), WPFront_User_Role_Editor::VERSION);
+        }
+
+        public static function uninstall() {
+            delete_post_meta_by_key(self::$META_DATA_KEY);
         }
 
     }
