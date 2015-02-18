@@ -1,17 +1,17 @@
 ﻿=== WPFront User Role Editor ===
 Contributors: syammohanm
 Donate link: https://wpfront.com/donate/
-Tags: user role editor, role editor, user role, role, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager, custom post types, custom post type permissions, custom post type capabilities, post type permissions, post type capabilities, menu editor, role menu, role menu editor, multisite roles, multisite role editor, multisite user roles, import roles, export roles
+Tags: WordPress user role editor, user role editor, role editor, user role, role, WordPress user roles, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager, custom post types, custom post type permissions, custom post type capabilities, post type permissions, post type capabilities, menu editor, role menu, role menu editor, multisite roles, multisite role editor, multisite user roles, import roles, export roles
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 2.4
+Stable tag: 2.5.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Easily allows you to manage user roles. You can create, edit, delete and manage capabilities, also copy existing roles.
+Easily allows you to manage WordPress user roles. You can create, edit, delete and manage capabilities, also copy existing roles.
 
 == Description ==
-This plugin allows you to easily manage user roles within your WordPress site. 
+WPFront User Role Editor plugin allows you to easily manage WordPress user roles within your site. 
 You can create, edit or delete user roles and manage role capabilities.
 
 ### Features
@@ -24,11 +24,13 @@ You can create, edit or delete user roles and manage role capabilities.
 * Restore role.
 * Assign multiple roles.
 * Migrate users.
-* Menu editor. [PRO]
+* Navigation menu permissions basic.
+* Admin menu editor. [PRO]
+* Navigation menu permissions advanced. [PRO]
 * Post/Page extended permissions. [PRO]
 * Custom post type permissions. [PRO]
 * Import/Export. [PRO]
-* Multisite. [PRO]
+* Multisite support. [PRO]
 
 Compare [User Role Editor Pro](https://wpfront.com/ppro)
 
@@ -68,8 +70,18 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 10. Add new role
 11. Edit role
 12. Restore role
+13. Navigation menu permissions
 
 == Changelog ==
+
+= 2.5.1 =
+* Navigation menu permission setting added. [Documentation](https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/).
+* IMPORTANT: Disable navigation menu permission, if you already have a Nav Menu permission plugin and if it stops working.
+* Navigation menu permission uninstall cleanup bug fix.
+
+= 2.5 =
+* Navigation menu permissions added. [Documentation](https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/).
+* Compatibility fix with "The Events Calendar".
 
 = 2.4 =
 * Gravity forms integration.
@@ -119,6 +131,12 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.5.1 =
+* Navigation menu permission setting added.
+
+= 2.5 =
+* Navigation menu permissions and compatibility fix.
 
 = 2.4 =
 * Gravity forms integration.
