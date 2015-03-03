@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFront Notification Bar\n"
-"POT-Creation-Date: 2015-02-09 17:28-0700\n"
-"PO-Revision-Date: 2015-02-09 17:32-0700\n"
+"POT-Creation-Date: 2015-03-02 12:27-0700\n"
+"PO-Revision-Date: 2015-03-02 12:27-0700\n"
 "Last-Translator: \n"
 "Language-Team: WPFront <contact@wpfront.com>\n"
 "Language: en\n"
@@ -59,7 +59,7 @@ msgid "More information about %s"
 msgstr "More information about %s"
 
 #: ../classes/base/class-wpfront-base-menu.php:158
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:223
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:225
 msgid "Details"
 msgstr "Details"
 
@@ -90,21 +90,21 @@ msgid "Installed"
 msgstr "Installed"
 
 #: ../classes/base/class-wpfront-base-menu.php:179
-#: ../classes/base/class-wpfront-base.php:113
+#: ../classes/base/class-wpfront-base.php:119
 #: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:108
-#: ../classes/class-wpfront-user-role-editor-options.php:249
-#: ../classes/class-wpfront-user-role-editor.php:223
+#: ../classes/class-wpfront-user-role-editor-options.php:262
+#: ../classes/class-wpfront-user-role-editor.php:225
 msgid "Settings"
 msgstr "Settings"
 
 #: ../classes/base/class-wpfront-base-menu.php:181
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:100
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:103
 #: ../templates/go-pro.php:71 ../templates/go-pro.php:72
 msgid "Activate"
 msgstr "Activate"
 
 #: ../classes/base/class-wpfront-base-menu.php:203
-#: ../classes/class-wpfront-user-role-editor.php:334
+#: ../classes/class-wpfront-user-role-editor.php:340
 msgid "Feedback"
 msgstr "Feedback"
 
@@ -116,12 +116,12 @@ msgstr "WPFront"
 msgid "All Plugins"
 msgstr "All Plugins"
 
-#: ../classes/base/class-wpfront-base.php:142
-#: ../classes/class-wpfront-user-role-editor.php:283
+#: ../classes/base/class-wpfront-base.php:148
+#: ../classes/class-wpfront-user-role-editor.php:289
 msgid "You do not have sufficient permissions to access this page."
 msgstr "You do not have sufficient permissions to access this page."
 
-#: ../classes/base/class-wpfront-base.php:162
+#: ../classes/base/class-wpfront-base.php:168
 msgid ""
 "If you have a caching plugin, clear the cache for the new settings to take "
 "effect."
@@ -129,7 +129,7 @@ msgstr ""
 "If you have a caching plugin, clear the cache for the new settings to take "
 "effect."
 
-#: ../classes/base/class-wpfront-base.php:209
+#: ../classes/base/class-wpfront-base.php:215
 #: ../templates/personal-pro/menu-editor.php:232
 msgid "Save Changes"
 msgstr "Save Changes"
@@ -137,38 +137,41 @@ msgstr "Save Changes"
 #: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:85
 #: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:88
 #: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:80
-#: ../classes/class-wpfront-user-role-editor.php:220
-#: ../classes/class-wpfront-user-role-editor.php:227
-#: ../templates/list-roles.php:43
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:152
+#: ../classes/class-wpfront-user-role-editor.php:221
+#: ../classes/class-wpfront-user-role-editor.php:233
+#: ../templates/add-remove-capability.php:85 ../templates/list-roles.php:43
 msgid "Roles"
 msgstr "Roles"
 
 #: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:88
-#: ../classes/class-wpfront-user-role-editor.php:220
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:154
+#: ../classes/class-wpfront-user-role-editor.php:221
+#: ../templates/add-remove-capability.php:90
 msgid "All Roles"
 msgstr "All Roles"
 
 #: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:93
-#: ../classes/class-wpfront-user-role-editor.php:221
+#: ../classes/class-wpfront-user-role-editor.php:222
 #: ../templates/add-edit-role.php:41 ../templates/add-edit-role.php:140
 msgid "Add New Role"
 msgstr "Add New Role"
 
 #: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:93
 #: ../classes/business-pro/class-wpfront-user-role-editor-ms-list.php:83
-#: ../classes/class-wpfront-user-role-editor.php:221
+#: ../classes/class-wpfront-user-role-editor.php:222
 #: ../templates/add-edit-role.php:43 ../templates/list-roles.php:46
 msgid "Add New"
 msgstr "Add New"
 
 #: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:98
-#: ../classes/class-wpfront-user-role-editor.php:222
+#: ../classes/class-wpfront-user-role-editor.php:223
 #: ../templates/restore-role.php:40
 msgid "Restore Role"
 msgstr "Restore Role"
 
 #: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:98
-#: ../classes/class-wpfront-user-role-editor.php:222
+#: ../classes/class-wpfront-user-role-editor.php:223
 #: ../templates/restore-role.php:52
 msgid "Restore"
 msgstr "Restore"
@@ -184,7 +187,7 @@ msgid "Sync"
 msgstr "Sync"
 
 #: ../classes/business-pro/class-wpfront-user-role-editor-business-pro.php:114
-#: ../classes/class-wpfront-user-role-editor.php:206
+#: ../classes/class-wpfront-user-role-editor.php:207
 msgid "Go Pro"
 msgstr "Go Pro"
 
@@ -205,16 +208,17 @@ msgstr ""
 #: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:88
 #: ../classes/business-pro/class-wpfront-user-role-editor-ms-sync.php:227
 #: ../classes/class-wpfront-user-role-editor-add-edit.php:324
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:128
 #: ../classes/class-wpfront-user-role-editor-assign-roles.php:365
 #: ../classes/class-wpfront-user-role-editor-list.php:361
 #: ../classes/class-wpfront-user-role-editor-list.php:395
 #: ../classes/class-wpfront-user-role-editor-list.php:412
-#: ../classes/class-wpfront-user-role-editor-options.php:242
-#: ../classes/class-wpfront-user-role-editor-options.php:284
+#: ../classes/class-wpfront-user-role-editor-options.php:255
+#: ../classes/class-wpfront-user-role-editor-options.php:302
 #: ../classes/class-wpfront-user-role-editor-restore.php:168
 #: ../classes/personal-pro/class-wpfront-user-role-editor-export.php:130
 #: ../classes/personal-pro/class-wpfront-user-role-editor-import.php:229
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:571
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:592
 msgid "Overview"
 msgstr "Overview"
 
@@ -507,11 +511,11 @@ msgstr "Documentation on Multisite Roles"
 
 #: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:48
 #: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:77
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:180
 #: ../classes/class-wpfront-user-role-editor-go-pro.php:182
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:202
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:221
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:230
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:184
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:204
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:223
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:232
 #: ../classes/class-wpfront-user-role-editor-restore.php:87
 #: ../templates/add-edit-role.php:51 ../templates/add-edit-role.php:59
 #: ../templates/business-pro/sync-roles.php:21
@@ -736,6 +740,71 @@ msgstr "%s to customize capabilites."
 msgid "Upgrade to Pro"
 msgstr "Upgrade to Pro"
 
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:108
+msgid "Roles updated."
+msgstr "Roles updated."
+
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:130
+msgid ""
+"This screen allows you to add a capability to roles or remove a capability "
+"from roles within your site."
+msgstr ""
+"This screen allows you to add a capability to roles or remove a capability "
+"from roles within your site."
+
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:135
+#: ../templates/add-remove-capability.php:61
+msgid "Action"
+msgstr "Action"
+
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:137
+msgid "Select \"Add Capability\" to add a capability to roles."
+msgstr "Select \"Add Capability\" to add a capability to roles."
+
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:140
+msgid "Select \"Remove Capability\" to remove a capability from roles."
+msgstr "Select \"Remove Capability\" to remove a capability from roles."
+
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:145
+#: ../templates/add-remove-capability.php:75
+#: ../templates/personal-pro/menu-editor.php:141
+msgid "Capability"
+msgstr "Capability"
+
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:147
+msgid "Use the Capability field to name the capability to be added or removed."
+msgstr ""
+"Use the Capability field to name the capability to be added or removed."
+
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:155
+msgid ""
+"Select \"All Roles\", if you want the current action to be applied to all "
+"roles within your site."
+msgstr ""
+"Select \"All Roles\", if you want the current action to be applied to all "
+"roles within your site."
+
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:158
+#: ../templates/add-remove-capability.php:92
+msgid "Selected Roles"
+msgstr "Selected Roles"
+
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:159
+msgid ""
+"Select \"Selected Roles\", if you want to individually select the roles. "
+"When this option is selected, \"Administrator\" role is included by default "
+"on \"Add Capability\" action and excluded by default on \"Remove Capability"
+"\" action."
+msgstr ""
+"Select \"Selected Roles\", if you want to individually select the roles. "
+"When this option is selected, \"Administrator\" role is included by default "
+"on \"Add Capability\" action and excluded by default on \"Remove Capability"
+"\" action."
+
+#: ../classes/class-wpfront-user-role-editor-add-remove-capability.php:168
+msgid "Documentation on Add/Remove Capability"
+msgstr "Documentation on Add/Remove Capability"
+
 #: ../classes/class-wpfront-user-role-editor-assign-roles.php:66
 #: ../classes/class-wpfront-user-role-editor-assign-roles.php:339
 msgid "Secondary Roles"
@@ -826,43 +895,43 @@ msgstr ""
 msgid "Documentation on Assign / Migrate Users"
 msgstr "Documentation on Assign / Migrate Users"
 
-#: ../classes/class-wpfront-user-role-editor-controller-base.php:85
+#: ../classes/class-wpfront-user-role-editor-controller-base.php:87
 msgid "Links:"
 msgstr "Links:"
 
-#: ../classes/class-wpfront-user-role-editor-controller-base.php:91
+#: ../classes/class-wpfront-user-role-editor-controller-base.php:93
 msgid "FAQ"
 msgstr "FAQ"
 
-#: ../classes/class-wpfront-user-role-editor-controller-base.php:92
+#: ../classes/class-wpfront-user-role-editor-controller-base.php:94
 msgid "Support"
 msgstr "Support"
 
-#: ../classes/class-wpfront-user-role-editor-controller-base.php:93
+#: ../classes/class-wpfront-user-role-editor-controller-base.php:95
 msgid "Review"
 msgstr "Review"
 
-#: ../classes/class-wpfront-user-role-editor-controller-base.php:94
+#: ../classes/class-wpfront-user-role-editor-controller-base.php:96
 msgid "Contact"
 msgstr "Contact"
 
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:180
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:182
 msgid "License key activation limit reached"
 msgstr "License key activation limit reached"
 
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:182
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:184
 msgid "Invalid license key"
 msgstr "Invalid license key"
 
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:202
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:204
 msgid "Unable to deactivate, expired license?"
 msgstr "Unable to deactivate, expired license?"
 
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:221
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:223
 msgid "Unable to contact wpfront.com"
 msgstr "Unable to contact wpfront.com"
 
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:230
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:232
 msgid "Unable to parse response"
 msgstr "Unable to parse response"
 
@@ -1000,7 +1069,7 @@ msgstr ""
 "Allows you to set that role as the default role for new user registration."
 
 #: ../classes/class-wpfront-user-role-editor-list.php:486
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:563
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:584
 msgid "Edit Menu"
 msgstr "Edit Menu"
 
@@ -1104,36 +1173,36 @@ msgstr "Remove"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: ../classes/class-wpfront-user-role-editor-nav-menu.php:75
-#: ../classes/class-wpfront-user-role-editor-nav-menu.php:110
+#: ../classes/class-wpfront-user-role-editor-nav-menu.php:84
+#: ../classes/class-wpfront-user-role-editor-nav-menu.php:119
 msgid "All Users"
 msgstr "All Users"
 
-#: ../classes/class-wpfront-user-role-editor-nav-menu.php:79
-#: ../classes/class-wpfront-user-role-editor-nav-menu.php:111
+#: ../classes/class-wpfront-user-role-editor-nav-menu.php:88
+#: ../classes/class-wpfront-user-role-editor-nav-menu.php:120
 msgid "Logged in Users"
 msgstr "Logged in Users"
 
-#: ../classes/class-wpfront-user-role-editor-nav-menu.php:82
-#: ../classes/class-wpfront-user-role-editor-nav-menu.php:112
+#: ../classes/class-wpfront-user-role-editor-nav-menu.php:91
+#: ../classes/class-wpfront-user-role-editor-nav-menu.php:121
 msgid "Guest Users"
 msgstr "Guest Users"
 
-#: ../classes/class-wpfront-user-role-editor-nav-menu.php:85
-#: ../classes/class-wpfront-user-role-editor-nav-menu.php:113
+#: ../classes/class-wpfront-user-role-editor-nav-menu.php:94
+#: ../classes/class-wpfront-user-role-editor-nav-menu.php:122
 msgid "Users by Role"
 msgstr "Users by Role"
 
-#: ../classes/class-wpfront-user-role-editor-nav-menu.php:96
+#: ../classes/class-wpfront-user-role-editor-nav-menu.php:105
 #, php-format
 msgid "%s to limit based on roles."
 msgstr "%s to limit based on roles."
 
-#: ../classes/class-wpfront-user-role-editor-nav-menu.php:108
+#: ../classes/class-wpfront-user-role-editor-nav-menu.php:117
 msgid "User Restrictions"
 msgstr "User Restrictions"
 
-#: ../classes/class-wpfront-user-role-editor-options.php:244
+#: ../classes/class-wpfront-user-role-editor-options.php:257
 msgid ""
 "These settings are applicable for the network admin dashboard. Also these "
 "settings will propagate to the individual sites unless its overridden within "
@@ -1143,27 +1212,27 @@ msgstr ""
 "settings will propagate to the individual sites unless its overridden within "
 "that site’s settings."
 
-#: ../classes/class-wpfront-user-role-editor-options.php:251
-#: ../templates/options-template.php:59
+#: ../classes/class-wpfront-user-role-editor-options.php:264
+#: ../templates/options-template.php:61
 msgid "Enable Large Network Functionalities"
 msgstr "Enable Large Network Functionalities"
 
-#: ../classes/class-wpfront-user-role-editor-options.php:253
+#: ../classes/class-wpfront-user-role-editor-options.php:266
 msgid "This setting is only visible when you have a large network."
 msgstr "This setting is only visible when you have a large network."
 
-#: ../classes/class-wpfront-user-role-editor-options.php:255
+#: ../classes/class-wpfront-user-role-editor-options.php:268
 msgid "More details"
 msgstr "More details"
 
-#: ../classes/class-wpfront-user-role-editor-options.php:259
-#: ../classes/class-wpfront-user-role-editor-options.php:286
-#: ../templates/options-template.php:68
+#: ../classes/class-wpfront-user-role-editor-options.php:272
+#: ../classes/class-wpfront-user-role-editor-options.php:304
+#: ../templates/options-template.php:70
 msgid "Display Deprecated Capabilities"
 msgstr "Display Deprecated Capabilities"
 
-#: ../classes/class-wpfront-user-role-editor-options.php:261
-#: ../classes/class-wpfront-user-role-editor-options.php:288
+#: ../classes/class-wpfront-user-role-editor-options.php:274
+#: ../classes/class-wpfront-user-role-editor-options.php:306
 msgid ""
 "If enabled, deprecated capabilities will be displayed within the add/edit "
 "screens."
@@ -1171,14 +1240,14 @@ msgstr ""
 "If enabled, deprecated capabilities will be displayed within the add/edit "
 "screens."
 
-#: ../classes/class-wpfront-user-role-editor-options.php:264
-#: ../classes/class-wpfront-user-role-editor-options.php:291
-#: ../templates/options-template.php:76
+#: ../classes/class-wpfront-user-role-editor-options.php:277
+#: ../classes/class-wpfront-user-role-editor-options.php:309
+#: ../templates/options-template.php:78
 msgid "Remove Non-Standard Capabilities on Restore"
 msgstr "Remove Non-Standard Capabilities on Restore"
 
-#: ../classes/class-wpfront-user-role-editor-options.php:266
-#: ../classes/class-wpfront-user-role-editor-options.php:293
+#: ../classes/class-wpfront-user-role-editor-options.php:279
+#: ../classes/class-wpfront-user-role-editor-options.php:311
 msgid ""
 "If enabled, while restoring WordPress built-in capabilities non-standard "
 "capabilities will be removed."
@@ -1186,25 +1255,36 @@ msgstr ""
 "If enabled, while restoring WordPress built-in capabilities non-standard "
 "capabilities will be removed."
 
-#: ../classes/class-wpfront-user-role-editor-options.php:269
-#: ../classes/class-wpfront-user-role-editor-options.php:296
-#: ../templates/options-template.php:84
+#: ../classes/class-wpfront-user-role-editor-options.php:282
+#: ../classes/class-wpfront-user-role-editor-options.php:314
+#: ../templates/options-template.php:86
 msgid "Override Edit Permissions"
 msgstr "Override Edit Permissions"
 
-#: ../classes/class-wpfront-user-role-editor-options.php:271
-#: ../classes/class-wpfront-user-role-editor-options.php:298
+#: ../classes/class-wpfront-user-role-editor-options.php:284
+#: ../classes/class-wpfront-user-role-editor-options.php:316
 msgid "If enabled, ignores the check to the function get_editable_roles."
 msgstr "If enabled, ignores the check to the function get_editable_roles."
 
-#: ../classes/class-wpfront-user-role-editor-options.php:274
-#: ../classes/class-wpfront-user-role-editor-options.php:301
-#: ../templates/options-template.php:121
+#: ../classes/class-wpfront-user-role-editor-options.php:287
+#: ../classes/class-wpfront-user-role-editor-options.php:319
+#: ../templates/options-template.php:94
+msgid "Disable Navigation Menu Permissions"
+msgstr "Disable Navigation Menu Permissions"
+
+#: ../classes/class-wpfront-user-role-editor-options.php:289
+#: ../classes/class-wpfront-user-role-editor-options.php:321
+msgid "If enabled, disables navigation menu permissions functionality."
+msgstr "If enabled, disables navigation menu permissions functionality."
+
+#: ../classes/class-wpfront-user-role-editor-options.php:292
+#: ../classes/class-wpfront-user-role-editor-options.php:324
+#: ../templates/options-template.php:131
 msgid "Remove Data on Uninstall"
 msgstr "Remove Data on Uninstall"
 
-#: ../classes/class-wpfront-user-role-editor-options.php:276
-#: ../classes/class-wpfront-user-role-editor-options.php:303
+#: ../classes/class-wpfront-user-role-editor-options.php:294
+#: ../classes/class-wpfront-user-role-editor-options.php:326
 msgid ""
 "If enabled, removes all data related to this plugin from database (except "
 "roles data) including license information if any. This will not deactivate "
@@ -1214,11 +1294,11 @@ msgstr ""
 "roles data) including license information if any. This will not deactivate "
 "the license automatically."
 
-#: ../classes/class-wpfront-user-role-editor-options.php:314
+#: ../classes/class-wpfront-user-role-editor-options.php:337
 msgid "Documentation on Multisite Settings"
 msgstr "Documentation on Multisite Settings"
 
-#: ../classes/class-wpfront-user-role-editor-options.php:321
+#: ../classes/class-wpfront-user-role-editor-options.php:344
 msgid "Documentation on Settings"
 msgstr "Documentation on Settings"
 
@@ -1226,15 +1306,24 @@ msgstr "Documentation on Settings"
 msgid "Documentation on Restore"
 msgstr "Documentation on Restore"
 
-#: ../classes/class-wpfront-user-role-editor.php:239
+#: ../classes/class-wpfront-user-role-editor.php:224
+#: ../templates/add-remove-capability.php:40
+msgid "Add/Remove Capability"
+msgstr "Add/Remove Capability"
+
+#: ../classes/class-wpfront-user-role-editor.php:224
+msgid "Add/Remove Cap"
+msgstr "Add/Remove Cap"
+
+#: ../classes/class-wpfront-user-role-editor.php:245
 msgid "Assign Roles | Migrate Users"
 msgstr "Assign Roles | Migrate Users"
 
-#: ../classes/class-wpfront-user-role-editor.php:239
+#: ../classes/class-wpfront-user-role-editor.php:245
 msgid "Assign / Migrate"
 msgstr "Assign / Migrate"
 
-#: ../classes/class-wpfront-user-role-editor.php:336
+#: ../classes/class-wpfront-user-role-editor.php:342
 msgid "Buy me a Beer"
 msgstr "Buy me a Beer"
 
@@ -1343,19 +1432,19 @@ msgstr ""
 msgid "Documentation on Import"
 msgstr "Documentation on Import"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:161
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:164
 msgid "Menu changes saved."
 msgstr "Menu changes saved."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:174
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:177
 msgid "Menu defaults restored."
 msgstr "Menu defaults restored."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:189
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:192
 msgid "No editable roles found on this site."
 msgstr "No editable roles found on this site."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:573
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:594
 msgid ""
 "This screen allows you to enable and disable admin menus for a particular "
 "role."
@@ -1363,11 +1452,11 @@ msgstr ""
 "This screen allows you to enable and disable admin menus for a particular "
 "role."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:576
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:597
 msgid "Deselect a menu from the grid to remove that menu."
 msgstr "Deselect a menu from the grid to remove that menu."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:579
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:600
 msgid ""
 "Disabled menu items are already hidden, because the selected role doesn't "
 "have the capability to display that menu. Grid displays menus which the "
@@ -1377,25 +1466,25 @@ msgstr ""
 "have the capability to display that menu. Grid displays menus which the "
 "current user has access to."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:584
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:605
 msgid "Fields"
 msgstr "Fields"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:586
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:607
 #: ../templates/personal-pro/menu-editor.php:39
 msgid "Override Role"
 msgstr "Override Role"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:588
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:609
 msgid "The role you want to override."
 msgstr "The role you want to override."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:591
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:612
 #: ../templates/personal-pro/menu-editor.php:56
 msgid "Override Type"
 msgstr "Override Type"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:593
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:614
 msgid ""
 "Soft - Pages may be available through directly typing the URL. Hard - Even "
 "URLs will be blocked."
@@ -1403,35 +1492,35 @@ msgstr ""
 "Soft - Pages may be available through directly typing the URL. Hard - Even "
 "URLs will be blocked."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:596
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:617
 #: ../templates/personal-pro/menu-editor.php:67
 msgid "Hide New Menus"
 msgstr "Hide New Menus"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:598
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:619
 msgid "Allow you to hide future menus."
 msgstr "Allow you to hide future menus."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:601
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:622
 #: ../templates/personal-pro/menu-editor.php:75
 msgid "Disable For Secondary Role"
 msgstr "Disable For Secondary Role"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:603
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:624
 msgid "Disables menu settings while the selected role is a secondary role."
 msgstr "Disables menu settings while the selected role is a secondary role."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:608
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:629
 msgid "Restore Default"
 msgstr "Restore Default"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:610
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:631
 msgid ""
 "Select \"Restore default\" from the \"Copy from\" drop down and click apply."
 msgstr ""
 "Select \"Restore default\" from the \"Copy from\" drop down and click apply."
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:619
+#: ../classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:640
 msgid "Documentation on Menu Editor"
 msgstr "Documentation on Menu Editor"
 
@@ -1440,31 +1529,31 @@ msgstr "Documentation on Menu Editor"
 msgid "[Guest]"
 msgstr "[Guest]"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:77
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:80
 #: ../templates/personal-pro/menu-editor.php:9
 msgid "Menu Editor"
 msgstr "Menu Editor"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:78
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:81
 #: ../templates/personal-pro/export-roles.php:9
 msgid "Export Roles"
 msgstr "Export Roles"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:78
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:81
 msgid "Export"
 msgstr "Export"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:79
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:82
 #: ../templates/personal-pro/import-roles.php:9
 #: ../templates/personal-pro/import-roles.php:88
 msgid "Import Roles"
 msgstr "Import Roles"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:79
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:82
 msgid "Import"
 msgstr "Import"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:99
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:102
 #, php-format
 msgid "%s license not activated."
 msgstr "%s license not activated."
@@ -1491,6 +1580,7 @@ msgid "Create a brand new role and add it to this site."
 msgstr "Create a brand new role and add it to this site."
 
 #: ../templates/add-edit-role.php:77 ../templates/add-edit-role.php:87
+#: ../templates/add-remove-capability.php:75
 msgid "required"
 msgstr "required"
 
@@ -1506,6 +1596,22 @@ msgstr "Select None"
 #: ../templates/add-edit-role.php:140
 msgid "Update Role"
 msgstr "Update Role"
+
+#: ../templates/add-remove-capability.php:52
+msgid "Add/Remove a capability to/from roles within this site."
+msgstr "Add/Remove a capability to/from roles within this site."
+
+#: ../templates/add-remove-capability.php:66
+#: ../templates/add-remove-capability.php:111
+#: ../templates/add-remove-capability.php:125
+msgid "Add Capability"
+msgstr "Add Capability"
+
+#: ../templates/add-remove-capability.php:68
+#: ../templates/add-remove-capability.php:111
+#: ../templates/add-remove-capability.php:127
+msgid "Remove Capability"
+msgstr "Remove Capability"
 
 #: ../templates/assign-roles.php:68
 msgid "User"
@@ -1646,7 +1752,7 @@ msgstr "License Expires"
 msgid "WPFront User Role Editor Settings"
 msgstr "WPFront User Role Editor Settings"
 
-#: ../templates/options-template.php:46
+#: ../templates/options-template.php:47
 #, php-format
 msgid ""
 "Menu walker class is overriden by a theme/plugin. Current value = %s. "
@@ -1655,15 +1761,15 @@ msgstr ""
 "Menu walker class is overriden by a theme/plugin. Current value = %s. "
 "Navigation menu permissions may still work. %s"
 
-#: ../templates/options-template.php:46
+#: ../templates/options-template.php:47
 msgid "More information"
 msgstr "More information"
 
-#: ../templates/options-template.php:93
+#: ../templates/options-template.php:103
 msgid "Customize Permissions (custom post types)"
 msgstr "Customize Permissions (custom post types)"
 
-#: ../templates/options-template.php:99
+#: ../templates/options-template.php:109
 msgid "No customizable post types found."
 msgstr "No customizable post types found."
 
@@ -1751,10 +1857,6 @@ msgstr "Has Capability"
 #: ../templates/personal-pro/menu-editor.php:121
 msgid "No Capability"
 msgstr "No Capability"
-
-#: ../templates/personal-pro/menu-editor.php:141
-msgid "Capability"
-msgstr "Capability"
 
 #: ../templates/personal-pro/menu-editor.php:144
 msgid "Menu Slug"

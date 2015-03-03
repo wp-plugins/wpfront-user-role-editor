@@ -80,7 +80,7 @@ if (!class_exists('WPFront_User_Role_Editor_Delete')) {
                     if (!array_key_exists($value, $editable_roles)) {
                         $status_message = 'This role cannot be deleted: Permission denied.';
                         $is_deletable = FALSE;
-                    } else if ($value == 'administrator') {
+                    } else if ($value == self::ADMINISTRATOR_ROLE_KEY) {
                         $status_message = '\'administrator\' role cannot be deleted.';
                         $is_deletable = FALSE;
                     } else {

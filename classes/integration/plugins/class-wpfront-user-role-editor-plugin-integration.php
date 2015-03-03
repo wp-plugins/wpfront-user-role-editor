@@ -36,6 +36,8 @@ if (!class_exists('WPFront_User_Role_Editor_Plugin_Integration')) {
      */
     abstract class WPFront_User_Role_Editor_Plugin_Integration {
 
+        const ADMINISTRATOR_ROLE_KEY = WPFront_User_Role_Editor::ADMINISTRATOR_ROLE_KEY;
+        
         private $initialized = FALSE;
 
         protected abstract function init($params);

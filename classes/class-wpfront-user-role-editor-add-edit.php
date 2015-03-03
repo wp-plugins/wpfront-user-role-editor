@@ -71,7 +71,7 @@ if (!class_exists('WPFront_User_Role_Editor_Add_Edit')) {
 
             if ($this->role == NULL) {
                 $this->is_editable = TRUE;
-            } else if ($role_name != 'administrator') {
+            } else if ($role_name != self::ADMINISTRATOR_ROLE_KEY) {
                 $editable_roles = get_editable_roles();
                 if ($this->main->override_edit_permissions())
                     $editable_roles = $wp_roles->get_names();

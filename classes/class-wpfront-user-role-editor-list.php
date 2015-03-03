@@ -149,7 +149,7 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
                 if ($this->can_edit()) {
                     $this->role_data[$key]['edit_url'] = $this->edit_url() . $key;
 
-                    if ($key === 'administrator')
+                    if ($key === self::ADMINISTRATOR_ROLE_KEY)
                         $this->role_data[$key]['is_editable'] = FALSE;
                     else {
                         $this->role_data[$key]['is_editable'] = array_key_exists($key, $editable_roles);
@@ -159,7 +159,7 @@ if (!class_exists('WPFront_User_Role_Editor_List')) {
                 if ($this->can_delete()) {
                     $this->role_data[$key]['delete_url'] = $this->delete_url() . $key;
 
-                    if ($key === 'administrator')
+                    if ($key === self::ADMINISTRATOR_ROLE_KEY)
                         $this->role_data[$key]['is_deletable'] = FALSE;
                     else {
                         $this->role_data[$key]['is_deletable'] = array_key_exists($key, $editable_roles);

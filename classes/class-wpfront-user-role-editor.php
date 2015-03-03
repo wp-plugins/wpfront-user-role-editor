@@ -38,103 +38,103 @@ if (!class_exists('WPFront_User_Role_Editor')) {
     class WPFront_User_Role_Editor extends WPFront_Base_URE {
 
         //Constants
-        const VERSION = '2.5.1';
+        const VERSION = '2.7';
         const OPTIONS_GROUP_NAME = 'wpfront-user-role-editor-options-group';
         const OPTION_NAME = 'wpfront-user-role-editor-options';
         const PLUGIN_SLUG = 'wpfront-user-role-editor';
 
         public static $DYNAMIC_CAPS = array();
         public static $ROLE_CAPS = array('list_roles', 'create_roles', 'edit_roles', 'delete_roles', 'edit_role_menus', 'edit_posts_role_permissions', 'edit_pages_role_permissions', 'edit_nav_menu_permissions');
-        public static $DEFAULT_ROLES = array('administrator', 'editor', 'author', 'contributor', 'subscriber');
+        public static $DEFAULT_ROLES = array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY, self::CONTRIBUTOR_ROLE_KEY, self::SUBSCRIBER_ROLE_KEY);
         public static $STANDARD_CAPABILITIES = array(
             'Dashboard' => array(
-                'read' => array('administrator', 'editor', 'author', 'contributor', 'subscriber'),
-                'edit_dashboard' => array('administrator')
+                'read' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY, self::CONTRIBUTOR_ROLE_KEY, self::SUBSCRIBER_ROLE_KEY),
+                'edit_dashboard' => array(self::ADMINISTRATOR_ROLE_KEY)
             ),
             'Posts' => array(
-                'publish_posts' => array('administrator', 'editor', 'author'),
-                'edit_posts' => array('administrator', 'editor', 'author', 'contributor'),
-                'delete_posts' => array('administrator', 'editor', 'author', 'contributor'),
-                'edit_published_posts' => array('administrator', 'editor', 'author'),
-                'delete_published_posts' => array('administrator', 'editor', 'author'),
-                'edit_others_posts' => array('administrator', 'editor'),
-                'delete_others_posts' => array('administrator', 'editor'),
-                'read_private_posts' => array('administrator', 'editor'),
-                'edit_private_posts' => array('administrator', 'editor'),
-                'delete_private_posts' => array('administrator', 'editor'),
-                'manage_categories' => array('administrator', 'editor')
+                'publish_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY),
+                'edit_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY, self::CONTRIBUTOR_ROLE_KEY),
+                'delete_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY, self::CONTRIBUTOR_ROLE_KEY),
+                'edit_published_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY),
+                'delete_published_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY),
+                'edit_others_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'delete_others_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'read_private_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'edit_private_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'delete_private_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'manage_categories' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY)
             ),
             'Media' => array(
-                'upload_files' => array('administrator', 'editor', 'author'),
-                'unfiltered_upload' => array('administrator')
+                'upload_files' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY),
+                'unfiltered_upload' => array(self::ADMINISTRATOR_ROLE_KEY)
             ),
             'Pages' => array(
-                'publish_pages' => array('administrator', 'editor'),
-                'edit_pages' => array('administrator', 'editor'),
-                'delete_pages' => array('administrator', 'editor'),
-                'edit_published_pages' => array('administrator', 'editor'),
-                'delete_published_pages' => array('administrator', 'editor'),
-                'edit_others_pages' => array('administrator', 'editor'),
-                'delete_others_pages' => array('administrator', 'editor'),
-                'read_private_pages' => array('administrator', 'editor'),
-                'edit_private_pages' => array('administrator', 'editor'),
-                'delete_private_pages' => array('administrator', 'editor')
+                'publish_pages' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'edit_pages' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'delete_pages' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'edit_published_pages' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'delete_published_pages' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'edit_others_pages' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'delete_others_pages' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'read_private_pages' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'edit_private_pages' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'delete_private_pages' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY)
             ),
             'Comments' => array(
                 'edit_comment' => array(),
-                'moderate_comments' => array('administrator', 'editor')
+                'moderate_comments' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY)
             ),
             'Themes' => array(
-                'switch_themes' => array('administrator'),
-                'edit_theme_options' => array('administrator'),
-                'edit_themes' => array('administrator'),
-                'delete_themes' => array('administrator'),
-                'install_themes' => array('administrator'),
-                'update_themes' => array('administrator')
+                'switch_themes' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'edit_theme_options' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'edit_themes' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'delete_themes' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'install_themes' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'update_themes' => array(self::ADMINISTRATOR_ROLE_KEY)
             ),
             'Plugins' => array(
-                'activate_plugins' => array('administrator'),
-                'edit_plugins' => array('administrator'),
-                'install_plugins' => array('administrator'),
-                'update_plugins' => array('administrator'),
-                'delete_plugins' => array('administrator')
+                'activate_plugins' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'edit_plugins' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'install_plugins' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'update_plugins' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'delete_plugins' => array(self::ADMINISTRATOR_ROLE_KEY)
             ),
             'Users' => array(
-                'list_users' => array('administrator'),
-                'create_users' => array('administrator'),
-                'edit_users' => array('administrator'),
-                'delete_users' => array('administrator'),
-                'promote_users' => array('administrator'),
-                'add_users' => array('administrator'),
-                'remove_users' => array('administrator')
+                'list_users' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'create_users' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'edit_users' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'delete_users' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'promote_users' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'add_users' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'remove_users' => array(self::ADMINISTRATOR_ROLE_KEY)
             ),
             'Tools' => array(
-                'import' => array('administrator'),
-                'export' => array('administrator')
+                'import' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'export' => array(self::ADMINISTRATOR_ROLE_KEY)
             ),
             'Admin' => array(
-                'manage_options' => array('administrator'),
-                'update_core' => array('administrator'),
-                'unfiltered_html' => array('administrator', 'editor')
+                'manage_options' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'update_core' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'unfiltered_html' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY)
             ),
             'Links' => array(
-                'manage_links' => array('administrator', 'editor')
+                'manage_links' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY)
             )
         );
         public static $DEPRECATED_CAPABILITIES = array(
             'Deprecated' => array(
-                'edit_files' => array('administrator'),
-                'level_0' => array('administrator', 'editor', 'author', 'contributor', 'subscriber'),
-                'level_1' => array('administrator', 'editor', 'author', 'contributor'),
-                'level_2' => array('administrator', 'editor', 'author'),
-                'level_3' => array('administrator', 'editor'),
-                'level_4' => array('administrator', 'editor'),
-                'level_5' => array('administrator', 'editor'),
-                'level_6' => array('administrator', 'editor'),
-                'level_7' => array('administrator', 'editor'),
-                'level_8' => array('administrator'),
-                'level_9' => array('administrator'),
-                'level_10' => array('administrator')
+                'edit_files' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'level_0' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY, self::CONTRIBUTOR_ROLE_KEY, self::SUBSCRIBER_ROLE_KEY),
+                'level_1' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY, self::CONTRIBUTOR_ROLE_KEY),
+                'level_2' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY),
+                'level_3' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'level_4' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'level_5' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'level_6' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'level_7' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'level_8' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'level_9' => array(self::ADMINISTRATOR_ROLE_KEY),
+                'level_10' => array(self::ADMINISTRATOR_ROLE_KEY)
             )
         );
         public static $OTHER_CAPABILITIES = array(
@@ -149,6 +149,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
         protected $objList;
         protected $objAddEdit;
         protected $objRestore;
+        protected $objAddRemoveCap;
         protected $objAssignUsers;
         protected $objGoPro;
         protected $objNavMenu = NULL;
@@ -165,6 +166,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
                 $this->objList = new WPFront_User_Role_Editor_List($this);
                 $this->objAddEdit = new WPFront_User_Role_Editor_Add_Edit($this);
                 $this->objRestore = new WPFront_User_Role_Editor_Restore($this);
+                $this->objAddRemoveCap = new WPFront_User_Role_Editor_Add_Remove_Capability($this);
                 $this->objAssignUsers = new WPFront_User_Role_Editor_Assign_Roles($this);
                 if ($this->objNavMenu === NULL)
                     $this->objNavMenu = new WPFront_User_Role_Editor_Nav_Menu($this);
@@ -219,17 +221,18 @@ if (!class_exists('WPFront_User_Role_Editor')) {
                 $this->add_submenu_page(10, $this->__('Roles'), $this->__('All Roles'), $this->get_capability_string('list'), WPFront_User_Role_Editor_List::MENU_SLUG, array($this->objList, 'list_roles'), NULL, NULL, $this->objList);
                 $this->add_submenu_page(20, $this->__('Add New Role'), $this->__('Add New'), $this->get_capability_string('create'), WPFront_User_Role_Editor_Add_Edit::MENU_SLUG, array($this->objAddEdit, 'add_edit_role'), NULL, NULL, $this->objAddEdit);
                 $this->add_submenu_page(30, $this->__('Restore Role'), $this->__('Restore'), $this->get_capability_string('edit'), WPFront_User_Role_Editor_Restore::MENU_SLUG, array($this->objRestore, 'restore_role'), NULL, NULL, $this->objRestore);
+                $this->add_submenu_page(35, $this->__('Add/Remove Capability'), $this->__('Add/Remove Cap'), $this->get_capability_string('edit'), WPFront_User_Role_Editor_Add_Remove_Capability::MENU_SLUG, array($this->objAddRemoveCap, 'add_remove_capability'), NULL, NULL, $this->objAddRemoveCap);
                 $this->add_submenu_page(100, $this->__('Settings'), $this->__('Settings'), 'manage_options', WPFront_User_Role_Editor_Options::MENU_SLUG, array($this->options, 'settings'), NULL, NULL, $this->options);
             }
-            
+
             ksort($this->admin_menu);
-            
+
             if (!empty($this->admin_menu)) {
                 $menu_capability = reset($this->admin_menu);
                 $menu_capability = $menu_capability[2];
                 add_menu_page($this->__('Roles'), $this->__('Roles'), $menu_capability, $menu_slug, null, $this->pluginURL() . 'images/roles_menu.png', '69.999999');
             }
-            
+
             foreach ($this->admin_menu as $key => $value) {
                 $page_hook_suffix = add_submenu_page($menu_slug, $value[0], $value[1], $value[2], $value[3], $value[4]);
                 add_action('admin_print_scripts-' . $page_hook_suffix, array($this, $value[5]));
@@ -514,7 +517,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
         public function override_edit_permissions() {
             return $this->options->override_edit_permissions();
         }
-        
+
         public function disable_navigation_menu_permissions() {
             return $this->options->disable_navigation_menu_permissions();
         }
@@ -533,7 +536,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
 
         private function rename_role_capabilities() {
             global $wp_roles;
-            
+
             //removed in v2.5 but in wrong place.
 //            foreach ($wp_roles->role_objects as $key => $role) {
 //                foreach (self::$ROLE_CAPS as $value) {
@@ -544,7 +547,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
 //                }
 //            }
 
-            $role_admin = $wp_roles->role_objects['administrator'];
+            $role_admin = $wp_roles->role_objects[self::ADMINISTRATOR_ROLE_KEY];
             foreach (self::$ROLE_CAPS as $value) {
                 $role_admin->add_cap($value);
             }
@@ -594,6 +597,7 @@ require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-list.ph
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-add-edit.php");
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-delete.php");
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-restore.php");
+require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-add-remove-capability.php");
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-assign-roles.php");
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-go-pro.php");
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-nav-menu.php");

@@ -36,6 +36,8 @@ if (!class_exists('WPFront_User_Role_Editor_Controller_Base')) {
      */
     class WPFront_User_Role_Editor_Controller_Base {
 
+        const ADMINISTRATOR_ROLE_KEY = WPFront_User_Role_Editor::ADMINISTRATOR_ROLE_KEY;
+        
         protected $main;
         protected $page_hook;
         protected $multisite = FALSE;

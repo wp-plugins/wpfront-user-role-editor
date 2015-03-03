@@ -60,16 +60,22 @@
                 <h3>Free Version</h3>
             </div>
             <div class="cell">
-                Add/Edit/Delete
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/add-role/">Add/Edit/Delete</a>
             </div>
             <div class="cell">
-                Restore Roles
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/restore-role/">Restore Roles</a>
             </div>
             <div class="cell">
-                Assign/Migrate Users
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/assign-migrate-users/">Assign/Migrate Users</a>
             </div>
             <div class="cell">
-                Navigation Menu Basic
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/">Navigation Menu Basic</a>
+            </div>
+            <div class="cell">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="cell">
+                <i class="fa fa-times"></i>
             </div>
             <div class="cell">
                 <i class="fa fa-times"></i>
@@ -95,31 +101,37 @@
                 <h3>Personal Pro</h3>
             </div>
             <div class="cell">
-                Add/Edit/Delete
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/add-role/">Add/Edit/Delete</a>
             </div>
             <div class="cell">
-                Restore Roles
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/restore-role/">Restore Roles</a>
             </div>
             <div class="cell">
-                Assign/Migrate Users
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/assign-migrate-users/">Assign/Migrate Users</a>
             </div>
             <div class="cell">
-                Navigation Menu Advanced
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/">Navigation Menu Advanced</a>
             </div>
             <div class="cell">
-                Import/Export
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/menu-editor/">Admin Menu Editor</a>
             </div>
             <div class="cell">
-                Menu Editor
+                <a target="_blank" href="https://wpfront.com/media-attachment-file-permissions/">Media Library Permissions</a>
             </div>
             <div class="cell">
-                Posts/Pages Extended Permissions
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/posts-pages-extended-permissions/">Posts/Pages Extended Permissions</a>
+            </div>
+            <div class="cell">
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/custom-post-type-permissions/">Custom Post Type Permissions</a>
+            </div>
+            <div class="cell">
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/export-roles/">Import/Export</a>
             </div>
             <div class="cell">
                 <i class="fa fa-times"></i>
             </div>
             <div class="cell">
-                Private Forums & Updates for One Year
+                <a target="_blank" href="https://wpfront.com/support/forum/user-role-editor-pro-2/">Private Forums & Updates for One Year</a>
             </div>
             <div class="cell footer">
                 <a class="button-primary" href="https://wpfront.com/ppro" target="_blank">
@@ -133,31 +145,37 @@
                 <h3>Business Pro</h3>
             </div>
             <div class="cell">
-                Add/Edit/Delete
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/add-role/">Add/Edit/Delete</a>
             </div>
             <div class="cell">
-                Restore Roles
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/restore-role/">Restore Roles</a>
             </div>
             <div class="cell">
-                Assign/Migrate Users
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/assign-migrate-users/">Assign/Migrate Users</a>
             </div>      
             <div class="cell">
-                Navigation Menu Advanced
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/">Navigation Menu Advanced</a>
             </div>
             <div class="cell">
-                Import/Export
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/menu-editor/">Admin Menu Editor</a>
             </div>
             <div class="cell">
-                Menu Editor
+                <a target="_blank" href="https://wpfront.com/media-attachment-file-permissions/">Media Library Permissions</a>
             </div>
             <div class="cell">
-                Posts/Pages Extended Permissions
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/posts-pages-extended-permissions/">Posts/Pages Extended Permissions</a>
             </div>
             <div class="cell">
-                Multisite Support
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/custom-post-type-permissions/">Custom Post Type Permissions</a>
             </div>
             <div class="cell">
-                Private Forums & Updates for One Year
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/export-roles/">Import/Export</a>
+            </div>
+            <div class="cell">
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/multisite-sync-roles/">Multisite Support</a>
+            </div>
+            <div class="cell">
+                <a target="_blank" href="https://wpfront.com/support/forum/user-role-editor-pro-2/">Private Forums & Updates for One Year</a>
             </div>
             <div class="cell footer">
                 <a class="button-primary" href="https://wpfront.com/bpro" target="_blank">

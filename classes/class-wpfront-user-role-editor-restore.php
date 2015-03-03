@@ -136,7 +136,7 @@ if (!class_exists('WPFront_User_Role_Editor_Restore')) {
                                 }
                             }
                         } else {
-                            if ($role->name == 'administrator') {
+                            if ($role->name == self::ADMINISTRATOR_ROLE_KEY) {
                                 $this->main->get_capabilities();
                                 foreach (WPFront_User_Role_Editor::$OTHER_CAPABILITIES as $group => $caps) {
                                     foreach ($caps as $cap) {
@@ -146,7 +146,7 @@ if (!class_exists('WPFront_User_Role_Editor_Restore')) {
                             }
                         }
 
-                        if ($role->name == 'administrator' && $this->main->enable_role_capabilities()) {
+                        if ($role->name == self::ADMINISTRATOR_ROLE_KEY && $this->main->enable_role_capabilities()) {
                             foreach (WPFront_User_Role_Editor::$ROLE_CAPS as $value) {
                                 $role->add_cap($value);
                             }

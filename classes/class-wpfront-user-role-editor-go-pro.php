@@ -95,7 +95,7 @@ if (!class_exists('WPFront_User_Role_Editor_Go_Pro')) {
                     $this->pro_html = '';
             }
 
-            if($this->pro_html === '') {
+            if ($this->pro_html === '') {
                 $this->pro_html = file_get_contents($this->main->pluginDIR() . 'templates/go-pro-table');
             }
 
@@ -124,12 +124,14 @@ if (!class_exists('WPFront_User_Role_Editor_Go_Pro')) {
                 if ($last_checked < time() - 24 * 3600) {
                     $entity->update_option($this->license_key_k . '-last-checked', time());
                     $result = $this->remote_get('check_license', $this->license_key);
-                    if (($result->activations_left === 'unlimited' || $result->activations_left >= 0) && ($result->license === 'valid' || $result->license === 'expired')) {
-                        $entity->update_option($this->license_key_k . '-status', $result->license);
-                        $entity->update_option($this->license_key_k . '-expires', $result->expires);
-                    } else {
-                        $this->deactivate_license(TRUE);
-                        return;
+                    if (!empty($result)) {
+                        if (($result->activations_left === 'unlimited' || $result->activations_left >= 0) && ($result->license === 'valid' || $result->license === 'expired')) {
+                            $entity->update_option($this->license_key_k . '-status', $result->license);
+                            $entity->update_option($this->license_key_k . '-expires', $result->expires);
+                        } else {
+                            $this->deactivate_license(TRUE);
+                            return;
+                        }
                     }
                 }
                 $this->has_license = TRUE;

@@ -39,6 +39,12 @@ if (!class_exists('WPFront_Base_URE')) {
      */
     class WPFront_Base_URE {
 
+        const ADMINISTRATOR_ROLE_KEY = 'administrator';
+        const EDITOR_ROLE_KEY = 'editor';
+        const AUTHOR_ROLE_KEY = 'author';
+        const CONTRIBUTOR_ROLE_KEY = 'contributor';
+        const SUBSCRIBER_ROLE_KEY = 'subscriber';
+
         private $plugin_slug;
         private $options_page_slug;
         protected $pluginURLRoot;

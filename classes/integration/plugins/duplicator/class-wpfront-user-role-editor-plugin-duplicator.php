@@ -42,7 +42,7 @@ if (!class_exists('WPFront_User_Role_Editor_Plugin_Duplicator')) {
         }
 
         protected function init($params) {
-            $admin_role = get_role('administrator');
+            $admin_role = get_role(self::ADMINISTRATOR_ROLE_KEY);
             $caps = array();
             foreach($params as $value) {
                 $cap = $this->translate_capability($value);

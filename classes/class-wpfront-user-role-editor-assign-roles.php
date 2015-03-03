@@ -171,7 +171,7 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
 
             $this->secondary_roles = array();
             foreach ($roles as $key => $value) {
-                if ($key != 'administrator')
+                if ($key != self::ADMINISTRATOR_ROLE_KEY)
                     $this->secondary_roles[$key] = $value;
             }
         }
