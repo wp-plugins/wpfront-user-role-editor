@@ -3,8 +3,8 @@ Contributors: syammohanm
 Donate link: https://wpfront.com/donate/
 Tags: WordPress user role editor, user role editor, role editor, user role, role, WordPress user roles, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager, custom post types, custom post type permissions, custom post type capabilities, post type permissions, post type capabilities, menu editor, role menu, role menu editor, multisite roles, multisite role editor, multisite user roles, import roles, export roles
 Requires at least: 3.5
-Tested up to: 4.1
-Stable tag: 2.5.1
+Tested up to: 4.1.1
+Stable tag: 2.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -21,11 +21,13 @@ You can create, edit or delete user roles and manage role capabilities.
 * Manage capabilities.
 * Allows you to add role capabilities.
 * Change default user role.
+* Add or Remove capabilities.
 * Restore role.
 * Assign multiple roles.
 * Migrate users.
 * Navigation menu permissions basic.
 * Admin menu editor. [PRO]
+* Media library permissions. [PRO]
 * Navigation menu permissions advanced. [PRO]
 * Post/Page extended permissions. [PRO]
 * Custom post type permissions. [PRO]
@@ -71,8 +73,24 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 11. Edit role
 12. Restore role
 13. Navigation menu permissions
+14. Add or Remove capability
+15. Media library permissions
 
 == Changelog ==
+
+= 2.7 =
+* Media library permissions added. [Documentation](https://wpfront.com/media-attachment-file-permissions/).
+* Admin menu editor bug fix.
+
+= 2.6.2 =
+* bbPress forum extended permissions bug fix.
+* Stability improvements.
+
+= 2.6.1 =
+* Role permission column width removed.
+
+= 2.6 =
+* Add or Remove Capability functionality added. [Documentation](https://wpfront.com/user-role-editor-pro/add-remove-capability/).
 
 = 2.5.1 =
 * Navigation menu permission setting added. [Documentation](https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/).
@@ -131,6 +149,18 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.7 =
+* Media file permissions.
+
+= 2.6.2 =
+* Bug fixes and stability improvements.
+
+= 2.6.1 = 
+* CSS fix.
+
+= 2.6 =
+* Add or Remove Capability functionality added.
 
 = 2.5.1 =
 * Navigation menu permission setting added.
