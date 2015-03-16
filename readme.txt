@@ -26,13 +26,14 @@ You can create, edit or delete user roles and manage role capabilities.
 * Assign multiple roles.
 * Migrate users.
 * Navigation menu permissions basic.
-* Admin menu editor. [PRO]
-* Media library permissions. [PRO]
-* Navigation menu permissions advanced. [PRO]
-* Post/Page extended permissions. [PRO]
-* Custom post type permissions. [PRO]
-* Import/Export. [PRO]
-* Multisite support. [PRO]
+* [Admin menu editor.](https://wpfront.com/user-role-editor-pro/menu-editor/) [PRO]
+* [Media library permissions.](https://wpfront.com/user-role-editor-pro/media-attachment-file-permissions/) [PRO]
+* [Navigation menu permissions advanced.](https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/) [PRO]
+* [Post/Page extended permissions.](https://wpfront.com/user-role-editor-pro/posts-pages-extended-permissions/) [PRO]
+* [Custom post type permissions.](https://wpfront.com/user-role-editor-pro/custom-post-type-permissions/) [PRO]
+* [Content restriction shortcodes.](https://wpfront.com/user-role-editor-pro/content-restriction-shortcodes/) [PRO]
+* [Import/Export.](https://wpfront.com/user-role-editor-pro/export-roles/) [PRO]
+* [Multisite support.](https://wpfront.com/user-role-editor-pro/multisite-sync-roles/) [PRO]
 
 Compare [User Role Editor Pro](https://wpfront.com/ppro)
 
@@ -75,11 +76,15 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 13. Navigation menu permissions
 14. Add or Remove capability
 15. Media library permissions
+16. Content restriction shortcodes
 
 == Changelog ==
 
+= 2.8 =
+* Content restriction shortcodes added. [Documentation](https://wpfront.com/user-role-editor-pro/content-restriction-shortcodes/).
+
 = 2.7 =
-* Media library permissions added. [Documentation](https://wpfront.com/media-attachment-file-permissions/).
+* Media library permissions added. [Documentation](https://wpfront.com/user-role-editor-pro/media-attachment-file-permissions/).
 * Admin menu editor bug fix.
 
 = 2.6.2 =
@@ -149,6 +154,9 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.8 =
+* Content restriction shortcodes.
 
 = 2.7 =
 * Media file permissions.
