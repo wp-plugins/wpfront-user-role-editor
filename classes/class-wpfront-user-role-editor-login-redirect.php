@@ -145,7 +145,7 @@ if (!class_exists('WPFront_User_Role_Editor_Login_Redirect')) {
 
             $roles = $obj_user->roles;
             if (in_array(self::ADMINISTRATOR_ROLE_KEY, $roles))
-                return TRUE;
+                return $show;
 
             $entity = new WPFront_User_Role_Editor_Entity_Login_Redirect();
             $data = $entity->get_all_login_redirect();
@@ -160,7 +160,7 @@ if (!class_exists('WPFront_User_Role_Editor_Login_Redirect')) {
                         return FALSE;
                     }
 
-                    return TRUE;
+                    return $show;
                 }
             }
 
