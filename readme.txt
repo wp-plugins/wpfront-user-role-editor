@@ -4,7 +4,7 @@ Donate link: https://wpfront.com/donate/
 Tags: WordPress user role editor, user role editor, role editor, user role, role, WordPress user roles, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager, custom post types, custom post type permissions, custom post type capabilities, post type permissions, post type capabilities, menu editor, role menu, role menu editor, multisite roles, multisite role editor, multisite user roles, import roles, export roles
 Requires at least: 3.5
 Tested up to: 4.1.1
-Stable tag: 2.7
+Stable tag: 2.9
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -26,9 +26,11 @@ You can create, edit or delete user roles and manage role capabilities.
 * Assign multiple roles.
 * Migrate users.
 * Navigation menu permissions basic.
+* Login redirect basic.
 * [Admin menu editor.](https://wpfront.com/user-role-editor-pro/menu-editor/) [PRO]
 * [Media library permissions.](https://wpfront.com/user-role-editor-pro/media-attachment-file-permissions/) [PRO]
 * [Navigation menu permissions advanced.](https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/) [PRO]
+* [Login redirect advanced.](https://wpfront.com/user-role-editor-pro/login-redirect/) [PRO]
 * [Post/Page extended permissions.](https://wpfront.com/user-role-editor-pro/posts-pages-extended-permissions/) [PRO]
 * [Custom post type permissions.](https://wpfront.com/user-role-editor-pro/custom-post-type-permissions/) [PRO]
 * [Content restriction shortcodes.](https://wpfront.com/user-role-editor-pro/content-restriction-shortcodes/) [PRO]
@@ -39,6 +41,7 @@ Compare [User Role Editor Pro](https://wpfront.com/ppro)
 
 Localization Contributors:
 <li>[Mauro Mascarenhas](http://nintersoft.ml) (Portuguese) </li>
+<li>[Elger Lindgren](http://bilddigital.se) (Swedish) </li>
 
 Spanish tutorial
 https://www.youtube.com/watch?v=YRZdWH-uukI
@@ -77,8 +80,14 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 14. Add or Remove capability
 15. Media library permissions
 16. Content restriction shortcodes
+17. Login redirect
 
 == Changelog ==
+
+= 2.9 =
+* Login redirect added. [Documentation](https://wpfront.com/user-role-editor-pro/login-redirect/).
+* Assign roles compatibility fix.
+* Swedish translation added. Thanks to Elger.
 
 = 2.8 =
 * Content restriction shortcodes added. [Documentation](https://wpfront.com/user-role-editor-pro/content-restriction-shortcodes/).
@@ -154,6 +163,9 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.9 =
+* Login redirect.
 
 = 2.8 =
 * Content restriction shortcodes.
