@@ -23,7 +23,7 @@ if (!class_exists('WPFront_User_Role_Editor_Entity_Options')) {
         protected function _db_data() {
             return array(
                 $this->db_data_field('option_name', 'varchar(250)'),
-                $this->db_data_field('option_value', 'longtext'),
+                $this->db_data_field('option_value', 'longtext')
             );
         }
 

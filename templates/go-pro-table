@@ -92,6 +92,9 @@
             <div class="cell">
                 <i class="fa fa-times"></i>
             </div>
+			<div class="cell">
+                <i class="fa fa-times"></i>
+            </div>
             <div class="cell">
                 &nbsp;
             </div>
@@ -117,6 +120,9 @@
             </div>
             <div class="cell">
                 <a target="_blank" href="https://wpfront.com/media-attachment-file-permissions/">Media Library Permissions</a>
+            </div>
+			<div class="cell">
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/content-restriction-shortcodes/">Content Restriction Shortcodes</a>
             </div>
             <div class="cell">
                 <a target="_blank" href="https://wpfront.com/user-role-editor-pro/posts-pages-extended-permissions/">Posts/Pages Extended Permissions</a>
@@ -161,6 +167,9 @@
             </div>
             <div class="cell">
                 <a target="_blank" href="https://wpfront.com/media-attachment-file-permissions/">Media Library Permissions</a>
+            </div>
+			<div class="cell">
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/content-restriction-shortcodes/">Content Restriction Shortcodes</a>
             </div>
             <div class="cell">
                 <a target="_blank" href="https://wpfront.com/user-role-editor-pro/posts-pages-extended-permissions/">Posts/Pages Extended Permissions</a>

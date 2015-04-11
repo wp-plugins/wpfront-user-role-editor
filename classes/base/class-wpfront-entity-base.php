@@ -82,6 +82,9 @@ if (!class_exists('WPFront_Entity_Base')) {
                         'type' => 'get',
                         'data' => $obj
             );
+            $this->func_data["get_by_id"] = (OBJECT) array(
+                        'data' => $obj
+            );
 
             foreach ($this->_db_data() as $value) {
                 $key = $value->name;
@@ -183,6 +186,8 @@ if (!class_exists('WPFront_Entity_Base')) {
                 'bigint' => '%d',
                 'varchar' => '%s',
                 'longtext' => '%s',
+                'tinytext' => '%s',
+                'datetime' => '%s',
                 'bit' => '%d'
             );
 
@@ -264,6 +269,62 @@ if (!class_exists('WPFront_Entity_Base')) {
             }
 
             return $data;
+        }
+
+        protected function get_all($orderby = array(), $page_index = -1, $per_page = -1, $search = '') {
+            global $wpdb;
+
+            $table_name = $this->table_name();
+
+            $sql = "SELECT * FROM $table_name";
+            
+            if(!empty($search)) {
+                $sql .= " WHERE $search";
+            }
+
+            if (!empty($orderby)) {
+                $sql .= ' ORDER BY ';
+                foreach ($orderby as $key => $value) {
+                    $sql .= $key;
+                    if ($value)
+                        $sql .= ' DESC';
+                    $sql .= ', ';
+                }
+            }
+            $sql = trim($sql, ", ");
+            
+            if($page_index > -1) {
+                $start = $page_index * $per_page;
+                
+                $sql .= " LIMIT $start, $per_page";
+            }
+
+            $result = $wpdb->get_results($sql, ARRAY_A);
+
+            $data = array();
+            $class = get_class($this);
+
+            foreach ($result as $row) {
+                $data[] = $this->get_object($row);
+            }
+
+            return $data;
+        }
+
+        protected function count($where = '') {
+            global $wpdb;
+
+            $table_name = $this->table_name();
+
+            $sql = "SELECT COUNT(*) FROM $table_name";
+            
+            if(!empty($where)) {
+                $sql .= " WHERE $where";
+            }
+
+            $result = $wpdb->get_var($sql);
+
+            return intval($result);
         }
 
         public function add() {

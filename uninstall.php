@@ -19,6 +19,9 @@ if (is_multisite() && class_exists('WPFront_User_Role_Editor_Business_Pro_Contro
             WPFront_User_Role_Editor_Entity_Options::uninstall();
             WPFront_User_Role_Editor_Entity_Menu_Editor::uninstall();
             WPFront_User_Role_Editor_Entity_Post_Type_Permissions::uninstall();
+            WPFront_User_Role_Editor_Entity_Content_Shortcodes::uninstall();
+            WPFront_User_Role_Editor_Entity_Login_Redirect::uninstall();
+
             WPFront_User_Role_Editor_Nav_Menu::uninstall();
         }
     }
@@ -27,18 +30,25 @@ if (is_multisite() && class_exists('WPFront_User_Role_Editor_Business_Pro_Contro
 } else {
     $entity = new WPFront_User_Role_Editor_Options(NULL);
     if ($entity->remove_data_on_uninstall()) {
-		if (class_exists('WPFront_User_Role_Editor_Entity_Options'))
-			WPFront_User_Role_Editor_Entity_Options::uninstall();
+        if (class_exists('WPFront_User_Role_Editor_Entity_Options'))
+            WPFront_User_Role_Editor_Entity_Options::uninstall();
 
-		if (class_exists('WPFront_User_Role_Editor_Entity_Menu_Editor'))
-			WPFront_User_Role_Editor_Entity_Menu_Editor::uninstall();
+        if (class_exists('WPFront_User_Role_Editor_Entity_Menu_Editor'))
+            WPFront_User_Role_Editor_Entity_Menu_Editor::uninstall();
 
-		if (class_exists('WPFront_User_Role_Editor_Entity_Post_Type_Permissions'))
-			WPFront_User_Role_Editor_Entity_Post_Type_Permissions::uninstall();
-                
-                if (class_exists('WPFront_User_Role_Editor_Nav_Menu'))
-			WPFront_User_Role_Editor_Nav_Menu::uninstall();
-	}
+        if (class_exists('WPFront_User_Role_Editor_Entity_Post_Type_Permissions'))
+            WPFront_User_Role_Editor_Entity_Post_Type_Permissions::uninstall();
+
+        if (class_exists('WPFront_User_Role_Editor_Entity_Content_Shortcodes'))
+            WPFront_User_Role_Editor_Entity_Content_Shortcodes::uninstall();
+
+        if (class_exists('WPFront_User_Role_Editor_Entity_Login_Redirect'))
+            WPFront_User_Role_Editor_Entity_Login_Redirect::uninstall();
+
+
+        if (class_exists('WPFront_User_Role_Editor_Nav_Menu'))
+            WPFront_User_Role_Editor_Nav_Menu::uninstall();
+    }
 }
 
 

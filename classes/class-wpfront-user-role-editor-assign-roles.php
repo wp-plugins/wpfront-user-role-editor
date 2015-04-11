@@ -123,7 +123,8 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
             if ($user_id === wp_get_current_user()->ID)
                 return;
 
-            $user = get_user_to_edit($user_id);
+            //$user = get_user_to_edit($user_id); //fatal error - function not defined.
+            $user = get_userdata($user_id);
             if (empty($user))
                 return;
 

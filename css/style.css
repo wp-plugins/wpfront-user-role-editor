@@ -101,7 +101,7 @@ div.role-add-new div.metabox-holder .deprecated {
 }
 
 div.role-add-new div.metabox-holder div.postbox h3.hndle {
-    
+
 }
 
 div.role-add-new div.metabox-holder div.postbox div.inside div.main div {
@@ -158,4 +158,16 @@ div.wrap.go-pro #license_key {
 
 div.wrap.go-pro div.license-container table.form-table td.expired {
     color: red;
+}
+
+
+div.wrap.login-redirect table.wp-list-table .column-priority,
+div.wrap.login-redirect table.wp-list-table .column-deny_wpadmin,
+div.wrap.login-redirect table.wp-list-table .column-disable_toolbar {
+    width: 10%;
+    text-align: center;
+}
+
+div.wrap.login-redirect table.wp-list-table .column-url {
+    width: 50%;
 }
