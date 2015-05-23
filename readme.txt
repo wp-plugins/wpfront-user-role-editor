@@ -3,8 +3,8 @@ Contributors: syammohanm
 Donate link: https://wpfront.com/donate/
 Tags: WordPress user role editor, user role editor, role editor, user role, role, WordPress user roles, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager, custom post types, custom post type permissions, custom post type capabilities, post type permissions, post type capabilities, menu editor, role menu, role menu editor, multisite roles, multisite role editor, multisite user roles, import roles, export roles
 Requires at least: 3.5
-Tested up to: 4.2
-Stable tag: 2.9.1
+Tested up to: 4.2.2
+Stable tag: 2.10
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -29,6 +29,7 @@ You can create, edit or delete user roles and manage role capabilities.
 * Login redirect basic.
 * [Admin menu editor.](https://wpfront.com/user-role-editor-pro/menu-editor/) [PRO]
 * [Media library permissions.](https://wpfront.com/user-role-editor-pro/media-attachment-file-permissions/) [PRO]
+* [User level permissions.](https://wpfront.com/user-role-editor-pro/user-level-permissions/) [PRO]
 * [Navigation menu permissions advanced.](https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/) [PRO]
 * [Login redirect advanced.](https://wpfront.com/user-role-editor-pro/login-redirect/) [PRO]
 * [Post/Page extended permissions.](https://wpfront.com/user-role-editor-pro/posts-pages-extended-permissions/) [PRO]
@@ -81,8 +82,17 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 15. Media library permissions
 16. Content restriction shortcodes
 17. Login redirect
+18. User level permissions
 
 == Changelog ==
+
+= 2.10 =
+* User level permissions added. [Documentation](https://wpfront.com/user-role-editor-pro/user-level-permissions/).
+* UI enhancements.
+
+= 2.9.3 =
+* Menu editor bug fix.
+* Menu editor WP4.2 compatibility fix.
 
 = 2.9.1 =
 * Show toolbar inheritance bug fix.
@@ -166,6 +176,12 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.10 =
+* User level permissions.
+
+= 2.9.3 =
+* Bug fix.
 
 = 2.9.1 =
 * Bug fix.
