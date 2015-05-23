@@ -1,0 +1,1692 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPFront User Role Editor Personal Pro\n"
+"POT-Creation-Date: 2015-03-19 11:44+0100\n"
+"PO-Revision-Date: 2015-03-20 12:15+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: classes/base/class-wpfront-base-menu.php:56
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes-list-table.php:84
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:369
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:416
+#: templates/personal-pro/content-shortcodes-add-edit.php:15
+#: templates/personal-pro/menu-editor.php:138
+msgid "Name"
+msgstr "Namn"
+
+#: classes/base/class-wpfront-base-menu.php:57
+msgid "Version"
+msgstr "Version"
+
+#: classes/base/class-wpfront-base-menu.php:58
+msgid "Rating"
+msgstr "Ranking"
+
+#: classes/base/class-wpfront-base-menu.php:59
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:183
+msgid "Description"
+msgstr "Beskrivning"
+
+#: classes/base/class-wpfront-base-menu.php:73
+#, php-format
+msgid "based on %s rating(s)"
+msgstr "baserad på %s behörighet(er)"
+
+#: classes/base/class-wpfront-base-menu.php:109
+msgid "Unable to communicate with WordPress.org"
+msgstr "Det går inte att kommunicera med WordPress.org"
+
+#: classes/base/class-wpfront-base-menu.php:127
+#: classes/base/class-wpfront-base-menu.php:221
+msgid "WPFront Plugins"
+msgstr "WPFront Insticksprogram"
+
+#: classes/base/class-wpfront-base-menu.php:151
+#, php-format
+msgid "By %s"
+msgstr "Av %s"
+
+#: classes/base/class-wpfront-base-menu.php:158
+#, php-format
+msgid "More information about %s"
+msgstr "Mer information om %s"
+
+#: classes/base/class-wpfront-base-menu.php:158
+#: classes/class-wpfront-user-role-editor-go-pro.php:225
+msgid "Details"
+msgstr "Detaljer"
+
+#: classes/base/class-wpfront-base-menu.php:167
+#, php-format
+msgid "Install %s"
+msgstr "Installera %s"
+
+#: classes/base/class-wpfront-base-menu.php:167
+msgid "Install Now"
+msgstr "Installera nu"
+
+#: classes/base/class-wpfront-base-menu.php:172
+#, php-format
+msgid "Update to version %s"
+msgstr "Uppdatera till version %s"
+
+#: classes/base/class-wpfront-base-menu.php:172
+msgid "Update Now"
+msgstr "Uppdatera nu"
+
+#: classes/base/class-wpfront-base-menu.php:177
+msgid "This plugin is already installed and is up to date"
+msgstr "Denna plugin är redan installerad och är uppdaterad"
+
+#: classes/base/class-wpfront-base-menu.php:177
+msgid "Installed"
+msgstr "Installerad"
+
+#: classes/base/class-wpfront-base-menu.php:179
+#: classes/base/class-wpfront-base.php:119
+#: classes/class-wpfront-user-role-editor-options.php:262
+#: classes/class-wpfront-user-role-editor.php:225
+msgid "Settings"
+msgstr "Inställningar"
+
+#: classes/base/class-wpfront-base-menu.php:181
+#: classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:107
+#: templates/go-pro.php:71 templates/go-pro.php:72
+msgid "Activate"
+msgstr "Aktivera"
+
+#: classes/base/class-wpfront-base-menu.php:203
+#: classes/class-wpfront-user-role-editor.php:340
+msgid "Feedback"
+msgstr "Feedback"
+
+#: classes/base/class-wpfront-base-menu.php:220
+msgid "WPFront"
+msgstr "WPFront"
+
+#: classes/base/class-wpfront-base-menu.php:221
+msgid "All Plugins"
+msgstr "Alla insticksprogram"
+
+#: classes/base/class-wpfront-base.php:148
+#: classes/class-wpfront-user-role-editor.php:289
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Du har inte rättigheter för att få åtkomst till denna sida."
+
+#: classes/base/class-wpfront-base.php:168
+msgid ""
+"If you have a caching plugin, clear the cache for the new settings to take "
+"effect."
+msgstr ""
+"Om du har en caching plugin, rensa cachen för att de nya inställningarna ska "
+"börja gälla."
+
+#: classes/base/class-wpfront-base.php:215
+#: templates/personal-pro/menu-editor.php:232
+msgid "Save Changes"
+msgstr "Spara ändringar"
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:324
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:128
+#: classes/class-wpfront-user-role-editor-assign-roles.php:365
+#: classes/class-wpfront-user-role-editor-list.php:361
+#: classes/class-wpfront-user-role-editor-list.php:395
+#: classes/class-wpfront-user-role-editor-list.php:412
+#: classes/class-wpfront-user-role-editor-options.php:255
+#: classes/class-wpfront-user-role-editor-options.php:302
+#: classes/class-wpfront-user-role-editor-restore.php:168
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:362
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:393
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:404
+#: classes/personal-pro/class-wpfront-user-role-editor-export.php:130
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:229
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:592
+msgid "Overview"
+msgstr "Översikt"
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:326
+msgid "This screen allows you to add a new role within your site."
+msgstr "Här kan du lägga till en ny roll inom din webbplats."
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:329
+#: classes/class-wpfront-user-role-editor-list.php:366
+msgid ""
+"You can copy capabilities from existing roles using the Copy from drop down "
+"list. Select the role you want to copy from, then click Apply to copy the "
+"capabilities. You can select or deselect capabilities even after you copy."
+msgstr ""
+"Du kan kopiera befogenheter från befintliga roller med hjälp av Kopiera från "
+"rullistan. Markera den roll du vill kopiera från, och klicka sedan på "
+"Verkställ för att kopiera befogenheterna. Du kan välja eller välja bort "
+"befogenheter även efter att du kopierat."
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:334
+#: classes/class-wpfront-user-role-editor-list.php:225
+#: classes/class-wpfront-user-role-editor-list.php:371
+#: classes/class-wpfront-user-role-editor-list.php:424
+#: templates/add-edit-role.php:77
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:336
+msgid ""
+"Use the Display Name field to set the display name for the new role. "
+"WordPress uses display name to display this role within your site. This "
+"field is required."
+msgstr ""
+"Använd fältet Visningsnamn för att ställa in visningsnamnet för den nya "
+"rollen. Wordpress använder visningsnamn för att visa denna roll inom din "
+"webbplats. Detta fält är obligatoriskt."
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:341
+#: classes/class-wpfront-user-role-editor-list.php:228
+#: classes/class-wpfront-user-role-editor-list.php:378
+#: classes/class-wpfront-user-role-editor-list.php:429
+#: templates/add-edit-role.php:87
+msgid "Role Name"
+msgstr "Rollnamn"
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:343
+msgid ""
+"Use the Role Name field to set the role name for the new role. WordPress "
+"uses role name to identify this role within your site. Once set role name "
+"cannot be changed. This field is required. This plugin will auto populate "
+"role name from the display name you have given, but you can change it."
+msgstr ""
+"Använd Rollnamn-fältet för att ställa in rollnamn för den nya rollen. "
+"Wordpress använder rollnamn för att identifiera denna roll inom din "
+"webbplats. När inställningen rollnamn är gjord kan det inte ändras. Detta "
+"fält är obligatoriskt. Detta plugin kommer automatiskt fylla rollen namn "
+"från det visningsnamn du angivit, men du kan ändra det."
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:348
+#: classes/class-wpfront-user-role-editor-list.php:240
+#: classes/class-wpfront-user-role-editor-list.php:385
+#: classes/class-wpfront-user-role-editor-list.php:449
+#: templates/add-edit-role.php:101
+msgid "Capabilities"
+msgstr "Befogenheter"
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:350
+msgid ""
+"Capabilities are displayed as different groups for easy access. The Roles "
+"section displays capabilities created by this plugin. The Other Capabilities "
+"section displays non-standard capabilities within your site. These are "
+"usually created by plugins and themes. Use the check boxes to select the "
+"capabilities required for this new role."
+msgstr ""
+"Befogenheter visas som olika grupper för enkel åtkomst. Avsnittet Roller "
+"visar befogenheter som skapats av denna plugin. Den andra "
+"befogenhetsavsnittet visar icke-standardiserade befogenheter inom din "
+"webbplats. Dessa är vanligtvis skapade av plugins och teman. Använd "
+"kryssrutorna för att välja de befogenheter som krävs för denna nya roll."
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:359
+msgid "Documentation on Add New Role"
+msgstr "Dokumentation till Lägg till ny roll"
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:378
+msgid "Uses 'Posts' capabilities."
+msgstr "Använder 'Inläggs' befogenheter."
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:379
+#, php-format
+msgid "%s to customize capabilites."
+msgstr "%s för att anpassa befogenheter."
+
+#: classes/class-wpfront-user-role-editor-add-edit.php:379
+msgid "Upgrade to Pro"
+msgstr "Uppgradera till PRO"
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:108
+msgid "Roles updated."
+msgstr "Roller uppdaterade."
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:130
+msgid ""
+"This screen allows you to add a capability to roles or remove a capability "
+"from roles within your site."
+msgstr ""
+"Här kan du lägga till en befogenhet till roller eller ta bort en befogenhet "
+"från roller inom din webbplats."
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:135
+#: templates/add-remove-capability.php:61
+msgid "Action"
+msgstr "Åtgärd"
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:137
+msgid "Select \"Add Capability\" to add a capability to roles."
+msgstr ""
+"Välj \"Lägg till befogenhet\" för att lägga till en befogenhet till roller."
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:140
+msgid "Select \"Remove Capability\" to remove a capability from roles."
+msgstr "Välj \"Ta bort befogenhet\" för att ta bort en befogenhet från roller."
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:145
+#: templates/add-remove-capability.php:75
+#: templates/personal-pro/menu-editor.php:141
+msgid "Capability"
+msgstr "Befogenhet"
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:147
+msgid "Use the Capability field to name the capability to be added or removed."
+msgstr ""
+"Använd befogenhetsfältet för att namnge befogenheten som ska läggas till "
+"eller tas bort."
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:152
+#: classes/class-wpfront-user-role-editor.php:221
+#: classes/class-wpfront-user-role-editor.php:233
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes-list-table.php:87
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:431
+#: templates/add-remove-capability.php:85 templates/list-roles.php:43
+msgid "Roles"
+msgstr "Roller"
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:154
+#: classes/class-wpfront-user-role-editor.php:221
+#: templates/add-remove-capability.php:90
+msgid "All Roles"
+msgstr "Alla roller"
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:155
+msgid ""
+"Select \"All Roles\", if you want the current action to be applied to all "
+"roles within your site."
+msgstr ""
+"Välj \"Alla Roller\";, om du vill att nuvarande åtgärder skall tillämpas på "
+"alla roller inom din webbplats."
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:158
+#: templates/add-remove-capability.php:92
+msgid "Selected Roles"
+msgstr "Valda Roller"
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:159
+msgid ""
+"Select \"Selected Roles\", if you want to individually select the roles. "
+"When this option is selected, \"Administrator\" role is included by default "
+"on \"Add Capability\" action and excluded by default on \"Remove Capability"
+"\" action."
+msgstr ""
+"Välj \"Valda roller\", om du vill individuellt välja rollerna. När det här "
+"alternativet är valt, ingår \"Administrator\" rollen som standard på \"Lägg "
+"till befogenhet\"s händelsen och utesluts som standard på \"Ta bort "
+"befogenhet\"-händelsen."
+
+#: classes/class-wpfront-user-role-editor-add-remove-capability.php:168
+msgid "Documentation on Add/Remove Capability"
+msgstr "Dokumentation om Lägg till/ta bort Befogenhet"
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:66
+#: classes/class-wpfront-user-role-editor-assign-roles.php:339
+msgid "Secondary Roles"
+msgstr "Sekundära Roller"
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:81
+#: classes/class-wpfront-user-role-editor-assign-roles.php:372
+#: templates/assign-roles.php:42 templates/assign-roles.php:94
+msgid "Assign Roles"
+msgstr "Tilldela roller"
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:170
+msgid "No role for this site"
+msgstr "Ingen roll för den här webbplatsen"
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:196
+msgid "Invalid user."
+msgstr "Ogiltig användare."
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:224
+msgid "Roles updated successfully."
+msgstr "Roller uppdaterades."
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:226
+msgid "Invalid primary role specified."
+msgstr "Ogiltig primär roll angiven."
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:244
+#: classes/class-wpfront-user-role-editor-assign-roles.php:254
+msgid "Invalid primary role."
+msgstr "Ogiltig primär roll."
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:276
+#, php-format
+msgid "%d user(s) migrated."
+msgstr "%d användare migrerad(e)."
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:321
+msgid "Primary Role"
+msgstr "Primär roll"
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:367
+msgid ""
+"This screen allows you to assign multiple roles to a user and also allows "
+"you to migrate users from a role to another role."
+msgstr ""
+"Här kan du tilldela flera roller till en användare och ger dig även "
+"möjlighet att migrera användare från en roll till en annan."
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:374
+msgid ""
+"To assign multiple roles to a user, select that user within the User drop "
+"down list and select the primary role you want for that user using the "
+"Primary Role drop down list. Select the secondary roles using the check "
+"boxes below, then click Assign Roles."
+msgstr ""
+"För att tilldela flera roller till en användare väljer den användare i "
+"användarrullgardinslistan och välj den primära roll som du vill ha för den "
+"användaren med hjälp av primär roll-rullistan. Välj de sekundära rollerna "
+"med hjälp av kryssrutorna nedan, klicka sedan på Tilldela roller."
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:379
+#: templates/assign-roles.php:99 templates/assign-roles.php:132
+msgid "Migrate Users"
+msgstr "Migrera Användare"
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:381
+msgid ""
+"To migrate users from one role to another role or to add secondary roles to "
+"users belonging to a particular primary role, use the migrate users "
+"functionality."
+msgstr ""
+"För att migrera användare från en roll till en annan roll eller att lägga "
+"sekundära roller till användare som tillhör en viss primär roll, använd "
+"migrera användare- funktionen."
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:384
+msgid ""
+"Select the users using the From Primary Role drop down, to primary role "
+"using the Primary Role drop down and secondary roles using the check boxes "
+"then click Migrate Users."
+msgstr ""
+"Markera användare genom att välja från rullgardinslistan Från Primär Roll, "
+"till primära roll med den Primär Roll-rullgardinslistan och sekundära roller "
+"med hjälp av kryssrutorna och klicka sedan på Migrera Användare."
+
+#: classes/class-wpfront-user-role-editor-assign-roles.php:393
+msgid "Documentation on Assign / Migrate Users"
+msgstr "Dokumentation om Tilldela/Migrera användare"
+
+#: classes/class-wpfront-user-role-editor-controller-base.php:87
+msgid "Links:"
+msgstr "Länkar:"
+
+#: classes/class-wpfront-user-role-editor-controller-base.php:93
+msgid "FAQ"
+msgstr "FAQ"
+
+#: classes/class-wpfront-user-role-editor-controller-base.php:94
+msgid "Support"
+msgstr "Support"
+
+#: classes/class-wpfront-user-role-editor-controller-base.php:95
+msgid "Review"
+msgstr "Recensera"
+
+#: classes/class-wpfront-user-role-editor-controller-base.php:96
+msgid "Contact"
+msgstr "Kontakt"
+
+#: classes/class-wpfront-user-role-editor-go-pro.php:182
+#: classes/class-wpfront-user-role-editor-go-pro.php:184
+#: classes/class-wpfront-user-role-editor-go-pro.php:204
+#: classes/class-wpfront-user-role-editor-go-pro.php:223
+#: classes/class-wpfront-user-role-editor-go-pro.php:232
+#: classes/class-wpfront-user-role-editor-restore.php:87
+#: templates/add-edit-role.php:51 templates/add-edit-role.php:59
+#: templates/personal-pro/content-shortcodes.php:23
+msgid "ERROR"
+msgstr "FEL"
+
+#: classes/class-wpfront-user-role-editor-go-pro.php:182
+msgid "License key activation limit reached"
+msgstr "Licensnyckelns aktiveringsgräns uppnådd"
+
+#: classes/class-wpfront-user-role-editor-go-pro.php:184
+msgid "Invalid license key"
+msgstr "Ogiltig licensnyckel"
+
+#: classes/class-wpfront-user-role-editor-go-pro.php:204
+msgid "Unable to deactivate, expired license?"
+msgstr "Kan inte avaktivare, utgången licens?"
+
+#: classes/class-wpfront-user-role-editor-go-pro.php:223
+msgid "Unable to contact wpfront.com"
+msgstr "Det går inte att kontakta wpfront.com"
+
+#: classes/class-wpfront-user-role-editor-go-pro.php:232
+msgid "Unable to parse response"
+msgstr "Det går inte att tolka svar"
+
+#: classes/class-wpfront-user-role-editor-list.php:221
+#: templates/add-edit-role.php:117 templates/personal-pro/menu-editor.php:132
+msgid "Select All"
+msgstr "Välj alla"
+
+#: classes/class-wpfront-user-role-editor-list.php:231
+#: classes/class-wpfront-user-role-editor-list.php:434
+msgid "Type"
+msgstr "Typ"
+
+#: classes/class-wpfront-user-role-editor-list.php:234
+#: classes/class-wpfront-user-role-editor-list.php:439
+msgid "User Default"
+msgstr "Användarförval"
+
+#: classes/class-wpfront-user-role-editor-list.php:237
+#: classes/class-wpfront-user-role-editor-list.php:444
+msgid "Users"
+msgstr "Användare"
+
+#: classes/class-wpfront-user-role-editor-list.php:258
+msgid "Bulk Actions"
+msgstr "Massåtgärder"
+
+#: classes/class-wpfront-user-role-editor-list.php:260
+#: classes/class-wpfront-user-role-editor-list.php:476
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes-list-table.php:62
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes-list-table.php:149
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:448
+#: templates/list-roles.php:112
+#: templates/personal-pro/post-type-permissions.php:35
+msgid "Delete"
+msgstr "Radera"
+
+#: classes/class-wpfront-user-role-editor-list.php:263
+#: templates/add-edit-role.php:113 templates/personal-pro/menu-editor.php:100
+msgid "Apply"
+msgstr "Utför"
+
+#: classes/class-wpfront-user-role-editor-list.php:265
+#, php-format
+msgid "%s item(s)"
+msgstr "%s produkt(er)"
+
+#: classes/class-wpfront-user-role-editor-list.php:288
+msgid "All"
+msgstr "Alla"
+
+#: classes/class-wpfront-user-role-editor-list.php:302
+msgid "Having Users"
+msgstr "Har Användare"
+
+#: classes/class-wpfront-user-role-editor-list.php:308
+msgid "No Users"
+msgstr "Inga användare"
+
+#: classes/class-wpfront-user-role-editor-list.php:319
+#: templates/list-roles.php:129
+msgid "Built-In"
+msgstr "Inbyggd"
+
+#: classes/class-wpfront-user-role-editor-list.php:325
+#: templates/list-roles.php:129
+msgid "Custom"
+msgstr "Anpassad"
+
+#: classes/class-wpfront-user-role-editor-list.php:363
+msgid "This screen allows you to edit a role within your site."
+msgstr "Här kan du redigera en roll inom din webbplats."
+
+#: classes/class-wpfront-user-role-editor-list.php:373
+msgid ""
+"Use the Display Name field to edit display name of the role. WordPress uses "
+"display name to display this role within your site. This field is required."
+msgstr ""
+"Använd fältet Visningsnamn för att redigera visningsnamnet för rollen. "
+"Wordpress använder visningsnamn för att visa denna roll inom din webbplats. "
+"Detta fält är obligatoriskt."
+
+#: classes/class-wpfront-user-role-editor-list.php:380
+msgid ""
+"Role Name is read only. WordPress uses role name to identify this role "
+"within your site."
+msgstr ""
+"Rollnamnet är skrivskyddad. WordPress använder rollnamn för att identifiera "
+"denna roll inom webbplatsen."
+
+#: classes/class-wpfront-user-role-editor-list.php:387
+msgid ""
+"Capabilities are displayed as different groups for easy access. The Roles "
+"section displays capabilities created by this plugin. The Other Capabilities "
+"section displays non-standard capabilities within your site. These are "
+"usually created by plugins and themes. Use the check boxes to select the "
+"capabilities required."
+msgstr ""
+"Befogenheter visas som olika grupper för enkel åtkomst. Avsnittet Roller "
+"visar befogenheter som skapats av denna plugin. Det andra "
+"befogenhetsavsnittet visar icke-standardiserade befogenheter inom din "
+"webbplats. Dessa är vanligtvis skapade av plugins och teman. Använd "
+"kryssrutorna för att välja de befogenheter som krävs för denna nya roll."
+
+#: classes/class-wpfront-user-role-editor-list.php:397
+msgid "This screen allows you to delete roles from your WordPress site."
+msgstr "Här kan du ta bort roller från din WordPresswebbplats."
+
+#: classes/class-wpfront-user-role-editor-list.php:400
+msgid ""
+"Use the Roles List screen to select the roles you want to delete. You can "
+"delete individual roles using the Delete row action link or delete multiple "
+"roles at the same time using the bulk action."
+msgstr ""
+"Använd Rollistan för att välja de roller som du vill ta bort. Du kan ta bort "
+"enskilda roller med hjälp av länken ta bort rad eller ta bort flera roller "
+"samtidigt med massåtgärden."
+
+#: classes/class-wpfront-user-role-editor-list.php:403
+msgid ""
+"You cannot delete administrator role, current user’s role and roles you do "
+"not have permission to."
+msgstr ""
+"Du kan inte ta bort administratörsrollen, nuvarande användares roll och "
+"roller som du inte har behörighet till."
+
+#: classes/class-wpfront-user-role-editor-list.php:414
+msgid "This screen lists all the existing roles within your site."
+msgstr "Här listas över alla befintliga roller inom webbplatsen."
+
+#: classes/class-wpfront-user-role-editor-list.php:417
+msgid ""
+"To add a new role, click the Add New button at the top of the screen or Add "
+"New in the Roles menu section."
+msgstr ""
+"Klicka på knappen Lägg till ny överst på skärmen eller Lägg till ny från "
+"Roller-menyn för att lägga till en ny roll."
+
+#: classes/class-wpfront-user-role-editor-list.php:422
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:414
+msgid "Columns"
+msgstr "Kolumner"
+
+#: classes/class-wpfront-user-role-editor-list.php:426
+msgid "Used to display this role within this site."
+msgstr "Används för att visa denna roll inom denna webbplats."
+
+#: classes/class-wpfront-user-role-editor-list.php:431
+msgid "Is used by WordPress to identify this role."
+msgstr "Används av WordPress för att identifiera denna roll."
+
+#: classes/class-wpfront-user-role-editor-list.php:436
+msgid ""
+"Says whether the role is a WordPress built-in role or not. There are five "
+"built-in roles."
+msgstr ""
+"Säger om rollen är en WordPress-inbyggd roll eller inte. Det finns fem "
+"inbyggda roller."
+
+#: classes/class-wpfront-user-role-editor-list.php:441
+msgid "Displays whether a role is the default role of a new user."
+msgstr "Visar om en roll är standardrollen för en ny användare."
+
+#: classes/class-wpfront-user-role-editor-list.php:446
+msgid "Number of users in that role."
+msgstr "Antalet användare i den rollen."
+
+#: classes/class-wpfront-user-role-editor-list.php:451
+msgid "Number of capabilities that role have."
+msgstr "Antal behörigheter som har den rollen."
+
+#: classes/class-wpfront-user-role-editor-list.php:454
+msgid "Menu Edited"
+msgstr "Meny Redigerad"
+
+#: classes/class-wpfront-user-role-editor-list.php:456
+msgid ""
+"Displays whether the menu has been edited for this role. This is a pro "
+"feature."
+msgstr ""
+"Visar om menyn har redigerats för denna roll. Detta är en pro funktion."
+
+#: classes/class-wpfront-user-role-editor-list.php:461
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:438
+msgid "Actions"
+msgstr "Åtgärder"
+
+#: classes/class-wpfront-user-role-editor-list.php:463
+msgid ""
+"Hovering over a row in the roles list will display action links that allow "
+"you to manage roles. You can perform the following actions:"
+msgstr ""
+"Hovring över en rad i rollistan visar åtgärdslänkar som tillåter dig att "
+"hantera roller. Du kan utföra följande åtgärder:"
+
+#: classes/class-wpfront-user-role-editor-list.php:466
+#: templates/list-roles.php:109
+msgid "View"
+msgstr "Visa"
+
+#: classes/class-wpfront-user-role-editor-list.php:468
+msgid ""
+"Display details about the role. You can see the capabilities assigned for "
+"that role. View link will only appear when you do not have permission to "
+"edit that role."
+msgstr ""
+"Visa detaljer om rollen. Du kan se de behörigheter som tilldelats för den "
+"rollen. Visa länk visas bara när du inte har behörighet att redigera den "
+"rollen."
+
+#: classes/class-wpfront-user-role-editor-list.php:471
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes-list-table.php:146
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:443
+#: templates/list-roles.php:109
+#: templates/personal-pro/post-type-permissions.php:34
+msgid "Edit"
+msgstr "Ändra"
+
+#: classes/class-wpfront-user-role-editor-list.php:473
+msgid ""
+"Allows you to edit that role. You can see the capabilities assigned for that "
+"role and also edit them. Edit link will only appear when you have permission "
+"to edit that role."
+msgstr ""
+"Tillåter dig redigera den rollen. Du kan se de behörigheter som tilldelats "
+"för den rollen och även redigera dem. Redigera länk visas bara när du har "
+"behörighet att redigera den rollen."
+
+#: classes/class-wpfront-user-role-editor-list.php:478
+msgid ""
+"Allows you to delete that role. Delete action will not appear if you do not "
+"have permission to delete that role."
+msgstr ""
+"Tillåter dig att stryka den rollen. Raderingsåtgärder visas inte om du inte "
+"har behörighet att ta bort den rollen."
+
+#: classes/class-wpfront-user-role-editor-list.php:481
+#: templates/list-roles.php:115
+msgid "Default"
+msgstr "Standard"
+
+#: classes/class-wpfront-user-role-editor-list.php:483
+msgid ""
+"Allows you to set that role as the default role for new user registration."
+msgstr ""
+"Tillåter dig att sätta den rollen som standard vid registrering av nya "
+"användare."
+
+#: classes/class-wpfront-user-role-editor-list.php:486
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:584
+msgid "Edit Menu"
+msgstr "Redigera Meny"
+
+#: classes/class-wpfront-user-role-editor-list.php:488
+msgid ""
+"Takes you to the menu editor screen for that role. You need \"edit_role_menus"
+"\" capability for this link to appear. This is a pro feature."
+msgstr ""
+"Tar dig till menyredigeraren för den rollen. Du behöver \"edit_role_menus\" "
+"behörighet för att länken ska visas. Detta är en pro funktion."
+
+#: classes/class-wpfront-user-role-editor-list.php:500
+msgid "Documentation on Edit Role"
+msgstr "Dokumentation till Redigera roll"
+
+#: classes/class-wpfront-user-role-editor-list.php:507
+msgid "Documentation on Delete Roles"
+msgstr "Dokumentation till ta bort roller"
+
+#: classes/class-wpfront-user-role-editor-list.php:515
+msgid "Documentation on Roles"
+msgstr "Dokumentation om roller"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:88
+#, php-format
+msgid "%s (Invalid)"
+msgstr "%s (ogiltig)"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:92
+#, php-format
+msgid "%s (Pending)"
+msgstr "%s (väntande)"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:105
+msgid "sub item"
+msgstr "sub objekt"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:120
+msgid "Move up"
+msgstr "Flytta upp"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:133
+msgid "Move down"
+msgstr "Flytta ned"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:135
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:137
+msgid "Edit Menu Item"
+msgstr "Redigera menyobjekt"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:146
+msgid "URL"
+msgstr "URL"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:153
+msgid "Navigation Label"
+msgstr "Navigeringsetikett"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:159
+msgid "Title Attribute"
+msgstr "Titelattribut"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:166
+msgid "Open link in a new window/tab"
+msgstr "Öppna länk i ett nytt fönster/flik"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:171
+msgid "CSS Classes (optional)"
+msgstr "CSS-klasser (valfritt)"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:177
+msgid "Link Relationship (XFN)"
+msgstr "Länkförhållande (XFN)"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:185
+msgid ""
+"The description will be displayed in the menu if the current theme supports "
+"it."
+msgstr ""
+"Beskrivningen kommer att visas i menyn om det aktuella temat stöder det."
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:195
+msgid "Move"
+msgstr "Flytta"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:196
+msgid "Up one"
+msgstr "Upp en"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:197
+msgid "Down one"
+msgstr "Ned en"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:200
+msgid "To the top"
+msgstr "Till toppen"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:207
+#, php-format
+msgid "Original: %s"
+msgstr "Original: %s"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:220
+msgid "Remove"
+msgstr "Ta bort"
+
+#: classes/class-wpfront-user-role-editor-nav-menu-walker.php:221
+#: templates/restore-role.php:54
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: classes/class-wpfront-user-role-editor-nav-menu.php:84
+#: classes/class-wpfront-user-role-editor-nav-menu.php:119
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:247
+#: templates/personal-pro/content-shortcodes-add-edit.php:42
+msgid "All Users"
+msgstr "Alla Användare"
+
+#: classes/class-wpfront-user-role-editor-nav-menu.php:88
+#: classes/class-wpfront-user-role-editor-nav-menu.php:120
+msgid "Logged in Users"
+msgstr "Inloggade användare"
+
+#: classes/class-wpfront-user-role-editor-nav-menu.php:91
+#: classes/class-wpfront-user-role-editor-nav-menu.php:121
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:255
+#: templates/personal-pro/content-shortcodes-add-edit.php:46
+msgid "Guest Users"
+msgstr "Gästanvändare"
+
+#: classes/class-wpfront-user-role-editor-nav-menu.php:94
+#: classes/class-wpfront-user-role-editor-nav-menu.php:122
+msgid "Users by Role"
+msgstr "Användare enligt roll"
+
+#: classes/class-wpfront-user-role-editor-nav-menu.php:105
+#, php-format
+msgid "%s to limit based on roles."
+msgstr "%s att begränsa baserat på roller."
+
+#: classes/class-wpfront-user-role-editor-nav-menu.php:117
+msgid "User Restrictions"
+msgstr "Användarbegränsningar"
+
+#: classes/class-wpfront-user-role-editor-options.php:257
+msgid ""
+"These settings are applicable for the network admin dashboard. Also these "
+"settings will propagate to the individual sites unless its overridden within "
+"that site’s settings."
+msgstr ""
+"Dessa inställningar gäller för nätverksadmins dashboard. Dessa inställningar "
+"kommer också att spridas till de enskilda webbplatserna såvida de inte är "
+"åsidosatta inom webbplatsens inställningar."
+
+#: classes/class-wpfront-user-role-editor-options.php:264
+#: templates/options-template.php:61
+msgid "Enable Large Network Functionalities"
+msgstr "Aktivera StorNätverks-funktionalitet"
+
+#: classes/class-wpfront-user-role-editor-options.php:266
+msgid "This setting is only visible when you have a large network."
+msgstr "Den här inställningen visas endast när du har ett stort nätverk."
+
+#: classes/class-wpfront-user-role-editor-options.php:268
+msgid "More details"
+msgstr "Mer detaljer"
+
+#: classes/class-wpfront-user-role-editor-options.php:272
+#: classes/class-wpfront-user-role-editor-options.php:304
+#: templates/options-template.php:70
+msgid "Display Deprecated Capabilities"
+msgstr "Visa borttagna behörigheter"
+
+#: classes/class-wpfront-user-role-editor-options.php:274
+#: classes/class-wpfront-user-role-editor-options.php:306
+msgid ""
+"If enabled, deprecated capabilities will be displayed within the add/edit "
+"screens."
+msgstr ""
+"Om aktiverad visas föråldrade behörigheter i Lägg till/redigera fönstren."
+
+#: classes/class-wpfront-user-role-editor-options.php:277
+#: classes/class-wpfront-user-role-editor-options.php:309
+#: templates/options-template.php:78
+msgid "Remove Non-Standard Capabilities on Restore"
+msgstr "Ta bort icke-standardiserade behörigheter vid Återställ"
+
+#: classes/class-wpfront-user-role-editor-options.php:279
+#: classes/class-wpfront-user-role-editor-options.php:311
+msgid ""
+"If enabled, while restoring WordPress built-in capabilities non-standard "
+"capabilities will be removed."
+msgstr ""
+"Om aktiverad, vid återställning av WordPress inbyggda behörigheter kommer "
+"icke-standardiserade behörigheter att tas bort."
+
+#: classes/class-wpfront-user-role-editor-options.php:282
+#: classes/class-wpfront-user-role-editor-options.php:314
+#: templates/options-template.php:86
+msgid "Override Edit Permissions"
+msgstr "Åsidosätt redigeringsbehörigheter"
+
+#: classes/class-wpfront-user-role-editor-options.php:284
+#: classes/class-wpfront-user-role-editor-options.php:316
+msgid "If enabled, ignores the check to the function get_editable_roles."
+msgstr "Om aktiverad, ignoreras kontrollen av funktionen get_editable_roles."
+
+#: classes/class-wpfront-user-role-editor-options.php:287
+#: classes/class-wpfront-user-role-editor-options.php:319
+#: templates/options-template.php:94
+msgid "Disable Navigation Menu Permissions"
+msgstr "Inaktivera navigering-menyns behörigheter"
+
+#: classes/class-wpfront-user-role-editor-options.php:289
+#: classes/class-wpfront-user-role-editor-options.php:321
+msgid "If enabled, disables navigation menu permissions functionality."
+msgstr "Om aktiverat, inaktiveras menyn behörigheterfunktionalitet."
+
+#: classes/class-wpfront-user-role-editor-options.php:292
+#: classes/class-wpfront-user-role-editor-options.php:324
+#: templates/options-template.php:131
+msgid "Remove Data on Uninstall"
+msgstr "Ta bort Data vid avinstallation"
+
+#: classes/class-wpfront-user-role-editor-options.php:294
+#: classes/class-wpfront-user-role-editor-options.php:326
+msgid ""
+"If enabled, removes all data related to this plugin from database (except "
+"roles data) including license information if any. This will not deactivate "
+"the license automatically."
+msgstr ""
+"Om aktiverat, tas alla data för denna plugin bort från databasen (förutom "
+"roller-data) inklusive licensinformationen om det finns. Detta kommer inte "
+"avaktivera licensen automatiskt."
+
+#: classes/class-wpfront-user-role-editor-options.php:337
+msgid "Documentation on Multisite Settings"
+msgstr "Dokumentation om multisitefunktions inställningar"
+
+#: classes/class-wpfront-user-role-editor-options.php:344
+msgid "Documentation on Settings"
+msgstr "Dokumentation om inställningar"
+
+#: classes/class-wpfront-user-role-editor-restore.php:170
+msgid ""
+"This screen allow you to restore WordPress built-in roles to its standard "
+"capability settings."
+msgstr ""
+"Här kan du återställa WordPress inbyggda roller till dess "
+"standardbehörighetsinställningar."
+
+#: classes/class-wpfront-user-role-editor-restore.php:173
+msgid "To restore a role, click the Restore button then Confirm."
+msgstr "För att återställa en roll, klicka på knappen Återställ och bekräfta."
+
+#: classes/class-wpfront-user-role-editor-restore.php:182
+msgid "Documentation on Restore"
+msgstr "Dokumentation om Återställ"
+
+#: classes/class-wpfront-user-role-editor.php:207
+msgid "Go Pro"
+msgstr "Uppgradera till PRO"
+
+#: classes/class-wpfront-user-role-editor.php:222
+#: templates/add-edit-role.php:41 templates/add-edit-role.php:140
+msgid "Add New Role"
+msgstr "Lägg till ny roll"
+
+#: classes/class-wpfront-user-role-editor.php:222
+#: templates/add-edit-role.php:43 templates/list-roles.php:46
+#: templates/personal-pro/content-shortcodes.php:10
+msgid "Add New"
+msgstr "Lägg till ny"
+
+#: classes/class-wpfront-user-role-editor.php:223
+#: templates/restore-role.php:40
+msgid "Restore Role"
+msgstr "Återställ roll"
+
+#: classes/class-wpfront-user-role-editor.php:223
+#: templates/restore-role.php:52
+msgid "Restore"
+msgstr "Återställ"
+
+#: classes/class-wpfront-user-role-editor.php:224
+#: templates/add-remove-capability.php:40
+msgid "Add/Remove Capability"
+msgstr "Lägg till/ta bort behörighet"
+
+#: classes/class-wpfront-user-role-editor.php:224
+msgid "Add/Remove Cap"
+msgstr "Lägg till/ta bort Beh"
+
+#: classes/class-wpfront-user-role-editor.php:245
+msgid "Assign Roles | Migrate Users"
+msgstr "Tilldela roller | Migrera användare"
+
+#: classes/class-wpfront-user-role-editor.php:245
+msgid "Assign / Migrate"
+msgstr "Tilldela / migrera"
+
+#: classes/class-wpfront-user-role-editor.php:342
+msgid "Buy me a Beer"
+msgstr "Köpa mig en öl"
+
+#: classes/personal-pro/EDD_SL_Plugin_Updater.php:158
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+"En ny version av %1$s finns tillgänglig. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">Visa version %3$s detaljer</a>."
+
+#: classes/personal-pro/EDD_SL_Plugin_Updater.php:165
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+"Det finns en ny version av %1$s tillgänglig. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">Visa information om version %3$s </a> eller <a "
+"href=\"%4$s\">uppdatera nu</a>."
+
+#: classes/personal-pro/EDD_SL_Plugin_Updater.php:305
+msgid "You do not have permission to install plugin updates"
+msgstr "Du har inte behörighet att installera plugin uppdateringar"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes-list-table.php:68
+msgid "No shortcodes found."
+msgstr "Inga kortkoder hittade."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes-list-table.php:85
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:376
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:421
+#: templates/personal-pro/content-shortcodes-add-edit.php:25
+#: templates/personal-pro/content-shortcodes-delete.php:34
+msgid "Shortcode"
+msgstr "Kortkod"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes-list-table.php:86
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:383
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:426
+#: templates/personal-pro/content-shortcodes-add-edit.php:37
+msgid "User Type"
+msgstr "Användartyp"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes-list-table.php:121
+#: templates/personal-pro/menu-editor.php:161
+#: templates/personal-pro/menu-editor.php:197
+#, php-format
+msgid "Select %s"
+msgstr "Välj %s"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:100
+msgid "Shortcode not found."
+msgstr "Kortkod hittades inte."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:102
+msgid "Shortcode updated successfully."
+msgstr "Kortkod uppdaterats."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:109
+msgid "Shortcode already exists."
+msgstr "Kortkod finns redan."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:116
+msgid "Shortcode added successfully."
+msgstr "Kortkod lades till."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:145
+msgid "Shortcode(s) deleted."
+msgstr "Kortkod(er) raderad(e)."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:235
+#: classes/personal-pro/class-wpfront-user-role-editor-nav-menu-pro.php:23
+#: classes/personal-pro/class-wpfront-user-role-editor-post-type-permissions.php:105
+msgid "[Guest]"
+msgstr "[Guest]"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:251
+#: templates/personal-pro/content-shortcodes-add-edit.php:44
+msgid "Logged-in Users"
+msgstr "Inloggade användare"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:259
+#: templates/personal-pro/content-shortcodes-add-edit.php:48
+msgid "Users in Roles"
+msgstr "Användare i roller"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:265
+msgid "Administrator"
+msgstr "Administratör"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:364
+msgid "This screen allows you to add or edit a shortcode within your site."
+msgstr "Här kan du lägga till eller redigera en kortkod på din webbplats."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:371
+msgid ""
+"Use the Name field to enter an identifiable name for this shortcode. This "
+"field is required."
+msgstr ""
+"Använd Namnfältet för att ange ett identifierbart namn för denna kortkod. "
+"Detta fält är obligatoriska."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:378
+msgid ""
+"Use this field to enter the shortcode string, that will be used by "
+"WordPress. This field is required and has to be unique. Only lowercase "
+"letters, numbers and underscore is allowd in this field."
+msgstr ""
+"Använd det här fältet för att ange kortkodssträngen som kommer att användas "
+"av Wordpress. Detta fält är tvingande och måste vara unikt. Endast små "
+"bokstäver, siffror och understreck är tillåtna i detta fält."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:385
+msgid ""
+"Select the type of users, the content within the shortcode will be "
+"displayed. You can select All Users, Logged in Users, Guest Users or Users "
+"within specific roles."
+msgstr ""
+"Välj typ av användare, innehållet i kortkoden kommer att visas. Du kan välja "
+"alla användare, inloggade användare, Gästanvändare eller Användare i "
+"specifika roller."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:395
+msgid "This screen allows you to delete the shortcodes you selected to delete."
+msgstr "Här kan du ta bort de kortkoder du valt att radera."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:406
+msgid ""
+"This screen displays all the content shortcodes existing within your site."
+msgstr "Här visas alla innehållskortkoder som finns inom din webbplats."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:409
+msgid ""
+"To add a new shortcode, click the Add New button at the top of the screen."
+msgstr ""
+"För att lägga till en ny kortkod, klicka på knappen Lägg till Ny längst upp "
+"på skärmen."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:418
+msgid "User identifiable name of the shortcode."
+msgstr "Användar-identifierbart namn för kortkoden."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:423
+msgid "Used by WordPress to identify the shortcode."
+msgstr "Används av Wordpress för att identifiera kortkoden."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:428
+msgid "Determines who all will see the content wrapped within the shortcode."
+msgstr ""
+"Bestämmer hur alla kommer att se innehållet som är insvept i kortkoden."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:433
+msgid "Roles used when User Type is \"Users in Roles\"."
+msgstr "Roller används när Användartyp är \"Användare i Roller\"."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:440
+msgid ""
+"Hovering over a row in the list will display action links that allow you to "
+"manage the shortcodes. You can perform the following actions:"
+msgstr ""
+"Hovring över en rad i rollistan visar åtgärdslänkar som tillåter dig att "
+"hantera kortkoderna. Du kan utföra följande åtgärder:"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:445
+msgid "Allows you to edit that shortcode."
+msgstr "Låter dig redigera kortkoden."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:450
+msgid "Allows you to delete that shortcode."
+msgstr "Låter dig ta bort kortkoden."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:455
+msgid "Usage"
+msgstr "Användning"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:457
+msgid ""
+"To use the shortcode within a post/page, copy the shortcode from the "
+"Shortcode column and put your content within the shortcode."
+msgstr ""
+"För att använda kortkoden inom ett inlägg/sida, kopiera kortkoden från "
+"kortkodskolumnen och sätt ditt innehåll inom kortkoden."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:460
+msgid "Ex: [shortcode]Your content here.[/shortcode]"
+msgstr "Ex:. [kortkod]Ditt innehåll här.[/kortkod]"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-content-shortcodes.php:469
+msgid "Documentation on Content Shortcodes"
+msgstr "Dokumentation om innehållskortkoder"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-custom-post-types.php:32
+#, php-format
+msgid "%s in settings."
+msgstr "%s i inställningar."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-custom-post-types.php:32
+msgid "Enable customization"
+msgstr "Aktivera anpassning"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-export.php:132
+msgid ""
+"This screen allows you to export the roles existing within your site and "
+"import into the same site or a different site."
+msgstr ""
+"Här kan du exportera rollerna som finns inom din webbplats och import till "
+"samma site eller en annan site."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-export.php:135
+msgid "Select the roles to export, then click Download Export File."
+msgstr ""
+"Välj de roller som ska exporteras och klicka sedan på Ladda ner Exportfil."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-export.php:144
+msgid "Documentation on Export"
+msgstr "Dokumentation om Export"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:37
+msgid "This functionality requires SimpleXML extension, which is not loaded."
+msgstr "Denna funktion kräver SimpleXML förlängning, som inte är laddad."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:85
+#, php-format
+msgid "%d role(s) imported."
+msgstr "%d roll(er) importeras."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:106
+#, php-format
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that "
+"this was caused by a permissions problem."
+msgstr ""
+"Exportfilen kunde inte hittas på <code>%s</code> . Det är troligt att detta "
+"orsakades av ett behörighetsproblem."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:137
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:145
+msgid "There was an error when reading this export file"
+msgstr "Det uppstod ett fel vid läsning denna exportfil"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:162
+#, php-format
+msgid ""
+"Please update the plugin to latest version. This export file requires plugin "
+"version %s or higher."
+msgstr ""
+"Uppdatera tilläggsfilen till senaste versionen. Denna exportfil kräver "
+"plugin version %s eller högre."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:218
+msgid "This file does not appears to be a valid export file."
+msgstr "Denna fil verkar inte vara en giltig exportfil."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:231
+msgid ""
+"Step 1: Select export file using the Browse button. Then click Upload file "
+"and Import."
+msgstr ""
+"Steg 1: Välj exportfil med hjälp av knappen Bläddra. Klicka sedan Ladda upp "
+"fil och importera."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:234
+msgid ""
+"Step 2: Select the roles you want to import using the check boxes and click "
+"Import Roles."
+msgstr ""
+"Steg 2: Välj de roller du vill importera med hjälp av kryssrutorna och "
+"klicka på Importera Roller."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-import.php:243
+msgid "Documentation on Import"
+msgstr "Dokumentation om Importera"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:164
+msgid "Menu changes saved."
+msgstr "Menyändringar sparas."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:177
+msgid "Menu defaults restored."
+msgstr "Menyförval återställd."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:192
+msgid "No editable roles found on this site."
+msgstr "Inga redigerbara roller finns på denna webbplats."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:594
+msgid ""
+"This screen allows you to enable and disable admin menus for a particular "
+"role."
+msgstr "Här kan du aktivera och avaktivera adminmenyer för en särskild roll."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:597
+msgid "Deselect a menu from the grid to remove that menu."
+msgstr "Avmarkera en meny från rutnätet för att ta bort den menyn."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:600
+msgid ""
+"Disabled menu items are already hidden, because the selected role doesn't "
+"have the capability to display that menu. Grid displays menus which the "
+"current user has access to."
+msgstr ""
+"Inaktiverade menyalternativ är redan dolda, eftersom den valda rollen inte "
+"har rättighet att visa den menyn. Rutnätet visar menyer som den aktuella "
+"användaren har tillgång till."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:605
+msgid "Fields"
+msgstr "Fält"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:607
+#: templates/personal-pro/menu-editor.php:39
+msgid "Override Role"
+msgstr "Åsidosätt Roll"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:609
+msgid "The role you want to override."
+msgstr "Rollen som du vill åsidosätta."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:612
+#: templates/personal-pro/menu-editor.php:56
+msgid "Override Type"
+msgstr "Åsidosätt Typ"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:614
+msgid ""
+"Soft - Pages may be available through directly typing the URL. Hard - Even "
+"URLs will be blocked."
+msgstr ""
+"Mjuk - Sidor kan vara tillgängliga genom att man skriver in URLen direkt. "
+"Hård - Även URL-adresser kommer att blockeras."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:617
+#: templates/personal-pro/menu-editor.php:67
+msgid "Hide New Menus"
+msgstr "Göm Nya Menyer"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:619
+msgid "Allow you to hide future menus."
+msgstr "Tillåter dig att dölja framtida menyer."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:622
+#: templates/personal-pro/menu-editor.php:75
+msgid "Disable For Secondary Role"
+msgstr "Inaktivera För sekundär roll"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:624
+msgid "Disables menu settings while the selected role is a secondary role."
+msgstr ""
+"Inaktiverar menyinställningar medan den valda rollen är en sekundär roll."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:629
+msgid "Restore Default"
+msgstr "Återställ grundinställning"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:631
+msgid ""
+"Select \"Restore default\" from the \"Copy from\" drop down and click apply."
+msgstr ""
+"Välj \"Återställ grundinställning\" från rullgardinsmenyn \"Kopiera från\" "
+"och klicka använd."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-menu-editor.php:640
+msgid "Documentation on Menu Editor"
+msgstr "Dokumentation om Menyredigeraren"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:83
+#: templates/personal-pro/menu-editor.php:9
+msgid "Menu Editor"
+msgstr "Menyredigeraren"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:84
+#: templates/personal-pro/content-shortcodes.php:9
+msgid "Content Shortcodes"
+msgstr "Innehållskortkoder"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:84
+msgid "Shortcodes"
+msgstr "Kortkoder"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:85
+#: templates/personal-pro/export-roles.php:9
+msgid "Export Roles"
+msgstr "Export Roller"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:85
+msgid "Export"
+msgstr "Exportera"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:86
+#: templates/personal-pro/import-roles.php:9
+#: templates/personal-pro/import-roles.php:88
+msgid "Import Roles"
+msgstr "Importera Roller"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:86
+msgid "Import"
+msgstr "Importera"
+
+#: classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:106
+#, php-format
+msgid "%s license not activated."
+msgstr "%s licens inte aktiverad."
+
+#: classes/personal-pro/class-wpfront-user-role-editor-post-type-permissions.php:70
+#: classes/personal-pro/class-wpfront-user-role-editor-post-type-permissions.php:316
+msgid "Role Permissions"
+msgstr "Roll Behörigheter"
+
+#: templates/add-edit-role.php:41
+msgid "Edit Role"
+msgstr "Redigera roll"
+
+#: templates/add-edit-role.php:51
+msgid "This role already exists in this site."
+msgstr "Denna roll finns redan i denna webbplats."
+
+#: templates/add-edit-role.php:59
+msgid "There was an unexpected error while performing this action."
+msgstr "Det uppstod ett oväntat fel medan denna åtgärd utfördes."
+
+#: templates/add-edit-role.php:66
+msgid "Create a brand new role and add it to this site."
+msgstr "Skapa en helt ny roll och lägg till den till den här webbplatsen."
+
+#: templates/add-edit-role.php:77 templates/add-edit-role.php:87
+#: templates/add-remove-capability.php:75
+#: templates/personal-pro/content-shortcodes-add-edit.php:15
+#: templates/personal-pro/content-shortcodes-add-edit.php:25
+msgid "required"
+msgstr "obligatorisk"
+
+#: templates/add-edit-role.php:106 templates/personal-pro/menu-editor.php:89
+msgid "Copy from"
+msgstr "Kopiera från"
+
+#: templates/add-edit-role.php:118
+msgid "Select None"
+msgstr "Välj ingen"
+
+#: templates/add-edit-role.php:140
+msgid "Update Role"
+msgstr "Uppdatera Roll"
+
+#: templates/add-remove-capability.php:52
+msgid "Add/Remove a capability to/from roles within this site."
+msgstr "Lägg till/ta bort en behörighet till/från roller inom denna webbplats."
+
+#: templates/add-remove-capability.php:66
+#: templates/add-remove-capability.php:111
+#: templates/add-remove-capability.php:125
+msgid "Add Capability"
+msgstr "Addera Behörighet"
+
+#: templates/add-remove-capability.php:68
+#: templates/add-remove-capability.php:111
+#: templates/add-remove-capability.php:127
+msgid "Remove Capability"
+msgstr "Radera Behörighet"
+
+#: templates/assign-roles.php:68
+msgid "User"
+msgstr "Användare"
+
+#: templates/assign-roles.php:109
+msgid "From Primary Role"
+msgstr "Från Primär Roll"
+
+#: templates/delete-role.php:41
+msgid "Delete Roles"
+msgstr "Radera Roller"
+
+#: templates/delete-role.php:42
+msgid "You have specified these roles for deletion"
+msgstr "Du har angivit dessa roller för radering"
+
+#: templates/delete-role.php:49
+msgid "Role"
+msgstr "Roll"
+
+#: templates/delete-role.php:61
+#: templates/personal-pro/content-shortcodes-delete.php:43
+msgid "Confirm Deletion"
+msgstr "Bekräfta borttagning"
+
+#: templates/go-pro.php:42
+msgid "WPFront User Role Editor Pro"
+msgstr "WPFront Användarrollsredigerare Pro"
+
+#: templates/go-pro.php:65
+msgid "License Key"
+msgstr "Licensnyckel"
+
+#: templates/go-pro.php:74 templates/go-pro.php:75
+msgid "Deactivate"
+msgstr "Inaktivera"
+
+#: templates/go-pro.php:82
+msgid "License Expires"
+msgstr "Licens Utgår"
+
+#: templates/list-roles.php:51
+#: templates/personal-pro/content-shortcodes.php:13
+#, php-format
+msgid "Search results for \"%s\""
+msgstr "Sökresultat för \"%s\""
+
+#: templates/list-roles.php:73 templates/list-roles.php:75
+msgid "Search Roles"
+msgstr "Sök roller"
+
+#: templates/options-template.php:37
+msgid "WPFront User Role Editor Settings"
+msgstr "Inställningar för WPFront användarrollsredigerare"
+
+#: templates/options-template.php:47
+#, php-format
+msgid ""
+"Menu walker class is overriden by a theme/plugin. Current value = %s. "
+"Navigation menu permissions may still work. %s"
+msgstr ""
+"Menu walker klass överstyrs av ett tema/plugin. Aktuellt värde = %s. "
+"Navigeringsmenyns behörigheter kan fortfarande fungera. %s"
+
+#: templates/options-template.php:47
+msgid "More information"
+msgstr "Mer information"
+
+#: templates/options-template.php:103
+msgid "Customize Permissions (custom post types)"
+msgstr "Anpassa Behörigheter (anpassade inläggstyper)"
+
+#: templates/options-template.php:109
+msgid "No customizable post types found."
+msgstr "Inga anpassningsposttyper hittades."
+
+#: templates/personal-pro/content-shortcodes-add-edit.php:25
+msgid "unique"
+msgstr "unik"
+
+#: templates/personal-pro/content-shortcodes-add-edit.php:31
+msgid "Allowed characters: lowercase letters, numbers and underscore."
+msgstr "Tillåtna tecken: små bokstäver, siffror och understreck."
+
+#: templates/personal-pro/content-shortcodes-add-edit.php:67
+msgid "Submit"
+msgstr "Skicka"
+
+#: templates/personal-pro/content-shortcodes-delete.php:9
+msgid "You have specified these shortcodes for deletion"
+msgstr "Du har angivit dessa kortkoder för radering"
+
+#: templates/personal-pro/content-shortcodes-list.php:15
+msgid "Search"
+msgstr "Sök"
+
+#: templates/personal-pro/export-roles.php:13
+msgid "Select the roles to be uploaded"
+msgstr "Välj rollerna som ska exporteras"
+
+#: templates/personal-pro/export-roles.php:40
+msgid "Download Export File"
+msgstr "Ladda ner exportfil"
+
+#: templates/personal-pro/import-roles.php:21
+msgid "ERROR:"
+msgstr "FEL:"
+
+#: templates/personal-pro/import-roles.php:30
+msgid ""
+"Choose a WPFront User Role Editor export file (.xml) to upload, then click "
+"Upload file and import."
+msgstr ""
+"Välj en WPFront Användarollsredigerar exportfil (.xml) för att ladda upp, "
+"klicka sedan på Ladda upp fil och importera."
+
+#: templates/personal-pro/import-roles.php:39
+#, php-format
+msgid "Roles exported from %s on %s by user %s."
+msgstr "Roller som exporterats från %s på %s av användaren %s."
+
+#: templates/personal-pro/import-roles.php:39
+msgid "UTC"
+msgstr "UTC"
+
+#: templates/personal-pro/import-roles.php:46
+msgid "Zero roles found in this export file to import."
+msgstr "Noll roller hittades i denna exportfil som ska importeras."
+
+#: templates/personal-pro/import-roles.php:52
+msgid "Select roles to import"
+msgstr "Välj roller att importera"
+
+#: templates/personal-pro/import-roles.php:81
+msgid ""
+"* These roles already exist in this site. Importing them will overwrite "
+"existing roles."
+msgstr ""
+"* Dessa roller finns redan på denna webbplats. Import av dem kommer att "
+"skriva över befintliga roller."
+
+#: templates/personal-pro/menu-editor.php:26
+msgid ""
+"Select a role below to edit menu for that role. Deselect a menu from the "
+"grid to remove that menu. Disabled menu items are already hidden, because "
+"the selected role doesn't have the capability to display that menu. Grid "
+"displays menus which the current user has access to. "
+msgstr ""
+"Välj en roll nedan för att redigera menyn för den rollen. Avmarkera en meny "
+"från rutnätet för att ta bort den. Inaktiverade menyalternativ är redan "
+"dolda, eftersom den valda rollen inte har möjlighet att visa den menyn. "
+"Rutnätet visar menyer som den aktuella användaren har tillgång till. "
+
+#: templates/personal-pro/menu-editor.php:60
+msgid "Soft"
+msgstr "Mjuk"
+
+#: templates/personal-pro/menu-editor.php:61
+msgid "Hard"
+msgstr "Hård"
+
+#: templates/personal-pro/menu-editor.php:92
+msgid "Restore default"
+msgstr "Återställ grundinställning"
+
+#: templates/personal-pro/menu-editor.php:105
+msgid "Hide deselected item(s)"
+msgstr "Göm bortvald post(er)"
+
+#: templates/personal-pro/menu-editor.php:110
+msgid "Hide disabled item(s)"
+msgstr "Göm inaktiverad post(er)"
+
+#: templates/personal-pro/menu-editor.php:116
+msgid "Has Capability"
+msgstr "Har Befogenhet"
+
+#: templates/personal-pro/menu-editor.php:121
+msgid "No Capability"
+msgstr "Ingen Befogenhet"
+
+#: templates/personal-pro/menu-editor.php:144
+msgid "Menu Slug"
+msgstr "Menyslug"
+
+#: templates/personal-pro/post-type-permissions.php:25
+msgid "Enable Role Permissions"
+msgstr "Aktivera Rollbehörigheter"
+
+#: templates/personal-pro/post-type-permissions.php:33
+msgid "Read"
+msgstr "Läs"
+
+#: templates/restore-role.php:55
+msgid "Confirm"
+msgstr "Bekräfta"
+
+#: templates/restore-role.php:63
+msgid "Restored"
+msgstr "Återställd"
+
+#: templates/restore-role.php:107
+msgid "Unexpected error / Timed out"
+msgstr "Oväntat fel / Timeout"
