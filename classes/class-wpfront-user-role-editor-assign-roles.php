@@ -77,19 +77,22 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
         }
 
         public function user_row_actions($actions, $user_object) {
-            if ($this->can_assign_roles() && $user_object->ID !== wp_get_current_user()->ID)
+            if ($this->can_assign_roles() && $user_object->ID !== wp_get_current_user()->ID && current_user_can('promote_user', $user_object->ID))
                 $actions['assign_roles'] = sprintf('<a href="%s">%s</a>', $this->get_assign_role_url($user_object), $this->__('Assign Roles'));
             return $actions;
         }
 
         public function edit_user_profile($user) {
-            if(is_multisite() && is_network_admin())
+            if (is_multisite() && is_network_admin())
                 return;
 
             if (!$this->can_assign_roles())
                 return;
 
             if ($user->ID === wp_get_current_user()->ID)
+                return;
+
+            if (!current_user_can('promote_user', $user->ID))
                 return;
 
             $this->populate_roles_array();
@@ -114,13 +117,16 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
         }
 
         public function edit_user_profile_update($user_id) {
-            if(is_multisite() && is_network_admin())
+            if (is_multisite() && is_network_admin())
                 return;
 
             if (!$this->can_assign_roles())
                 return;
 
             if ($user_id === wp_get_current_user()->ID)
+                return;
+
+            if (!current_user_can('promote_user', $user_id))
                 return;
 
             //$user = get_user_to_edit($user_id); //fatal error - function not defined.
@@ -165,7 +171,13 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
 
         private function populate_roles_array() {
             global $wp_roles;
-            $roles = $wp_roles->get_names();
+            $roles_names = $wp_roles->get_names();
+            $assignable_roles = $this->main->get_assignable_roles();
+
+            $roles = array();
+            foreach ($assignable_roles as $key => $value) {
+                $roles[$key] = $roles_names[$key];
+            }
 
             $this->primary_roles = $roles;
             $this->primary_roles[''] = '&mdash;' . $this->__('No role for this site') . '&mdash;';
@@ -184,6 +196,7 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
             }
 
             $this->users = get_users(array('exclude' => array(wp_get_current_user()->ID)));
+            $this->users = array_filter($this->users, array($this, 'array_filter_user'));
             $this->populate_roles_array();
 
             if (!empty($_POST['assignroles']) && !empty($_POST['assign-user'])) {
@@ -195,6 +208,13 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
                 if ($this->user === FALSE || $this->user->ID === wp_get_current_user()->ID) {
                     $this->user = NULL;
                     $this->result->message = $this->__('Invalid user.');
+                }
+
+                if ($this->user != NULL) {
+                    if (!current_user_can('promote_user', $this->user->ID)) {
+                        $this->user = NULL;
+                        $this->result->message = $this->__('Permission denied.');
+                    }
                 }
 
                 if ($this->user != NULL) {
@@ -263,7 +283,7 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
                         }
 
                         $users = get_users(array('exclude' => array(wp_get_current_user()->ID), 'role' => $this->migrateFromPrimaryRole));
-                        $users = array_filter($users, array($this, 'array_filter_user'));
+                        $users = array_filter($users, array($this, 'array_migrate_filter_user'));
 
                         foreach ($users as $user) {
                             $user->set_role($this->migrateToPrimaryRole);
@@ -281,7 +301,7 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
 
             if ($this->user == NULL && !empty($_GET['assign_roles'])) {
                 $this->user = get_userdata($_GET['assign_roles']);
-                if ($this->user === FALSE || $this->user->ID === wp_get_current_user()->ID)
+                if ($this->user === FALSE || $this->user->ID === wp_get_current_user()->ID || !current_user_can('promote_user', $this->user->ID))
                     $this->user = NULL;
             }
 
@@ -302,12 +322,19 @@ if (!class_exists('WPFront_User_Role_Editor_Assign_Roles')) {
         }
 
         private function array_filter_user($user) {
+            return current_user_can('promote_user', $user->ID);
+        }
+
+        private function array_migrate_filter_user($user) {
             if ($this->migrateFromPrimaryRole === '') {
                 if (empty($user->roles))
                     return TRUE;
             }
 
             if (empty($user->roles))
+                return FALSE;
+
+            if (!current_user_can('promote_user', $user->ID))
                 return FALSE;
 
             $roles = $user->roles;

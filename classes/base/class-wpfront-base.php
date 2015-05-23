@@ -72,6 +72,7 @@ if (!class_exists('WPFront_Base_URE')) {
                 add_action('wp_enqueue_scripts', array(&$this, 'enqueue_styles'));
                 add_action('wp_enqueue_scripts', array(&$this, 'enqueue_scripts'));
             }
+            add_action('wp_before_admin_bar_render', array($this, 'admin_bar'));
         }
 
         protected function plugin_dir_suffix() {
@@ -108,6 +109,10 @@ if (!class_exists('WPFront_Base_URE')) {
 
         public function admin_menu() {
             WPFront_Base_Menu::admin_menu(self::$menu_data);
+        }
+
+        public function admin_bar() {
+            
         }
 
         public static function submenu_compare($a, $b) {
