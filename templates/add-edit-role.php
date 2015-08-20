@@ -144,7 +144,10 @@ if (!defined('ABSPATH')) {
 </div>
 
 <script type="text/javascript">
-    (function($) {
+    (function ($) {
+        var roleExists = <?php echo $this->role == NULL ? 'false' : 'true'; ?>;
+        var isMultisite = <?php echo $this->multisite ? 'false' : 'true'; ?>;
+
         function change_select_all(chk) {
             var chks = chk.closest("div.main").find("input");
             if (chks.length == chks.filter(":checked").length) {
@@ -155,15 +158,17 @@ if (!defined('ABSPATH')) {
             }
         }
 
-        $("div.role-add-new div.postbox input.select-all").click(function() {
+        $("div.role-add-new div.postbox input.select-all").click(function () {
             $(this).closest('div.postbox').find("input").prop("checked", $(this).prop("checked"));
-        }).parent().click(function(event) {
+        }).parent().click(function (event) {
             event.stopPropagation();
         });
-        $("div.role-add-new div.postbox div.main input").click(function() {
+        
+        $("div.role-add-new div.postbox div.main input").click(function () {
             change_select_all($(this));
         });
-        $("div.role-add-new table.sub-head td.sub-head-controls input.chk-helpers").click(function() {
+        
+        $("div.role-add-new table.sub-head td.sub-head-controls input.chk-helpers").click(function () {
             if ($(this).hasClass('select-all')) {
                 $("div.role-add-new div.postbox").find("input:not(:disabled)").prop("checked", true);
             }
@@ -171,15 +176,15 @@ if (!defined('ABSPATH')) {
                 $("div.role-add-new div.postbox").find("input:not(:disabled)").prop("checked", false);
             }
         });
-<?php
-if ($this->role == NULL) {
-    ?>
-            $("#display_name").keyup(function() {
+
+        if (!roleExists) {
+            $("#display_name").keyup(function () {
                 if ($.trim($(this).val()) == "")
                     return;
                 $("#role_name").val($.trim($(this).val()).toLowerCase().replace(/ /g, "_").replace(/\W/g, ""));
             });
-            $("#role_name").blur(function() {
+            
+            $("#role_name").blur(function () {
                 var ele = $(this);
                 var str = $.trim(ele.val()).toLowerCase();
                 str = str.replace(/ /g, "_").replace(/\W/g, "");
@@ -188,17 +193,16 @@ if ($this->role == NULL) {
                     ele.parent().parent().removeClass("form-invalid");
                 }
             });
-    <?php
-}
-?>
+        }
 
-        $("#display_name").blur(function() {
+        $("#display_name").blur(function () {
             if ($.trim($(this).val()) != "") {
                 $(this).parent().parent().removeClass("form-invalid");
             }
             $("#role_name").blur();
         });
-        $("#createusersub").click(function() {
+        
+        $("#createusersub").click(function () {
             var role_name = $("#role_name");
             var display_name = $("#display_name");
             if ($.trim(role_name.val()) == "") {
@@ -221,7 +225,8 @@ if ($this->role == NULL) {
 
             return true;
         });
-        $("#cap_apply").click(function() {
+        
+        $("#cap_apply").click(function () {
             if ($(this).prev().val() == "")
                 return;
             var button = $(this).prop("disabled", true);
@@ -231,14 +236,10 @@ if ($this->role == NULL) {
                 "referer": <?php echo json_encode($_SERVER['REQUEST_URI']); ?>,
                 "nonce": <?php echo json_encode(wp_create_nonce($_SERVER['REQUEST_URI'])); ?>
             };
-<?php
-if ($this->multisite) {
-    ?>
-                data["multisite"] = true;
-    <?php
-}
-?>
-            $.post(ajaxurl, data, function(response) {
+
+            data["multisite"] = isMultisite;
+
+            $.post(ajaxurl, data, function (response) {
                 $("div.role-add-new div.postbox input").prop("checked", false);
                 for (m in response) {
                     change_select_all($("div.role-add-new input#" + m).prop("checked", response[m]));
@@ -247,12 +248,12 @@ if ($this->multisite) {
             }, 'json');
         });
 
-        $("div.role-add-new div.postbox div.main input:first-child").each(function() {
+        $("div.role-add-new div.postbox div.main input:first-child").each(function () {
             change_select_all($(this));
         });
 
         //postbox
-        $(function() {
+        $(function () {
             $('.if-js-closed').removeClass('if-js-closed').addClass('closed');
             postboxes.add_postbox_toggles('<?php echo self::MENU_SLUG; ?>');
             $('div.postbox div.main.hidden').closest('div.postbox').addClass('hide-if-js');

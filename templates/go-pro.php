@@ -68,15 +68,34 @@ if (!defined('ABSPATH')) {
                             <td>
                                 <input name="license_key" type="text" id="license_key" class="regular-text" value="<?php echo $this->license_key; ?>" aria-required="true" <?php echo $this->has_license ? 'disabled' : ''; ?> />
                                 <?php if (!$this->has_license) { ?>
-                                    <input type="hidden" name="activate" value="<?php echo $this->__('Activate'); ?>" />
-                                    <input type="submit" class="button-secondary" value="<?php echo $this->__('Activate'); ?>" />
+                                    <input type="submit" name="activate" class="button-secondary" value="<?php echo $this->__('Activate'); ?>" />
                                 <?php } else { ?>
-                                    <input type="hidden" name="deactivate" value="<?php echo $this->__('Deactivate'); ?>" />
-                                    <input type="submit" class="button-secondary" value="<?php echo $this->__('Deactivate'); ?>" />
+                                    <input type="submit" name="deactivate" class="button-secondary" value="<?php echo $this->__('Deactivate'); ?>" />
+                                    <input type="button" name="recheck" class="button-secondary" value="<?php echo $this->__('Recheck'); ?>" />
                                 <?php } ?>
                             </td>
                         </tr>
                         <?php if ($this->has_license) { ?>
+                            <tr>
+                                <th scope="row">
+                                    <?php echo $this->__('License Status'); ?>
+                                </th>
+                                <td class="<?php echo $this->license_status; ?>">
+                                    <?php
+                                    switch ($this->license_status) {
+                                        case 'valid':
+                                            echo $this->__('Valid');
+                                            break;
+                                        case 'expired':
+                                            echo $this->__('Expired');
+                                            break;
+                                        case 'invalid':
+                                            echo $this->__('Invalid');
+                                            break;
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
                             <tr>
                                 <th scope="row">
                                     <?php echo $this->__('License Expires'); ?>
@@ -92,9 +111,9 @@ if (!defined('ABSPATH')) {
         </div>
 
         <script type="text/javascript">
-            (function($) {
+            (function ($) {
                 var noblock = false;
-                var $form = $('#license-form').submit(function() {
+                var $form = $('#license-form').submit(function () {
                     if (noblock)
                         return;
 
@@ -102,22 +121,29 @@ if (!defined('ABSPATH')) {
                         "action": "wpfront_user_role_editor_license_functions"
                     };
 
-                    $(this).find("input").prop('disabled', true).each(function() {
+                    $(this).find("input").prop('disabled', true).each(function () {
                         var $input = $(this);
                         data[$input.attr('name')] = $input.val();
                     });
 
-                    $.post(ajaxurl, data, function(response) {
+                    $.post(ajaxurl, data, function (response) {
                         if (response)
                             window.location.replace(window.location.href);
                         else {
                             noblock = true;
+                            var $form = $('#license-form');
                             $form.find("input").prop('disabled', false);
-                            $form.submit();
+                            $form.find("input").removeAttr('disabled');
+                            $form.find("input[type='submit']").click();
+                            setTimeout(function () {
+                                $form.find("input[type='submit']").click();
+                            }, 500);
                         }
                     }, 'json');
 
                     return false;
+                }).find('input[name="recheck"]').click(function () {
+                    $(this).prev().attr("name", "recheck").click();
                 });
             })(jQuery);
         </script>

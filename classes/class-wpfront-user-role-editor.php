@@ -38,13 +38,27 @@ if (!class_exists('WPFront_User_Role_Editor')) {
     class WPFront_User_Role_Editor extends WPFront_Base_URE {
 
         //Constants
-        const VERSION = '2.10';
+        const VERSION = '2.11.3';
         const OPTIONS_GROUP_NAME = 'wpfront-user-role-editor-options-group';
         const OPTION_NAME = 'wpfront-user-role-editor-options';
         const PLUGIN_SLUG = 'wpfront-user-role-editor';
 
         public static $DYNAMIC_CAPS = array();
-        public static $ROLE_CAPS = array('list_roles', 'create_roles', 'edit_roles', 'delete_roles', 'edit_role_menus', 'edit_posts_role_permissions', 'edit_pages_role_permissions', 'edit_nav_menu_permissions', 'edit_content_shortcodes', 'delete_content_shortcodes', 'edit_login_redirects', 'delete_login_redirects');
+        public static $ROLE_CAPS = array(
+            'list_roles',
+            'create_roles',
+            'edit_roles',
+            'delete_roles',
+            'edit_role_menus',
+            'edit_posts_role_permissions',
+            'edit_pages_role_permissions',
+            'edit_nav_menu_permissions',
+            'edit_content_shortcodes',
+            'delete_content_shortcodes',
+            'edit_login_redirects',
+            'delete_login_redirects',
+            'bulk_edit_roles'
+        );
         public static $DEFAULT_ROLES = array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY, self::CONTRIBUTOR_ROLE_KEY, self::SUBSCRIBER_ROLE_KEY);
         public static $STANDARD_CAPABILITIES = array(
             'Dashboard' => array(
@@ -145,6 +159,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
         private static $CAPABILITIES = NULL;
         //Variables
         protected $admin_menu = array();
+        protected $remove_admin_menu = array();
         protected $options;
         protected $objList;
         protected $objAddEdit;
@@ -208,6 +223,14 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             $this->admin_menu[$position] = array($title, $name, $capability, $slug, $func, $scripts, $styles, $controller, $admin_bar_parent, $admin_bar_title);
         }
 
+        protected function remove_submenu_page($position) {
+            $this->remove_admin_menu[$position] = TRUE;
+        }
+
+        public function get_submenu_page_item($position) {
+            return $this->admin_menu[$position];
+        }
+
         protected function add_pro_page() {
             if (isset($this->admin_menu[1000]))
                 return;
@@ -244,6 +267,10 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             }
 
             foreach ($this->admin_menu as $key => $value) {
+                if (!empty($this->remove_admin_menu[$key])) {
+                    continue;
+                }
+
                 $page_hook_suffix = add_submenu_page($menu_slug, $value[0], $value[1], $value[2], $value[3], $value[4]);
                 add_action('admin_print_scripts-' . $page_hook_suffix, array($this, $value[5]));
                 add_action('admin_print_styles-' . $page_hook_suffix, array($this, $value[6]));
@@ -304,6 +331,11 @@ if (!class_exists('WPFront_User_Role_Editor')) {
 
             $styleRoot = $this->pluginURLRoot . 'css/';
             wp_enqueue_style('wpfront-user-role-editor-options', $styleRoot . 'options.css', array(), self::VERSION);
+        }
+        
+        public function admin_enqueue_styles() {
+            $styleRoot = $this->pluginURLRoot . 'css/';
+            wp_enqueue_style('wpfront-user-role-editor-admin-css', $styleRoot . 'admin-style.css', array(), self::VERSION);
         }
 
         public function get_capability_string($capability) {
@@ -456,6 +488,8 @@ if (!class_exists('WPFront_User_Role_Editor')) {
                             if (isset($caps->$key)) {
                                 $custom_caps[] = $caps->$key;
                                 unset($caps->$key);
+                            } elseif (isset($post_type_object->cap->$key)) {
+                                $custom_caps[] = $post_type_object->cap->$key;
                             }
                         }
                         foreach ($caps as $key => $value) {
@@ -629,6 +663,25 @@ if (!class_exists('WPFront_User_Role_Editor')) {
 
             define('WPFRONT_USER_ROLE_EDITOR_PLUGIN_FILE', $file);
             new WPFront_User_Role_Editor();
+        }
+
+        public static function wp_remote_get($url, $params = NULL) {
+            if ($params === NULL) {
+                $params = array('timeout' => 10);
+            } else {
+                $params = array_merge(array('timeout' => 10), $params);
+            }
+
+            $params['sslverify'] = FALSE;
+
+            $result = wp_remote_get($url, $params);
+
+            if (is_wp_error($result) || wp_remote_retrieve_response_code($result) !== 200) {
+                $params['sslverify'] = TRUE;
+                $result = wp_remote_get($url, $params);
+            }
+
+            return $result;
         }
 
     }

@@ -21,7 +21,7 @@
         
         div.wrap.go-pro div.container {
             text-align: center;
-            display: inline-block;
+/*          display: inline-block; */
         }
 
         div.wrap.go-pro div.container div.col {

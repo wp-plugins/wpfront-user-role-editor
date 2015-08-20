@@ -43,6 +43,8 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu_Walker')) {
 	 * @see Walker_Nav_Menu::start_el()
 	 * @since 3.0.0
 	 *
+	 * @global int $_wp_nav_menu_max_depth
+	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param object $item   Menu item data object.
 	 * @param int    $depth  Depth of menu item. Used for padding.
@@ -100,8 +102,8 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu_Walker')) {
 
 		?>
 		<li id="menu-item-<?php echo $item_id; ?>" class="<?php echo implode(' ', $classes ); ?>">
-			<dl class="menu-item-bar">
-				<dt class="menu-item-handle">
+			<div class="menu-item-bar">
+				<div class="menu-item-handle">
 					<span class="item-title"><span class="menu-item-title"><?php echo esc_html( $title ); ?></span> <span class="is-submenu" <?php echo $submenu_text; ?>><?php _e( 'sub item' ); ?></span><?php do_action( 'wp_nav_menu_item_title_user_restriction_type', $item_id, $item, $depth, $args ); ?></span>
 					<span class="item-controls">
 						<span class="item-type"><?php echo esc_html( $item->type_label ); ?></span>
@@ -136,11 +138,11 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu_Walker')) {
 							echo ( isset( $_GET['edit-menu-item'] ) && $item_id == $_GET['edit-menu-item'] ) ? admin_url( 'nav-menus.php' ) : add_query_arg( 'edit-menu-item', $item_id, remove_query_arg( $removed_args, admin_url( 'nav-menus.php#menu-item-settings-' . $item_id ) ) );
 						?>"><?php _e( 'Edit Menu Item' ); ?></a>
 					</span>
-				</dt>
-			</dl>
+				</div>
+			</div>
 
 			<div class="menu-item-settings" id="menu-item-settings-<?php echo $item_id; ?>">
-				<?php if( 'custom' == $item->type ) : ?>
+				<?php if ( 'custom' == $item->type ) : ?>
 					<p class="field-url description description-wide">
 						<label for="edit-menu-item-url-<?php echo $item_id; ?>">
 							<?php _e( 'URL' ); ?><br />
@@ -148,13 +150,13 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu_Walker')) {
 						</label>
 					</p>
 				<?php endif; ?>
-				<p class="description description-thin">
+				<p class="description description-wide">
 					<label for="edit-menu-item-title-<?php echo $item_id; ?>">
 						<?php _e( 'Navigation Label' ); ?><br />
 						<input type="text" id="edit-menu-item-title-<?php echo $item_id; ?>" class="widefat edit-menu-item-title" name="menu-item-title[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->title ); ?>" />
 					</label>
 				</p>
-				<p class="description description-thin">
+				<p class="field-title-attribute description description-wide">
 					<label for="edit-menu-item-attr-title-<?php echo $item_id; ?>">
 						<?php _e( 'Title Attribute' ); ?><br />
 						<input type="text" id="edit-menu-item-attr-title-<?php echo $item_id; ?>" class="widefat edit-menu-item-attr-title" name="menu-item-attr-title[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->post_excerpt ); ?>" />
@@ -193,16 +195,16 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu_Walker')) {
 				<p class="field-move hide-if-no-js description description-wide">
 					<label>
 						<span><?php _e( 'Move' ); ?></span>
-						<a href="#" class="menus-move-up"><?php _e( 'Up one' ); ?></a>
-						<a href="#" class="menus-move-down"><?php _e( 'Down one' ); ?></a>
-						<a href="#" class="menus-move-left"></a>
-						<a href="#" class="menus-move-right"></a>
-						<a href="#" class="menus-move-top"><?php _e( 'To the top' ); ?></a>
+						<a href="#" class="menus-move menus-move-up" data-dir="up"><?php _e( 'Up one' ); ?></a>
+						<a href="#" class="menus-move menus-move-down" data-dir="down"><?php _e( 'Down one' ); ?></a>
+						<a href="#" class="menus-move menus-move-left" data-dir="left"></a>
+						<a href="#" class="menus-move menus-move-right" data-dir="right"></a>
+						<a href="#" class="menus-move menus-move-top" data-dir="top"><?php _e( 'To the top' ); ?></a>
 					</label>
 				</p>
 
 				<div class="menu-item-actions description-wide submitbox">
-					<?php if( 'custom' != $item->type && $original_title !== false ) : ?>
+					<?php if ( 'custom' != $item->type && $original_title !== false ) : ?>
 						<p class="link-to-original">
 							<?php printf( __('Original: %s'), '<a href="' . esc_attr( $item->url ) . '">' . esc_html( $original_title ) . '</a>' ); ?>
 						</p>

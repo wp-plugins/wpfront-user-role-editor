@@ -183,6 +183,6 @@ if (!class_exists('WPFront_User_Role_Editor_Controller_Base')) {
 
     }
 
-    add_action('admin_init', 'WPFront_User_Role_Editor_Controller_Base::register_ajax_handlers');
+    add_action('admin_init', 'WPFront_User_Role_Editor_Controller_Base::register_ajax_handlers', 1001);
     wp_cache_add_non_persistent_groups(WPFront_User_Role_Editor::PLUGIN_SLUG);
 }

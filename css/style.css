@@ -20,10 +20,6 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#adminmenu ul.wp-submenu li a span.wpfront-go-pro {
-    color: #F18500;
-}
-
 #adminmenu ul.wp-submenu li.current a.current span.wpfront-go-pro {
     color: inherit;
 }
@@ -156,6 +152,7 @@ div.wrap.go-pro #license_key {
     padding-bottom: 5px;
 }
 
+div.wrap.go-pro div.license-container table.form-table td.invalid,
 div.wrap.go-pro div.license-container table.form-table td.expired {
     color: red;
 }

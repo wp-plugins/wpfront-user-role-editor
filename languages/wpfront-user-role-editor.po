@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFront Notification Bar\n"
-"POT-Creation-Date: 2015-05-21 15:30-0700\n"
-"PO-Revision-Date: 2015-05-21 15:31-0700\n"
+"POT-Creation-Date: 2015-06-26 19:32-0700\n"
+"PO-Revision-Date: 2015-06-26 19:32-0700\n"
 "Last-Translator: \n"
 "Language-Team: WPFront <contact@wpfront.com>\n"
 "Language: en\n"
@@ -63,7 +63,7 @@ msgid "More information about %s"
 msgstr "More information about %s"
 
 #: ../classes/base/class-wpfront-base-menu.php:158
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:225
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:266
 msgid "Details"
 msgstr "Details"
 
@@ -102,8 +102,8 @@ msgid "Settings"
 msgstr "Settings"
 
 #: ../classes/base/class-wpfront-base-menu.php:181
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:113
-#: ../templates/go-pro.php:71 ../templates/go-pro.php:72
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:114
+#: ../templates/go-pro.php:71
 msgid "Activate"
 msgstr "Activate"
 
@@ -536,11 +536,11 @@ msgstr "Documentation on Multisite Roles"
 
 #: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:48
 #: ../classes/business-pro/class-wpfront-user-role-editor-ms-restore.php:77
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:182
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:184
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:204
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:223
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:232
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:213
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:215
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:239
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:264
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:273
 #: ../classes/class-wpfront-user-role-editor-restore.php:87
 #: ../templates/add-edit-role.php:51 ../templates/add-edit-role.php:59
 #: ../templates/business-pro/sync-roles.php:21
@@ -944,25 +944,104 @@ msgstr "Review"
 msgid "Contact"
 msgstr "Contact"
 
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:182
-msgid "License key activation limit reached"
-msgstr "License key activation limit reached"
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:213
+msgid "License key activation limit reached."
+msgstr "License key activation limit reached."
 
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:184
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:213
+#: ../templates/options-template.php:47
+msgid "More information"
+msgstr "More information"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:215
 msgid "Invalid license key"
 msgstr "Invalid license key"
 
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:204
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:239
 msgid "Unable to deactivate, expired license?"
 msgstr "Unable to deactivate, expired license?"
 
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:223
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:264
 msgid "Unable to contact wpfront.com"
 msgstr "Unable to contact wpfront.com"
 
-#: ../classes/class-wpfront-user-role-editor-go-pro.php:232
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:273
 msgid "Unable to parse response"
 msgstr "Unable to parse response"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:340
+msgid "Site"
+msgstr "Site"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:341
+msgid "Product"
+msgstr "Product"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:345
+msgid ""
+"Your WPFront User Role Editor Pro license was activated on the following "
+"site."
+msgstr ""
+"Your WPFront User Role Editor Pro license was activated on the following "
+"site."
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:346
+msgid "WPFront User Role Editor Pro License Activated"
+msgstr "WPFront User Role Editor Pro License Activated"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:348
+msgid "Activated By"
+msgstr "Activated By"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:349
+msgid "Activated On"
+msgstr "Activated On"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:353
+msgid ""
+"Your WPFront User Role Editor Pro license was deactivated on the following "
+"site."
+msgstr ""
+"Your WPFront User Role Editor Pro license was deactivated on the following "
+"site."
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:354
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:366
+msgid "WPFront User Role Editor Pro License Deactivated"
+msgstr "WPFront User Role Editor Pro License Deactivated"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:356
+msgid "Deactivated By"
+msgstr "Deactivated By"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:357
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:367
+msgid "Deactivated On"
+msgstr "Deactivated On"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:361
+msgid ""
+"Your WPFront User Role Editor Pro license is invalid on the following site. "
+"Please activate a valid license immediately for the plugin to continue "
+"working."
+msgstr ""
+"Your WPFront User Role Editor Pro license is invalid on the following site. "
+"Please activate a valid license immediately for the plugin to continue "
+"working."
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:362
+msgid "WPFront User Role Editor Pro Invalid License"
+msgstr "WPFront User Role Editor Pro Invalid License"
+
+#: ../classes/class-wpfront-user-role-editor-go-pro.php:365
+msgid ""
+"Your invalid WPFront User Role Editor Pro license was deactivated on the "
+"following site. Please activate a valid license immediately for the plugin "
+"to continue working."
+msgstr ""
+"Your invalid WPFront User Role Editor Pro license was deactivated on the "
+"following site. Please activate a valid license immediately for the plugin "
+"to continue working."
 
 #: ../classes/class-wpfront-user-role-editor-list.php:221
 #: ../templates/add-edit-role.php:117
@@ -1833,40 +1912,40 @@ msgstr ""
 msgid "Documentation on Menu Editor"
 msgstr "Documentation on Menu Editor"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:89
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:90
 #: ../templates/personal-pro/menu-editor.php:9
 msgid "Menu Editor"
 msgstr "Menu Editor"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:90
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:91
 #: ../templates/personal-pro/content-shortcodes.php:9
 msgid "Content Shortcodes"
 msgstr "Content Shortcodes"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:90
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:91
 msgid "Shortcodes"
 msgstr "Shortcodes"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:91
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:92
 #: ../templates/personal-pro/export-roles.php:9
 msgid "Export Roles"
 msgstr "Export Roles"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:91
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:92
 msgid "Export"
 msgstr "Export"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:92
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:93
 #: ../templates/personal-pro/import-roles.php:9
 #: ../templates/personal-pro/import-roles.php:88
 msgid "Import Roles"
 msgstr "Import Roles"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:92
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:93
 msgid "Import"
 msgstr "Import"
 
-#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:112
+#: ../classes/personal-pro/class-wpfront-user-role-editor-personal-pro.php:113
 #, php-format
 msgid "%s license not activated."
 msgstr "%s license not activated."
@@ -2054,11 +2133,31 @@ msgstr "WPFront User Role Editor Pro"
 msgid "License Key"
 msgstr "License Key"
 
-#: ../templates/go-pro.php:74 ../templates/go-pro.php:75
+#: ../templates/go-pro.php:73
 msgid "Deactivate"
 msgstr "Deactivate"
 
-#: ../templates/go-pro.php:82
+#: ../templates/go-pro.php:74
+msgid "Recheck"
+msgstr "Recheck"
+
+#: ../templates/go-pro.php:81
+msgid "License Status"
+msgstr "License Status"
+
+#: ../templates/go-pro.php:87
+msgid "Valid"
+msgstr "Valid"
+
+#: ../templates/go-pro.php:90
+msgid "Expired"
+msgstr "Expired"
+
+#: ../templates/go-pro.php:93
+msgid "Invalid"
+msgstr "Invalid"
+
+#: ../templates/go-pro.php:101
 msgid "License Expires"
 msgstr "License Expires"
 
@@ -2126,10 +2225,6 @@ msgid ""
 msgstr ""
 "Menu walker class is overriden by a theme/plugin. Current value = %s. "
 "Navigation menu permissions may still work. %s"
-
-#: ../templates/options-template.php:47
-msgid "More information"
-msgstr "More information"
 
 #: ../templates/options-template.php:103
 msgid "Customize Permissions (custom post types)"
@@ -2259,6 +2354,9 @@ msgstr "Restored"
 #: ../templates/restore-role.php:107
 msgid "Unexpected error / Timed out"
 msgstr "Unexpected error / Timed out"
+
+#~ msgid "License key activation limit reached"
+#~ msgstr "License key activation limit reached"
 
 #~ msgid "Settings Description"
 #~ msgstr "Settings Description"
