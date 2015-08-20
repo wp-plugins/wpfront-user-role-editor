@@ -4,7 +4,7 @@ Donate link: https://wpfront.com/donate/
 Tags: WordPress user role editor, user role editor, role editor, user role, role, WordPress user roles, user roles, roles, user roles editor, roles editor, role manager, roles manager, manage roles, manage role, access, capability, editor, permission, role, security, user, capability editor, capability manager, custom post types, custom post type permissions, custom post type capabilities, post type permissions, post type capabilities, menu editor, role menu, role menu editor, multisite roles, multisite role editor, multisite user roles, import roles, export roles
 Requires at least: 3.5
 Tested up to: 4.3
-Stable tag: 2.10
+Stable tag: 2.11.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -85,6 +85,25 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 18. User level permissions
 
 == Changelog ==
+
+= 2.11.3 =
+* CSS fix.
+
+= 2.11.2 =
+* Navigation menu bug fix.
+
+= 2.11.1 =
+* WP 4.3 Compatibility.
+
+= 2.11 =
+* Bulk edit added. [Documentation](https://wpfront.com/user-role-editor-pro/bulk-edit/).
+* License form compatibility fix.
+
+= 2.10.1.3 =
+* License recheck and activation email added.
+* Performance improvements.
+* Custom post type capabilities compatibility fix.
+* SSL verify compatibility fix.
 
 = 2.10 =
 * User level permissions added. [Documentation](https://wpfront.com/user-role-editor-pro/user-level-permissions/).
@@ -176,6 +195,21 @@ Please visit [WPFront User Role Editor FAQ](https://wpfront.com/user-role-editor
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.11.3 =
+* CSS fix.
+
+= 2.11.2 =
+* Bug fix.
+
+= 2.11.1 =
+* WP 4.3 Compatibility.
+
+= 2.11 =
+* Bulk edit.
+
+= 2.10.1.3 =
+* Performance improvements.
 
 = 2.10 =
 * User level permissions.
