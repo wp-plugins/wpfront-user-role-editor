@@ -102,6 +102,9 @@
                 <i class="fa fa-times"></i>
             </div>
             <div class="cell">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="cell">
                 &nbsp;
             </div>
         </div>
@@ -119,7 +122,10 @@
                 <a target="_blank" href="https://wpfront.com/user-role-editor-pro/assign-migrate-users/">Assign/Migrate Users</a>
             </div>
             <div class="cell">
-                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/">Navigation Menu Advanced</a>
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/">Navigation Menu Permissions Advanced</a>
+            </div>
+            <div class="cell">
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/widget-permissions/">Widget Permissions Advanced</a>
             </div>
             <div class="cell">
                 <a target="_blank" href="https://wpfront.com/user-role-editor-pro/login-redirect/">Login Redirect Advanced</a>
@@ -170,9 +176,12 @@
             </div>
             <div class="cell">
                 <a target="_blank" href="https://wpfront.com/user-role-editor-pro/assign-migrate-users/">Assign/Migrate Users</a>
-            </div>      
+            </div>   
             <div class="cell">
-                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/">Navigation Menu Advanced</a>
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/">Navigation Menu Permissions Advanced</a>
+            </div>
+            <div class="cell">
+                <a target="_blank" href="https://wpfront.com/user-role-editor-pro/widget-permissions/">Widget Permissions Advanced</a>
             </div>
             <div class="cell">
                 <a target="_blank" href="https://wpfront.com/user-role-editor-pro/login-redirect/">Login Redirect Advanced</a>

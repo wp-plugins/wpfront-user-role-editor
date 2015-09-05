@@ -44,6 +44,8 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
             parent::__construct($main);
 
             $this->ajax_register('wp_ajax_wpfront_user_role_editor_update_options', array($this, 'update_options_callback'));
+
+            add_filter('wpfront_ure_custom_post_type_enable_custom_permission', array($this, 'custom_post_type_enable_custom_permission'), 10, 1);
         }
 
         public function settings() {
@@ -71,7 +73,7 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
             $this->update_option_boolean('remove_nonstandard_capabilities_restore');
             $this->update_option_boolean('override_edit_permissions');
             $this->update_option_boolean('disable_navigation_menu_permissions');
-            
+
             if ($this->multisite && wp_is_large_network()) {
                 $this->update_option_boolean('enable_large_network_functionalities');
             }
@@ -103,6 +105,22 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
             else
                 echo admin_url('admin.php?page=' . self::MENU_SLUG . '&settings-updated=true');
             die();
+        }
+
+        public function custom_post_type_enable_custom_permission($post_type) {
+            $post_types = apply_filters('wpfront_ure_custom_post_type_permission_settings_list', array());
+
+            if (empty($post_types[$post_type]))
+                return FALSE;
+
+            $post_type_values = $this->customize_permission_custom_post_types();
+            if (!in_array($post_type, $post_type_values))
+                $post_type_values[] = $post_type;
+
+            do_action('wpfront_ure_update_customize_permission_custom_post_types', $post_type_values, $this->customize_permission_custom_post_types());
+            $this->update_option('customize_permission_custom_post_types', implode(',', $post_type_values));
+
+            return TRUE;
         }
 
         private function update_option_boolean($key, $clone = FALSE) {
@@ -184,7 +202,7 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
 
             return $this->get_boolean_option('override_edit_permissions');
         }
-        
+
         public function disable_navigation_menu_permissions() {
             if ($this->multisite)
                 return $this->ms_disable_navigation_menu_permissions();
@@ -238,7 +256,7 @@ if (!class_exists('WPFront_User_Role_Editor_Options')) {
         public function ms_override_edit_permissions() {
             return $this->get_boolean_option('override_edit_permissions', TRUE);
         }
-        
+
         public function ms_disable_navigation_menu_permissions() {
             return $this->get_boolean_option('disable_navigation_menu_permissions', TRUE);
         }

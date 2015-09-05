@@ -23,6 +23,7 @@ if (is_multisite() && class_exists('WPFront_User_Role_Editor_Business_Pro_Contro
             WPFront_User_Role_Editor_Entity_Login_Redirect::uninstall();
 
             WPFront_User_Role_Editor_Nav_Menu::uninstall();
+            WPFront_User_Role_Editor_Widget_Permissions::uninstall();
         }
     }
 
@@ -48,6 +49,9 @@ if (is_multisite() && class_exists('WPFront_User_Role_Editor_Business_Pro_Contro
 
         if (class_exists('WPFront_User_Role_Editor_Nav_Menu'))
             WPFront_User_Role_Editor_Nav_Menu::uninstall();
+        
+        if (class_exists('WPFront_User_Role_Editor_Widget_Permissions'))
+            WPFront_User_Role_Editor_Widget_Permissions::uninstall();
     }
 }
 

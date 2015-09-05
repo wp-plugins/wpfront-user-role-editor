@@ -38,7 +38,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
     class WPFront_User_Role_Editor extends WPFront_Base_URE {
 
         //Constants
-        const VERSION = '2.11.3';
+        const VERSION = '2.12';
         const OPTIONS_GROUP_NAME = 'wpfront-user-role-editor-options-group';
         const OPTION_NAME = 'wpfront-user-role-editor-options';
         const PLUGIN_SLUG = 'wpfront-user-role-editor';
@@ -57,8 +57,10 @@ if (!class_exists('WPFront_User_Role_Editor')) {
             'delete_content_shortcodes',
             'edit_login_redirects',
             'delete_login_redirects',
-            'bulk_edit_roles'
-        );
+            'bulk_edit_roles',
+            'edit_widget_permissions'
+        );            
+
         public static $DEFAULT_ROLES = array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY, self::CONTRIBUTOR_ROLE_KEY, self::SUBSCRIBER_ROLE_KEY);
         public static $STANDARD_CAPABILITIES = array(
             'Dashboard' => array(
@@ -171,6 +173,7 @@ if (!class_exists('WPFront_User_Role_Editor')) {
         protected $objLoginRedirect = NULL;
         protected $objAttachmentPermissions = NULL;
         protected $objUserPermissions = NULL;
+        protected $objWidgetPermissions = NULL;
 
         function __construct() {
             parent::__construct(__FILE__, self::PLUGIN_SLUG);
@@ -194,6 +197,8 @@ if (!class_exists('WPFront_User_Role_Editor')) {
                     $this->objAttachmentPermissions = new WPFront_User_Role_Editor_Attachment_Permissions($this);
                 if ($this->objUserPermissions === NULL)
                     $this->objUserPermissions = new WPFront_User_Role_Editor_User_Permissions($this);
+                if ($this->objWidgetPermissions === NULL)
+                    $this->objWidgetPermissions = new WPFront_User_Role_Editor_Widget_Permissions($this);
             }
         }
 
@@ -701,6 +706,7 @@ require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-nav-men
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-login-redirect.php");
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-attachment-permissions.php");
 require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-user-permissions.php");
+require_once(plugin_dir_path(__FILE__) . "class-wpfront-user-role-editor-widget-permissions.php");
 require_once(plugin_dir_path(__FILE__) . "integration/plugins/class-wpfront-user-role-editor-plugin-integration.php");
 
 

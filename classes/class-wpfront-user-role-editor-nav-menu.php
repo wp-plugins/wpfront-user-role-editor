@@ -45,14 +45,14 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu')) {
 
         public function __construct($main) {
             parent::__construct($main);
-            
-            if($this->main->disable_navigation_menu_permissions())
+
+            if ($this->main->disable_navigation_menu_permissions())
                 return;
-            
+
             add_action('init', array($this, 'wp_init'), 9999);
             add_action('wp_nav_menu_item_custom_fields', array($this, 'menu_item_custom_fields'), 10, 4);
             add_action('wp_nav_menu_item_title_user_restriction_type', array($this, 'menu_item_title_user_restriction_type'), 10, 4);
-            add_filter('wp_nav_menu_item_custom_fields_roles_list', array($this, 'menu_item_custom_fields_roles_list'), 10, 5);
+            add_action('wp_nav_menu_item_custom_fields_roles_list', array($this, 'menu_item_custom_fields_roles_list'), 10, 4);
 
             add_action('wp_update_nav_menu_item', array($this, 'update_nav_menu_item'), 10, 3);
             add_filter('wp_get_nav_menu_items', array($this, 'override_nav_menu_items'), 10, 3);
@@ -64,15 +64,15 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu')) {
         public static function nav_menu_help_url() {
             return 'https://wpfront.com/user-role-editor-pro/navigation-menu-permissions/';
         }
-        
+
         public function wp_init() {
             add_filter('wp_edit_nav_menu_walker', array($this, 'override_edit_nav_menu_walker'), 9999);
         }
 
         public static function override_edit_nav_menu_walker($current = 'Walker_Nav_Menu_Edit') {
-            if($current !== 'Walker_Nav_Menu_Edit')
+            if ($current !== 'Walker_Nav_Menu_Edit')
                 return $current;
-            
+
             return 'WPFront_User_Role_Editor_Nav_Menu_Walker';
         }
 
@@ -101,8 +101,8 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu')) {
             <?php
         }
 
-        public function menu_item_custom_fields_roles_list($s, $item_id, $item, $depth, $args) {
-            return sprintf($this->__('%s to limit based on roles.'), '<a target="_blank" href="https://wpfront.com/navmenu">Upgrade to Pro</a>');
+        public function menu_item_custom_fields_roles_list($item_id, $item, $depth, $args) {
+            printf($this->__('%s to limit based on roles.'), '<a target="_blank" href="https://wpfront.com/navmenu">' . $this->__('Upgrade to Pro') . '</a>');
         }
 
         public function menu_item_custom_fields($item_id, $item, $depth, $args) {
@@ -121,7 +121,7 @@ if (!class_exists('WPFront_User_Role_Editor_Nav_Menu')) {
                     <label><input class="user-restriction-type" type="radio" name="<?php echo 'user-restriction-type-' . $item_id; ?>" value="<?php echo self::$GUEST_USERS; ?>" <?php echo $data->type === self::$GUEST_USERS ? 'checked' : ''; ?> /><?php echo $this->__('Guest Users'); ?></label>
                     <label><input class="user-restriction-type" type="radio" name="<?php echo 'user-restriction-type-' . $item_id; ?>" value="<?php echo self::$ROLE_USERS; ?>" <?php echo $data->type === self::$ROLE_USERS ? 'checked' : ''; ?> /><?php echo $this->__('Users by Role'); ?></label>
                     <span class="roles-container <?php echo $data->type === self::$ROLE_USERS ? '' : 'hidden'; ?>">
-                        <?php echo apply_filters('wp_nav_menu_item_custom_fields_roles_list', '', $item_id, $item, $depth, $args); ?>
+                        <?php do_action('wp_nav_menu_item_custom_fields_roles_list', $item_id, $item, $depth, $args); ?>
                     </span>
                 </span>
             </p>
